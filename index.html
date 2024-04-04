@@ -20,13 +20,18 @@
                             <tr>
                                 <td style="width: 63%; vertical-align: middle; padding: 2.5%;">
                                     <h1 style="text-align: center;">Xin Li (李鑫)</h1>
-                                    <p>I am now a Research Assistant at <a href="https://www.ntu.edu.sg/">Nanyang
+
+
+                                    <p>
+                                        I am now a Research Assistant at <a href="https://www.ntu.edu.sg/">Nanyang
                                             Technological University (NTU), Singapore</a> under the supervision of <a
-                                            href="https://blogs.ntu.edu.sg/chau-yuen/">Prof. Chau Yuen</a>.</p>
+                                            href="https://blogs.ntu.edu.sg/chau-yuen/">Prof. Chau Yuen</a>.
+                                    </p>
                                     <p>I obtained a Master's degree in Electronics and Communication Engineering at <a
                                             href="http://english.pku.edu.cn/">Peking University</a>, and a Bachelor's
                                         degree in Measurement and Control Technology and Instruments at <a
-                                            href="https://www.neuq.edu.cn/">Northeastern University(CN)</a>.</p>
+                                            href="https://www.neuq.edu.cn/">Northeastern University(CN)</a>.
+                                    </p>
                                     <div style="text-align: center;">
                                         <a href="mailto:lixin97@pku.edu.cn">Email</a> /
                                         <a href="files/XinLi_CV.pdf">CV</a> /
@@ -49,133 +54,154 @@
             <tr>
                 <td style="padding: 20px; width: 100%; vertical-align: middle;">
                     <h2>Publications</h2>
-                    <p>(* equal contribution)</p>
+                    <p>
+                        This is a list of my publications. You can also find them on <a
+                            href="https://scholar.google.com/citations?hl=en&user=Hxf8sNkAAAAJ">Google Scholar</a>.
+                        <small>(* equal contribution)</small> <br>
+                    </p>
+
+                    <p>
+                        <strong>Filter by Tag:</strong>
+                    </p>
+                    <div class="filters">
+                        <input type="checkbox" class="paper_tag" name="paper_tag" value="SLAM" checked> SLAM
+                        <input type="checkbox" class="paper_tag" name="paper_tag" value="WC" checked> Wireless Communication
+                    </div>
+
                 </td>
             </tr>
         </tbody>
+
+        <script src="script.js"></script>
+
         <tbody>
             <!-- Publications Section -->
             <!-- Each publication has been simplified for this example. 
            Assume repetitive structure for each publication as shown in the first example. -->
             <tr>
                 <td>
-                    <table style="width: 100%; margin-right: auto; margin-left: auto;">
-                        <td style="padding: 2.5%; width: 25%; vertical-align: middle;">
-                            <img style="width: 100%;" src="images/PVI-DSO.png" alt="PVI-DSO">
-                        </td>
-                        <td style="padding: 20px; width: 75%; vertical-align: middle;">
+                    <div id="publications" class="publications">
+                        <!-- Paper 4 -->
+                        <div class="paper" data-tags="SLAM">
+                            <div class="paper-content">
+                                <div class="paper-image">
+                                    <img src="images/PVI-DSO.png" alt="PVI-DSO">
+                                </div>
+                                <div class="paper-info">
+                                    <h3 class="paper-title">
+                                        <a href="https://arxiv.org/abs/2204.02635">PVI-DSO: Leveraging Planar
+                                            Regularities for Direct Sparse Visual-Inertial Odometry</a>
+                                    </h3>
+                                    <p class="paper-authors">
+                                        <a href="https://github.com/boxuLibrary">Bo Xu</a>,
+                                        <strong>Xin Li</strong>,
+                                        Jingrong Wang,
+                                        <a href="https://blogs.ntu.edu.sg/chau-yuen/">Chau Yuen</a>,
+                                        Jiancheng Li
+                                    </p>
+                                    <p class="paper-publication">
+                                        <em>IEEE Sensors Journal, 2023</em>
+                                    </p>
+                                    <p class="paper-links">
+                                        <a href="files/PVI-DSO.pdf">PDF</a> /
+                                        <a href="https://arxiv.org/abs/2204.02635">arXiv</a> /
+                                        <a href="https://github.com/boxuLibrary/PVI-DSO-SIM">Code</a> /
+                                        <a href="https://youtu.be/h-3fP6VP0_k?si=rrmPDUuu20XC2M86">Video</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
 
-                            <a href="https://arxiv.org/abs/2204.02635">
-                                <papertitle>
-                                    PVI-DSO: Leveraging Planar Regularities for Direct Sparse Visual-Inertial
-                                    Odometry
-                                </papertitle>
-                            </a>
+                        <!-- Paper 3 -->
+                        <div class="paper" data-tags="WC">
+                            <div class="paper-content">
+                                <div class="paper-image">
+                                    <img src="images/WCL.png" alt="WCL-LIU">
+                                </div>
+                                <div class="paper-info">
+                                    <h3 class="paper-title">
+                                        <a href="https://arxiv.org/abs/2210.12447">Deep Learning-Based Channel
+                                            Estimation for Double-RIS Aided Massive MIMO System</a>
+                                    </h3>
+                                    <p class="paper-authors">
+                                        <a href="https://scholar.google.com/citations?user=ABMEJV8AAAAJ&hl=en">Mengbing
+                                            Liu</a>,
+                                        <strong>Xin Li</strong>,
+                                        Boyu Ning, Chongwen Huang, Sumei Sun,
+                                        <a href="https://blogs.ntu.edu.sg/chau-yuen/">Chau Yuen</a>
+                                    </p>
+                                    <p class="paper-publication">
+                                        <em>IEEE Wireless Communications Letters (<strong>WCL</strong>), 2022</em>
+                                    </p>
+                                    <p class="paper-links">
+                                        <a href="files/WCL2022.pdf">PDF</a> /
+                                        <a href="https://arxiv.org/pdf/2210.12447.pdf">arXiv</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
 
-                            <br>
-                            <a href="https://github.com/boxuLibrary">Bo Xu</a>,
+                        <!-- Paper 2 -->
+                        <div class="paper" data-tags="SLAM">
+                            <div class="paper-content">
+                                <div class="paper-image">
+                                    <img src="images/RA-L2020.png" alt="RA-L2020">
+                                </div>
+                                <div class="paper-info">
+                                    <h3 class="paper-title">
+                                        <a href="https://arxiv.org/abs/2009.12662">Co-Planar Parametrization for
+                                            Stereo-SLAM and VIO</a>
+                                    </h3>
+                                    <p class="paper-authors">
+                                        <strong>Xin Li*</strong>,
+                                        <a href="https://yanyan-li.github.io/">Yanyan Li*</a>, Evin Pinar &#214rnek,
+                                        Jinlong Lin,
+                                        <a href="https://federicotombari.github.io/">Federico Tombari</a>
+                                    </p>
+                                    <p class="paper-publication">
+                                        <em>IEEE Robotics and Automation Letters (<strong>RA-L</strong>), 2020</em>
+                                    </p>
+                                    <p class="paper-links">
+                                        <a href="files/RA-L2020.pdf">PDF</a> /
+                                        <a href="https://arxiv.org/abs/2009.12662">arXiv</a> /
+                                        <a href="https://github.com/LiXin97/Co-Planar-Parametrization">code</a> /
+                                        <a href="https://github.com/LiXin97/Co-Planar-Parametrization-VIO">vio code</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
 
-                            <strong>Xin Li</strong>,
-                            Jingrong Wang,
-                            <a href="https://blogs.ntu.edu.sg/chau-yuen/">Chau Yuen</a>,
-                            Jiancheng Li
+                        <!-- Paper 1 -->
+                        <div class="paper" data-tags="SLAM">
+                            <div class="paper-content">
+                                <div class="paper-image">
+                                    <img src="images/IROS2020.png" alt="IROS2020">
+                                </div>
+                                <div class="paper-info">
+                                    <h3 class="paper-title">
+                                        <a href="https://arxiv.org/abs/2004.11969">Leveraging Planar Regularities for
+                                            Point Line Visual-Inertial Odometry</a>
+                                    </h3>
+                                    <p class="paper-authors">
+                                        <strong>Xin Li*</strong>,
+                                        <a href="https://scholar.google.com/citations?user=_0lKGnkAAAAJ&hl=en">Yijia
+                                            He*</a>, Jinlong Lin, Xiao Liu
+                                    </p>
+                                    <p class="paper-publication">
+                                        <em>IEEE/RSJ international conference on intelligent robots and systems (<strong>IROS</strong>),
+                                            2020</em>
+                                    </p>
+                                    <p class="paper-links">
+                                        <a href="files/IROS2020.pdf">PDF</a> /
+                                        <a href="https://arxiv.org/abs/2004.11969">arXiv</a> /
+                                        <a href="https://www.youtube.com/watch?v=V1KU6V49UKI">video</a> /
+                                        <a href="https://github.com/LiXin97/Co-Planar-Parametrization-VIO">code</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
 
-
-                            <br>
-                            <em>
-                                IEEE Sensors Journal,
-                            </em>
-                            2023 <br>
-                            <a href="files/PVI-DSO.pdf">PDF</a> /
-                            <a href="https://arxiv.org/abs/2204.02635">arXiv</a> /
-                            <a href="https://github.com/boxuLibrary/PVI-DSO-SIM">code</a> /
-                            <a href="https://youtu.be/h-3fP6VP0_k?si=rrmPDUuu20XC2M86">video</a>
-
-
-                        </td>
-
-                        <tr>
-                            <td style="padding:2.5%;width:25%;vertical-align:middle">
-                                <img style="width:100%;max-width:100%" src="images/WCL.png" alt="WCL-LIU"
-                                    class="hoverZoomLink">
-                            </td>
-                            <td style="padding:20px;width:75%;vertical-align:middle">
-                                <a href="https://arxiv.org/abs/2210.12447">
-                                    <papertitle>
-                                        Deep Learning-Based Channel Estimation for Double-RIS Aided Massive MIMO System
-                                    </papertitle>
-                                </a>
-                                <br>
-                                <a href="https://scholar.google.com/citations?user=ABMEJV8AAAAJ&hl=en">Mengbing Liu</a>
-                                , <strong>Xin Li</strong>, Boyu Ning, Chongwen Huang, Sumei Sun,
-                                <a href="https://blogs.ntu.edu.sg/chau-yuen/">Chau Yuen</a>
-                                <br>
-                                <em>
-                                    IEEE Wireless Communications Letters,
-                                </em>
-                                2022
-                                <br>
-                                <a href="files/WCL2022.pdf">PDF</a> /
-                                <a href="https://arxiv.org/pdf/2210.12447.pdf">arXiv</a>
-                            </td>
-                        </tr>
-
-
-                        <tr>
-                            <td style="padding:2.5%;width:25%;vertical-align:middle">
-                                <img style="width:100%;max-width:100%" src="images/RA-L2020.png" alt="RA-L2020"
-                                    class="hoverZoomLink">
-                            </td>
-                            <td style="padding:20px;width:75%;vertical-align:middle">
-                                <a href="https://arxiv.org/abs/2009.12662">
-                                    <papertitle>Co-Planar Parametrization for Stereo-SLAM and VIO</papertitle>
-                                </a>
-                                <br>
-                                <strong>Xin Li*</strong>, <a href="https://yanyan-li.github.io/">Yanyan Li*</a>, Evin
-                                Pinar &#214rnek, Jinlong Lin,
-                                <a href="https://federicotombari.github.io/">Federico Tombari</a>
-                                <br>
-                                <em>
-                                    IEEE Robotics and Automation Letters (<strong>RA-L</strong>),
-                                </em>
-                                2020
-                                <br>
-                                <a href="files/RA-L2020.pdf">PDF</a> /
-                                <a href="https://arxiv.org/abs/2009.12662">arXiv</a> /
-                                <a href="https://github.com/LiXin97/Co-Planar-Parametrization">code</a> /
-                                <a href="https://github.com/LiXin97/Co-Planar-Parametrization-VIO">vio code</a>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td style="padding:2.5%;width:25%;vertical-align:middle">
-                                <img style="width:100%;max-width:100%" src="images/IROS2020.png" alt="IROS2020"
-                                    class="hoverZoomLink">
-                            </td>
-                            <td style="padding:20px;width:75%;vertical-align:middle">
-                                <a href="https://arxiv.org/abs/2004.11969">
-                                    <papertitle>Leveraging Planar Regularities for Point Line Visual-Inertial Odometry
-                                    </papertitle>
-                                </a>
-                                <br>
-                                <strong>Xin Li*</strong>,
-                                <a href="https://scholar.google.com/citations?user=_0lKGnkAAAAJ&hl=en">Yijia He*</a>
-                                , Jinlong Lin, Xiao Liu
-                                <br>
-                                <em>
-                                    IEEE/RSJ international conference on intelligent robots and systems
-                                    (<strong>IROS</strong>),
-                                </em>
-                                2020
-                                <br>
-                                <a href="files/IROS2020.pdf">PDF</a> /
-                                <a href="https://arxiv.org/abs/2004.11969">arXiv</a> /
-                                <a href="https://www.youtube.com/watch?v=V1KU6V49UKI">video</a> /
-                                <a href="https://github.com/LiXin97/Co-Planar-Parametrization-VIO">code</a>
-                            </td>
-                        </tr>
-
-                    </table>
+                    </div>
                 </td>
             </tr>
 

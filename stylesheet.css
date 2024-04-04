@@ -129,3 +129,68 @@ name {
 span.highlight {
   background-color: #ffffd0;
 }
+
+.publications {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.paper-content {
+  display: flex;
+  width: 100%; /* Adjust based on your overall layout width */
+  gap: 20px; /* Space between the image and info sections */
+}
+
+.paper-image {
+  flex: 0 1 25%; /* Flex-grow: 0, Flex-shrink: 1, Flex-basis: 25% */
+  max-width: 25%;
+  align-self: center; /* Vertically center the image */
+  align-content: center; /* Horizontally center the image */
+}
+
+.paper-image img {
+  width: 100%;
+  height: auto;
+  object-fit: cover; /* Adjust this as needed */
+  align-self: center; /* Vertically center the image */
+  align-content: center; /* Horizontally center the image */
+}
+
+.paper-info {
+  flex: 0 1 75%; /* Keeps the layout but allows shrinking */
+  max-width: 75%;
+  display: flex;
+  flex-direction: column;
+  padding: 10px; /* Adjusted padding for compactness */
+}
+
+.paper-info h3 {
+  margin: 10px 0 5px; /* Reduced margins for compactness */
+}
+
+.paper-info p, .paper-info a {
+  margin: 4px 0; /* Reduced margin for paragraphs and links */
+}
+
+.paper-links a {
+  margin-right: 5px; /* Smaller space between links */
+  display: inline-block; /* To manage spacing effectively */
+}
+
+@media screen and (max-width: 480px) {
+  .paper-content {
+    gap: 10px;
+  }
+
+  .paper-info, .paper-image {
+    font-size: 0.8em; /* Reduce font size */
+  }
+
+  /* .paper-info a, .paper-info p, .paper-info h3 {
+    margin: 5px 0; /* Reduce margins for compact layout */
+  } */
+  .paper-info h3, .paper-info p, .paper-info a {
+    font-size: 0.85em; /* Even smaller on very small screens */
+  }
+}
