@@ -186,10 +186,6 @@ span.highlight {
   .paper-info, .paper-image {
     font-size: 0.8em; /* Reduce font size */
   }
-
-  /* .paper-info a, .paper-info p, .paper-info h3 {
-    margin: 5px 0; /* Reduce margins for compact layout */
-  } */
   .paper-info h3, .paper-info p, .paper-info a {
     font-size: 0.85em; /* Even smaller on very small screens */
   }
