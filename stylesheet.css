@@ -165,17 +165,10 @@ span.highlight {
   padding: 10px; /* Adjusted padding for compactness */
 }
 
-.paper-info h3 {
-  margin: 10px 0 5px; /* Reduced margins for compactness */
-}
-
-.paper-info p, .paper-info a {
-  margin: 4px 0; /* Reduced margin for paragraphs and links */
-}
-
-.paper-links a {
-  margin-right: 5px; /* Smaller space between links */
-  display: inline-block; /* To manage spacing effectively */
+.paper-info h3, .paper-info p, .paper-info a, .paper-publication, .paper-authors, .paper-links {
+  margin-top: 2px;
+  margin-bottom: 2px;
+  line-height: 1.2; /* Makes lines closer together */
 }
 
 @media screen and (max-width: 480px) {
