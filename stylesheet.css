@@ -6,6 +6,7 @@
   src: local('Lato Italic'), local('Lato-Italic'), url(https://fonts.gstatic.com/s/lato/v15/S6u8w4BMUTPHjxsAUi-qNiXg7eU0.woff2) format('woff2');
   unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
 }
+
 /* latin */
 @font-face {
   font-family: 'Lato';
@@ -14,6 +15,7 @@
   src: local('Lato Italic'), local('Lato-Italic'), url(https://fonts.gstatic.com/s/lato/v15/S6u8w4BMUTPHjxsAXC-qNiXg7Q.woff2) format('woff2');
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
+
 /* latin-ext */
 @font-face {
   font-family: 'Lato';
@@ -22,6 +24,7 @@
   src: local('Lato Bold Italic'), local('Lato-BoldItalic'), url(https://fonts.gstatic.com/s/lato/v15/S6u_w4BMUTPHjxsI5wq_FQftx9897sxZ.woff2) format('woff2');
   unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
 }
+
 /* latin */
 @font-face {
   font-family: 'Lato';
@@ -30,6 +33,7 @@
   src: local('Lato Bold Italic'), local('Lato-BoldItalic'), url(https://fonts.gstatic.com/s/lato/v15/S6u_w4BMUTPHjxsI5wq_Gwftx9897g.woff2) format('woff2');
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
+
 /* latin-ext */
 @font-face {
   font-family: 'Lato';
@@ -38,6 +42,7 @@
   src: local('Lato Regular'), local('Lato-Regular'), url(https://fonts.gstatic.com/s/lato/v15/S6uyw4BMUTPHjxAwXiWtFCfQ7A.woff2) format('woff2');
   unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
 }
+
 /* latin */
 @font-face {
   font-family: 'Lato';
@@ -46,6 +51,7 @@
   src: local('Lato Regular'), local('Lato-Regular'), url(https://fonts.gstatic.com/s/lato/v15/S6uyw4BMUTPHjx4wXiWtFCc.woff2) format('woff2');
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
+
 /* latin-ext */
 @font-face {
   font-family: 'Lato';
@@ -54,6 +60,7 @@
   src: local('Lato Bold'), local('Lato-Bold'), url(https://fonts.gstatic.com/s/lato/v15/S6u9w4BMUTPHh6UVSwaPGQ3q5d0N7w.woff2) format('woff2');
   unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
 }
+
 /* latin */
 @font-face {
   font-family: 'Lato';
@@ -141,92 +148,108 @@ span.highlight {
   align-items: center;
 }
 
-.paper {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-bottom: 20px;
-  background-color: #f9f9f9; /* Light background */
-  border-left: 3px solid #d5d5d5; /* Example accent */
-  max-width: 797px; /* Maximum width */
-  overflow: auto; /* Enables scrolling for overflow content */
-  margin-right: auto;
-  margin-left: auto;
-}
 
 .paper-content {
   display: flex;
-  width: 100%; /* Adjust based on your overall layout width */
-  gap: 10px; /* Space between the image and info sections */
+  width: 100%;
+  /* Space between the image and info sections */
 }
 
 .paper-image {
-  flex: 0 1 25%; /* Keeps the layout but allows shrinking */
+  flex: 0 1 25%;
+  /* Keeps the layout but allows shrinking */
   max-width: 25%;
-  align-self: center; /* Vertically center the image */
-  align-content: center; /* Horizontally center the image */
+  height: 100px;
+  align-self: center;
+  /* Vertically center the image */
+  align-content: center;
+  /* Horizontally center the image */
 }
 
 .paper-image img {
   width: 100%;
-  height: auto;
-  object-fit: cover; /* Adjust this as needed */
-  align-self: center; /* Vertically center the image */
-  align-content: center; /* Horizontally center the image */
+  height: 100px;
+  object-fit:scale-down;
 }
-
-@media (width: 768px) {
-  .paper-content {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .paper-image, .paper-info {
-    width: 100%;
-  }
-
-  .paper-image img {
-    width: 100%; /* Full width in smaller screens */
-    height: auto; /* Adjust height automatically */
-  }
-}
-
 
 .paper-info {
-  flex: 0 1 75%; /* Keeps the layout but allows shrinking */
+  flex: 0 1 75%;
+  /* Keeps the layout but allows shrinking */
   max-width: 75%;
   display: flex;
   flex-direction: column;
-  padding: 10px; /* Adjusted padding for compactness */
-  align-self: center; /* Vertically center the image */
-  align-content: center; /* Horizontally center the image */
+  padding: 10px;
+  /* Adjusted padding for compactness */
+  align-self: center;
+  /* Vertically center the image */
+  align-content: center;
+  /* Horizontally center the image */
 }
 
-.paper-info h3, .paper-info p, .paper-info a, .paper-publication, .paper-authors, .paper-links {
+.paper-info h3,
+.paper-info p,
+.paper-info a,
+.paper-publication,
+.paper-authors,
+.paper-links {
   margin-top: 2px;
   margin-bottom: 2px;
-  line-height: 1.2; /* Makes lines closer together */
+  line-height: 1.2;
+  /* Makes lines closer together */
 }
 
-.profile_section, .experience_section, .publications_section, .education_section, .news_section {
+.profile_section,
+.experience_section,
+.publications_section,
+.education_section,
+.news_section {
   display: flex;
   flex-direction: column;
-  align-items: center; /* Centers items on the cross axis */
-  align-self: center; /* Centers items on the main axis */
-  align-content: center; /* Centers items on the cross axis if there's extra space */
-  justify-content: center; /* Centers items on the main axis if there's extra space */
-  width: 100%; /* Full width */
-  max-width: 800px; /* Maximum width */
-  margin-right: auto; /* Right margin auto */
-  margin-left: auto; /* Left margin auto */
-  overflow: auto; /* Enable scrolling if needed */
+  align-items: center;
+  /* Centers items on the cross axis */
+  align-self: center;
+  /* Centers items on the main axis */
+  align-content: center;
+  /* Centers items on the cross axis if there's extra space */
+  justify-content: center;
+  /* Centers items on the main axis if there's extra space */
+  width: 100%;
+  /* Full width */
+  max-width: 800px;
+  /* Maximum width */
+  margin-right: auto;
+  /* Right margin auto */
+  margin-left: auto;
+  /* Left margin auto */
+  overflow: auto;
+  /* Enable scrolling if needed */
 }
 
-.experience, .education {
-  margin-bottom: 20px;
-  background-color: #f9f9f9; /* Light background */
-  border-left: 3px solid #d5d5d5; /* Example accent */
-  max-width: 797px; /* Maximum width */
+.paper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 10px;
+  background-color: #f9f9f9;
+  /* Light background */
+  border-left: 3px solid #d5d5d5;
+  /* Example accent */
+  overflow: auto;
+  /* Enables scrolling for overflow content */
+  margin-right: auto;
+  margin-left: auto;
+  width: 100%;
+}
+
+.experience,
+.education {
+  margin-bottom: 10px;
+  background-color: #f9f9f9;
+  /* Light background */
+  border-left: 3px solid #d5d5d5;
+  /* Example accent */
+  width: 100%;
+  /* Maximum width */
 }
 
 .news_section li {
@@ -235,24 +258,29 @@ span.highlight {
 }
 
 .news_section ul {
-  padding-left:20px; 
-  overflow:auto;
+  padding-left: 20px;
+  overflow: auto;
   max-height: 80px;
 }
 
 .anchor {
   display: block;
   position: relative;
-  top: -50px; /* Adjust this value based on your navbar's height */
+  top: -50px;
+  /* Adjust this value based on your navbar's height */
   visibility: hidden;
 }
 
-.experience h3, .experience h4, .education h3, .education h4 {
+.experience h3,
+.experience h4,
+.education h3,
+.education h4 {
   margin: 0;
   font-weight: 600;
 }
 
-.experience p, .education p {
+.experience p,
+.education p {
   margin: 0;
   padding: 10px;
 }
@@ -273,7 +301,8 @@ span.highlight {
   margin: 0;
   overflow: hidden;
   max-width: 800px;
-  margin: 0 auto; /* Center the navbar */
+  margin: 0 auto;
+  /* Center the navbar */
   display: flex;
 }
 
@@ -295,23 +324,33 @@ span.highlight {
 }
 
 body {
-  padding-top: 50px; /* Adjust this value based on the height of your navbar */
+  padding-top: 50px;
+  /* Adjust this value based on the height of your navbar */
 }
 
 
 /* The Modal (background) */
 .modal {
-  display: none; /* Hidden by default */
-  position: fixed; /* Stay in place */
-  z-index: 1; /* Sit on top */
-  padding-top: 100px; /* Location of the box */
+  display: none;
+  /* Hidden by default */
+  position: fixed;
+  /* Stay in place */
+  z-index: 1;
+  /* Sit on top */
+  padding-top: 100px;
+  /* Location of the box */
   left: 0;
   top: 0;
-  width: 100%; /* Full width */
-  height: 100%; /* Full height */
-  overflow: auto; /* Enable scroll if needed */
-  background-color: rgb(0,0,0); /* Fallback color */
-  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  width: 100%;
+  /* Full width */
+  height: 100%;
+  /* Full height */
+  overflow: auto;
+  /* Enable scroll if needed */
+  background-color: rgb(0, 0, 0);
+  /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4);
+  /* Black w/ opacity */
 }
 
 /* Modal Content */
@@ -323,4 +362,3 @@ body {
   max-width: 800px;
   overflow: auto;
 }
-
