@@ -13,11 +13,13 @@
     <meta porperty="og:category" content="Personal Homepage">
     <meta porperty="og:tag" content="Xin Li, 李鑫, SLAM, Embodied AI, Scene Understanding">
     <meta porperty="og:site_name" content="Xin Li's Homepage">
-    <meta porperty="og:description" content="Research Assistant at Nanyang Technological University (NTU), Singapore. Research Interest: SLAM, Embodied AI, and Scene Understanding.">
+    <meta porperty="og:description"
+        content="Research Assistant at Nanyang Technological University (NTU), Singapore. Research Interest: SLAM, Embodied AI, and Scene Understanding.">
 
     <meta name="author" content="Xin Li">
     <meta name="keywords" content="Xin Li, 李鑫, SLAM, Embodied AI, Scene Understanding">
-    <meta name="description" content="Research Assistant at Nanyang Technological University (NTU), Singapore. Research Interest: SLAM, Embodied AI, and Scene Understanding.">
+    <meta name="description"
+        content="Research Assistant at Nanyang Technological University (NTU), Singapore. Research Interest: SLAM, Embodied AI, and Scene Understanding.">
     <meta name="robots" content="all">
     <meta name="googlebot" content="all">
     <meta name="google" content="notranslate">
@@ -33,6 +35,7 @@
         <nav class="navbar">
             <ul>
                 <li><a href="#profile">Profile</a></li>
+                <li><a href="#news">News</a></li>
                 <li><a href="#publications">Publications</a></li>
                 <li><a href="#experiences">Experience</a></li>
                 <li><a href="#education">Education</a></li>
@@ -48,9 +51,6 @@
                             <div style="text-align: center;">
                                 <name style="text-align: center;">Xin Li (李鑫)</name>
                             </div>
-
-
-
                             <p>
                                 I am now a Research Assistant at <a href="https://www.ntu.edu.sg/">Nanyang
                                     Technological University (NTU), Singapore</a> under the supervision of <a
@@ -82,6 +82,16 @@
             </p>
         </section>
 
+        <a class="anchor" id="news"></a>
+        <section class="news_section" id="news_section">
+
+            <div class="left" style="width: 100%; margin-right: auto; margin-left: auto;">
+                <section-title>News</section-title>
+                <ul>
+                    <li>2024.04: Start my new journey in NTU as a Research Assistant.</li>
+                </ul>
+            </div>
+        </section>
 
         <a class="anchor" id="publications"></a>
         <section class="publications_section" id="publications_section">
@@ -125,29 +135,34 @@
             </div>
 
 
-            <div class="paper" itemscope itemtype="http://schema.org/ScholarlyArticle" paper-keywords="SLAM" paper-year="2023">
+            <div class="paper" itemscope itemtype="http://schema.org/ScholarlyArticle" paper-keywords="SLAM"
+                paper-year="2023">
                 <div class="paper-content">
                     <div class="paper-image">
-                        <img src="images/PVI-DSO.png" alt="Visual representation of PVI-DSO methodology" itemprop="image">
+                        <img src="images/PVI-DSO.png" alt="Visual representation of PVI-DSO methodology"
+                            itemprop="image">
                     </div>
                     <div class="paper-info">
                         <h3 class="paper-title" itemprop="headline">
-                            <a href="https://arxiv.org/abs/2204.02635" itemprop="url">PVI-DSO: Leveraging Planar Regularities for Direct Sparse Visual-Inertial Odometry</a>
+                            <a href="https://arxiv.org/abs/2204.02635" itemprop="url">PVI-DSO: Leveraging Planar
+                                Regularities for Direct Sparse Visual-Inertial Odometry</a>
                         </h3>
                         <p class="paper-authors">
-                            Authors: 
+                            Authors:
                             <span itemprop="author" itemscope itemtype="http://schema.org/Person">
-                                <a href="https://github.com/boxuLibrary" itemprop="url"><span itemprop="name">Bo Xu</span></a>,
+                                <a href="https://github.com/boxuLibrary" itemprop="url"><span itemprop="name">Bo
+                                        Xu</span></a>,
                             </span>
                             <strong itemprop="author">Xin Li</strong>,
                             <span itemprop="author">Jingrong Wang</span>,
                             <span itemprop="author" itemscope itemtype="http://schema.org/Person">
-                                <a href="https://blogs.ntu.edu.sg/chau-yuen/" itemprop="url"><span itemprop="name">Chau Yuen</span></a>,
+                                <a href="https://blogs.ntu.edu.sg/chau-yuen/" itemprop="url"><span itemprop="name">Chau
+                                        Yuen</span></a>,
                             </span>
                             <span itemprop="author">Jiancheng Li</span>
                         </p>
                         <p class="paper-publication">
-                            Published in: 
+                            Published in:
                             <span itemprop="isPartOf" itemscope itemtype="http://schema.org/Periodical">
                                 <em itemprop="name">IEEE Sensors Journal, 2023</em>
                             </span>
@@ -156,49 +171,95 @@
                             <a href="files/PVI-DSO.pdf" itemprop="url">PDF</a> /
                             <a href="https://arxiv.org/abs/2204.02635" itemprop="sameAs">arXiv</a> /
                             <a href="https://github.com/boxuLibrary/PVI-DSO-SIM" itemprop="url">Code</a> /
-                            <a href="https://youtu.be/h-3fP6VP0_k?si=rrmPDUuu20XC2M86" itemprop="url">Video</a>
+                            <a href="https://youtu.be/h-3fP6VP0_k?si=rrmPDUuu20XC2M86" itemprop="url">Video</a> /
+                            <button class="cite-btn" onclick="openModal('modal-PVIDSO')">bibtex</button>
                         </p>
+                        <div id="modal-PVIDSO" class="modal">
+                            <!-- Modal content -->
+                            <div class="modal-content">
+                                <button onclick="closeModal('modal-PVIDSO')" style="float: right;">Close</button>
+                                <pre id="bibtex-PVIDSO">
+@ARTICLE{xu2023pvi,
+  author={Xu, Bo and Li, Xin and Wang, Jingrong and Yuen, Chau and Li, Jiancheng},
+  journal={IEEE Sensors Journal}, 
+  title={PVI-DSO: Leveraging Planar Regularities for Direct Sparse Visual-Inertial Odometry}, 
+  year={2023},
+  volume={23},
+  number={15},
+  pages={17415-17425},
+  keywords={Three-dimensional displays;Feature extraction;Cameras;Pose estimation;Odometry;Sensors;Visualization;3-D mesh;direct sparse method;planar regularities;visual-inertial odometry (VIO)},
+  doi={10.1109/JSEN.2023.3285786}
+}
+</pre>
+                                <button onclick="copyBibtex('bibtex-PVIDSO')">Copy</button>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-            
 
-            <div class="paper" itemscope itemtype="http://schema.org/ScholarlyArticle" paper-keywords="WC" paper-year="2022">
+
+            <div class="paper" itemscope itemtype="http://schema.org/ScholarlyArticle" paper-keywords="WC"
+                paper-year="2022">
                 <div class="paper-content">
                     <div class="paper-image">
-                        <img src="images/WCL.png" alt="Concept illustration for Deep Learning-Based Channel Estimation" itemprop="image">
+                        <img src="images/WCL.png" alt="Concept illustration for Deep Learning-Based Channel Estimation"
+                            itemprop="image">
                     </div>
                     <div class="paper-info">
                         <h3 class="paper-title" itemprop="headline">
-                            <a href="https://arxiv.org/abs/2210.12447" itemprop="url">Deep Learning-Based Channel Estimation for Double-RIS Aided Massive MIMO System</a>
+                            <a href="https://arxiv.org/abs/2210.12447" itemprop="url">Deep Learning-Based Channel
+                                Estimation for Double-RIS Aided Massive MIMO System</a>
                         </h3>
                         <p class="paper-authors">
-                            Authors: 
+                            Authors:
                             <span itemprop="author" itemscope itemtype="http://schema.org/Person">
-                                <a href="https://scholar.google.com/citations?user=ABMEJV8AAAAJ&hl=en" itemprop="url"><span itemprop="name">Mengbing Liu</span></a>,
+                                <a href="https://scholar.google.com/citations?user=ABMEJV8AAAAJ&hl=en"
+                                    itemprop="url"><span itemprop="name">Mengbing Liu</span></a>,
                             </span>
                             <strong itemprop="author">Xin Li</strong>,
-                            <span itemprop="author">Boyu Ning</span>, 
-                            <span itemprop="author">Chongwen Huang</span>, 
+                            <span itemprop="author">Boyu Ning</span>,
+                            <span itemprop="author">Chongwen Huang</span>,
                             <span itemprop="author" itemscope itemtype="http://schema.org/Person">
-                                <a href="https://blogs.ntu.edu.sg/chau-yuen/" itemprop="url"><span itemprop="name">Sumei Sun</span></a>,
+                                <a href="https://blogs.ntu.edu.sg/chau-yuen/" itemprop="url"><span itemprop="name">Sumei
+                                        Sun</span></a>,
                             </span>
                             <span itemprop="author">Chau Yuen</span>
                         </p>
                         <p class="paper-publication">
-                            Published in: 
+                            Published in:
                             <span itemprop="isPartOf" itemscope itemtype="http://schema.org/Periodical">
                                 <em itemprop="name">IEEE Wireless Communications Letters (<b>WCL</b>), 2022</em>
                             </span>
                         </p>
                         <p class="paper-links">
                             <a href="files/WCL2022.pdf" itemprop="url">PDF</a> /
-                            <a href="https://arxiv.org/pdf/2210.12447.pdf" itemprop="sameAs">arXiv</a>
+                            <a href="https://arxiv.org/pdf/2210.12447.pdf" itemprop="sameAs">arXiv</a> /
+                            <button class="cite-btn" onclick="openModal('modal-WCL2022')">bibtex</button>
                         </p>
+                        <div id="modal-WCL2022" class="modal">
+                            <!-- Modal content -->
+                            <div class="modal-content">
+                                <button onclick="closeModal('modal-WCL2022')" style="float: right;">Close</button>
+                                <pre id="bibtex-WCL2022">
+@article{liu2022deep,
+  title={Deep learning-based channel estimation for double-RIS aided massive MIMO system},
+  author={Liu, Mengbing and Li, Xin and Ning, Boyu and Huang, Chongwen and Sun, Sumei and Yuen, Chau},
+  journal={IEEE Wireless Communications Letters},
+  volume={12},
+  number={1},
+  pages={70--74},
+  year={2022},
+  publisher={IEEE}
+}
+</pre>
+                                <button onclick="copyBibtex('bibtex-WCL2022')">Copy</button>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-            
+
 
 
 
@@ -217,7 +278,7 @@
                                 Stereo-SLAM and VIO</a>
                         </h3>
                         <p class="paper-authors">
-                            Authors: 
+                            Authors:
                             <span itemprop="author" itemscope itemtype="http://schema.org/Person">
                                 <meta itemprop="name" content="Xin Li">
                                 <strong>Xin Li*</strong>
@@ -235,7 +296,7 @@
                             </span>
                         </p>
                         <p class="paper-publication">
-                            Published in: 
+                            Published in:
                             <span itemprop="isPartOf" itemscope itemtype="http://schema.org/Periodical">
                                 <em itemprop="name">IEEE Robotics and Automation Letters (<b>RA-L</b>)</em>,
                                 <meta itemprop="datePublished" content="2020">2020
@@ -244,8 +305,28 @@
                         <p class="paper-links">
                             <a href="files/RA-L2020.pdf" itemprop="url">PDF</a> /
                             <a href="https://arxiv.org/abs/2009.12662" itemprop="sameAs">arXiv</a> /
-                            <a href="https://github.com/LiXin97/Co-Planar-Parametrization-VIO" itemprop="url">code</a>
+                            <a href="https://github.com/LiXin97/Co-Planar-Parametrization-VIO" itemprop="url">Code</a> /
+                            <button class="cite-btn" onclick="openModal('modal-RAL2020')">bibtex</button>
                         </p>
+                        <div id="modal-RAL2020" class="modal">
+                            <!-- Modal content -->
+                            <div class="modal-content">
+                                <button onclick="closeModal('modal-RAL2020')" style="float: right;">Close</button>
+                                <pre id="bibtex-RAL2020">
+@article{li2020co,
+  title={Co-planar parametrization for stereo-SLAM and visual-inertial odometry},
+  author={Li, Xin and Li, Yanyan and {\"O}rnek, Evin P{\i}nar and Lin, Jinlong and Tombari, Federico},
+  journal={IEEE Robotics and Automation Letters},
+  volume={5},
+  number={4},
+  pages={6972--6979},
+  year={2020},
+  publisher={IEEE}
+}
+</pre>
+                                <button onclick="copyBibtex('bibtex-RAL2020')">Copy</button>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -271,7 +352,7 @@
                                 Point Line Visual-Inertial Odometry</a>
                         </h3>
                         <p class="paper-authors">
-                            Authors: 
+                            Authors:
                             <span itemprop="author" itemscope itemtype="http://schema.org/Person">
                                 <meta itemprop="name" content="Xin Li">
                                 <strong>Xin Li*</strong>
@@ -284,7 +365,7 @@
                             <span itemprop="name">Jinlong Lin, Xiao Liu</span>
                         </p>
                         <p class="paper-publication">
-                            Published in: 
+                            Published in:
                             <span itemprop="isPartOf" itemscope itemtype="http://schema.org/Periodical">
                                 <em itemprop="name">IEEE/RSJ international conference on intelligent robots and systems
                                     (<b>IROS</b>)</em>,
@@ -294,9 +375,27 @@
                         <p class="paper-links">
                             <a href="files/IROS2020.pdf" itemprop="url">PDF</a> /
                             <a href="https://arxiv.org/abs/2004.11969" itemprop="sameAs">arXiv</a> /
-                            <a href="https://www.youtube.com/watch?v=V1KU6V49UKI" itemprop="url">video</a> /
-                            <a href="https://github.com/LiXin97/Co-Planar-Parametrization-VIO" itemprop="url">code</a>
+                            <a href="https://www.youtube.com/watch?v=V1KU6V49UKI" itemprop="url">Video</a> /
+                            <a href="https://github.com/LiXin97/Co-Planar-Parametrization-VIO" itemprop="url">Code</a> /
+                            <button class="cite-btn" onclick="openModal('modal-IROS2020')">bibtex</button>
                         </p>
+                        <div id="modal-IROS2020" class="modal">
+                            <!-- Modal content -->
+                            <div class="modal-content">
+                                <button onclick="closeModal('modal-IROS2020')" style="float: right;">Close</button>
+                                <pre id="bibtex-IROS2020">
+@inproceedings{li2020leveraging,
+    title={Leveraging planar regularities for point line visual-inertial odometry},
+    author={Li, Xin and He, Yijia and Lin, Jinlong and Liu, Xiao},
+    booktitle={2020 IEEE/RSJ international conference on intelligent robots and systems (IROS)},
+    pages={5120--5127},
+    year={2020},
+    organization={IEEE}
+}
+</pre>
+                                <button onclick="copyBibtex('bibtex-IROS2020')">Copy</button>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
