@@ -7,22 +7,22 @@
     <meta name="description" content="Xin Li's Homepage">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="stylesheet.css">
+    <script src="script.js"></script>
 </head>
 
 <body>
-    <script src="script.js"></script>
-
     <main>
         <nav class="navbar" , style="width: 100%; margin-right: auto; margin-left: auto;">
             <ul>
-                <li><a href="#profile_section">Profile</a></li>
+                <li><a href="#profile">Profile</a></li>
                 <li><a href="#publications">Publications</a></li>
                 <li><a href="#experiences">Experience</a></li>
-                <li><a href="#education_section">Education</a></li>
+                <li><a href="#education">Education</a></li>
             </ul>
         </nav>
 
-        <section class="profile_section" id="profile_section">
+        <a class="anchor" id="profile"></a>
+        <section class="profile_section" id="profile_section" itemscope itemtype="http://schema.org/Person">
             <table style="width: 100%; margin-right: auto; margin-left: auto;">
                 <tbody>
                     <tr>
@@ -85,138 +85,206 @@
 
                     <b>Keywords:</b>
 
-                    <input type="checkbox" class="paper_tag" name="paper_tag" value="SLAM" checked> SLAM 
+                    <input type="checkbox" class="paper_keyword" name="paper_keyword" value="All" checked> Show All
                     <div style="width: 10px; display: inline-block;"></div>
-                    <input type="checkbox" class="paper_tag" name="paper_tag" value="WC" checked> Wireless Communication
-
-                    <!-- <p>
+                    <input type="checkbox" class="paper_keyword" name="paper_keyword" value="SLAM" checked> SLAM
+                    <div style="width: 10px; display: inline-block;"></div>
+                    <input type="checkbox" class="paper_keyword" name="paper_keyword" value="WC" checked> Wireless
+                    Communication
+                </div>
+                <div class="filters">
+                    <b>
                         Year:
-                    </p>
-                    <input type="checkbox" class="paper_tag" name="paper_tag" value="2023" checked> 2023
-                    <input type="checkbox" class="paper_tag" name="paper_tag" value="2022" checked> 2022 -->
+                    </b>
+                    <input type="checkbox" class="paper_year" name="paper_year" value="All" checked> Show All
+                    <div style="width: 10px; display: inline-block;"></div>
+                    <input type="checkbox" class="paper_year" name="paper_year" value="2023" checked> 2023
+                    <div style="width: 10px; display: inline-block;"></div>
+                    <input type="checkbox" class="paper_year" name="paper_year" value="2022" checked> 2022
+                    <div style="width: 10px; display: inline-block;"></div>
+                    <input type="checkbox" class="paper_year" name="paper_year" value="2020" checked> 2020
                 </div>
             </div>
 
 
-            <!-- Paper 4 -->
-            <div class="paper" data-tags="SLAM">
+            <div class="paper" itemscope itemtype="http://schema.org/ScholarlyArticle" paper-keywords="SLAM" paper-year="2023">
                 <div class="paper-content">
                     <div class="paper-image">
-                        <img src="images/PVI-DSO.png" alt="PVI-DSO">
+                        <img src="images/PVI-DSO.png" alt="Visual representation of PVI-DSO methodology" itemprop="image">
                     </div>
                     <div class="paper-info">
-                        <h3 class="paper-title">
-                            <a href="https://arxiv.org/abs/2204.02635">PVI-DSO: Leveraging Planar
-                                Regularities for Direct Sparse Visual-Inertial Odometry</a>
+                        <h3 class="paper-title" itemprop="headline">
+                            <a href="https://arxiv.org/abs/2204.02635" itemprop="url">PVI-DSO: Leveraging Planar Regularities for Direct Sparse Visual-Inertial Odometry</a>
                         </h3>
                         <p class="paper-authors">
-                            <a href="https://github.com/boxuLibrary">Bo Xu</a>,
-                            <b>Xin Li</b>,
-                            Jingrong Wang,
-                            <a href="https://blogs.ntu.edu.sg/chau-yuen/">Chau Yuen</a>,
-                            Jiancheng Li
+                            Authors: 
+                            <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+                                <a href="https://github.com/boxuLibrary" itemprop="url"><span itemprop="name">Bo Xu</span></a>,
+                            </span>
+                            <strong itemprop="author">Xin Li</strong>,
+                            <span itemprop="author">Jingrong Wang</span>,
+                            <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+                                <a href="https://blogs.ntu.edu.sg/chau-yuen/" itemprop="url"><span itemprop="name">Chau Yuen</span></a>,
+                            </span>
+                            <span itemprop="author">Jiancheng Li</span>
                         </p>
                         <p class="paper-publication">
-                            <em>IEEE Sensors Journal, 2023</em>
+                            Published in: 
+                            <span itemprop="isPartOf" itemscope itemtype="http://schema.org/Periodical">
+                                <em itemprop="name">IEEE Sensors Journal, 2023</em>
+                            </span>
                         </p>
                         <p class="paper-links">
-                            <a href="files/PVI-DSO.pdf">PDF</a> /
-                            <a href="https://arxiv.org/abs/2204.02635">arXiv</a> /
-                            <a href="https://github.com/boxuLibrary/PVI-DSO-SIM">Code</a> /
-                            <a href="https://youtu.be/h-3fP6VP0_k?si=rrmPDUuu20XC2M86">Video</a>
+                            <a href="files/PVI-DSO.pdf" itemprop="url">PDF</a> /
+                            <a href="https://arxiv.org/abs/2204.02635" itemprop="sameAs">arXiv</a> /
+                            <a href="https://github.com/boxuLibrary/PVI-DSO-SIM" itemprop="url">Code</a> /
+                            <a href="https://youtu.be/h-3fP6VP0_k?si=rrmPDUuu20XC2M86" itemprop="url">Video</a>
                         </p>
                     </div>
                 </div>
             </div>
+            
 
-            <!-- Paper 3 -->
-            <div class="paper" data-tags="WC">
+            <div class="paper" itemscope itemtype="http://schema.org/ScholarlyArticle" paper-keywords="WC" paper-year="2022">
                 <div class="paper-content">
                     <div class="paper-image">
-                        <img src="images/WCL.png" alt="WCL-LIU">
+                        <img src="images/WCL.png" alt="Concept illustration for Deep Learning-Based Channel Estimation" itemprop="image">
                     </div>
                     <div class="paper-info">
-                        <h3 class="paper-title">
-                            <a href="https://arxiv.org/abs/2210.12447">Deep Learning-Based Channel
-                                Estimation for Double-RIS Aided Massive MIMO System</a>
+                        <h3 class="paper-title" itemprop="headline">
+                            <a href="https://arxiv.org/abs/2210.12447" itemprop="url">Deep Learning-Based Channel Estimation for Double-RIS Aided Massive MIMO System</a>
                         </h3>
                         <p class="paper-authors">
-                            <a href="https://scholar.google.com/citations?user=ABMEJV8AAAAJ&hl=en">Mengbing
-                                Liu</a>,
-                            <b>Xin Li</b>,
-                            Boyu Ning, Chongwen Huang, Sumei Sun,
-                            <a href="https://blogs.ntu.edu.sg/chau-yuen/">Chau Yuen</a>
+                            Authors: 
+                            <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+                                <a href="https://scholar.google.com/citations?user=ABMEJV8AAAAJ&hl=en" itemprop="url"><span itemprop="name">Mengbing Liu</span></a>,
+                            </span>
+                            <strong itemprop="author">Xin Li</strong>,
+                            <span itemprop="author">Boyu Ning</span>, 
+                            <span itemprop="author">Chongwen Huang</span>, 
+                            <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+                                <a href="https://blogs.ntu.edu.sg/chau-yuen/" itemprop="url"><span itemprop="name">Sumei Sun</span></a>,
+                            </span>
+                            <span itemprop="author">Chau Yuen</span>
                         </p>
                         <p class="paper-publication">
-                            <em>IEEE Wireless Communications Letters (<b>WCL</b>), 2022</em>
+                            Published in: 
+                            <span itemprop="isPartOf" itemscope itemtype="http://schema.org/Periodical">
+                                <em itemprop="name">IEEE Wireless Communications Letters (<b>WCL</b>), 2022</em>
+                            </span>
                         </p>
                         <p class="paper-links">
-                            <a href="files/WCL2022.pdf">PDF</a> /
-                            <a href="https://arxiv.org/pdf/2210.12447.pdf">arXiv</a>
+                            <a href="files/WCL2022.pdf" itemprop="url">PDF</a> /
+                            <a href="https://arxiv.org/pdf/2210.12447.pdf" itemprop="sameAs">arXiv</a>
                         </p>
                     </div>
                 </div>
             </div>
+            
 
-            <!-- Paper 2 -->
-            <div class="paper" data-tags="SLAM">
+
+
+
+
+            <div class="paper" itemscope itemtype="http://schema.org/ScholarlyArticle" paper-keywords="SLAM"
+                paper-year="2020">
                 <div class="paper-content">
                     <div class="paper-image">
-                        <img src="images/RA-L2020.png" alt="RA-L2020">
+                        <img src="images/RA-L2020.png"
+                            alt="Cover image for Co-Planar Parametrization for Stereo-SLAM and VIO" itemprop="image">
                     </div>
                     <div class="paper-info">
-                        <h3 class="paper-title">
-                            <a href="https://arxiv.org/abs/2009.12662">Co-Planar Parametrization for
+                        <h3 class="paper-title" itemprop="headline">
+                            <a href="https://arxiv.org/abs/2009.12662" itemprop="url">Co-Planar Parametrization for
                                 Stereo-SLAM and VIO</a>
                         </h3>
                         <p class="paper-authors">
-                            <b>Xin Li*</b>,
-                            <a href="https://yanyan-li.github.io/">Yanyan Li*</a>, Evin Pinar &#214rnek,
-                            Jinlong Lin,
-                            <a href="https://federicotombari.github.io/">Federico Tombari</a>
+                            Authors: 
+                            <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+                                <meta itemprop="name" content="Xin Li">
+                                <strong>Xin Li*</strong>
+                            </span>,
+                            <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+                                <a href="https://yanyan-li.github.io/" itemprop="url">
+                                    <span itemprop="name">Yanyan Li*</span>
+                                </a>
+                            </span>,
+                            <span itemprop="name">Evin Pinar &#214rnek, Jinlong Lin,</span>
+                            <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+                                <a href="https://federicotombari.github.io/" itemprop="url">
+                                    <span itemprop="name">Federico Tombari</span>
+                                </a>
+                            </span>
                         </p>
                         <p class="paper-publication">
-                            <em>IEEE Robotics and Automation Letters (<b>RA-L</b>), 2020</em>
+                            Published in: 
+                            <span itemprop="isPartOf" itemscope itemtype="http://schema.org/Periodical">
+                                <em itemprop="name">IEEE Robotics and Automation Letters (<b>RA-L</b>)</em>,
+                                <meta itemprop="datePublished" content="2020">2020
+                            </span>
                         </p>
                         <p class="paper-links">
-                            <a href="files/RA-L2020.pdf">PDF</a> /
-                            <a href="https://arxiv.org/abs/2009.12662">arXiv</a> /
-                            <a href="https://github.com/LiXin97/Co-Planar-Parametrization">code</a> /
-                            <a href="https://github.com/LiXin97/Co-Planar-Parametrization-VIO">vio code</a>
+                            <a href="files/RA-L2020.pdf" itemprop="url">PDF</a> /
+                            <a href="https://arxiv.org/abs/2009.12662" itemprop="sameAs">arXiv</a> /
+                            <a href="https://github.com/LiXin97/Co-Planar-Parametrization-VIO" itemprop="url">code</a>
                         </p>
                     </div>
                 </div>
             </div>
 
-            <!-- Paper 1 -->
-            <div class="paper" data-tags="SLAM">
+
+
+
+
+
+
+
+            <div class="paper" itemscope itemtype="http://schema.org/ScholarlyArticle" paper-keywords="SLAM"
+                paper-year="2020">
                 <div class="paper-content">
                     <div class="paper-image">
-                        <img src="images/IROS2020.png" alt="IROS2020">
+                        <img src="images/IROS2020.png"
+                            alt="Cover image for Leveraging Planar Regularities for Point Line Visual-Inertial Odometry"
+                            itemprop="image">
                     </div>
                     <div class="paper-info">
-                        <h3 class="paper-title">
-                            <a href="https://arxiv.org/abs/2004.11969">Leveraging Planar Regularities for
+                        <h3 class="paper-title" itemprop="headline">
+                            <a href="https://arxiv.org/abs/2004.11969" itemprop="url">Leveraging Planar Regularities for
                                 Point Line Visual-Inertial Odometry</a>
                         </h3>
                         <p class="paper-authors">
-                            <b>Xin Li*</b>,
-                            <a href="https://scholar.google.com/citations?user=_0lKGnkAAAAJ&hl=en">Yijia
-                                He*</a>, Jinlong Lin, Xiao Liu
+                            Authors: 
+                            <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+                                <meta itemprop="name" content="Xin Li">
+                                <strong>Xin Li*</strong>
+                            </span>,
+                            <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+                                <a href="https://scholar.google.com/citations?user=_0lKGnkAAAAJ&hl=en" itemprop="url">
+                                    <span itemprop="name">Yijia He*</span>
+                                </a>
+                            </span>,
+                            <span itemprop="name">Jinlong Lin, Xiao Liu</span>
                         </p>
                         <p class="paper-publication">
-                            <em>IEEE/RSJ international conference on intelligent robots and systems (<b>IROS</b>),
-                                2020</em>
+                            Published in: 
+                            <span itemprop="isPartOf" itemscope itemtype="http://schema.org/Periodical">
+                                <em itemprop="name">IEEE/RSJ international conference on intelligent robots and systems
+                                    (<b>IROS</b>)</em>,
+                                <meta itemprop="datePublished" content="2020">2020
+                            </span>
                         </p>
                         <p class="paper-links">
-                            <a href="files/IROS2020.pdf">PDF</a> /
-                            <a href="https://arxiv.org/abs/2004.11969">arXiv</a> /
-                            <a href="https://www.youtube.com/watch?v=V1KU6V49UKI">video</a> /
-                            <a href="https://github.com/LiXin97/Co-Planar-Parametrization-VIO">code</a>
+                            <a href="files/IROS2020.pdf" itemprop="url">PDF</a> /
+                            <a href="https://arxiv.org/abs/2004.11969" itemprop="sameAs">arXiv</a> /
+                            <a href="https://www.youtube.com/watch?v=V1KU6V49UKI" itemprop="url">video</a> /
+                            <a href="https://github.com/LiXin97/Co-Planar-Parametrization-VIO" itemprop="url">code</a>
                         </p>
                     </div>
                 </div>
             </div>
+
+
+
         </section>
 
         <a class="anchor" id="experiences"></a>
@@ -238,8 +306,8 @@
                     <em>2024.04 - Present</em> in <a href="https://www.ntu.edu.sg/">Nanyang Technological University
                         (NTU), Singapore</a>
                     <br>
-                    <em>2021.07 - 2022.03</em> in <a
-                        href="https://www.sutd.edu.sg/">Singapore University of Technology and Design (SUTD)</a>
+                    <em>2021.07 - 2022.03</em> in <a href="https://www.sutd.edu.sg/">Singapore University of Technology
+                        and Design (SUTD)</a>
                     <br>
                     Supervisor: <a href="https://blogs.ntu.edu.sg/chau-yuen/">Prof. Chau Yuen</a>
                 </p>
@@ -263,10 +331,14 @@
                 <p>
                     <b>Research Intern</b>
                     <br>
-                    <em>2020.09 - 2021.04</em> in <a href="https://www.microsoft.com/en-us/research/lab/microsoft-research-asia/">Microsoft Research Asia (MSRA)</a>, Beijing, China, Supervised by <a href="https://xueyuhanlang.github.io/">Dr. Yang Liu (刘洋)</a> and <a
-                    href="https://yizhongzhang1989.github.io/">Dr. Yizhong Zhang (张译中)</a>
+                    <em>2020.09 - 2021.04</em> in <a
+                        href="https://www.microsoft.com/en-us/research/lab/microsoft-research-asia/">Microsoft Research
+                        Asia (MSRA)</a>, Beijing, China. Supervised by <a href="https://xueyuhanlang.github.io/">Dr.
+                        Yang Liu (刘洋)</a> and <a href="https://yizhongzhang1989.github.io/">Dr. Yizhong Zhang (张译中)</a>
                     <br>
-                    <em>2019.09 - 2020.03</em> in <a href="https://en.megvii.com/">Megvii (a.k.a Face++)</a>, Beijing, China, Supervised by <a href="https://scholar.google.com/citations?user=_0lKGnkAAAAJ&hl=en">Dr. Yijia He
+                    <em>2019.09 - 2020.03</em> in <a href="https://en.megvii.com/">Megvii (a.k.a Face++)</a>, Beijing,
+                    China. Supervised by <a href="https://scholar.google.com/citations?user=_0lKGnkAAAAJ&hl=en">Dr.
+                        Yijia He
                         (贺一家)</a>
                 </p>
             </div>
@@ -274,6 +346,7 @@
         </section>
 
 
+        <a class="anchor" id="education"></a>
         <section class="education_section" id="education_section">
 
             <div class="left" style="width: 100%; margin-right: auto; margin-left: auto;">
@@ -316,8 +389,8 @@
         </section>
 
         <p style="text-align: right; font-size: small; margin-right: 20px;">
-            Last updated on 2024-04-04. <br>
-
+            Last updated on 2024.April.05
+            <br>
             <small>
                 Original layout from <a href="https://jonbarron.info/">
                     <small>
