@@ -55,8 +55,8 @@ document.addEventListener("DOMContentLoaded", function() {
     const papers = document.querySelectorAll('.paper');
 
     papers.forEach(paper => {
-      const paperKeywords = paper.getAttribute('paper-keywords').split(',');
-      const paperYear = paper.getAttribute('paper-year');
+      const paperKeywords = paper.getAttribute('data-paper-keywords').split(',');
+      const paperYear = paper.getAttribute('data-paper-year');
       // Since all keywords/years are now selected with "Show All", no need to
       // check for "All"
       const hasKeyword =
