@@ -26,7 +26,11 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="stylesheet.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="preload" href="assets/fontawesome/css/all.min.css" as="style"
+        onload="this.onload=null;this.rel='stylesheet'">
+    <noscript>
+        <link rel="stylesheet" href="assets/fontawesome/css/all.min.css">
+    </noscript>
     <script src="script.js"></script>
 </head>
 
@@ -93,7 +97,9 @@
                             </div>
                         </td>
                         <td style="width: 40%; padding: 2.5%;">
-                            <img src="images/XinLi.jpg" alt="Xin Li profile photo" style="width: 100%;">
+                            <img src="images/XinLi.jpg" alt="Xin Li profile photo" itemprop="image"
+                                style="width: 100%; border-radius: 50%;" loading="lazy">
+                            <!-- style="width: 100%;"> -->
                         </td>
                     </tr>
                 </tbody>
@@ -199,7 +205,7 @@
                 <div class="paper-content">
                     <div class="paper-image">
                         <img src="images/PVI-DSO.png" alt="Visual representation of PVI-DSO methodology"
-                            itemprop="image">
+                            itemprop="image" loading="lazy">
                     </div>
                     <div class="paper-info">
                         <h3 class="paper-title" itemprop="headline">
@@ -270,7 +276,7 @@
                 <div class="paper-content">
                     <div class="paper-image">
                         <img src="images/WCL.png" alt="Concept illustration for Deep Learning-Based Channel Estimation"
-                            itemprop="image">
+                            itemprop="image" loading="lazy">
                     </div>
                     <div class="paper-info">
                         <h3 class="paper-title" itemprop="headline">
@@ -348,7 +354,8 @@
                 <div class="paper-content">
                     <div class="paper-image">
                         <img src="images/RA-L2020.png"
-                            alt="Cover image for Co-Planar Parametrization for Stereo-SLAM and VIO" itemprop="image">
+                            alt="Cover image for Co-Planar Parametrization for Stereo-SLAM and VIO" itemprop="image"
+                            loading="lazy">
                     </div>
                     <div class="paper-info">
                         <h3 class="paper-title" itemprop="headline">
@@ -429,7 +436,7 @@
                     <div class="paper-image">
                         <img src="images/IROS2020.png"
                             alt="Cover image for Leveraging Planar Regularities for Point Line Visual-Inertial Odometry"
-                            itemprop="image">
+                            itemprop="image" loading="lazy">
                     </div>
                     <div class="paper-info">
                         <h3 class="paper-title" itemprop="headline">
@@ -588,24 +595,26 @@
             </div>
         </section>
 
-        <p style="text-align: right; font-size: small; margin-right: 20px;">
-            Last updated on 2024.April.05
-            <br>
-            <small>
-                Original layout from <a href="https://jonbarron.info/">
-                    <small>
-                        Jon Barron
-                    </small>
-                </a>.
-                Fell free to fork this project on <a href="https://github.com/LiXin97/lixin97.github.io">
-                    <small>
-                        GitHub
-                    </small>
-                </a>.
-            </small>
-            <!-- Template from <a
+        <footer>
+            <p style="text-align: right; font-size: small; margin-right: 20px;">
+                Last updated on 2024.April.05
+                <br>
+                <small>
+                    Original layout from <a href="https://jonbarron.info/">
+                        <small>
+                            Jon Barron
+                        </small>
+                    </a>.
+                    Fell free to fork this project on <a href="https://github.com/LiXin97/lixin97.github.io">
+                        <small>
+                            GitHub
+                        </small>
+                    </a>.
+                </small>
+                <!-- Template from <a
             href="https://jonbarron.info/">Jon Barron</a>. -->
-        </p>
+            </p>
+        </footer>
     </main>
 
 
