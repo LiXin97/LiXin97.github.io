@@ -22,3 +22,13 @@ shieldio_data = {
 
 with open(f"results/gs_data_shieldsio.json", "w") as outfile:
     json.dump(shieldio_data, outfile, ensure_ascii=False)
+
+# output each paper subdict to a separate file
+for pub_id, pub in author["publications"].items():
+    with open(f"results/gs_data_{pub_id}.json", "w") as outfile:
+        pub_shieldio_data = {
+            "schemaVersion": 1,
+            "label": "citations",
+            "message": f"{pub['num_citations']}",
+        }
+        json.dump(pub_shieldio_data, outfile, ensure_ascii=False)
