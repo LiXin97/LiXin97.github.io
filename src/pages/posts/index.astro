@@ -3,6 +3,10 @@ import { getCollection } from "astro:content";
 import Posts from "@layouts/Posts.astro";
 import getSortedPosts from "@utils/getSortedPosts";
 import getPagination from "@utils/getPagination";
+import Header from "@components/Header.astro";
+import Footer from "@components/Footer.astro";
+import Main from "@layouts/Main.astro";
+import { SITE } from "@config";
 
 const posts = await getCollection("blog");
 
@@ -13,6 +17,8 @@ const pagination = getPagination({
   page: 1,
   isIndex: true,
 });
+
 ---
 
 <Posts {...pagination} />
+

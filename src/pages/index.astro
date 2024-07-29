@@ -3,17 +3,21 @@ import { getCollection } from "astro:content";
 import Layout from "@layouts/Layout.astro";
 import Header from "@components/Header.astro";
 import Footer from "@components/Footer.astro";
+import getSortedPubs from "@utils/getSortedPubs";
 import LinkButton from "@components/LinkButton.astro";
 import Hr from "@components/Hr.astro";
-import Card from "@components/Card";
+import PubCard from "@components/PubCard";
 import Socials from "@components/Socials.astro";
 import getSortedPosts from "@utils/getSortedPosts";
 import { SITE, SOCIALS } from "@config";
 
 const posts = await getCollection("blog");
+const pubs = await getCollection("pub");
 
 const sortedPosts = getSortedPosts(posts);
 const featuredPosts = sortedPosts.filter(({ data }) => data.featured);
+
+const featuredPubs = getSortedPubs(pubs);
 const recentPosts = sortedPosts.filter(({ data }) => !data.featured);
 
 const socialCount = SOCIALS.filter(social => social.active).length;
@@ -85,11 +89,35 @@ const socialCount = SOCIALS.filter(social => social.active).length;
                 </ul>
               </div>
           </section>
+        </>
+      )
+    }
+    
+    <Hr />
+      
+      
+    {
+      featuredPubs.length > 0 && (
+        <>
+          <section id="pubs">
+            <h2>Publications</h2>
+            <p>
+                Here are some of the papers I've published. You can also find them on <a class="underline hover:text-skin-accent"
+                    href="https://scholar.google.com/citations?hl=en&user=Hxf8sNkAAAAJ">Google Scholar</a>.
+                <small>(* equal contribution)</small> <br>
+            </p>
+    <ul>
+      {
+        featuredPubs.map(({ data, slug }) => (
+          <PubCard href={`/pubs/${slug}/`} frontmatter={data} />
+        ))
+      }
+    </ul>
+          </section>
           {recentPosts.length > 0 && <Hr />}
         </>
       )
     }
-
 
   {
     (
@@ -242,11 +270,13 @@ const socialCount = SOCIALS.filter(social => social.active).length;
   /* ===== Featured & Recent Posts Sections ===== */
   #featured,
   #news h2,
+  #pubs h2,
   #profession h2,
   #recent-posts {
     @apply pb-6 pt-6;
   }
   #news h2,
+  #pubs h2,
   #profession h2,
   #featured h2,
   #recent-posts h2 {
