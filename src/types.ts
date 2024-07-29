@@ -7,6 +7,7 @@ export type Site = {
   desc: string;
   title: string;
   ogImage?: string;
+  ogTag: string;
   lightAndDarkMode: boolean;
   postPerIndex: number;
   postPerPage: number;

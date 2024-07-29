@@ -4,9 +4,10 @@ export const SITE: Site = {
   website: "http://blog.lixin.ai/", // replace this with your deployed domain
   author: "Xin Li",
   profile: "http://blog.lixin.ai/",
-  desc: "Xin Li's Blog, a place to share my thoughts and ideas.",
+  desc: "Xin Li's Homepage, Research Assistant at Nanyang Technological University (NTU), Singapore. Research Interest: SLAM, Embodied AI, and Scene Understanding.",
   title: "Xin Li",
-  ogImage: "public/assets/XinLi.jpg",
+  ogImage: "assets/XinLi.jpg",
+  ogTag: "Xin Li, 李鑫, SLAM, Embodied AI, Scene Understanding",
   lightAndDarkMode: true,
   postPerIndex: 4,
   postPerPage: 3,

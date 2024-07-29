@@ -9,6 +9,7 @@ export interface Props {
   profile?: string;
   description?: string;
   ogImage?: string;
+  ogTag?: string;
   canonicalURL?: string;
   pubDatetime?: Date;
   modDatetime?: Date | null;
@@ -21,6 +22,7 @@ const {
   profile = SITE.profile,
   description = SITE.desc,
   ogImage = SITE.ogImage,
+  ogTag = SITE.ogTag,
   canonicalURL = new URL(Astro.url.pathname, Astro.site).href,
   pubDatetime,
   modDatetime,
@@ -57,7 +59,7 @@ const structuredData = {
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/webp" href="/gpt.webp" />
     <link rel="canonical" href={canonicalURL} />
     <meta name="generator" content={Astro.generator} />
 
@@ -73,6 +75,13 @@ const structuredData = {
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonicalURL} />
     <meta property="og:image" content={socialImageURL} />
+
+    <meta property="og:author" content={author}>
+    <meta property="og:locale" content="en_US">
+    <meta property="og:category" content="Personal Homepage">
+    <meta property="og:tag" content={ogTag}>
+  
+    <meta property="og:site_name" content={title}>
 
     <!-- Article Published/Modified time -->
     {

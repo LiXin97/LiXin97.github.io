@@ -26,6 +26,50 @@ const socialCount = SOCIALS.filter(social => social.active).length;
 <Layout>
   <Header />
   <main id="main-content">
+
+  <div itemtype="http://schema.org/ProfilePage" itemscope>
+      <meta itemprop="dateCreated" content="2024-04-05T14:53:00+08:00">
+      <meta itemprop="dateModified" content="2024-04-06T10:30:00+08:00">
+      <div itemprop="mainEntity" itemtype="http://schema.org/Person" itemscope>
+          <meta itemprop="name" content="Xin Li (李鑫)">
+          <meta itemprop="alternateName" content="Xin Li">
+          <meta itemprop="image" content="assets/XinLi.jpg">
+          <meta itemprop="description"
+              content="Research Assistant at Nanyang Technological University (NTU), Singapore. Research Interest: SLAM, Embodied AI, and Scene Understanding.">
+          <meta itemprop="familyName" content="Li">
+          <meta itemprop="givenName" content="Xin">
+          <meta itemprop="jobTitle" content="Research Assistant">
+          <div itemprop="affiliation" itemscope itemtype="http://schema.org/EducationalOrganization">
+              <meta itemprop="name" content="Nanyang Technological University (NTU)">
+              <link itemprop="url" href="https://www.ntu.edu.sg/">
+          </div>
+          <div itemprop="colleague" itemscope itemtype="http://schema.org/Person">
+              <meta itemprop="name" content="Prof. Chau Yuen">
+              <link itemprop="url" href="https://blogs.ntu.edu.sg/chau-yuen">
+          </div>
+          <div itemprop="alumniOf" itemscope itemtype="http://schema.org/EducationalOrganization">
+              <meta itemprop="name" content="Peking University">
+              <link itemprop="url" href="http://english.pku.edu.cn">
+          </div>
+          <div itemprop="alumniOf" itemscope itemtype="http://schema.org/EducationalOrganization">
+              <meta itemprop="name" content="Northeastern University (CN)">
+              <link itemprop="url" href="https://www.neuq.edu.cn/">
+          </div>
+          <div itemprop="alumniOf" itemscope itemtype="http://schema.org/Organization">
+              <meta itemprop="name" content="Microsoft Research Asia">
+              <link itemprop="url"
+                  href="https://www.microsoft.com/en-us/research/lab/microsoft-research-asia/">
+          </div>
+          <meta itemprop="email" content="lixin.1997.lixin@gmail.com">
+          <meta itemprop="sameAs" content="https://github.com/LiXin97">
+          <meta itemprop="sameAs" content="https://scholar.google.com/citations?hl=en&user=Hxf8sNkAAAAJ">
+          <meta itemprop="sameAs" content="https://twitter.com/XinLi72542893">
+          <meta itemprop="sameAs" content="https://www.linkedin.com/in/xin-li-1196331a0">
+          <meta itemprop="sameAs" content="https://lixin.ai/">
+      </div>
+  </div>
+
+
     <section id="hero">
       <h1>Xin Li (李鑫)</h1>
 
@@ -59,7 +103,7 @@ const socialCount = SOCIALS.filter(social => social.active).length;
       </p>
       <p>
           I am passionate about developing algorithms that enable robots to understand the
-          world around them. I am now focusing on the research of learning-based perception.
+          world around them.
       </p>
       {
         // only display if at least one social link is enabled
