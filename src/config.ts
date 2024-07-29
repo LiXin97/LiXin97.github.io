@@ -5,7 +5,7 @@ export const SITE: Site = {
   author: "Xin Li",
   profile: "http://blog.lixin.ai/",
   desc: "Xin Li's Blog, a place to share my thoughts and ideas.",
-  title: "Xin Li's Blog",
+  title: "Xin Li",
   ogImage: "public/assets/XinLi.jpg",
   lightAndDarkMode: true,
   postPerIndex: 4,
@@ -60,7 +60,7 @@ export const SOCIALS: SocialObjects = [
     name: "Mail",
     href: "mailto:lixin.1997.lixin@gmail.com",
     linkTitle: `Send an email to ${SITE.title}`,
-    active: false,
+    active: true,
   },
   {
     name: "Twitter",

@@ -96,15 +96,36 @@ const socialCount = SOCIALS.filter(social => social.active).length;
       <>
         <section id="profession">
           <h2>Education</h2>
-          <table style="width: 100%; margin-right: auto; margin-left: auto;">
+          <table style="width: 100%;">
             <tr>
-              <td>M.Eng.</td>
-              <td>Peking University</td>
+              <th rowspan="3">M.Eng.</th>
+              <td><LinkButton
+            className="underline hover:text-skin-accent"
+            href="http://english.pku.edu.cn">Peking
+                University
+          </LinkButton></td>
               <td>2018.09 - 2021.07</td>
             </tr>
             <tr>
-              <td>B.Eng.</td>
-              <td>Northeastern University (CN)</td>
+              <td colspan="3"><span style="color: #888; font-style: italic; font-size: 0.8rem;">Thesis: Multi-feature Simultaneous Localization and Mapping with coplanar constraints</span></td>
+            </tr>
+            <tr>
+              <td colspan="3"><span style="color: #888; font-style: italic; font-size: 0.8rem;">Supervisor: <LinkButton
+            className="underline hover:text-skin-accent"
+                href="https://www.ss.pku.edu.cn/teacherteam/teacherlist/1652-%E6%9E%97%E9%87%91%E9%BE%99.html">Prof. Jinlong Lin (林金龙)
+          </LinkButton></span></td>
+            </tr>
+
+            <tr>
+              <td colspan="3"><hr></td>
+            </tr>
+
+            <tr>
+              <th>B.Eng.</th>
+              <td><LinkButton
+            className="underline hover:text-skin-accent"
+                href="https://www.neuq.edu.cn/">Northeastern University (CN)
+          </LinkButton></td>
               <td>2014.09 - 2018.07</td>
             </tr>
           </table>
@@ -120,32 +141,64 @@ const socialCount = SOCIALS.filter(social => social.active).length;
         <section id="profession">
           <h2>Experience</h2>
 
-          <table style="width: 100%; margin-right: auto; margin-left: auto;">
+          <table style="width: 100%; margin-right: auto; margin-left: auto;" border="1">
             
             <tr>
-              <td>Research Assistant</td>
+              <th rowspan="3">Research Assistant</td>
               <td>Nanyang Technological University</td>
               <td>2024.04 - Present</td>
             </tr>
+
             <tr>
-              <td>SLAM Engineer</td>
-              <td>Gaussian Robotics, Singapore</td>
-              <td>2022.03 - 2024.03</td>
-            </tr>
-            <tr>
-              <td>Research Assistant</td>
+              
               <td>SUTD, Singapore</td>
               <td>2021.09 - 2022.03</td>
             </tr>
+            
             <tr>
-              <td>Research Intern</td>
+              <td colspan="2"><span style="color: #888; font-style: italic; font-size: 0.8rem;">Supervised by <LinkButton
+            className="underline hover:text-skin-accent"
+                href="https://blogs.ntu.edu.sg/chau-yuen/">Prof. Chau Yuen
+            </LinkButton></span></td>
+            </tr>
+
+            <tr>
+              <td colspan="3"><hr></td>
+            </tr>
+
+            <tr>
+              <th>SLAM Engineer</td>
+              <td>Gaussian Robotics, Singapore</td>
+              <td>2022.03 - 2024.03</td>
+            </tr>
+
+            <tr>
+              <td colspan="3"><hr></td>
+            </tr>
+
+            <tr>
+              <th rowspan="4">Research Intern</th>
               <td>Microsoft Research Asia, Beijing</td>
               <td>2020.09 - 2021.04</td>
             </tr>
             <tr>
-              <td>Research Intern</td>
+              <td colspan="3"><span style="color: #888; font-style: italic; font-size: 0.8rem;">Supervised by <LinkButton
+            className="underline hover:text-skin-accent"
+                href="https://xueyuhanlang.github.io/">Dr. Yang Liu (刘洋)
+            </LinkButton> and <LinkButton
+            className="underline hover:text-skin-accent"
+                href="https://yizhongzhang1989.github.io/">Dr. Yizhong Zhang (张译中)
+            </LinkButton></span></td>
+            </tr>
+            <tr>
               <td>Megvii (a.k.a Face++), Beijing</td>
               <td>2019.09 - 2020.03</td>
+            </tr>
+            <tr>
+              <td colspan="3"><span style="color: #888; font-style: italic; font-size: 0.8rem;">Supervised by <LinkButton
+            className="underline hover:text-skin-accent"
+                href="https://scholar.google.com/citations?user=_0lKGnkAAAAJ&hl=en">Dr. Yijia He (贺一家)
+            </LinkButton> </span></td>
             </tr>
           </table>
         </section>
@@ -201,5 +254,8 @@ const socialCount = SOCIALS.filter(social => social.active).length;
   }
   .all-posts-btn-wrapper {
     @apply my-8 text-center;
+  }
+  td, th {
+    text-align: left; /* Aligns text to the left */
   }
 </style>
