@@ -2,9 +2,9 @@ name: Build and deploy Astro site to Pages
 
 on:
   push:
-    branches: [ master ]
+    branches: [ astro-web ]
   pull_request:
-    branches: [ master ]
+    branches: [ astro-web ]
 
 permissions:
   contents: read
