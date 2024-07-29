@@ -1,0 +1,204 @@
+---
+import { getCollection } from "astro:content";
+import Layout from "@layouts/Layout.astro";
+import Header from "@components/Header.astro";
+import Footer from "@components/Footer.astro";
+import LinkButton from "@components/LinkButton.astro";
+import Hr from "@components/Hr.astro";
+import Card from "@components/Card";
+import Socials from "@components/Socials.astro";
+import getSortedPosts from "@utils/getSortedPosts";
+import { SITE, SOCIALS } from "@config";
+
+const posts = await getCollection("blog");
+
+const sortedPosts = getSortedPosts(posts);
+const featuredPosts = sortedPosts.filter(({ data }) => data.featured);
+const recentPosts = sortedPosts.filter(({ data }) => !data.featured);
+
+const socialCount = SOCIALS.filter(social => social.active).length;
+---
+
+<Layout>
+  <Header />
+  <main id="main-content">
+    <section id="hero">
+      <h1>Xin Li (李鑫)</h1>
+
+      <img src="assets/XinLi.jpg" alt="Xin Li profile photo" itemprop="image"
+              style="width: 20%; border-radius: 50%;" loading="lazy" align="right" />
+      <p>
+          I currently work as a Research Assistant at 
+          <LinkButton
+            className="underline decoration-dashed underline-offset-4 hover:text-skin-accent"
+                href="https://www.ntu.edu.sg/">Nanyang Technological University (NTU)
+          </LinkButton>,
+          Singapore, under the supervision of 
+          <LinkButton
+            className="underline decoration-dashed underline-offset-4 hover:text-skin-accent"
+                href="https://blogs.ntu.edu.sg/chau-yuen/">Prof. Chau Yuen
+          </LinkButton>.
+      </p>
+      <p>
+
+          I obtained my Master's degree from 
+          <LinkButton
+            className="underline decoration-dashed underline-offset-4 hover:text-skin-accent"
+            href="http://english.pku.edu.cn">Peking
+                University
+          </LinkButton> and Bachelor's degree from 
+          <LinkButton
+            className="underline decoration-dashed underline-offset-4 hover:text-skin-accent"
+                href="https://www.neuq.edu.cn/">Northeastern University (CN)
+          </LinkButton>.
+      </p>
+      <p>
+          I am passionate about developing algorithms that enable robots to understand the
+          world around them. I am now focusing on the research of learning-based perception.
+      </p>
+      {
+        // only display if at least one social link is enabled
+        socialCount > 0 && (
+          <div class="social-wrapper">
+            <div class="social-links">Links:</div>
+            <Socials />
+          </div>
+        )
+      }
+    </section>
+
+    <Hr />
+
+
+    {
+      // only display if at least one post is featured
+      (
+        <>
+          <section id="news">
+            <h2>News</h2>
+
+              <div id="news", style="overflow: auto; max-height: 100px;">
+                <ul>
+                    <li>2024.05: Invited to serve as a reviewer for NeurIPS'24.</li>
+                    <li>2024.04: Start my new journey in NTU as a Research Assistant.</li>
+                </ul>
+              </div>
+          </section>
+          {recentPosts.length > 0 && <Hr />}
+        </>
+      )
+    }
+
+
+  {
+    (
+      <>
+        <section id="profession">
+          <h2>Education</h2>
+          <table style="width: 100%; margin-right: auto; margin-left: auto;">
+            <tr>
+              <td>M.Eng.</td>
+              <td>Peking University</td>
+              <td>2018.09 - 2021.07</td>
+            </tr>
+            <tr>
+              <td>B.Eng.</td>
+              <td>Northeastern University (CN)</td>
+              <td>2014.09 - 2018.07</td>
+            </tr>
+          </table>
+        </section>
+        <Hr />
+      </>
+    )
+  }
+
+  {
+    (
+      <>
+        <section id="profession">
+          <h2>Experience</h2>
+
+          <table style="width: 100%; margin-right: auto; margin-left: auto;">
+            
+            <tr>
+              <td>Research Assistant</td>
+              <td>Nanyang Technological University</td>
+              <td>2024.04 - Present</td>
+            </tr>
+            <tr>
+              <td>SLAM Engineer</td>
+              <td>Gaussian Robotics, Singapore</td>
+              <td>2022.03 - 2024.03</td>
+            </tr>
+            <tr>
+              <td>Research Assistant</td>
+              <td>SUTD, Singapore</td>
+              <td>2021.09 - 2022.03</td>
+            </tr>
+            <tr>
+              <td>Research Intern</td>
+              <td>Microsoft Research Asia, Beijing</td>
+              <td>2020.09 - 2021.04</td>
+            </tr>
+            <tr>
+              <td>Research Intern</td>
+              <td>Megvii (a.k.a Face++), Beijing</td>
+              <td>2019.09 - 2020.03</td>
+            </tr>
+          </table>
+        </section>
+        <Hr />
+      </>
+    )
+  }
+
+
+  
+
+  </main>
+
+  <Footer />
+</Layout>
+
+<style>
+  /* ===== Hero Section ===== */
+  #hero {
+    @apply pb-6 pt-8;
+  }
+  #hero h1 {
+    @apply my-4 inline-block text-3xl font-bold sm:my-8 sm:text-5xl;
+  }
+  #hero .rss-link {
+    @apply mb-6;
+  }
+  #hero .rss-icon {
+    @apply mb-2 h-6 w-6 scale-110 fill-skin-accent sm:mb-3 sm:scale-125;
+  }
+  #hero p {
+    @apply my-2;
+  }
+  .social-wrapper {
+    @apply mt-4 flex flex-col sm:flex-row sm:items-center;
+  }
+  .social-links {
+    @apply mb-1 mr-2 whitespace-nowrap sm:mb-0;
+  }
+
+  /* ===== Featured & Recent Posts Sections ===== */
+  #featured,
+  #news h2,
+  #profession h2,
+  #recent-posts {
+    @apply pb-6 pt-6;
+  }
+  #news h2,
+  #profession h2,
+  #featured h2,
+  #recent-posts h2 {
+    @apply text-2xl font-semibold tracking-wide;
+  }
+  .all-posts-btn-wrapper {
+    @apply my-8 text-center;
+  }
+</style>
