@@ -7,6 +7,7 @@ authors:
   - name: Jinlong Lin
     url: https://www.ss.pku.edu.cn/teacherteam/teacherlist/1652-%E6%9E%97%E9%87%91%E9%BE%99.html
   - name: Xiao Liu
+    url: ""
 published_place: IROS
 published_year: 2020
 paper_id: "u5HHmVD_uO8C"

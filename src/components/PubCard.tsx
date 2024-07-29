@@ -6,12 +6,12 @@ import React, { useState } from 'react';
 
 export interface Props {
     href?: string;
-    frontmatter: CollectionEntry<"blog">["data"];
+    frontmatter: CollectionEntry<"pub">["data"];
     secHeading?: boolean;
 }
 
 export default function PubCard({ href, frontmatter, secHeading = true }: Props) {
-    const { title, published_place, published_year, links, bibtex, authors, homepage, paper_id } = frontmatter;
+    const { title, authors, published_year, published_place, bibtex, links, homepage, paper_id } = frontmatter;
 
     const headerProps = {
         style: { viewTransitionName: slugifyStr(title) },
@@ -48,7 +48,7 @@ export default function PubCard({ href, frontmatter, secHeading = true }: Props)
             </a>
 
             {
-                frontmatter.authors.map((author, index) => (
+                authors.map((author, index) => (
                     <span key={index} className="text-sm font-light">
                         {index === 0 ? "Authors: " : ""}
                         {
@@ -59,12 +59,12 @@ export default function PubCard({ href, frontmatter, secHeading = true }: Props)
                                 </a>
                             ) : author.name
                         }
-                        {index === frontmatter.authors.length - 1 ? "" : ", "}
+                        {index === authors.length - 1 ? "" : ", "}
                     </span>
                 ))
             }
 
-            <p className="text-sm font-light">Published in: {published_place}, {published_year}</p>
+            <p className="text-sm font-light">Published in: {published_place}, {published_year.toString()}</p>
             {
                 // homepage ? (
                 //     <p className="text-sm font-light">Homepage: <a href={homepage} className="decoration-dashed hover:underline underline">{homepage}</a></p>

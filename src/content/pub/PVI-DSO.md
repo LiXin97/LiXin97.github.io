@@ -5,9 +5,11 @@ authors:
   - name: Xin Li
     url: https://lixin.ai/
   - name: Jingrong Wang
+    url: ""
   - name: Chau Yuen
     url: https://blogs.ntu.edu.sg/chau-yuen/
   - name: Jiancheng Li
+    url: ""
 published_place: IEEE Sensors Journal
 published_year: 2023
 paper_id: "2osOgNQ5qMEC"

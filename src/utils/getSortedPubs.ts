@@ -1,14 +1,14 @@
 import type { CollectionEntry } from "astro:content";
 
-const getSortedPubs = (pubs: CollectionEntry<"pubs">[]) => {
+const getSortedPubs = (pubs: CollectionEntry<"pub">[]) => {
   return pubs
     .sort(
       (a, b) =>
         Math.floor(
-          new Date(b.data.published_year)
+          b.data.published_year
         ) -
         Math.floor(
-          new Date(a.data.published_year)
+          a.data.published_year
         )
     );
 };
