@@ -143,126 +143,21 @@ PE(pos, 2i) = \sin(\frac{pos}{10000^{\frac{2i}{d_{\text{model}}}}})
 $$
 
 
-## Using Mermaid for Diagrams
+## ~Using Mermaid for Diagrams~
 
-Mermaid is a diagramming and charting tool that enables you to create flowcharts, sequence diagrams, Gantt diagrams, and more. Here are some examples:
+~Mermaid is a diagramming and charting tool that enables you to create flowcharts, sequence diagrams, Gantt diagrams, and more. Here are some examples:~
 
-### Flowchart
-
-```md
-graph TD;
-    A-->B;
-    A-->C;
-    B-->D;
-    C-->D;
-```
-
-```mermaid
-graph TD;
-    A-->B;
-    A-->C;
-    B-->D;
-    C-->D;
-```
-
-### Sequence Diagram
-
-```md
-sequenceDiagram
-    Alice->>Bob: Hello Bob, how are you?
-    Bob-->>John: How about you John?
-    Bob--x Alice: I am good thanks!
-    Bob-x John: I am good thanks!
-    Note right of John: Bob thinks a long<br/>long time, so long<br/>that the text does<br/>not fit on a row.
-```
-
-```mermaid
-sequenceDiagram
-    Alice->>Bob: Hello Bob, how are you?
-    Bob-->>John: How about you John?
-    Bob--x Alice: I am good thanks!
-    Bob-x John: I am good thanks!
-    Note right of John: Bob thinks a long<br/>long time, so long<br/>that the text does<br/>not fit on a row.
-```
-
-### Gantt Diagram
-
-```md
-gantt
-    title A Gantt Diagram
-    dateFormat  YYYY-MM-DD
-    section Section
-    A task           :a1, 2024-07-31, 30d
-    Another task     :after a1  , 20d
-    section Another
-    Task in sec      :2024-08-01  , 12d
-    another task     : 24d
-```
-
-```mermaid
-gantt
-    title A Gantt Diagram
-    dateFormat  YYYY-MM-DD
-    section Section
-    A task           :a1, 2024-07-31, 30d
-    Another task     :after a1  , 20d
-    section Another
-    Task in sec      :2024-08-01  , 12d
-    another task     : 24d
-```
-
-### Class Diagram
-
-```md
-classDiagram
-    Animal <|-- Duck
-    Animal <|-- Fish
-    Animal <|-- Zebra
-    Animal : +int age
-    Animal
-    class Duck{
-        +String beakColor
-        +swim()
-    }
-    class Fish{
-        +int sizeInFeet
-        +canEat()
-    }
-    class Zebra{
-        +bool is_wild
-        +run()
-    }
-```
-
-```mermaid
-classDiagram
-    Animal <|-- Duck
-    Animal <|-- Fish
-    Animal <|-- Zebra
-    Animal : +int age
-    Animal
-    class Duck{
-        +String beakColor
-        +swim()
-    }
-    class Fish{
-        +int sizeInFeet
-        +canEat()
-    }
-    class Zebra{
-        +bool is_wild
-        +run()
-    }
-```
+> **Note:** Detached the support for Mermaid diagrams.
 
 ## Citations and References
 
 Example of citations and references:
 
-In another work, *Li et al.*  [^PLP] leveraged planar regularities for point line visual-inertial odometry.   
-*Li et al.* [^RAL] proposed a co-planar parametrization method for stereo-SLAM and visual-inertial odometry.   
+*Li et al.*  [^PLP] leveraged planar regularities for point line visual-inertial odometry.   
+In another work, *Li et al.* [^RAL] proposed a co-planar parametrization method for stereo-SLAM and visual-inertial odometry.   
 *Liu et al.* [^WCL] developed a deep learning-based channel estimation method for double-RIS aided massive MIMO systems.   
-*Xu et al.* [^PVI] introduced PVI-DSO, a direct sparse visual-inertial odometry method that leverages planar regularities.
+*Xu et al.* [^PVI] introduced PVI-DSO, a direct sparse visual-inertial odometry method that leverages planar regularities.  
+*Li et al.*  [^PLP], *Li et al.* [^RAL], and *Xu et al.* [^PVI] are a series of works that leverage planar regularities for visual SLAM.
 
 
 ## Inline HTML
@@ -284,7 +179,8 @@ You can also use inline HTML to customize your content:
 ## Embedding Videos
 
 <center>
-<iframe width="420" height="315" src="https://www.youtube.com/embed/1H6gjsiza1A"> </iframe>
+<iframe src="https://www.youtube.com/embed/1H6gjsiza1A"> </iframe>
+<figcaption style="font-size: 0.8em;">Video caption goes here</figcaption>
 </center>
 
 > **Note:** The following iframe examples are shown as plain text to avoid embedding videos in this guide. To embed a YouTube video, copy the iframe code and paste it into your markdown file.

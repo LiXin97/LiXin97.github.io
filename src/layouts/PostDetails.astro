@@ -246,28 +246,33 @@ const layoutProps = {
   }
   backToTop();
 
-  document.addEventListener('DOMContentLoaded', () => {
-    const toc = document.querySelector('.table-of-contents');
-
-    function checkWidth() {
+  function checkWidth() {
+      const toc_block = document.querySelector('.table-of-contents');
+      const backToTop_sidebar = document.querySelector('#back-to-top-sidebar');
       const remainingWidth = (window.innerWidth - 880) / 2;
 
       if (remainingWidth < 200) {
-        toc.style.position = 'static'; // Not fixed if insufficient space
-        toc.style.right = 'auto'; // Reset the right property
-        toc.style.maxWidth = '100%'; // Reset the max-width property
+          toc_block.style.position = 'static'; // Not fixed if insufficient space
+          toc_block.style.right = 'auto'; // Reset the right property
+          toc_block.style.maxWidth = '100%'; // Reset the max-width property
+          backToTop_sidebar.style.display = 'none'; // Hide the back to top button
       } else {
-        toc.style.position = 'fixed'; // Fixed position when enough space
-        toc.style.right = '0px'; // Align to the right of the viewport
-        toc.style.maxWidth = `${remainingWidth}px`;
+          toc_block.style.position = 'fixed'; // Fixed position when enough space
+          toc_block.style.right = '0px'; // Align to the right of the viewport
+          toc_block.style.maxWidth = `${remainingWidth}px`;
+          backToTop_sidebar.style.display = 'block'; // Show the back to top button
       }
-    }
+  }
 
-    // Run the function on page load
-    checkWidth();
 
-    // Add event listener for window resize
-    window.addEventListener('resize', checkWidth);
+  // Throttle the resize event to avoid performance issues
+  let resizeTimer;
+  window.addEventListener('resize', () => {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(checkWidth, 10); // Delay the execution of checkWidth
   });
+
+  checkWidth();
+
 
 </script>

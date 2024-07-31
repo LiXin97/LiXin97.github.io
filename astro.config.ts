@@ -3,10 +3,6 @@ import tailwind from "@astrojs/tailwind";
 import react from "@astrojs/react";
 import remarkMath from "remark-math";
 import rehypeKatex from "rehype-katex";
-import rehypeMermaid from 'rehype-mermaid'
-import mdx from '@astrojs/mdx';
-import astroExpressiveCode from "astro-expressive-code";
-import { pluginLineNumbers } from '@expressive-code/plugin-line-numbers'
 import { remarkImage } from "./plugins/image";
 import { remarkToc } from "./plugins/toc";
 import remarkCollapse from "remark-collapse";
@@ -22,19 +18,6 @@ export default defineConfig({
     }),
     react(),
     sitemap(),
-    astroExpressiveCode({
-      defaultProps: {
-        wrap: true,
-      },
-      plugins: [pluginLineNumbers()],
-      themes: ['dracula'],
-    }),
-    // expressiveCode({
-    //   // Replace the default themes with a custom set of bundled themes:
-    //   // "dracula" (a dark theme) and "solarized-light"
-    //   themes: ['github-light', 'dracula'],
-    // }),
-    mdx(),
   ],
   markdown: {
     remarkPlugins: [
@@ -50,11 +33,11 @@ export default defineConfig({
     ],
     rehypePlugins: [
       rehypeKatex,
-      [
-        rehypeMermaid,
-        { strategy: "img-svg" }
-        // { strategy: "img-png" }
-      ],
+      // [
+      //   rehypeMermaid,
+      //   { strategy: "img-svg" }
+      //   // { strategy: "img-png" }
+      // ],
     ],
     shikiConfig: {
       // For more themes, visit https://shiki.style/themes
