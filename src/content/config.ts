@@ -25,7 +25,7 @@ const blog = defineCollection({
 
 const pub = defineCollection({
   type: "content",
-  schema: ({ image }) =>
+  schema: () =>
     z.object({
       title: z.string(),
       authors: z.array(
@@ -45,6 +45,7 @@ const pub = defineCollection({
       ),
       homepage: z.string(),
       paper_id: z.string(),
+      og_image: z.string(),
     }),
 });
 

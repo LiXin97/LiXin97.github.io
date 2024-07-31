@@ -6,22 +6,16 @@ import Layout from "@layouts/Layout.astro";
 import Main from "@layouts/Main.astro";
 import Tag from "@components/Tag.astro";
 import PubCard from "@components/PubCard";
-import getUniqueTags from "@utils/getUniqueTags";
 import getSortedPubs from "@utils/getSortedPubs";
 import getPagination from "@utils/getPagination";
 import { SITE } from "@config";
 
 
 const pubs = await getCollection("pub");
-
-const posts = await getCollection("blog");
-
 const sortedPubs = getSortedPubs(pubs);
-
-let tags = getUniqueTags(posts);
 ---
 
-<Layout title={`Tags | ${SITE.title}`}>
+<Layout title={`Pubs | ${SITE.title}`}>
   <Header activeNav="pubs" />
   <Main pageTitle="Publications" pageDesc="All the papers I've published.">
     <ul>

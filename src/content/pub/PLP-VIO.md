@@ -27,11 +27,12 @@ bibtex:
 homepage: https://arxiv.org/abs/2004.11969
 links:
   - name: PDF
-    url: https://arxiv.org/abs/2004.11969
+    url: /pubs/IROS-2020/IROS2020.pdf
   - name: arXiv
     url: https://arxiv.org/abs/2004.11969
   - name: video
     url: https://www.youtube.com/watch?v=V1KU6V49UKI
   - name: code
     url: https://github.com/LiXin97/Co-Planar-Parametrization-VIO
+og_image: /pubs/IROS-2020/IROS2020.png
 ---

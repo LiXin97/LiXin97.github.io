@@ -11,7 +11,7 @@ export interface Props {
 }
 
 export default function PubCard({ href, frontmatter, secHeading = true }: Props) {
-    const { title, authors, published_year, published_place, bibtex, links, homepage, paper_id } = frontmatter;
+    const { title, authors, published_year, published_place, bibtex, links, homepage, paper_id, og_image } = frontmatter;
 
     const headerProps = {
         style: { viewTransitionName: slugifyStr(title) },
@@ -29,99 +29,111 @@ export default function PubCard({ href, frontmatter, secHeading = true }: Props)
         return (
             // <p>{citation_url}</p>
             <a href="https://scholar.google.com/citations?user=Hxf8sNkAAAAJ">
-            <img src={citation_url}alt="PVI-DSO Citations" ></img>
+                <img src={citation_url} alt="Google Scholar Citations" ></img>
             </a>
         );
     }
 
     return (
-        <li className="my-6">
-            <a
-                href={homepage}
-                className="inline-block text-lg font-medium text-skin-accent decoration-dashed underline-offset-4 focus-visible:no-underline focus-visible:underline-offset-0"
-            >
-                {secHeading ? (
-                    <h2 {...headerProps}>{title}</h2>
-                ) : (
-                    <h3 {...headerProps}>{title}</h3>
-                )}
-            </a>
 
-            {
-                authors.map((author, index) => (
-                    <span key={index} className="text-sm font-light">
-                        {index === 0 ? "Authors: " : ""}
-                        {
-                            // if author.name == "Xin Li", bold the name
-                            author.url ? (
-                                <a href={author.url} className="decoration-dashed hover:underline underline">
-                                    {author.name}
-                                </a>
-                            ) : author.name
-                        }
-                        {index === authors.length - 1 ? "" : ", "}
-                    </span>
-                ))
+        <div>
+            {/* create struct data */
+                <div itemType="http://schema.org/ScholarlyArticle">
+                    <meta itemProp="headline" content={title} />
+                    <meta itemProp="author" content={authors.map((author) => author.name).join(", ")} />
+                    <meta itemProp="datePublished" content={published_year.toString()} />
+                    <meta itemProp="publisher" content={published_place} />
+                    <meta itemProp="image" content={og_image} />
+                    <meta itemProp="url" content={homepage} />
+                </div>
             }
 
-            <p className="text-sm font-light">Published in: {published_place}, {published_year.toString()}</p>
-            {
-                // homepage ? (
-                //     <p className="text-sm font-light">Homepage: <a href={homepage} className="decoration-dashed hover:underline underline">{homepage}</a></p>
-                // ) : ""
-            }
-            {
-                links.map((link, index) => (
-                    <span key={index} className="text-sm font-light">
-                        {index === 0 ? "Links: " : ""}
-                        {
-                            link.url ? (
-                                <a href={link.url} className="decoration-dashed hover:underline underline">
-                                    {link.name}
-                                </a>
-                            ) : link.name
-                        }
-                        {index === links.length - 1 ? "" : " / "}
-                    </span>
-                ))
-            }
+            <table style={{ width: '100%', margin: 'auto' }} border={1}>
 
-            {
-                // show 
-                show_google_citations()
-            }
+                <tr>
+                    <td style={{ width: '20%' }}>
+                        <img
+                            src={og_image}
+                            alt={title}
+                        />
+                    </td>
 
-            {
-                // <div className="text-sm font-light">
-                //     <button onClick={toggleBibtex} className="underline">Show BibTeX</button>
-                // </div>
-            }
+                    <td>
+                        <li className="my-6">
+                            <a
+                                href={homepage}
+                                className="inline-block text-lg font-medium text-skin-accent decoration-dashed underline-offset-4 focus-visible:no-underline focus-visible:underline-offset-0"
+                            >
+                                {secHeading ? (
+                                    <h2 {...headerProps}>{title}</h2>
+                                ) : (
+                                    <h3 {...headerProps}>{title}</h3>
+                                )}
+                            </a>
 
-            {
-                showBibtex && (
-                    <div className="modal-content">
-                        <button onClick={() => setShowBibtex(false)} style={{ float: 'right' }}>Close</button>
-                        <pre>{bibtex}</pre>
-                    </div>
-                )
-            }
-        </li>
+                            {
+                                authors.map((author, index) => (
+                                    <span key={index} className="text-sm font-light">
+                                        {index === 0 ? "Authors: " : ""}
+                                        {
+                                            // if author.name == "Xin Li", bold the name
+                                            author.url ? (
+                                                <a href={author.url} className="decoration-dashed hover:underline underline">
+                                                    {author.name}
+                                                </a>
+                                            ) : author.name
+                                        }
+                                        {index === authors.length - 1 ? "" : ", "}
+                                    </span>
+                                ))
+                            }
+
+                            <p className="text-sm font-light">Published in: {published_place}, {published_year.toString()}</p>
+                            {
+                                // homepage ? (
+                                //     <p className="text-sm font-light">Homepage: <a href={homepage} className="decoration-dashed hover:underline underline">{homepage}</a></p>
+                                // ) : ""
+                            }
+                            {
+                                links.map((link, index) => (
+                                    <span key={index} className="text-sm font-light">
+                                        {index === 0 ? "Links: " : ""}
+                                        {
+                                            link.url ? (
+                                                <a href={link.url} className="decoration-dashed hover:underline underline">
+                                                    {link.name}
+                                                </a>
+                                            ) : link.name
+                                        }
+                                        {index === links.length - 1 ? "" : " / "}
+                                    </span>
+                                ))
+                            }
+
+                            {
+                                // show 
+                                show_google_citations()
+                            }
+
+                            {
+                                // <div className="text-sm font-light">
+                                //     <button onClick={toggleBibtex} className="underline">Show BibTeX</button>
+                                // </div>
+                            }
+
+                            {
+                                showBibtex && (
+                                    <div className="modal-content">
+                                        <button onClick={() => setShowBibtex(false)} style={{ float: 'right' }}>Close</button>
+                                        <pre>{bibtex}</pre>
+                                    </div>
+                                )
+                            }
+                        </li>
+                    </td>
+                </tr>
+            </table >
+
+        </div >
     );
 }
-
-
-// {authors_links[index] ? (
-//     <a href={authors_links[index]} className="decoration-dashed hover:underline underline">
-//         {author}
-//     </a>
-// ) : author
-// }
-
-// homepage: https://arxiv.org/abs/2004.11969
-// links:
-//   - name: PDF
-//     url: https://arxiv.org/abs/2004.11969
-//   - name: arXiv
-//     url: https://arxiv.org/abs/2004.11969
-//   - name: video
-//     url: https://www.youtube.com/watch?v=V1KU6V49UKI
