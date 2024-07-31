@@ -249,6 +249,23 @@ classDiagram
     }
 ```
 
+## Citations and References
+
+Example of citations and references:
+
+In another work, *Li et al.*  [^PLP] leveraged planar regularities for point line visual-inertial odometry.   
+*Li et al.* [^RAL] proposed a co-planar parametrization method for stereo-SLAM and visual-inertial odometry.   
+*Liu et al.* [^WCL] developed a deep learning-based channel estimation method for double-RIS aided massive MIMO systems.   
+*Xu et al.* [^PVI] introduced PVI-DSO, a direct sparse visual-inertial odometry method that leverages planar regularities.
+
+
 ## Conclusion
 
 This guide provides a foundation for using Markdown to create visually appealing and structurally sound blog posts. Happy blogging!
+
+## References
+
+[^RAL]: Li, Xin, Yanyan Li, Evin Pınar Örnek, Jinlong Lin, and Federico Tombari. "Co-planar parametrization for stereo-SLAM and visual-inertial odometry." IEEE Robotics and Automation Letters 5, no. 4 (2020): 6972-6979.
+[^PLP]: Li, Xin, Yijia He, Jinlong Lin, and Xiao Liu. "Leveraging planar regularities for point line visual-inertial odometry." In 2020 IEEE/RSJ international conference on intelligent robots and systems (IROS), pp. 5120-5127. IEEE, 2020.
+[^WCL]: Liu, Mengbing, Xin Li, Boyu Ning, Chongwen Huang, Sumei Sun, and Chau Yuen. "Deep learning-based channel estimation for double-RIS aided massive MIMO system." IEEE Wireless Communications Letters 12, no. 1 (2022): 70-74.
+[^PVI]: Xu, Bo, Xin Li, Jingrong Wang, Chau Yuen, and Jiancheng Li. "PVI-DSO: Leveraging Planar Regularities for Direct Sparse Visual-Inertial Odometry." IEEE Sensors Journal 23, no. 15 (2023): 17415-17425.
