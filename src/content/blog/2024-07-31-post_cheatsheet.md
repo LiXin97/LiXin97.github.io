@@ -35,6 +35,20 @@ def greet(name):
     print(f"Hello, {name}!")
 ```
 
+```javascript
+function isEven(num) {
+  return num % 2 === 0;
+}
+
+// Testing the function
+const num = 4;
+if (isEven(num)) {
+  console.log(`${num} is even.`);
+} else {
+  throw new Error('Wait, what?');
+}
+```
+
 ## Adding Links
 
 Link to external sites or related pages to provide additional information:
@@ -121,5 +135,120 @@ Both inline and block math equations are supported. Here is an example of an inl
 $$
 PE(pos, 2i) = \sin(\frac{pos}{10000^{\frac{2i}{d_{\text{model}}}}})
 $$
+
+
+## Mermaid
+
+Mermaid is a diagramming and charting tool that enables you to create flowcharts, sequence diagrams, Gantt diagrams, and more. Here are some examples:
+
+### Flowchart
+
+```md
+graph TD;
+    A-->B;
+    A-->C;
+    B-->D;
+    C-->D;
+```
+
+```mermaid
+graph TD;
+    A-->B;
+    A-->C;
+    B-->D;
+    C-->D;
+```
+
+### Sequence Diagram
+
+```md
+sequenceDiagram
+    Alice->>Bob: Hello Bob, how are you?
+    Bob-->>John: How about you John?
+    Bob--x Alice: I am good thanks!
+    Bob-x John: I am good thanks!
+    Note right of John: Bob thinks a long<br/>long time, so long<br/>that the text does<br/>not fit on a row.
+```
+
+```mermaid
+sequenceDiagram
+    Alice->>Bob: Hello Bob, how are you?
+    Bob-->>John: How about you John?
+    Bob--x Alice: I am good thanks!
+    Bob-x John: I am good thanks!
+    Note right of John: Bob thinks a long<br/>long time, so long<br/>that the text does<br/>not fit on a row.
+```
+
+### Gantt Diagram
+
+```md
+gantt
+    title A Gantt Diagram
+    dateFormat  YYYY-MM-DD
+    section Section
+    A task           :a1, 2024-07-31, 30d
+    Another task     :after a1  , 20d
+    section Another
+    Task in sec      :2024-08-01  , 12d
+    another task     : 24d
+```
+
+```mermaid
+gantt
+    title A Gantt Diagram
+    dateFormat  YYYY-MM-DD
+    section Section
+    A task           :a1, 2024-07-31, 30d
+    Another task     :after a1  , 20d
+    section Another
+    Task in sec      :2024-08-01  , 12d
+    another task     : 24d
+```
+
+### Class Diagram
+
+```md
+classDiagram
+    Animal <|-- Duck
+    Animal <|-- Fish
+    Animal <|-- Zebra
+    Animal : +int age
+    Animal
+    class Duck{
+        +String beakColor
+        +swim()
+    }
+    class Fish{
+        +int sizeInFeet
+        +canEat()
+    }
+    class Zebra{
+        +bool is_wild
+        +run()
+    }
+```
+
+```mermaid
+classDiagram
+    Animal <|-- Duck
+    Animal <|-- Fish
+    Animal <|-- Zebra
+    Animal : +int age
+    Animal
+    class Duck{
+        +String beakColor
+        +swim()
+    }
+    class Fish{
+        +int sizeInFeet
+        +canEat()
+    }
+    class Zebra{
+        +bool is_wild
+        +run()
+    }
+```
+
+## Conclusion
 
 This guide provides a foundation for using Markdown to create visually appealing and structurally sound blog posts. Happy blogging!
