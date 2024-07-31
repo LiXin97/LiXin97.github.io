@@ -51,12 +51,22 @@ const layoutProps = {
 
   {
     // Add structured data for SEO
-    <script type="application/ld+json">{JSON.stringify(structuredData)}</script>
+    <script type="application/ld+json">
+      {JSON.stringify({
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": title,
+        "image": ogImageUrl,
+        "author": author,
+        "datePublished": pubDatetime,
+        "dateModified": modDatetime
+      })}
+    </script>
   }
-
   <div class="mx-auto flex w-full max-w-3xl justify-start px-2">
     <button
       class="focus-outline mb-2 mt-8 flex hover:opacity-75"
+      aria-label="Go back"
       onclick="(() => {
       function navigateBack() {
         if (window.location.hash) {
@@ -69,10 +79,8 @@ const layoutProps = {
       navigateBack();
       })()"
     >
-      <svg xmlns="http://www.w3.org/2000/svg"
-        ><path
-          d="M13.293 6.293 7.586 12l5.707 5.707 1.414-1.414L10.414 12l4.293-4.293z"
-        ></path>
+      <svg xmlns="http://www.w3.org/2000/svg" role="img" aria-hidden="true">
+      <path d="M13.293 6.293 7.586 12l5.707 5.707 1.414-1.414L10.414 12l4.293-4.293z"></path>
       </svg><span>Go back</span>
     </button>
   </div>
@@ -92,11 +100,26 @@ const layoutProps = {
       {tags.map(tag => <Tag tag={slugifyStr(tag)} />)}
     </ul>
 
+
+    <button
+      id="back-to-top"
+      class="focus-outline whitespace-nowrap py-1 hover:opacity-75"
+      style="position: fixed; right: 5rem; bottom: 10rem;"
+    >
+      <svg xmlns="http://www.w3.org/2000/svg" class="rotate-90">
+        <path
+          d="M13.293 6.293 7.586 12l5.707 5.707 1.414-1.414L10.414 12l4.293-4.293z"
+        ></path>
+      </svg>
+      <span>Back to Top</span>
+    </button>
+
     <div
       class="flex flex-col-reverse items-center justify-between gap-6 sm:flex-row-reverse sm:items-end sm:gap-4"
     >
       <button
         id="back-to-top"
+        aria-label="Back to Top"
         class="focus-outline whitespace-nowrap py-1 hover:opacity-75"
       >
         <svg xmlns="http://www.w3.org/2000/svg" class="rotate-90">
@@ -233,4 +256,29 @@ const layoutProps = {
     });
   }
   backToTop();
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const toc = document.querySelector('.table-of-contents');
+
+    function checkWidth() {
+      const remainingWidth = (window.innerWidth - 880) / 2;
+
+      if (remainingWidth < 200) {
+        toc.style.position = 'static'; // Not fixed if insufficient space
+        toc.style.right = 'auto'; // Reset the right property
+        toc.style.maxWidth = '100%'; // Reset the max-width property
+      } else {
+        toc.style.position = 'fixed'; // Fixed position when enough space
+        toc.style.right = '0px'; // Align to the right of the viewport
+        toc.style.maxWidth = `${remainingWidth}px`;
+      }
+    }
+
+    // Run the function on page load
+    checkWidth();
+
+    // Add event listener for window resize
+    window.addEventListener('resize', checkWidth);
+  });
+
 </script>

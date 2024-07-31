@@ -86,6 +86,7 @@ Emphasize key points using bold, italic, or underlined text:
 **Bold Text**
 *Italic Text*
 ***Bold and Italic Text***
+~Strikethrough Text~  
 <u>Underline Text</u>
 <strike>Middle Line Text</strike>
 <sup>Superscript Text</sup>
@@ -94,6 +95,7 @@ Emphasize key points using bold, italic, or underlined text:
 **Bold Text**  
 *Italic Text*  
 ***Bold and Italic Text***  
+~Strikethrough Text~  
 <u>Underline Text</u>  
 <strike>Middle Line Text</strike>  
 <sup>Superscript Text</sup>  
