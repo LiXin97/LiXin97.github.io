@@ -235,11 +235,14 @@ const layoutProps = {
   /** Scrolls the document to the top when
    * the "Back to Top" button is clicked. */
   function backToTop() {
-    document.querySelector("#back-to-top")?.addEventListener("click", () => {
+    const backToTop_sidebar = document.querySelector('#back-to-top-sidebar');
+    const backToTop = document.querySelector('#back-to-top');
+    
+    backToTop_sidebar?.addEventListener("click", () => {
       document.body.scrollTop = 0; // For Safari
       document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
     });
-    document.querySelector("#back-to-top-sidebar")?.addEventListener("click", () => {
+    backToTop?.addEventListener("click", () => {
       document.body.scrollTop = 0; // For Safari
       document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
     });
@@ -268,8 +271,9 @@ const layoutProps = {
   // Throttle the resize event to avoid performance issues
   let resizeTimer;
   window.addEventListener('resize', () => {
-      clearTimeout(resizeTimer);
-      resizeTimer = setTimeout(checkWidth, 10); // Delay the execution of checkWidth
+    checkWidth();
+    //  clearTimeout(resizeTimer);
+    //  resizeTimer = setTimeout(checkWidth, 10); // Delay the execution of checkWidth
   });
 
   checkWidth();
