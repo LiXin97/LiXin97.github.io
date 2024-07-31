@@ -110,10 +110,24 @@ const structuredData = {
     <meta property="twitter:image" content={socialImageURL} />
 
     <!-- Google JSON-LD Structured data -->
-    <script
-      type="application/ld+json"
-      set:html={JSON.stringify(structuredData)}
-    />
+    <div itemtype="http://schema.org/BlogPosting" itemscope>
+      <meta itemprop="headline" content={title} />
+      <meta itemprop="image" content={socialImageURL} />
+      <meta itemprop="datePublished" content={pubDatetime?.toISOString()} />
+      {
+        modDatetime && (
+          <meta
+            itemprop="dateModified"
+            content={modDatetime.toISOString()}
+          />
+        )
+      }
+      <meta itemprop="abstract" content={description} />
+      <div itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <meta itemprop="name" content={author} />
+        <meta itemprop="url" content={profile} />
+      </div>
+    </div>
 
     <!-- Google Font -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
