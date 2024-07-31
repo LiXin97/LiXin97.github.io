@@ -137,6 +137,25 @@
     font-weight: var(--shiki-dark-font-weight) !important;
     text-decoration: var(--shiki-dark-text-decoration) !important;
   }
+
+  /** KaTeX **/
+
+  .prose .katex-display {
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .prose .katex {
+    font-size: 1.25em;
+  }
+
+
+  .prose .table-of-contents {
+    @apply fixed left-10 overflow-y-auto text-[0.9em];
+    z-index: 0; /* Lower z-index to be underneath */
+  }
+
 }
 
 @layer components {

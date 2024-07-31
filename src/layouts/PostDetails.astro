@@ -49,10 +49,25 @@ const layoutProps = {
 <Layout {...layoutProps}>
   <Header />
 
+  {
+    // Add structured data for SEO
+    <script type="application/ld+json">{JSON.stringify(structuredData)}</script>
+  }
+
   <div class="mx-auto flex w-full max-w-3xl justify-start px-2">
     <button
       class="focus-outline mb-2 mt-8 flex hover:opacity-75"
-      onclick="(() => (history.length === 1) ? window.location = '/' : history.back())()"
+      onclick="(() => {
+      function navigateBack() {
+        if (window.location.hash) {
+          history.back();
+          setTimeout(navigateBack, 10); // Check again after 100ms
+        } else {
+          history.back(); // Go back normally if no hash
+        }
+      }
+      navigateBack();
+      })()"
     >
       <svg xmlns="http://www.w3.org/2000/svg"
         ><path
