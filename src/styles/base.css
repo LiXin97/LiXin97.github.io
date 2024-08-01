@@ -155,7 +155,7 @@
   }
 
   .prose .table-of-contents {
-    @apply static left-10 overflow-y-auto text-[0.9em] top-10;
+    @apply static left-0 overflow-y-auto text-[0.75em];
     z-index: 0; /* Lower z-index to be underneath */
   }
 

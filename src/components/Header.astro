@@ -4,17 +4,19 @@ import Hr from "./Hr.astro";
 import LinkButton from "./LinkButton.astro";
 
 export interface Props {
-  activeNav?: "pubs" | "posts" | "tags" | "about" | "search";
+  activeNav?: "pubs" | "posts" | "search";
 }
 
 const { activeNav } = Astro.props;
 ---
 
-<header>
-  <a id="skip-to-content" href="#main-content">Skip to content</a>
+<header
+  class="fixed left-0 right-0 top-0 z-50"
+  id="header_nav"
+>
   <div class="nav-container">
     <div class="top-nav-wrap">
-    <!-- <div class="top-nav-wrap" style="position: fixed; top: 0; left: 0; right: 0;"> -->
+      <!-- <div class="top-nav-wrap" style="position: fixed; top: 0; left: 0; right: 0;"> -->
       <a href="/" class="logo whitespace-nowrap">
         {
           LOGO_IMAGE.enable ? (
@@ -111,8 +113,20 @@ const { activeNav } = Astro.props;
   </div>
   <Hr />
 </header>
+<div class="h-14"></div>
+<div class="h-10"></div>
 
 <style>
+  /* Light theme styles */
+  html[data-theme="light"] #header_nav {
+    background: rgb(251, 254, 251);
+  }
+
+  /* Dark theme styles */
+  html[data-theme="dark"] #header_nav {
+    background: rgb(33, 39, 55);
+  }
+
   #skip-to-content {
     @apply absolute -top-full left-16 z-50 bg-skin-accent px-3 py-2 text-skin-inverted transition-all focus:top-4;
   }
