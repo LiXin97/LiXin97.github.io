@@ -6,7 +6,7 @@ export const SITE: Site = {
   profile: "https://lixin.ai/",
   desc: "Xin Li's Homepage, Research Assistant at Nanyang Technological University (NTU), Singapore. Research Interest: SLAM, Embodied AI, and Scene Understanding.",
   title: "Xin Li",
-  ogImage: "assets/XinLi.jpg",
+  ogImage: "assets/XinLi.png",
   ogTag: "Xin Li, 李鑫, SLAM, Embodied AI, Scene Understanding",
   lightAndDarkMode: true,
   postPerIndex: 4,
