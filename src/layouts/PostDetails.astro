@@ -54,7 +54,7 @@ const layoutProps = {
       class="focus-outline mb-2 mt-8 flex hover:opacity-75"
       aria-label="Go back"
       onclick="(() => {
-      function navigateBack() {
+      const navigateBack = () => {
         if (window.location.hash) {
           history.back();
           setTimeout(navigateBack, 10); // Check again after 100ms
@@ -88,18 +88,22 @@ const layoutProps = {
       {tags.map(tag => <Tag tag={slugifyStr(tag)} />)}
     </ul>
 
-    <button
-      id="back-to-top-sidebar"
-      class="focus-outline whitespace-nowrap py-1 hover:opacity-75"
-      style="position: fixed; right: 5rem; bottom: 10rem; display: none;"
+    <div
+      class="flex flex-col-reverse items-center justify-between gap-6 sm:flex-row-reverse sm:items-end sm:gap-4"
     >
-      <svg xmlns="http://www.w3.org/2000/svg" class="rotate-90">
-        <path
-          d="M13.293 6.293 7.586 12l5.707 5.707 1.414-1.414L10.414 12l4.293-4.293z"
-        ></path>
-      </svg>
-      <span>Back to Top</span>
-    </button>
+      <button
+        id="back-to-top-sidebar"
+        class="focus-outline whitespace-nowrap py-1 hover:opacity-75"
+        style="position: fixed; right: 5rem; bottom: 10rem; display: none;"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" class="rotate-90">
+          <path
+            d="M13.293 6.293 7.586 12l5.707 5.707 1.414-1.414L10.414 12l4.293-4.293z"
+          ></path>
+        </svg>
+        <span>Back to Top</span>
+      </button>
+    </div>
 
     <div
       class="flex flex-col-reverse items-center justify-between gap-6 sm:flex-row-reverse sm:items-end sm:gap-4"
@@ -151,7 +155,6 @@ const layoutProps = {
     // Append the progress container to the document body or any other desired parent element
     document.body.appendChild(progressContainer);
   }
-  createProgressBar();
 
   /** Update the progress bar
    *  when user scrolls */
@@ -169,7 +172,6 @@ const layoutProps = {
       }
     }
   }
-  document.addEventListener("scroll", updateScrollProgress);
 
   /** Attaches links to headings in the document,
    *  allowing sharing of sections easily */
@@ -189,7 +191,6 @@ const layoutProps = {
       heading.appendChild(link);
     }
   }
-  addHeadingLinks();
 
   /** Attaches copy buttons to code blocks in the document,
    * allowing users to copy code easily. */
@@ -231,24 +232,19 @@ const layoutProps = {
       }, 700);
     }
   }
-  attachCopyButtons();
 
   /** Scrolls the document to the top when
    * the "Back to Top" button is clicked. */
   function backToTop() {
-    const backToTop_sidebar = document.querySelector("#back-to-top-sidebar");
-    const backToTop = document.querySelector("#back-to-top");
-
-    backToTop_sidebar?.addEventListener("click", () => {
-      document.body.scrollTop = 0; // For Safari
-      document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
-    });
-    backToTop?.addEventListener("click", () => {
-      document.body.scrollTop = 0; // For Safari
-      document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
-    });
+    document
+      .querySelectorAll("#back-to-top, #back-to-top-sidebar")
+      .forEach(button => {
+        button.addEventListener("click", () => {
+          document.body.scrollTop = 0;
+          document.documentElement.scrollTop = 0;
+        });
+      });
   }
-  backToTop();
 
   function checkWidth() {
     const toc_block = document.querySelector(".table-of-contents");
@@ -256,25 +252,43 @@ const layoutProps = {
     const remainingWidth = (window.innerWidth - 880) / 2;
 
     if (remainingWidth < 200) {
-      toc_block.style.position = "static"; // Not fixed if insufficient space
-      toc_block.style.right = "auto"; // Reset the right property
-      toc_block.style.maxWidth = "100%"; // Reset the max-width property
-      backToTop_sidebar.style.display = "none"; // Hide the back to top button
+      toc_block.style.position = "static";
+      toc_block.style.right = "auto";
+      toc_block.style.maxWidth = "100%";
+      backToTop_sidebar.style.display = "none";
     } else {
-      toc_block.style.position = "fixed"; // Fixed position when enough space
-      toc_block.style.right = "0px"; // Align to the right of the viewport
+      toc_block.style.position = "fixed";
+      toc_block.style.right = "0px";
       toc_block.style.maxWidth = `${remainingWidth}px`;
-      backToTop_sidebar.style.display = "block"; // Show the back to top button
+      backToTop_sidebar.style.display = "block";
     }
   }
 
-  // Throttle the resize event to avoid performance issues
-  let resizeTimer;
-  window.addEventListener("resize", () => {
-    // checkWidth();
-    clearTimeout(resizeTimer);
-    resizeTimer = setTimeout(checkWidth, 10); // Delay the execution of checkWidth
-  });
+  function debounce(func, wait, immediate) {
+    let timeout;
+    return function () {
+      const context = this,
+        args = arguments;
+      const later = function () {
+        timeout = null;
+        if (!immediate) func.apply(context, args);
+      };
+      const callNow = immediate && !timeout;
+      clearTimeout(timeout);
+      timeout = setTimeout(later, wait);
+      if (callNow) func.apply(context, args);
+    };
+  }
 
-  checkWidth();
+  function init() {
+    createProgressBar();
+    document.addEventListener("scroll", debounce(updateScrollProgress, 10));
+    addHeadingLinks();
+    attachCopyButtons();
+    backToTop();
+    checkWidth();
+    window.addEventListener("resize", debounce(checkWidth, 10));
+  }
+
+  init();
 </script>
