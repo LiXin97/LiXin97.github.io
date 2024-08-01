@@ -150,6 +150,9 @@
     font-size: 1.25em;
   }
 
+  html[data-theme="dark"] .prose .katex {
+    color: #ebf3f9;
+  }
 
   .prose .table-of-contents {
     @apply static left-10 overflow-y-auto text-[0.9em] top-10;

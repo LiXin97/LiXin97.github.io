@@ -2,6 +2,7 @@
 title: Cheatsheet for Writing New Posts in Markdown
 author: Xin Li
 pubDatetime: 2024-07-31
+modDatetime: 2024-08-01
 featured: true
 draft: false
 tags:
@@ -141,6 +142,10 @@ Both inline and block math equations are supported. Here is an example of an inl
 $$
 PE(pos, 2i) = \sin(\frac{pos}{10000^{\frac{2i}{d_{\text{model}}}}})
 $$
+
+```math
+PE(pos, 2i) = \sin(\frac{pos}{10000^{\frac{2i}{d_{\text{model}}}}})
+```
 
 
 ## ~Using Mermaid for Diagrams~
