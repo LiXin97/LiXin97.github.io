@@ -110,7 +110,8 @@ const structuredData = {
     <meta property="twitter:description" content={description} />
     <meta property="twitter:image" content={socialImageURL} />
 
-    <script type="application/ld+json">
+    <script type="application/ld+json"
+    set:html={JSON.stringify(
       {
         "@context": "http://schema.org",
         "@type": "Person",
@@ -165,7 +166,8 @@ const structuredData = {
           "https://scholar.google.com/citations?hl=en&user=Hxf8sNkAAAAJ"
         ]
       }
-    </script>
+      )}
+    />
 
     <!-- Google JSON-LD Structured data -->
 
