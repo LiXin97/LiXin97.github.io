@@ -23,7 +23,7 @@ const posts = await getCollection("blog");
 let tags = getUniqueTags(posts);
 ---
 
-<Layout title={`Blogs | ${SITE.title}`}>
+<Layout title={`Blogs | ${SITE.title}`} currentPage="posts">
   <Header activeNav="posts" />
   <Main pageTitle="Blogs" pageDesc="All the blogs I've written.">
     <ul>

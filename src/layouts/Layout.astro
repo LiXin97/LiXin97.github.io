@@ -5,6 +5,12 @@ import "katex/dist/katex.min.css";
 import { ViewTransitions } from "astro:transitions";
 
 export interface Props {
+  currentPage?: "pubs" | "posts" | "search" | "about" | "posts_detail";
+}
+
+const { currentPage } = Astro.props;
+
+export interface Props {
   title?: string;
   author?: string;
   profile?: string;
@@ -60,7 +66,7 @@ const structuredData = {
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/png" href="/images/icon.png">
+    <link rel="icon" type="image/png" href="/images/icon.png" />
     <link rel="canonical" href={canonicalURL} />
     <meta name="generator" content={Astro.generator} />
 
@@ -78,12 +84,12 @@ const structuredData = {
     <meta property="og:url" content={canonicalURL} />
     <meta property="og:image" content={socialImageURL} />
 
-    <meta property="og:author" content={author}>
-    <meta property="og:locale" content="en_US">
-    <meta property="og:category" content="Technology">
-    <meta property="og:tag" content={ogTag}>
-  
-    <meta property="og:site_name" content={title}>
+    <meta property="og:author" content={author} />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:category" content="Technology" />
+    <meta property="og:tag" content={ogTag} />
+
+    <meta property="og:site_name" content={title} />
 
     <!-- Article Published/Modified time -->
     {
@@ -110,73 +116,92 @@ const structuredData = {
     <meta property="twitter:description" content={description} />
     <meta property="twitter:image" content={socialImageURL} />
 
-    <script type="application/ld+json"
-    set:html={JSON.stringify(
-      {
-        "@context": "http://schema.org",
-        "@type": "Person",
-        "name": "Xin Li",
-        "url": "https://lixin.ai/",
-        "image": "https://lixin.ai/images/XinLi.png",
-        "jobTitle": "Research Assistant",
-        "description": "Research Assistant at Nanyang Technological University (NTU), Singapore. Research Interest: SLAM, Embodied AI, LLM.",
-        "familyName": "Li",
-        "givenName": "Xin",
-        "birthDate": "1997-10-27",
-        "email": "lixin.1997.lixin@gmail.com",
-        "mainEntityOfPage": "https://lixin.ai/",
-        "colleague": {
-          "@type": "Person",
-          "name": "Prof. Chau Yuen",
-          "affiliation": "Nanyang Technological University",
-          "url": "https://blogs.ntu.edu.sg/chau-yuen"
-        },
-        "worksFor": {
-          "@type": "Organization",
-          "name": "Nanyang Technological University",
-          "url": "https://www.ntu.edu.sg/"
-        },
-        "alumniOf": [
-          {
-            "@type": "CollegeOrUniversity",
-            "name": "Nanyang Technological University",
-            "url": "https://www.ntu.edu.sg/"
-          },
-          {
-            "@type": "CollegeOrUniversity",
-            "name": "Peking University",
-            "url": "http://english.pku.edu.cn"
-          },
-          {
-            "@type": "CollegeOrUniversity",
-            "name": "Northeastern University",
-            "url": "https://www.neuq.edu.cn/"
-          },
-          {
-            "@type": "Organization",
-            "name": "Microsoft Research Asia",
-            "url": "https://www.microsoft.com/en-us/research/lab/microsoft-research-asia/"
-          }
-        ],
-        "sameAs": [
-          "https://lixin.ai/",
-          "https://github.com/LiXin97",
-          "https://twitter.com/XinLi72542893",
-          "https://www.linkedin.com/in/xin-li-1196331a0",
-          "https://scholar.google.com/citations?hl=en&user=Hxf8sNkAAAAJ"
-        ]
-      }
-      )}
-    />
+    {
+      currentPage === "about" && (
+        <script
+          type="application/ld+json"
+          set:html={JSON.stringify({
+            "@context": "http://schema.org",
+            "@type": "ProfilePage",
+            "@dateCreated":"2024-04-05T14:53:00+08:00",
+            "@dateModified": "2024-08-03T14:21:00-05:00",
+            mainEntity: {
+              "@type": "Person",
+              name: "Xin Li",
+              alternateName: "李鑫",
+              address: {
+                "@type": "PostalAddress",
+                addressLocality: "Singapore",
+                addressRegion: "SG",
+                postalCode: "639798",
+                streetAddress: "50 Nanyang Avenue",
+              },
+              url: "https://lixin.ai/",
+              image: "https://lixin.ai/images/XinLi.png",
+              jobTitle: "Research Assistant",
+              description:
+                "Research Assistant at Nanyang Technological University (NTU), Singapore. Research Interest: SLAM, Embodied AI, LLM.",
+              familyName: "Li",
+              givenName: "Xin",
+              birthDate: "1997-10-27",
+              email: "lixin.1997.lixin@gmail.com",
+              mainEntityOfPage: "https://lixin.ai/",
+              colleague: {
+                "@type": "Person",
+                name: "Prof. Chau Yuen",
+                affiliation: "Nanyang Technological University",
+                url: "https://blogs.ntu.edu.sg/chau-yuen",
+              },
+              worksFor: {
+                "@type": "Organization",
+                name: "Nanyang Technological University",
+                url: "https://www.ntu.edu.sg/",
+              },
+              alumniOf: [
+                {
+                  "@type": "CollegeOrUniversity",
+                  name: "Nanyang Technological University",
+                  url: "https://www.ntu.edu.sg/",
+                },
+                {
+                  "@type": "CollegeOrUniversity",
+                  name: "Peking University",
+                  url: "http://english.pku.edu.cn",
+                },
+                {
+                  "@type": "CollegeOrUniversity",
+                  name: "Northeastern University",
+                  url: "https://www.neuq.edu.cn/",
+                },
+                {
+                  "@type": "Organization",
+                  name: "Microsoft Research Asia",
+                  url: "https://www.microsoft.com/en-us/research/lab/microsoft-research-asia/",
+                },
+              ],
+              sameAs: [
+                "https://lixin.ai/",
+                "https://github.com/LiXin97",
+                "https://twitter.com/XinLi72542893",
+                "https://www.linkedin.com/in/xin-li-1196331a0",
+                "https://scholar.google.com/citations?hl=en&user=Hxf8sNkAAAAJ",
+              ],
+            },
+          })}
+        />
+      )
+    }
 
     <!-- Google JSON-LD Structured data -->
 
-    <script
-      type="application/ld+json"
-      set:html={JSON.stringify(structuredData)}
-    />
-    
-
+    {
+      currentPage === "posts_detail" && (
+        <script
+          type="application/ld+json"
+          set:html={JSON.stringify(structuredData)}
+        />
+      )
+    }
 
     <!-- Google Font -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />

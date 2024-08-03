@@ -3,6 +3,30 @@ import Datetime from "./Datetime";
 import type { CollectionEntry } from "astro:content";
 import React, { useState } from 'react';
 
+const StructuredMetaData = ({ title, authors, published_year, published_place, og_image, homepage }) => {
+    const structuredData = {
+        "@context": "http://schema.org",
+        "@type": "ScholarlyArticle",
+        "headline": title,
+        "author": authors.map(author => ({
+            "@type": "Person",
+            "name": author.name.endsWith("*") ? author.name.slice(0, -1) : author.name,
+            "url": author.url || undefined  // Only include the URL if it exists
+        })),
+        "datePublished": published_year.toString(),
+        "publisher": published_place,
+        "image": og_image,
+        "url": homepage
+    };
+
+    return (
+        <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+      />
+    );
+}
+
 
 export interface Props {
     href?: string;
@@ -37,16 +61,7 @@ export default function PubCard({ href, frontmatter, secHeading = true }: Props)
     return (
 
         <div>
-            {/* create struct data */
-                <div itemType="http://schema.org/ScholarlyArticle">
-                    <meta itemProp="headline" content={title} />
-                    <meta itemProp="author" content={authors.map((author) => author.name).join(", ")} />
-                    <meta itemProp="datePublished" content={published_year.toString()} />
-                    <meta itemProp="publisher" content={published_place} />
-                    <meta itemProp="image" content={og_image} />
-                    <meta itemProp="url" content={homepage} />
-                </div>
-            }
+            <StructuredMetaData title={title} authors={authors} published_year={published_year} published_place={published_place} og_image={og_image} homepage={homepage} />
 
             <table style={{ width: '100%', margin: 'auto' }} border={1}>
 

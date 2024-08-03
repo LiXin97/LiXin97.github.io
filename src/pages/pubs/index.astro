@@ -15,7 +15,7 @@ const pubs = await getCollection("pub");
 const sortedPubs = getSortedPubs(pubs);
 ---
 
-<Layout title={`Pubs | ${SITE.title}`}>
+<Layout title={`Pubs | ${SITE.title}`} currentPage="pubs">
   <Header activeNav="pubs" />
   <Main pageTitle="Publications" pageDesc="All the papers I've published.">
     <ul>
