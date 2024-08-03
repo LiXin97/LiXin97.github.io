@@ -1,14 +1,38 @@
 import { slugifyStr } from "@utils/slugify";
-import Datetime from "./Datetime";
-import type { CollectionEntry } from "astro:content";
 import React, { useState } from 'react';
 
-const StructuredMetaData = ({ title, authors, published_year, published_place, og_image, homepage }) => {
+interface Author {
+    name: string;
+    url?: string;
+}
+
+interface PubData {
+    title: string;
+    authors: Author[];
+    published_year: number;
+    published_place: string;
+    og_image: string;
+    homepage: string;
+    bibtex: string;
+    links: { name: string; url?: string }[];
+    paper_id: string;
+}
+
+interface StructuredMetaDataProps {
+    title: string;
+    authors: Author[];
+    published_year: number;
+    published_place: string;
+    og_image: string;
+    homepage: string;
+}
+
+const StructuredMetaData = ({ title, authors, published_year, published_place, og_image, homepage }: StructuredMetaDataProps) => {
     const structuredData = {
         "@context": "http://schema.org",
         "@type": "ScholarlyArticle",
         "headline": title,
-        "author": authors.map(author => ({
+        "author": authors.map((author: { name: string; url?: string }, index: number, array: Author[]) => ({
             "@type": "Person",
             "name": author.name.endsWith("*") ? author.name.slice(0, -1) : author.name,
             "url": author.url || undefined  // Only include the URL if it exists
@@ -27,36 +51,50 @@ const StructuredMetaData = ({ title, authors, published_year, published_place, o
     );
 }
 
-
-export interface Props {
+interface PubCardProps {
     href?: string;
-    frontmatter: CollectionEntry<"pub">["data"];
+    frontmatter: PubData;
     secHeading?: boolean;
 }
 
-export default function PubCard({ href, frontmatter, secHeading = true }: Props) {
+export default function PubCard({ href, frontmatter, secHeading = true }: PubCardProps) {
     const { title, authors, published_year, published_place, bibtex, links, homepage, paper_id, og_image } = frontmatter;
+    const [showBibtex, setShowBibtex] = useState(false);
 
     const headerProps = {
         style: { viewTransitionName: slugifyStr(title) },
         className: "text-lg font-medium decoration-dashed hover:underline",
     };
 
-    let [showBibtex, setShowBibtex] = useState(false);
-
     let toggleBibtex = () => {
         setShowBibtex(!showBibtex);
     };
 
-    const show_google_citations = () => {
+    const showGoogleCitations = () => {
         let citation_url = "https://img.shields.io/endpoint?logo=Google%20Scholar&url=https%3A%2F%2Fcdn.jsdelivr.net%2Fgh%2FLiXin97%2Flixin97.github.io@google-scholar-stats%2Fgs_data_Hxf8sNkAAAAJ:" + paper_id + ".json&labelColor=f6f6f6&color=9cf&style=flat&label=citations";
         return (
             // <p>{citation_url}</p>
-            <a href="https://scholar.google.com/citations?user=Hxf8sNkAAAAJ">
-                <img src={citation_url} alt="Google Scholar Citations" ></img>
-            </a>
+            // <a href="https://scholar.google.com/citations?user=Hxf8sNkAAAAJ">
+            //     <img src={citation_url} alt="Google Scholar Citations" ></img>
+            // </a>
+            // <a href="default.asp"><img src="smiley.gif" alt="HTML tutorial" style="width:42px;height:42px;"></a>
+
+            <div>
+                <a href="https://scholar.google.com/citations?user=Hxf8sNkAAAAJ" className="inline-block text-lg font-medium text-skin-accent decoration-dashed underline-offset-4 focus-visible:no-underline focus-visible:underline-offset-0">
+                    <img src={citation_url} alt="Google Scholar Citations"></img>
+                </a>
+            </div>
+            
         );
     }
+
+    const copyToClipboard = () => {
+        navigator.clipboard.writeText(bibtex).then(() => {
+          alert('BibTeX entry copied to clipboard!');
+        }, (err) => {
+          console.error('Could not copy text: ', err);
+        });
+    };
 
     return (
 
@@ -123,27 +161,8 @@ export default function PubCard({ href, frontmatter, secHeading = true }: Props)
                                         {index === links.length - 1 ? "" : " / "}
                                     </span>
                                 ))
-                            }
-
-                            {
-                                // show 
-                                show_google_citations()
-                            }
-
-                            {
-                                // <div className="text-sm font-light">
-                                //     <button onClick={toggleBibtex} className="underline">Show BibTeX</button>
-                                // </div>
-                            }
-
-                            {
-                                showBibtex && (
-                                    <div className="modal-content">
-                                        <button onClick={() => setShowBibtex(false)} style={{ float: 'right' }}>Close</button>
-                                        <pre>{bibtex}</pre>
-                                    </div>
-                                )
-                            }
+                            }                  
+                            {showGoogleCitations()}
                         </li>
                     </td>
                 </tr>
