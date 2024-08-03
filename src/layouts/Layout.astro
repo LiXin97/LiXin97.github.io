@@ -69,7 +69,8 @@ const structuredData = {
     <meta name="title" content={title} />
     <meta name="description" content={description} />
     <meta name="author" content={author} />
-    <link rel="sitemap" href="/sitemap-index.xml" />
+    <!-- <link rel="sitemap" href="/sitemap-index.xml" /> -->
+    <link rel="sitemap" href="/sitemap-0.xml" />
 
     <!-- Open Graph / Facebook -->
     <meta property="og:title" content={title} />
@@ -109,25 +110,71 @@ const structuredData = {
     <meta property="twitter:description" content={description} />
     <meta property="twitter:image" content={socialImageURL} />
 
-    <!-- Google JSON-LD Structured data -->
-    <div itemtype="http://schema.org/BlogPosting" itemscope>
-      <meta itemprop="headline" content={title} />
-      <meta itemprop="image" content={socialImageURL} />
-      <meta itemprop="datePublished" content={pubDatetime?.toISOString()} />
+    <script type="application/ld+json">
       {
-        modDatetime && (
-          <meta
-            itemprop="dateModified"
-            content={modDatetime.toISOString()}
-          />
-        )
+        "@context": "http://schema.org",
+        "@type": "Person",
+        "name": "Xin Li",
+        "url": "https://lixin.ai/",
+        "image": "https://lixin.ai/images/XinLi.png",
+        "jobTitle": "Research Assistant",
+        "description": "Research Assistant at Nanyang Technological University (NTU), Singapore. Research Interest: SLAM, Embodied AI, LLM.",
+        "familyName": "Li",
+        "givenName": "Xin",
+        "birthDate": "1997-10-27",
+        "email": "lixin.1997.lixin@gmail.com",
+        "mainEntityOfPage": "https://lixin.ai/",
+        "colleague": {
+          "@type": "Person",
+          "name": "Prof. Chau Yuen",
+          "affiliation": "Nanyang Technological University",
+          "url": "https://blogs.ntu.edu.sg/chau-yuen"
+        },
+        "worksFor": {
+          "@type": "Organization",
+          "name": "Nanyang Technological University",
+          "url": "https://www.ntu.edu.sg/"
+        },
+        "alumniOf": [
+          {
+            "@type": "CollegeOrUniversity",
+            "name": "Nanyang Technological University",
+            "url": "https://www.ntu.edu.sg/"
+          },
+          {
+            "@type": "CollegeOrUniversity",
+            "name": "Peking University",
+            "url": "http://english.pku.edu.cn"
+          },
+          {
+            "@type": "CollegeOrUniversity",
+            "name": "Northeastern University",
+            "url": "https://www.neuq.edu.cn/"
+          },
+          {
+            "@type": "Organization",
+            "name": "Microsoft Research Asia",
+            "url": "https://www.microsoft.com/en-us/research/lab/microsoft-research-asia/"
+          }
+        ],
+        "sameAs": [
+          "https://lixin.ai/",
+          "https://github.com/LiXin97",
+          "https://twitter.com/XinLi72542893",
+          "https://www.linkedin.com/in/xin-li-1196331a0",
+          "https://scholar.google.com/citations?hl=en&user=Hxf8sNkAAAAJ"
+        ]
       }
-      <meta itemprop="abstract" content={description} />
-      <div itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <meta itemprop="name" content={author} />
-        <meta itemprop="url" content={profile} />
-      </div>
-    </div>
+    </script>
+
+    <!-- Google JSON-LD Structured data -->
+
+    <script
+      type="application/ld+json"
+      set:html={JSON.stringify(structuredData)}
+    />
+    
+
 
     <!-- Google Font -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
