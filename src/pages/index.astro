@@ -65,47 +65,51 @@ const socialCount = SOCIALS.filter(social => social.active).length;
 //       <meta itemprop="sameAs" content="https://lixin.ai/">
 //   </div>
 // </body>
-
 ---
-<Layout currentPage = "about">
+
+<Layout currentPage="about">
   <Header />
 
   <main id="main-content">
-
     <section id="hero">
       <h1>Xin Li (李鑫)</h1>
 
-      <img src="/images/XinLi.png" alt="Xin Li profile photo" itemprop="image"
-      style="width: 20%; border-radius: 50%; float: right;" />
+      <img
+        src="/images/XinLi.png"
+        alt="Xin Li profile photo"
+        itemprop="image"
+        style="width: 20%; border-radius: 50%; float: right;"
+      />
 
       <p>
-          I currently work as a Research Assistant at 
-          <LinkButton
-            className="underline decoration-dashed underline-offset-4 hover:text-skin-accent"
-                href="https://www.ntu.edu.sg/">Nanyang Technological University (NTU)
-          </LinkButton>,
-          Singapore, under the supervision of 
-          <LinkButton
-            className="underline decoration-dashed underline-offset-4 hover:text-skin-accent"
-                href="https://blogs.ntu.edu.sg/chau-yuen/">Prof. Chau Yuen
-          </LinkButton>.
+        I currently work as a Research Assistant at
+        <LinkButton
+          className="underline decoration-dashed underline-offset-4 hover:text-skin-accent"
+          href="https://www.ntu.edu.sg/"
+          >Nanyang Technological University (NTU)
+        </LinkButton>, Singapore, under the supervision of
+        <LinkButton
+          className="underline decoration-dashed underline-offset-4 hover:text-skin-accent"
+          href="https://blogs.ntu.edu.sg/chau-yuen/"
+          >Prof. Chau Yuen
+        </LinkButton>.
       </p>
       <p>
-
-          I obtained my Master's degree from 
-          <LinkButton
-            className="underline decoration-dashed underline-offset-4 hover:text-skin-accent"
-            href="http://english.pku.edu.cn">Peking
-                University
-          </LinkButton> and Bachelor's degree from 
-          <LinkButton
-            className="underline decoration-dashed underline-offset-4 hover:text-skin-accent"
-                href="https://www.neuq.edu.cn/">Northeastern University (CN)
-          </LinkButton>.
+        I obtained my Master's degree from
+        <LinkButton
+          className="underline decoration-dashed underline-offset-4 hover:text-skin-accent"
+          href="http://english.pku.edu.cn"
+          >Peking University
+        </LinkButton> and Bachelor's degree from
+        <LinkButton
+          className="underline decoration-dashed underline-offset-4 hover:text-skin-accent"
+          href="https://www.neuq.edu.cn/"
+          >Northeastern University (CN)
+        </LinkButton>.
       </p>
       <p>
-          I am passionate about developing algorithms that enable robots to understand the
-          world around them.
+        I am passionate about developing algorithms that enable robots to
+        understand the world around them.
       </p>
       {
         // only display if at least one social link is enabled
@@ -120,174 +124,227 @@ const socialCount = SOCIALS.filter(social => social.active).length;
 
     <Hr />
 
-
     {
-      // only display if at least one post is featured
       (
+        // only display if at least one post is featured
         <>
           <section id="news">
             <h2>News</h2>
 
-              <div id="news" style="overflow: auto; max-height: 100px;">
-                <ul>
-                    <li>2024.05: Invited to serve as a reviewer for NeurIPS'24.</li>
-                    <li>2024.04: Start my new journey in NTU as a Research Assistant.</li>
-                </ul>
-              </div>
+            <div id="news" style="overflow: auto; max-height: 100px;">
+              <ul>
+                <li>2024.05: Invited to serve as a reviewer for NeurIPS'24.</li>
+                <li>
+                  2024.04: Start my new journey in NTU as a Research Assistant.
+                </li>
+              </ul>
+            </div>
           </section>
         </>
       )
     }
-    
     <Hr />
-      
-      
+
     {
       featuredPubs.length > 0 && (
         <>
           <section id="pubs">
             <h2>Publications</h2>
             <p>
-                Here are some of the papers I've published. You can also find them on <a class="underline hover:text-skin-accent"
-                    href="https://scholar.google.com/citations?hl=en&user=Hxf8sNkAAAAJ">Google Scholar</a>.
-                <small>(* equal contribution)</small> <br>
+              Here are some of the papers I've published. You can also find them
+              on{" "}
+              <a
+                class="underline hover:text-skin-accent"
+                href="https://scholar.google.com/citations?hl=en&user=Hxf8sNkAAAAJ"
+              >
+                Google Scholar
+              </a>
+              .<small>(* equal contribution)</small> <br />
             </p>
-    <ul>
-      {
-        featuredPubs.map(({ data, slug }) => (
-          <PubCard href={`/pubs/${slug}/`} frontmatter={data} />
-        ))
-      }
-    </ul>
+            <ul>
+              {featuredPubs.map(({ data, slug }) => (
+                <PubCard href={`/pubs/${slug}/`} frontmatter={data} />
+              ))}
+            </ul>
           </section>
           {recentPosts.length > 0 && <Hr />}
         </>
       )
     }
+    <Hr />
 
-  {
-    (
-      <>
-        <section id="profession">
-          <h2>Education</h2>
-          <table style="width: 100%;">
-            <tr>
-              <th rowspan="3">M.Eng.</th>
-              <td><LinkButton
-            className="underline hover:text-skin-accent"
-            href="http://english.pku.edu.cn">Peking
-                University
-          </LinkButton></td>
-              <td>2018.09 - 2021.07</td>
-            </tr>
-            <tr>
-              <td colspan="3"><span style="color: #888; font-style: italic; font-size: 0.8rem;">Thesis: 
-              <LinkButton
-            className="underline hover:text-skin-accent"
-                href="/pubs/master_thesis/MatserThesis.pdf">Multi-feature Simultaneous Localization and Mapping with coplanar constraints
-          </LinkButton> </span></td>
-            </tr>
-            <tr>
-              <td colspan="3"><span style="color: #888; font-style: italic; font-size: 0.8rem;">Supervisor: <LinkButton
-            className="underline hover:text-skin-accent"
-                href="https://www.ss.pku.edu.cn/teacherteam/teacherlist/1652-%E6%9E%97%E9%87%91%E9%BE%99.html">Prof. Jinlong Lin (林金龙)
-          </LinkButton></span></td>
-            </tr>
+    {
+      (
+        <>
+          <section id="profession">
+            <h2>Education</h2>
+            <table style="width: 100%;">
+              <tr>
+                <th rowspan="3">M.Eng.</th>
+                <td>
+                  <LinkButton
+                    className="underline hover:text-skin-accent"
+                    href="http://english.pku.edu.cn"
+                  >
+                    Peking University
+                  </LinkButton>
+                </td>
+                <td>2018.09 - 2021.07</td>
+              </tr>
+              <tr>
+                <td colspan="3">
+                  <span style="color: #888; font-style: italic; font-size: 0.8rem;">
+                    Thesis:
+                    <LinkButton
+                      className="underline hover:text-skin-accent"
+                      href="/pubs/master_thesis/MatserThesis.pdf"
+                    >
+                      Multi-feature Simultaneous Localization and Mapping with
+                      coplanar constraints
+                    </LinkButton>{" "}
+                  </span>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="3">
+                  <span style="color: #888; font-style: italic; font-size: 0.8rem;">
+                    Supervisor:{" "}
+                    <LinkButton
+                      className="underline hover:text-skin-accent"
+                      href="https://www.ss.pku.edu.cn/teacherteam/teacherlist/1652-%E6%9E%97%E9%87%91%E9%BE%99.html"
+                    >
+                      Prof. Jinlong Lin (林金龙)
+                    </LinkButton>
+                  </span>
+                </td>
+              </tr>
 
-            <tr>
-              <td colspan="3"><hr></td>
-            </tr>
+              <tr>
+                <td colspan="3">
+                  <hr />
+                </td>
+              </tr>
 
-            <tr>
-              <th>B.Eng.</th>
-              <td><LinkButton
-            className="underline hover:text-skin-accent"
-                href="https://www.neuq.edu.cn/">Northeastern University (CN)
-          </LinkButton></td>
-              <td>2014.09 - 2018.07</td>
-            </tr>
-          </table>
-        </section>
-        <Hr />
-      </>
-    )
-  }
+              <tr>
+                <th>B.Eng.</th>
+                <td>
+                  <LinkButton
+                    className="underline hover:text-skin-accent"
+                    href="https://www.neuq.edu.cn/"
+                  >
+                    Northeastern University (CN)
+                  </LinkButton>
+                </td>
+                <td>2014.09 - 2018.07</td>
+              </tr>
+            </table>
+          </section>
+          <Hr />
+        </>
+      )
+    }
 
-  {
-    (
-      <>
-        <section id="profession">
-          <h2>Experience</h2>
+    {
+      (
+        <>
+          <section id="profession">
+            <h2>Experience</h2>
 
-          <table style="width: 100%; margin-right: auto; margin-left: auto;" border="1">
-            
-            <tr>
-              <th rowspan="3">Research Assistant</td>
-              <td>Nanyang Technological University</td>
-              <td>2024.04 - Present</td>
-            </tr>
+            <table
+              style="width: 100%; margin-right: auto; margin-left: auto;"
+              border="1"
+            >
+              <tr>
+                <th rowspan="3">Research Assistant</th>
+                <td>Nanyang Technological University</td>
+                <td>2024.04 - Present</td>
+              </tr>
 
-            <tr>
-              
-              <td>SUTD, Singapore</td>
-              <td>2021.09 - 2022.03</td>
-            </tr>
-            
-            <tr>
-              <td colspan="2"><span style="color: #888; font-style: italic; font-size: 0.8rem;">Supervised by <LinkButton
-            className="underline hover:text-skin-accent"
-                href="https://blogs.ntu.edu.sg/chau-yuen/">Prof. Chau Yuen
-            </LinkButton></span></td>
-            </tr>
+              <tr>
+                <td>SUTD, Singapore</td>
+                <td>2021.09 - 2022.03</td>
+              </tr>
 
-            <tr>
-              <td colspan="3"><hr></td>
-            </tr>
+              <tr>
+                <td colspan="2">
+                  <span style="color: #888; font-style: italic; font-size: 0.8rem;">
+                    Supervised by{" "}
+                    <LinkButton
+                      className="underline hover:text-skin-accent"
+                      href="https://blogs.ntu.edu.sg/chau-yuen/"
+                    >
+                      Prof. Chau Yuen
+                    </LinkButton>
+                  </span>
+                </td>
+              </tr>
 
-            <tr>
-              <th>SLAM Engineer</td>
-              <td>Gaussian Robotics, Singapore</td>
-              <td>2022.03 - 2024.03</td>
-            </tr>
+              <tr>
+                <td colspan="3">
+                  <hr />
+                </td>
+              </tr>
 
-            <tr>
-              <td colspan="3"><hr></td>
-            </tr>
+              <tr>
+                <th>SLAM Engineer</th>
+                <td>Gaussian Robotics, Singapore</td>
+                <td>2022.03 - 2024.03</td>
+              </tr>
 
-            <tr>
-              <th rowspan="4">Research Intern</th>
-              <td>Microsoft Research Asia, Beijing</td>
-              <td>2020.09 - 2021.04</td>
-            </tr>
-            <tr>
-              <td colspan="3"><span style="color: #888; font-style: italic; font-size: 0.8rem;">Supervised by <LinkButton
-            className="underline hover:text-skin-accent"
-                href="https://xueyuhanlang.github.io/">Dr. Yang Liu (刘洋)
-            </LinkButton> and <LinkButton
-            className="underline hover:text-skin-accent"
-                href="https://yizhongzhang1989.github.io/">Dr. Yizhong Zhang (张译中)
-            </LinkButton></span></td>
-            </tr>
-            <tr>
-              <td>Megvii (a.k.a Face++), Beijing</td>
-              <td>2019.09 - 2020.03</td>
-            </tr>
-            <tr>
-              <td colspan="3"><span style="color: #888; font-style: italic; font-size: 0.8rem;">Supervised by <LinkButton
-            className="underline hover:text-skin-accent"
-                href="https://scholar.google.com/citations?user=_0lKGnkAAAAJ&hl=en">Dr. Yijia He (贺一家)
-            </LinkButton> </span></td>
-            </tr>
-          </table>
-        </section>
-        <Hr />
-      </>
-    )
-  }
+              <tr>
+                <td colspan="3">
+                  <hr />
+                </td>
+              </tr>
 
-
-  
-
+              <tr>
+                <th rowspan="4">Research Intern</th>
+                <td>Microsoft Research Asia, Beijing</td>
+                <td>2020.09 - 2021.04</td>
+              </tr>
+              <tr>
+                <td colspan="3">
+                  <span style="color: #888; font-style: italic; font-size: 0.8rem;">
+                    Supervised by{" "}
+                    <LinkButton
+                      className="underline hover:text-skin-accent"
+                      href="https://xueyuhanlang.github.io/"
+                    >
+                      Dr. Yang Liu (刘洋)
+                    </LinkButton>{" "}
+                    and{" "}
+                    <LinkButton
+                      className="underline hover:text-skin-accent"
+                      href="https://yizhongzhang1989.github.io/"
+                    >
+                      Dr. Yizhong Zhang (张译中)
+                    </LinkButton>
+                  </span>
+                </td>
+              </tr>
+              <tr>
+                <td>Megvii (a.k.a Face++), Beijing</td>
+                <td>2019.05 - 2020.03</td>
+              </tr>
+              <tr>
+                <td colspan="3">
+                  <span style="color: #888; font-style: italic; font-size: 0.8rem;">
+                    Supervised by{" "}
+                    <LinkButton
+                      className="underline hover:text-skin-accent"
+                      href="https://scholar.google.com/citations?user=_0lKGnkAAAAJ&hl=en"
+                    >
+                      Dr. Yijia He (贺一家)
+                    </LinkButton>{" "}
+                  </span>
+                </td>
+              </tr>
+            </table>
+          </section>
+          <Hr />
+        </>
+      )
+    }
   </main>
 
   <Footer />
@@ -335,7 +392,8 @@ const socialCount = SOCIALS.filter(social => social.active).length;
   .all-posts-btn-wrapper {
     @apply my-8 text-center;
   }
-  td, th {
+  td,
+  th {
     text-align: left; /* Aligns text to the left */
   }
 </style>

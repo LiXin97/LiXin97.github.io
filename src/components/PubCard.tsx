@@ -45,9 +45,9 @@ const StructuredMetaData = ({ title, authors, published_year, published_place, o
 
     return (
         <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
-      />
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+        />
     );
 }
 
@@ -84,15 +84,15 @@ export default function PubCard({ href, frontmatter, secHeading = true }: PubCar
                     <img src={citation_url} alt="Google Scholar Citations"></img>
                 </a>
             </div>
-            
+
         );
     }
 
     const copyToClipboard = () => {
         navigator.clipboard.writeText(bibtex).then(() => {
-          alert('BibTeX entry copied to clipboard!');
+            alert('BibTeX entry copied to clipboard!');
         }, (err) => {
-          console.error('Could not copy text: ', err);
+            console.error('Could not copy text: ', err);
         });
     };
 
@@ -107,7 +107,7 @@ export default function PubCard({ href, frontmatter, secHeading = true }: PubCar
                     <td style={{ width: '20%' }}>
                         <img
                             src={og_image}
-                            alt={title}
+                            alt={`Cover image of ${title}`}
                         />
                     </td>
 
@@ -161,7 +161,7 @@ export default function PubCard({ href, frontmatter, secHeading = true }: PubCar
                                         {index === links.length - 1 ? "" : " / "}
                                     </span>
                                 ))
-                            }                  
+                            }
                             {showGoogleCitations()}
                         </li>
                     </td>

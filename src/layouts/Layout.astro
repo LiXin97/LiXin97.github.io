@@ -75,8 +75,8 @@ const structuredData = {
     <meta name="title" content={title} />
     <meta name="description" content={description} />
     <meta name="author" content={author} />
-    <!-- <link rel="sitemap" href="/sitemap-index.xml" /> -->
-    <link rel="sitemap" href="/sitemap-0.xml" />
+    <meta name="keywords" content={SITE.ogTag} />
+    <link rel="sitemap" href="/sitemap-index.xml" />
 
     <!-- Open Graph / Facebook -->
     <meta property="og:title" content={title} />
@@ -86,8 +86,9 @@ const structuredData = {
 
     <meta property="og:author" content={author} />
     <meta property="og:locale" content="en_US" />
-    <meta property="og:category" content="Technology" />
+    <meta property="og:category" content="Personal Homepage" />
     <meta property="og:tag" content={ogTag} />
+    <meta property="og:type" content="website" />
 
     <meta property="og:site_name" content={title} />
 
@@ -182,6 +183,7 @@ const structuredData = {
               sameAs: [
                 "https://lixin.ai/",
                 "https://github.com/LiXin97",
+                "https://lixin97.github.io/",
                 "https://twitter.com/XinLi72542893",
                 "https://www.linkedin.com/in/xin-li-1196331a0",
                 "https://scholar.google.com/citations?hl=en&user=Hxf8sNkAAAAJ",

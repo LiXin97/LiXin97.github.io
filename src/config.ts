@@ -5,7 +5,7 @@ export const SITE: Site = {
   author: "Xin Li",
   profile: "https://lixin.ai/",
   desc: "Xin Li's Homepage, Research Assistant at Nanyang Technological University (NTU), Singapore. Research Interest: SLAM, Embodied AI, and LLM.",
-  title: "Xin Li",
+  title: "Xin Li | Homepage",
   ogImage: "/images/XinLi.png",
   ogTag: "Xin Li, 李鑫, SLAM, Embodied AI, LLM, NTU, Nanyang Technological University, Singapore",
   lightAndDarkMode: true,
