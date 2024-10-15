@@ -124,25 +124,23 @@ const socialCount = SOCIALS.filter(social => social.active).length;
 
     <Hr />
 
-    {
-      (
-        // only display if at least one post is featured
-        <>
-          <section id="news">
-            <h2>News</h2>
+    <section id="news">
+      <h2>News</h2>
+      <div style="overflow: auto; max-height: 200px;">
+        <ul>
+          <li class="news-item">
+            Oct. 2024: 🎉 Celebrating the academic milestone of reaching 100 citations on Google Scholar!
+          </li>
+          <li class="news-item">
+            May&nbsp 2024: Honored to be invited as a reviewer for NeurIPS 2024.
+          </li>
+          <li class="news-item">
+            Apr. 2024: Beginning my new journey at Nanyang Technological University as a Research Assistant.
+          </li>
+        </ul>
+      </div>
+    </section>
 
-            <div id="news" style="overflow: auto; max-height: 100px;">
-              <ul>
-                <li>2024.05: Invited to serve as a reviewer for NeurIPS'24.</li>
-                <li>
-                  2024.04: Start my new journey in NTU as a Research Assistant.
-                </li>
-              </ul>
-            </div>
-          </section>
-        </>
-      )
-    }
     <Hr />
 
     {
