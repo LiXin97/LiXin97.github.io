@@ -7,6 +7,8 @@ import getSortedPubs from "@utils/getSortedPubs";
 import LinkButton from "@components/LinkButton.astro";
 import Hr from "@components/Hr.astro";
 import PubCard from "@components/PubCard";
+import MiniPubCard from "@components/MiniPubCard";
+import MiniPubSection from "@components/MiniPubSection";
 import Socials from "@components/Socials.astro";
 import getSortedPosts from "@utils/getSortedPosts";
 import { SITE, SOCIALS } from "@config";
@@ -32,14 +34,15 @@ interface NewsItem {
 const newsItems: NewsItem[] = [
   {
     date: "Dec. 2024",
-    content: "Secured 4th place in the ICASSP 2025 Indoor Pathloss Radio Map Prediction Challenge.",
-    link: "https://indoorradiomapchallenge.github.io/results.html"
+    content:
+      "Secured 4th place in the ICASSP 2025 Indoor Pathloss Radio Map Prediction Challenge.",
+    link: "https://indoorradiomapchallenge.github.io/results.html",
   },
   {
     date: "Oct. 2024",
     content: "Reached 100+ citations milestone on Google Scholar.",
     isHighlight: true,
-    link: "https://scholar.google.com/citations?user=Hxf8sNkAAAAJ"
+    link: "https://scholar.google.com/citations?user=Hxf8sNkAAAAJ",
   },
   {
     date: "Apr. 2024",
@@ -47,7 +50,6 @@ const newsItems: NewsItem[] = [
     // link: "https://www.ntu.edu.sg"
   },
 ];
-
 
 // <body itemscope="itemscope" itemtype="http://schema.org/ProfilePage">
 //   <div itemprop="mainEntity" itemtype="http://schema.org/Person" itemscope>
@@ -153,52 +155,52 @@ const newsItems: NewsItem[] = [
     <Hr />
 
     <section id="news" class="w-full">
-      <div class="flex items-center gap-2 mb-4">
-        <h2 class="text-2xl font-semibold tracking-wide pb-6 pt-6">News</h2>
+      <div class="mb-4 flex items-center gap-2">
+        <h2 class="pb-6 pt-6 text-2xl font-semibold tracking-wide">News</h2>
         <!-- <span class="text-sm text-gray-500 pt-6">
           ({newsItems.length} updates)
         </span> -->
       </div>
-    
-      <div class="overflow-auto max-h-96">
+
+      <div class="max-h-96 overflow-auto">
         <ul class="divide-y">
-          {newsItems.map((item, index) => (
-            <li 
-              class:list={[
-                "p-2 transition-colors",
-                // "p-4 hover:bg-gray-50 transition-colors",
-                // { "bg-gradient-to-r from-purple-50 to-transparent": item.isHighlight }
-              ]}
-            >
-              <div class="flex flex-col gap-2 sm:flex-row sm:items-start">
-                <div class="shrink-0 sm:w-32">
-                  <span class="font-semibold text-sm">
-                    {item.date}
-                  </span>
-                </div>
-    
-                <div class="flex-1">
-                  <div class="flex items-start gap-2 flex-wrap">
-                    <span class="text-sm">
-                      {item.isHighlight && "🎉 "}
-                      {item.link ? (
-                        <a 
-                          href={item.link}
-                          class="hover:text-skin-accent"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                        >
-                          {item.content}
-                        </a>
-                      ) : (
-                        item.content
-                      )}
-                    </span>
+          {
+            newsItems.map((item, index) => (
+              <li
+                class:list={[
+                  "p-2 transition-colors",
+                  // "p-4 hover:bg-gray-50 transition-colors",
+                  // { "bg-gradient-to-r from-purple-50 to-transparent": item.isHighlight }
+                ]}
+              >
+                <div class="flex flex-col gap-2 sm:flex-row sm:items-start">
+                  <div class="shrink-0 sm:w-32">
+                    <span class="text-sm font-semibold">{item.date}</span>
+                  </div>
+
+                  <div class="flex-1">
+                    <div class="flex flex-wrap items-start gap-2">
+                      <span class="text-sm">
+                        {item.isHighlight && "🎉 "}
+                        {item.link ? (
+                          <a
+                            href={item.link}
+                            class="hover:text-skin-accent"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          >
+                            {item.content}
+                          </a>
+                        ) : (
+                          item.content
+                        )}
+                      </span>
+                    </div>
                   </div>
                 </div>
-              </div>
-            </li>
-          ))}
+              </li>
+            ))
+          }
         </ul>
       </div>
     </section>
@@ -221,11 +223,24 @@ const newsItems: NewsItem[] = [
               </a>
               .<small>(* equal contribution)</small> <br />
             </p>
-            <ul>
-              {featuredPubs.map(({ data, slug }) => (
-                <PubCard href={`/pubs/${slug}/`} frontmatter={data} />
-              ))}
-            </ul>
+
+            {/* /* gap between the list and the button */}
+            {/* 
+            <div class="mb-4" />
+            {
+              <ul>
+                {featuredPubs.map(({ data, slug }) => (
+                  <MiniPubCard href={`/pubs/${slug}/`} frontmatter={data} />
+                ))}
+              </ul>
+            } */}
+            {
+              <ul max-h-96 overflow-auto class="divide-y">
+                {featuredPubs.map(({ data, slug }) => (
+                  <PubCard href={`/pubs/${slug}/`} frontmatter={data} />
+                ))}
+              </ul>
+            }
           </section>
           {recentPosts.length > 0 && <Hr />}
         </>
@@ -342,7 +357,7 @@ const newsItems: NewsItem[] = [
               <tr>
                 <th rowspan="3">Research Assistant</th>
                 <td>Nanyang Technological University</td>
-                <td>2024.04 - Present</td>
+                <td>2024.04 - 2025.01</td>
               </tr>
 
               <tr>
@@ -438,9 +453,10 @@ const newsItems: NewsItem[] = [
             <h2>Academic Services</h2>
 
             <p>
-                <b>Conference Reviewer:</b> IROS (2021, 2022), ICRA (2022, 2023, 2025), NeurIPS (2024), ICLR (2025), AISTATS(2025)
-                <br>
-                <b>Journal Reviewer:</b> IEEE RA-L, IEEE TIM
+              <b>Conference Reviewer:</b> IROS (2021, 2022), ICRA (2022, 2023,
+              2025), NeurIPS (2024), ICLR (2025), AISTATS(2025)
+              <br />
+              <b>Journal Reviewer:</b> IEEE RA-L, IEEE TIM
             </p>
 
             {/* <table style="width: 100%;">
@@ -455,7 +471,6 @@ const newsItems: NewsItem[] = [
         </>
       )
     }
-
   </main>
 
   <Footer />

@@ -104,7 +104,7 @@ export default function PubCard({ href, frontmatter, secHeading = true }: PubCar
         );
 
         return author.url ? (
-            <a href={author.url} className="decoration-dashed hover:underline underline">
+            <a href={author.url} className="decoration-dashed hover:underline">
                 {displayName}
             </a>
         ) : displayName;
@@ -176,7 +176,7 @@ export default function PubCard({ href, frontmatter, secHeading = true }: PubCar
                                         {index === 0 ? "Links: " : ""}
                                         {
                                             link.url ? (
-                                                <a href={link.url} className="decoration-dashed hover:underline underline">
+                                                <a href={link.url} className="decoration-dashed hover:underline">
                                                     {link.name}
                                                 </a>
                                             ) : link.name
