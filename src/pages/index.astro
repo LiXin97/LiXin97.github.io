@@ -21,6 +21,34 @@ const featuredPubs = getSortedPubs(pubs);
 const recentPosts = sortedPosts.filter(({ data }) => !data.featured);
 
 const socialCount = SOCIALS.filter(social => social.active).length;
+
+interface NewsItem {
+  date: string;
+  content: string;
+  isHighlight?: boolean;
+  link?: string;
+}
+
+const newsItems: NewsItem[] = [
+  {
+    date: "Dec. 2024",
+    content: "Secured 4th place in the ICASSP 2025 Indoor Pathloss Radio Map Prediction Challenge.",
+    link: "https://indoorradiomapchallenge.github.io/results.html"
+  },
+  {
+    date: "Oct. 2024",
+    content: "Reached 100+ citations milestone on Google Scholar.",
+    isHighlight: true,
+    link: "https://scholar.google.com/citations?user=Hxf8sNkAAAAJ"
+  },
+  {
+    date: "Apr. 2024",
+    content: "Joined Nanyang Technological University as a Research Assistant.",
+    link: "https://www.ntu.edu.sg"
+  }
+];
+
+
 // <body itemscope="itemscope" itemtype="http://schema.org/ProfilePage">
 //   <div itemprop="mainEntity" itemtype="http://schema.org/Person" itemscope>
 //       <meta itemprop="name" content="Xin Li (李鑫)">
@@ -124,19 +152,52 @@ const socialCount = SOCIALS.filter(social => social.active).length;
 
     <Hr />
 
-    <section id="news">
-      <h2>News</h2>
-      <div style="overflow: auto; max-height: 200px;">
-        <ul>
-          <li class="news-item">
-            Oct. 2024: 🎉 Celebrating the academic milestone of reaching 100 citations on Google Scholar!
-          </li>
-          <li class="news-item">
-            May&nbsp 2024: Honored to be invited as a reviewer for NeurIPS 2024.
-          </li>
-          <li class="news-item">
-            Apr. 2024: Beginning my new journey at Nanyang Technological University as a Research Assistant.
-          </li>
+    <section id="news" class="w-full">
+      <div class="flex items-center gap-2 mb-4">
+        <h2 class="text-2xl font-semibold tracking-wide pb-6 pt-6">News</h2>
+        <!-- <span class="text-sm text-gray-500 pt-6">
+          ({newsItems.length} updates)
+        </span> -->
+      </div>
+    
+      <div class="overflow-auto max-h-96 border">
+        <ul class="divide-y">
+          {newsItems.map((item, index) => (
+            <li 
+              class:list={[
+                "p-4 hover:bg-gray-50 transition-colors",
+                { "bg-gradient-to-r from-purple-50 to-transparent": item.isHighlight }
+              ]}
+            >
+              <div class="flex flex-col gap-2 sm:flex-row sm:items-start">
+                <div class="shrink-0 sm:w-32">
+                  <span class="text-base font-medium text-gray-600">
+                    {item.date}
+                  </span>
+                </div>
+    
+                <div class="flex-1">
+                  <div class="flex items-start gap-2 flex-wrap">
+                    <span class="text-base">
+                      {item.isHighlight && "🎉 "}
+                      {item.link ? (
+                        <a 
+                          href={item.link}
+                          class="hover:text-skin-accent"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          {item.content}
+                        </a>
+                      ) : (
+                        item.content
+                      )}
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </li>
+          ))}
         </ul>
       </div>
     </section>

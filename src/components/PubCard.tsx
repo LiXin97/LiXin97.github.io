@@ -96,6 +96,20 @@ export default function PubCard({ href, frontmatter, secHeading = true }: PubCar
         });
     };
 
+
+    const renderAuthorName = (author: Author) => {
+        const isXinLi = author.name === "Xin Li" || author.name === "Xin Li*";
+        const displayName = (
+            isXinLi ? <b>{author.name}</b> : author.name
+        );
+
+        return author.url ? (
+            <a href={author.url} className="decoration-dashed hover:underline underline">
+                {displayName}
+            </a>
+        ) : displayName;
+    };
+
     return (
 
         <div>
@@ -124,7 +138,7 @@ export default function PubCard({ href, frontmatter, secHeading = true }: PubCar
                                 )}
                             </a>
 
-                            {
+                            {/* {
                                 authors.map((author, index) => (
                                     <span key={index} className="text-sm font-light">
                                         {index === 0 ? "Authors: " : ""}
@@ -139,7 +153,16 @@ export default function PubCard({ href, frontmatter, secHeading = true }: PubCar
                                         {index === authors.length - 1 ? "" : ", "}
                                     </span>
                                 ))
-                            }
+                            } */}
+
+                            <div className="text-sm">
+                                Authors: {authors.map((author, index) => (
+                                    <span key={index}>
+                                        {renderAuthorName(author)}
+                                        {index === authors.length - 1 ? '' : ', '}
+                                    </span>
+                                ))}
+                            </div>
 
                             <p className="text-sm font-light">Published in: {published_place}, {published_year.toString()}</p>
                             {
