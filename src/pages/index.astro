@@ -44,8 +44,8 @@ const newsItems: NewsItem[] = [
   {
     date: "Apr. 2024",
     content: "Joined Nanyang Technological University as a Research Assistant.",
-    link: "https://www.ntu.edu.sg"
-  }
+    // link: "https://www.ntu.edu.sg"
+  },
 ];
 
 
@@ -160,25 +160,26 @@ const newsItems: NewsItem[] = [
         </span> -->
       </div>
     
-      <div class="overflow-auto max-h-96 border">
+      <div class="overflow-auto max-h-96">
         <ul class="divide-y">
           {newsItems.map((item, index) => (
             <li 
               class:list={[
-                "p-4 hover:bg-gray-50 transition-colors",
-                { "bg-gradient-to-r from-purple-50 to-transparent": item.isHighlight }
+                "p-2 transition-colors",
+                // "p-4 hover:bg-gray-50 transition-colors",
+                // { "bg-gradient-to-r from-purple-50 to-transparent": item.isHighlight }
               ]}
             >
               <div class="flex flex-col gap-2 sm:flex-row sm:items-start">
                 <div class="shrink-0 sm:w-32">
-                  <span class="text-base font-medium text-gray-600">
+                  <span class="font-semibold text-sm">
                     {item.date}
                   </span>
                 </div>
     
                 <div class="flex-1">
                   <div class="flex items-start gap-2 flex-wrap">
-                    <span class="text-base">
+                    <span class="text-sm">
                       {item.isHighlight && "🎉 "}
                       {item.link ? (
                         <a 
@@ -238,6 +239,31 @@ const newsItems: NewsItem[] = [
           <section id="profession">
             <h2>Education</h2>
             <table style="width: 100%;">
+              <tr>
+                <th rowspan="2">Ph.D.</th>
+                <td>
+                  <LinkButton
+                    className="underline hover:text-skin-accent"
+                    href="http://ntu.edu.sg"
+                  >
+                    Nanyang Technological University, Singapore
+                  </LinkButton>
+                </td>
+                <td>2025.01 - Present</td>
+              </tr>
+              <tr>
+                <td colspan="3">
+                  <span style="color: #888; font-style: italic; font-size: 0.8rem;">
+                    Supervisor:{" "}
+                    <LinkButton
+                      className="underline hover:text-skin-accent"
+                      href="https://blogs.ntu.edu.sg/chau-yuen/"
+                    >
+                      Prof. Chau Yuen
+                    </LinkButton>
+                  </span>
+                </td>
+              </tr>
               <tr>
                 <th rowspan="3">M.Eng.</th>
                 <td>
