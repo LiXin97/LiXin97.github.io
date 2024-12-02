@@ -33,19 +33,19 @@ interface NewsItem {
 
 const newsItems: NewsItem[] = [
   {
-    date: "Dec. 2024",
+    date: "2024.12",
     content:
       "Secured 4th place in the ICASSP 2025 Indoor Pathloss Radio Map Prediction Challenge.",
     link: "https://indoorradiomapchallenge.github.io/results.html",
   },
   {
-    date: "Oct. 2024",
+    date: "2024.10",
     content: "Reached 100+ citations milestone on Google Scholar.",
     isHighlight: true,
     link: "https://scholar.google.com/citations?user=Hxf8sNkAAAAJ",
   },
   {
-    date: "Apr. 2024",
+    date: "2024.04",
     content: "Joined Nanyang Technological University as a Research Assistant.",
     // link: "https://www.ntu.edu.sg"
   },
@@ -106,13 +106,14 @@ const newsItems: NewsItem[] = [
 
       <img
         src="/images/XinLi.png"
-        alt="Xin Li profile photo"
+        alt="Profile photo of Xin Li"
         itemprop="image"
         style="width: 20%; border-radius: 50%; float: right;"
       />
 
       <p>
-        I currently work as a Research Assistant at
+        I am currently a first-year Ph.D. student at
+        <!-- I currently work as a Research Assistant at -->
         <LinkButton
           className="underline decoration-dashed underline-offset-4 hover:text-skin-accent"
           href="https://www.ntu.edu.sg/"
@@ -137,10 +138,30 @@ const newsItems: NewsItem[] = [
           >Northeastern University (CN)
         </LinkButton>.
       </p>
-      <p>
+      <!-- <p>
         I am passionate about developing algorithms that enable robots to
         understand the world around them.
+      </p> -->
+
+      <br />
+      <p>
+        Email:
+        <a
+          href="mailto:li-x@ntu.edu.sg"
+          class="underline hover:text-skin-accent"
+        >
+        li-x@ntu.edu.sg</a>
+
+        &nbsp;
+
+        <!-- <a
+          href="mailto:lixin.1997.lixin@gmail.com"
+          class="underline hover:text-skin-accent"
+        >
+        lixin.1997.lixin@gmail.com</a> -->
       </p>
+
+
       {
         // only display if at least one social link is enabled
         socialCount > 0 && (
@@ -277,6 +298,12 @@ const newsItems: NewsItem[] = [
                       Prof. Chau Yuen
                     </LinkButton>
                   </span>
+                </td>
+              </tr>
+
+              <tr>
+                <td colspan="3">
+                  <hr />
                 </td>
               </tr>
               <tr>
