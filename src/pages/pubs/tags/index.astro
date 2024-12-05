@@ -6,14 +6,12 @@ import Layout from "@layouts/Layout.astro";
 import Main from "@layouts/Main.astro";
 import Tag from "@components/Tag.astro";
 import getUniquePubTags from "@utils/getUniquePubTags";
-import getSortedPubs from "@utils/getSortedPubs";
+import getSortedPubsYears from "@utils/getSortedPubsYears";
 import { SITE } from "@config";
 
 const pubs = await getCollection("pub");
-const sortedPubs = getSortedPubs(pubs);
-
-
-let tags = getUniquePubTags(sortedPubs);
+const { pubs_sort, unique_years } = getSortedPubsYears(pubs);
+let tags = getUniquePubTags(pubs_sort);
 ---
 
 <Layout title={`PubsTags | ${SITE.title}`} currentPage="pubs">

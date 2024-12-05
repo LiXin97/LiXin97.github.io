@@ -4,7 +4,7 @@ import TagPosts from "@layouts/TagPosts.astro";
 import getPubsByTag from "@utils/getPubsByTag";
 import getPagination from "@utils/getPagination";
 import getUniquePubTags from "@utils/getUniquePubTags";
-import getSortedPubs from "@utils/getSortedPubs";
+import getSortedPubsYears from "@utils/getSortedPubsYears";
 
 
 import Header from "@components/Header.astro";
@@ -30,6 +30,9 @@ export async function getStaticPaths() {
 const { tag, tagName, pubs } = Astro.props;
 
 const pubsByTag = getPubsByTag(pubs, tag);
+
+const { pubs_sort, unique_years } = getSortedPubsYears(pubsByTag);
+
 ---
 
 
@@ -37,10 +40,18 @@ const pubsByTag = getPubsByTag(pubs, tag);
   <Header activeNav="pubs" />
   <Main pageTitle="Publications" pageDesc={`All the papers I've published with the tag ${tagName}.`}>
 
+
     <ul>
       {
-        pubsByTag.map(({ data, slug }) => (
-          <PubCard href={`/pubs/${slug}/`} frontmatter={data} />
+        unique_years.map(year => (
+          <div>
+            <h2 class="mb-4 mt-8 text-lg font-bold">{year}</h2>
+            {pubs_sort
+              .filter(({ data }) => data.published_year === year)
+              .map(({ data, slug }) => (
+                <PubCard href={`/pubs/${slug}/`} frontmatter={data} />
+              ))}
+          </div>
         ))
       }
     </ul>
