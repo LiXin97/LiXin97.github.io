@@ -35,7 +35,7 @@ const pubsByTag = getPubsByTag(pubs, tag);
 
 <Layout title={`Pubs | ${SITE.title}`} currentPage="pubs">
   <Header activeNav="pubs" />
-  <Main pageTitle="Publications" pageDesc="All the papers I've published.">
+  <Main pageTitle="Publications" pageDesc={`All the papers I've published with the tag ${tagName}.`}>
 
     <ul>
       {

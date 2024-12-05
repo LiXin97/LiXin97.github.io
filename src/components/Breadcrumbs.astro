@@ -31,11 +31,11 @@ breadcrumbList[0] === "tags" &&
       <span aria-hidden="true">&raquo;</span>
     </li>
     {
-      breadcrumbList.map((breadcrumb, index) =>
+      breadcrumbList.map((breadcrumb, index) => (
         index + 1 === breadcrumbList.length ? (
           <li>
             <span
-              class={`${index > 0 ? "lowercase" : "capitalize"}`}
+              class={`${index > 1 ? "lowercase" : "capitalize"}`}
               aria-current="page"
             >
               {/* make the last part lowercase in Home > Tags > some-tag */}
@@ -44,11 +44,11 @@ breadcrumbList[0] === "tags" &&
           </li>
         ) : (
           <li>
-            <a href={`/${breadcrumb}/`}>{breadcrumb}</a>
+            <a href={`/${breadcrumbList.slice(0, index + 1).join("/")}/`}>{breadcrumb}</a>
             <span aria-hidden="true">&raquo;</span>
           </li>
         )
-      )
+      ))
     }
   </ul>
 </nav>
