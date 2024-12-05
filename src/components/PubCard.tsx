@@ -75,29 +75,40 @@ export default function PubCard({ href, frontmatter, secHeading = true }: PubCar
     const showGoogleCitations = () => {
         let citation_url = "https://img.shields.io/endpoint?logo=Google%20Scholar&url=https%3A%2F%2Fcdn.jsdelivr.net%2Fgh%2FLiXin97%2Flixin97.github.io@google-scholar-stats%2Fgs_data_Hxf8sNkAAAAJ:" + paper_id + ".json&labelColor=f6f6f6&color=9cf&style=flat&label=citations";
         return (
-            // <p>{citation_url}</p>
-            // <a href="https://scholar.google.com/citations?user=Hxf8sNkAAAAJ">
-            //     <img src={citation_url} alt="Google Scholar Citations" ></img>
-            // </a>
-            // <a href="default.asp"><img src="smiley.gif" alt="HTML tutorial" style="width:42px;height:42px;"></a>
-
-            <div>
-                <a href="https://scholar.google.com/citations?user=Hxf8sNkAAAAJ" className="inline-block text-lg font-medium text-skin-accent decoration-dashed underline-offset-4 focus-visible:no-underline focus-visible:underline-offset-0">
-                    <img src={citation_url} alt="Google Scholar Citations"></img>
-                </a>
-            </div>
-
+            <a href="https://scholar.google.com/citations?user=Hxf8sNkAAAAJ" className="inline-block align-middle">
+                <img src={citation_url} alt="Google Scholar Citations" />
+            </a>
         );
     }
 
     const copyToClipboard = () => {
         navigator.clipboard.writeText(bibtex).then(() => {
             alert('BibTeX entry copied to clipboard!');
-        }, (err) => {
+        }).catch((err) => {
             console.error('Could not copy text: ', err);
         });
     };
 
+    const showBibtexButton = () => {
+        return (
+            <button onClick={toggleBibtex} className="text-sm font-light underline cursor-pointer">
+                {showBibtex ? "Hide BibTeX" : "Show BibTeX"}
+            </button>
+            
+        );
+    };
+
+    const renderBibtex = () => {
+        if (showBibtex) {
+            return (
+                <div>
+                    <pre>{bibtex}</pre>
+                    <span onClick={copyToClipboard} className="text-sm font-light underline cursor-pointer">Copy to Clipboard</span>
+                </div>
+            );
+        }
+        return null;
+    };
 
     const renderAuthorName = (author: Author) => {
         const isXinLi = author.name === "Xin Li" || author.name === "Xin Li*";
@@ -113,12 +124,10 @@ export default function PubCard({ href, frontmatter, secHeading = true }: PubCar
     };
 
     return (
-
         <div>
             <StructuredMetaData title={title} authors={authors} published_year={published_year} published_place={published_place} og_image={og_image} homepage={homepage} />
 
             <table style={{ width: '100%', margin: 'auto' }} border={1}>
-
                 <tr>
                     <td style={{ width: '20%' }}>
                         <img
@@ -126,76 +135,43 @@ export default function PubCard({ href, frontmatter, secHeading = true }: PubCar
                             alt={`Cover image of ${title}`}
                         />
                     </td>
-
                     <td style={{ width: '3%' }}>
                     </td>
-
                     <td>
                         <li className="my-6">
                             <a
                                 href={homepage}
                                 className="inline-block text-lg font-medium text-skin-accent decoration-dashed underline-offset-4 focus-visible:no-underline focus-visible:underline-offset-0"
                             >
-                                {secHeading ? (
-                                    <h2 {...headerProps}>{title}</h2>
-                                ) : (
-                                    <h3 {...headerProps}>{title}</h3>
-                                )}
+                                <h3 {...headerProps}>{title}</h3>
                             </a>
-
-                            {/* {
-                                authors.map((author, index) => (
-                                    <span key={index} className="text-sm font-light">
-                                        {index === 0 ? "Authors: " : ""}
-                                        {
-                                            // if author.name == "Xin Li", bold the name
-                                            author.url ? (
-                                                <a href={author.url} className="decoration-dashed hover:underline underline">
-                                                    {author.name}
-                                                </a>
-                                            ) : author.name
-                                        }
-                                        {index === authors.length - 1 ? "" : ", "}
-                                    </span>
-                                ))
-                            } */}
 
                             <div className="text-sm">
                                 {authors.map((author, index) => (
                                     <span key={index}>
                                         {renderAuthorName(author)}
-                                        {index === authors.length - 1 ? '' : ', '}
+                                        {index === authors.length - 1 ? '.' : ', '}
                                     </span>
                                 ))}
                             </div>
 
-                            <p className="text-sm font-light">{published_place}, {published_year.toString()}</p>
-                            {
-                                // homepage ? (
-                                //     <p className="text-sm font-light">Homepage: <a href={homepage} className="decoration-dashed hover:underline underline">{homepage}</a></p>
-                                // ) : ""
-                            }
-                            {
-                                links.map((link, index) => (
-                                    <span key={index} className="text-sm font-light">
-                                        {index === 0 ? "Links: " : ""}
-                                        {
-                                            link.url ? (
-                                                <a href={link.url} className="decoration-dashed hover:underline">
-                                                    {link.name}
-                                                </a>
-                                            ) : link.name
-                                        }
-                                        {index === links.length - 1 ? "" : " / "}
-                                    </span>
-                                ))
-                            }
-                            {showGoogleCitations()}
+                            <p className="text-sm font-light">{published_place}, {published_year.toString()}. &nbsp;</p>
+                            {links.map((link, index) => (
+                                <span key={index} className="text-sm font-light">
+                                    {
+                                        link.url ? (
+                                            <a href={link.url} className="hover:underline text-skin-accent decoration-dashed underline-offset-4 focus-visible:no-underline focus-visible:underline-offset-0">
+                                                {link.name}
+                                            </a>
+                                        ) : link.name
+                                    }
+                                    {index === links.length - 1 ? <span> / {showGoogleCitations()} </span> : " / "}
+                                </span>
+                            ))}
                         </li>
                     </td>
                 </tr>
-            </table >
-
-        </div >
+            </table>
+        </div>
     );
 }
