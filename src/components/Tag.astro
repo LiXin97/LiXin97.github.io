@@ -2,9 +2,10 @@
 export interface Props {
   tag: string;
   size?: "sm" | "lg";
+  type?: "pubs" | "posts";
 }
 
-const { tag, size = "sm" } = Astro.props;
+const { tag, size = "sm", type = "posts" } = Astro.props;
 ---
 
 <li
@@ -13,7 +14,7 @@ const { tag, size = "sm" } = Astro.props;
   }`}
 >
   <a
-    href={`/posts/tags/${tag}/`}
+    href={`/${type}/tags/${tag}/`}
     transition:name={tag}
     class={`${size === "sm" ? "text-sm" : "text-lg"} pr-2 group`}
   >

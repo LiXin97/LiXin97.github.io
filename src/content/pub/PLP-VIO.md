@@ -10,6 +10,9 @@ authors:
     url: ""
 published_place: IROS
 published_year: 2020
+published_month: 10
+tags:
+    - SLAM
 paper_id: "u5HHmVD_uO8C"
 title: Leveraging Planar Regularities for Point Line Visual-Inertial Odometry
 slug: leveraging-planar-regularities-for-point-line-visual-inertial-odometry

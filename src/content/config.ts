@@ -35,6 +35,7 @@ const pub = defineCollection({
         })
       ),
       published_year: z.number(),
+      published_month: z.number().optional(),
       published_place: z.string(),
       bibtex: z.string(),
       links: z.array(
@@ -46,6 +47,7 @@ const pub = defineCollection({
       homepage: z.string(),
       paper_id: z.string(),
       og_image: z.string(),
+      tags: z.array(z.string()).default(["others"]),
     }),
 });
 

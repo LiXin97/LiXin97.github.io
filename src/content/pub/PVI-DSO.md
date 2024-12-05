@@ -12,6 +12,8 @@ authors:
     url: ""
 published_place: IEEE Sensors Journal
 published_year: 2023
+tags:
+    - SLAM
 paper_id: "2osOgNQ5qMEC"
 title: "PVI-DSO: Leveraging Planar Regularities for Direct Sparse Visual-Inertial Odometry"
 slug: pvi-dso-leveraging-planar-regularities-for-direct-sparse-visual-inertial-odometry

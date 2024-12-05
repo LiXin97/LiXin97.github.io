@@ -16,6 +16,7 @@ interface PubData {
     bibtex: string;
     links: { name: string; url?: string }[];
     paper_id: string;
+    tags: string[];
 }
 
 interface StructuredMetaDataProps {
@@ -25,9 +26,10 @@ interface StructuredMetaDataProps {
     published_place: string;
     og_image: string;
     homepage: string;
+    tags?: string[];
 }
 
-const StructuredMetaData = ({ title, authors, published_year, published_place, og_image, homepage }: StructuredMetaDataProps) => {
+const StructuredMetaData = ({ title, authors, published_year, published_place, og_image, homepage, tags }: StructuredMetaDataProps) => {
     const structuredData = {
         "@context": "http://schema.org",
         "@type": "ScholarlyArticle",
@@ -58,12 +60,12 @@ interface PubCardProps {
 }
 
 export default function PubCard({ href, frontmatter, secHeading = true }: PubCardProps) {
-    const { title, authors, published_year, published_place, bibtex, links, homepage, paper_id, og_image } = frontmatter;
+    const { title, authors, published_year, published_place, bibtex, links, homepage, paper_id, og_image, tags } = frontmatter;
     const [showBibtex, setShowBibtex] = useState(false);
 
     const headerProps = {
         style: { viewTransitionName: slugifyStr(title) },
-        className: "text-lg font-medium decoration-dashed hover:underline",
+        className: "text-base font-medium decoration-dashed hover:underline",
     };
 
     let toggleBibtex = () => {
@@ -125,6 +127,9 @@ export default function PubCard({ href, frontmatter, secHeading = true }: PubCar
                         />
                     </td>
 
+                    <td style={{ width: '3%' }}>
+                    </td>
+
                     <td>
                         <li className="my-6">
                             <a
@@ -156,7 +161,7 @@ export default function PubCard({ href, frontmatter, secHeading = true }: PubCar
                             } */}
 
                             <div className="text-sm">
-                                Authors: {authors.map((author, index) => (
+                                {authors.map((author, index) => (
                                     <span key={index}>
                                         {renderAuthorName(author)}
                                         {index === authors.length - 1 ? '' : ', '}
@@ -164,7 +169,7 @@ export default function PubCard({ href, frontmatter, secHeading = true }: PubCar
                                 ))}
                             </div>
 
-                            <p className="text-sm font-light">Published in: {published_place}, {published_year.toString()}</p>
+                            <p className="text-sm font-light">{published_place}, {published_year.toString()}</p>
                             {
                                 // homepage ? (
                                 //     <p className="text-sm font-light">Homepage: <a href={homepage} className="decoration-dashed hover:underline underline">{homepage}</a></p>

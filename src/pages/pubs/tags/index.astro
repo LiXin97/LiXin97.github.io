@@ -1,0 +1,27 @@
+---
+import { getCollection } from "astro:content";
+import Header from "@components/Header.astro";
+import Footer from "@components/Footer.astro";
+import Layout from "@layouts/Layout.astro";
+import Main from "@layouts/Main.astro";
+import Tag from "@components/Tag.astro";
+import getUniquePubTags from "@utils/getUniquePubTags";
+import getSortedPubs from "@utils/getSortedPubs";
+import { SITE } from "@config";
+
+const pubs = await getCollection("pub");
+const sortedPubs = getSortedPubs(pubs);
+
+
+let tags = getUniquePubTags(sortedPubs);
+---
+
+<Layout title={`PubsTags | ${SITE.title}`} currentPage="pubs">
+  <Header activeNav="pubs" />
+  <Main pageTitle="Tags" pageDesc="Different tags for the publications.">
+    <ul>
+      {tags.map(({ tag }) => <Tag {tag} size="lg" type="pubs"/>)}
+    </ul>
+  </Main>
+  <Footer />
+</Layout>

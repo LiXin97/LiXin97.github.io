@@ -7,17 +7,22 @@ import Main from "@layouts/Main.astro";
 import Tag from "@components/Tag.astro";
 import PubCard from "@components/PubCard";
 import getSortedPubs from "@utils/getSortedPubs";
+import getUniquePubTags from "@utils/getUniquePubTags";
 import getPagination from "@utils/getPagination";
 import { SITE } from "@config";
 
 
 const pubs = await getCollection("pub");
 const sortedPubs = getSortedPubs(pubs);
+const tags = getUniquePubTags(sortedPubs);
 ---
 
 <Layout title={`Pubs | ${SITE.title}`} currentPage="pubs">
   <Header activeNav="pubs" />
   <Main pageTitle="Publications" pageDesc="All the papers I've published.">
+    <ul>
+      {tags.map(({ tag }) => <Tag {tag} size="sm" type="pubs" />)}
+    </ul>
     <ul>
       {
         sortedPubs.map(({ data, slug }) => (
