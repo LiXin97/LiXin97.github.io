@@ -17,7 +17,7 @@ tags:
 paper_id: "2osOgNQ5qMEC"
 title: "PVI-DSO: Leveraging Planar Regularities for Direct Sparse Visual-Inertial Odometry"
 slug: pvi-dso-leveraging-planar-regularities-for-direct-sparse-visual-inertial-odometry
-featured: true
+featured: false
 og_image: /pubs/PVI-DSO/PVI-DSO.png
 bibtex:
   |-

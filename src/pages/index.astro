@@ -19,7 +19,8 @@ const pubs = await getCollection("pub");
 const sortedPosts = getSortedPosts(posts);
 const featuredPosts = sortedPosts.filter(({ data }) => data.featured);
 
-const featuredPubs = getSortedPubs(pubs);
+const sortedPubs = getSortedPubs(pubs);
+const featuredPubs = sortedPubs.filter(({ data }) => data.authors[0].name === "Xin Li" || data.authors[0].name === "Xin Li*");
 const recentPosts = sortedPosts.filter(({ data }) => !data.featured);
 
 const socialCount = SOCIALS.filter(social => social.active).length;
@@ -147,10 +148,10 @@ const newsItems: NewsItem[] = [
       <p>
         Email:
         <a
-          href="mailto:li-x@ntu.edu.sg"
+          href="mailto:xin019@e.ntu.edu.sg"
           class="underline hover:text-skin-accent"
         >
-        li-x@ntu.edu.sg</a>
+        xin019@e.ntu.edu.sg</a>
 
         &nbsp;
 
@@ -481,7 +482,7 @@ const newsItems: NewsItem[] = [
 
             <p>
               <b>Conference Reviewer:</b> IROS (2021, 2022), ICRA (2022, 2023,
-              2025), NeurIPS (2024), ICLR (2025), AISTATS(2025)
+              2025), NeurIPS (2024), ICLR (2025), ICML(2025), AISTATS(2025)
               <br />
               <b>Journal Reviewer:</b> IEEE RA-L, IEEE TIM
             </p>
