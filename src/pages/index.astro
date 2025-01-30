@@ -7,7 +7,7 @@ import getSortedPubs from "@utils/getSortedPubs";
 import LinkButton from "@components/LinkButton.astro";
 import Hr from "@components/Hr.astro";
 import PubCard from "@components/PubCard";
-import MiniPubCard from "@components/MiniPubCard";
+import PubCardMini from "@components/PubCardMini";
 import MiniPubSection from "@components/MiniPubSection";
 import Socials from "@components/Socials.astro";
 import getSortedPosts from "@utils/getSortedPosts";
@@ -259,7 +259,7 @@ const newsItems: NewsItem[] = [
             {
               <ul max-h-96 overflow-auto class="divide-y">
                 {featuredPubs.map(({ data, slug }) => (
-                  <PubCard href={`/pubs/${slug}/`} frontmatter={data} />
+                  <PubCard client:visible href={`/pubs/${slug}/`} frontmatter={data} />
                 ))}
               </ul>
             }

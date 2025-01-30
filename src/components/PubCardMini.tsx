@@ -59,7 +59,7 @@ interface PubCardProps {
     secHeading?: boolean;
 }
 
-export default function PubCard({ href, frontmatter, secHeading = true }: PubCardProps) {
+export default function PubCardMini({ href, frontmatter, secHeading = true }: PubCardProps) {
     const { title, authors, published_year, published_place, bibtex, links, homepage, paper_id, og_image, tags } = frontmatter;
     const [showBibtex, setShowBibtex] = useState(false);
 
@@ -89,6 +89,27 @@ export default function PubCard({ href, frontmatter, secHeading = true }: PubCar
         });
     };
 
+    const showBibtexButton = () => {
+        return (
+            <button onClick={toggleBibtex} className="text-sm font-light underline cursor-pointer">
+                {showBibtex ? "Hide BibTeX" : "Show BibTeX"}
+            </button>
+            
+        );
+    };
+
+    const renderBibtex = () => {
+        if (showBibtex) {
+            return (
+                <div>
+                    <pre>{bibtex}</pre>
+                    <span onClick={copyToClipboard} className="text-sm font-light underline cursor-pointer">Copy to Clipboard</span>
+                </div>
+            );
+        }
+        return null;
+    };
+
     const renderAuthorName = (author: Author) => {
         const isXinLi = author.name === "Xin Li" || author.name === "Xin Li*";
         const displayName = (
@@ -109,7 +130,7 @@ export default function PubCard({ href, frontmatter, secHeading = true }: PubCar
             <li className="my-6">
                 <a
                     href={homepage}
-                    className="inline-block text-lg font-medium text-skin-accent decoration-dashed underline-offset-4 focus-visible:no-underline"
+                    className="inline-block text-lg font-medium text-skin-accent decoration-dashed underline-offset-4 focus-visible:no-underline focus-visible:underline-offset-0"
                 >
                     <h3 {...headerProps}>{title}</h3>
                 </a>
@@ -124,67 +145,19 @@ export default function PubCard({ href, frontmatter, secHeading = true }: PubCar
                 </div>
 
                 <p className="text-sm font-light">{published_place}, {published_year.toString()}. &nbsp;</p>
-                <div className="flex flex-wrap items-center gap-2">
+                
+                <div className="flex flex-wrap gap-2">
                     {links.map((link, index) => (
                         <span key={index} className="text-sm font-light">
-                            {
-                                link.url ? (
-                                    <a href={link.url} className="hover:underline text-skin-accent decoration-dashed underline-offset-4 focus-visible:no-underline focus-visible:underline-offset-0">
-                                        {link.name}
-                                    </a>
-                                ) : link.name
-                            }
+                            {link.url ? (
+                                <a href={link.url} className="hover:underline text-skin-accent decoration-dashed underline-offset-4 focus-visible:no-underline focus-visible:underline-offset-0">
+                                    {link.name}
+                                </a>
+                            ) : link.name}
                             {index === links.length - 1 ? <span> / {showGoogleCitations()} </span> : " / "}
                         </span>
                     ))}
-                    <button 
-                        onClick={toggleBibtex}
-                        className="inline-flex items-center text-sm font-light text-skin-accent hover:text-skin-accent transition-colors duration-200"
-                    >
-                        <svg 
-                            className="w-4 h-4 mr-1" 
-                            fill="none" 
-                            stroke="currentColor" 
-                            viewBox="0 0 24 24"
-                        >
-                            <path 
-                                strokeLinecap="round" 
-                                strokeLinejoin="round" 
-                                strokeWidth={2} 
-                                d={showBibtex ? "M19 9l-7 7-7-7" : "M9 5l7 7-7 7"}
-                            />
-                        </svg>
-                        BibTeX
-                    </button>
                 </div>
-                {showBibtex && (
-                    <div className="mt-3 p-4 bg-skin-card rounded-lg border border-skin-line shadow-sm transition-all duration-200 ease-in-out">
-                        <pre className="text-sm overflow-x-auto font-mono bg-skin-fill p-3 rounded border border-skin-line text-skin-base">
-                            {bibtex}
-                        </pre>
-                        <div className="mt-2 flex justify-end">
-                            <button 
-                                onClick={copyToClipboard}
-                                className="inline-flex items-center px-3 py-1 text-sm font-medium text-skin-base bg-skin-card border border-skin-line rounded-md hover:bg-skin-card hover:text-skin-accent transition-colors duration-200"
-                            >
-                                <svg 
-                                    className="w-4 h-4 mr-1" 
-                                    fill="none" 
-                                    stroke="currentColor" 
-                                    viewBox="0 0 24 24"
-                                >
-                                    <path 
-                                        strokeLinecap="round" 
-                                        strokeLinejoin="round" 
-                                        strokeWidth={2} 
-                                        d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"
-                                    />
-                                </svg>
-                                Copy
-                            </button>
-                        </div>
-                    </div>
-                )}
             </li>
         </div>
     );

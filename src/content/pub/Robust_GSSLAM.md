@@ -12,7 +12,7 @@ authors:
     url: ""
   - name: Chau Yuen
     url: https://blogs.ntu.edu.sg/chau-yuen/
-published_place: in peer review
+published_place: arXiv
 published_year: 2024
 published_month: 11
 tags:

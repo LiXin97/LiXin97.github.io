@@ -34,7 +34,7 @@ const tags = getUniquePubTags(pubs_sort);
             {pubs_sort
               .filter(({ data }) => data.published_year === year)
               .map(({ data, slug }) => (
-                <PubCard href={`/pubs/${slug}/`} frontmatter={data} />
+                <PubCard client:visible href={`/pubs/${slug}/`} frontmatter={data} />
               ))}
           </div>
         ))
