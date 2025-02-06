@@ -15,7 +15,7 @@ published_year: 2025
 published_month: 1
 tags:
     - Wireless Communications
-paper_id: "W7OEmFMy1HYC"
+paper_id: "eQOLeE2rZwMC"
 title: 'TransPathNet: A Novel Two-Stage Framework for Indoor Radio Map Prediction'
 slug: transpathnet
 og_image: /pubs/WCL-2022/WCL.png
