@@ -12,6 +12,8 @@ authors:
     url: ""
   - name: Chau Yuen
     url: https://blogs.ntu.edu.sg/chau-yuen/
+  - name: Yanyan Li
+    url: https://yanyan-li.github.io/
 published_place: arXiv
 published_year: 2024
 published_month: 11
