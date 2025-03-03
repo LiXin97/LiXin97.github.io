@@ -11,7 +11,6 @@ interface PubData {
     authors: Author[];
     published_year: number;
     published_place: string;
-    og_image: string;
     homepage: string;
     bibtex: string;
     links: { name: string; url?: string }[];
@@ -24,12 +23,11 @@ interface StructuredMetaDataProps {
     authors: Author[];
     published_year: number;
     published_place: string;
-    og_image: string;
     homepage: string;
     tags?: string[];
 }
 
-const StructuredMetaData = ({ title, authors, published_year, published_place, og_image, homepage, tags }: StructuredMetaDataProps) => {
+const StructuredMetaData = ({ title, authors, published_year, published_place, homepage, tags }: StructuredMetaDataProps) => {
     const structuredData = {
         "@context": "http://schema.org",
         "@type": "ScholarlyArticle",
@@ -41,7 +39,6 @@ const StructuredMetaData = ({ title, authors, published_year, published_place, o
         })),
         "datePublished": published_year.toString(),
         "publisher": published_place,
-        "image": og_image,
         "url": homepage
     };
 
@@ -60,7 +57,7 @@ interface PubCardProps {
 }
 
 export default function PubCard({ href, frontmatter, secHeading = true }: PubCardProps) {
-    const { title, authors, published_year, published_place, bibtex, links, homepage, paper_id, og_image, tags } = frontmatter;
+    const { title, authors, published_year, published_place, bibtex, links, homepage, paper_id, tags } = frontmatter;
     const [showBibtex, setShowBibtex] = useState(false);
 
     const headerProps = {
@@ -73,6 +70,7 @@ export default function PubCard({ href, frontmatter, secHeading = true }: PubCar
     };
 
     const showGoogleCitations = () => {
+        if (paper_id == "") return null;
         let citation_url = "https://img.shields.io/endpoint?logo=Google%20Scholar&url=https%3A%2F%2Fcdn.jsdelivr.net%2Fgh%2FLiXin97%2Flixin97.github.io@google-scholar-stats%2Fgs_data_Hxf8sNkAAAAJ:" + paper_id + ".json&labelColor=f6f6f6&color=9cf&style=flat&label=citations";
         return (
             <a href="https://scholar.google.com/citations?user=Hxf8sNkAAAAJ" className="inline-block align-middle">
@@ -104,7 +102,7 @@ export default function PubCard({ href, frontmatter, secHeading = true }: PubCar
 
     return (
         <div>
-            <StructuredMetaData title={title} authors={authors} published_year={published_year} published_place={published_place} og_image={og_image} homepage={homepage} />
+            <StructuredMetaData title={title} authors={authors} published_year={published_year} published_place={published_place} homepage={homepage} />
 
             <li className="my-6">
                 <a

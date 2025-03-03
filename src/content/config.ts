@@ -46,7 +46,8 @@ const pub = defineCollection({
       ),
       homepage: z.string(),
       paper_id: z.string(),
-      og_image: z.string(),
+      // og_image: z.string(),
+      featured: z.boolean(),
       tags: z.array(z.string()).default(["others"]),
     }),
 });

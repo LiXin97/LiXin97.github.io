@@ -20,7 +20,8 @@ const sortedPosts = getSortedPosts(posts);
 const featuredPosts = sortedPosts.filter(({ data }) => data.featured);
 
 const sortedPubs = getSortedPubs(pubs);
-const featuredPubs = sortedPubs.filter(({ data }) => data.authors[0].name === "Xin Li" || data.authors[0].name === "Xin Li*");
+// const featuredPubs = sortedPubs.filter(({ data }) => data.authors[0].name === "Xin Li" || data.authors[0].name === "Xin Li*");
+const featuredPubs = sortedPubs.filter(({ data }) => data.featured);
 const recentPosts = sortedPosts.filter(({ data }) => !data.featured);
 
 const socialCount = SOCIALS.filter(social => social.active).length;
@@ -33,6 +34,11 @@ interface NewsItem {
 }
 
 const newsItems: NewsItem[] = [
+  {
+    date: "2025.03",
+    content: "One paper accepted by ICLR 2025 ML4RS Workshop.",
+    // link: "https://arxiv.org/abs/2004.11969",
+  },
   {
     date: "2024.12",
     content:

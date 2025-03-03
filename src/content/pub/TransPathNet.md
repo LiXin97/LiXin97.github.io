@@ -19,7 +19,7 @@ paper_id: "eQOLeE2rZwMC"
 title: 'TransPathNet: A Novel Two-Stage Framework for Indoor Radio Map Prediction'
 slug: transpathnet
 og_image: /pubs/WCL-2022/WCL.png
-featured: false
+featured: true
 bibtex:
   |-
     @inproceedings{li2025transpathnet,
