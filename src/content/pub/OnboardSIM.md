@@ -19,10 +19,10 @@ slug: "onboard-terrain-classification-via-stacked-intelligent-metasurface-diffra
 featured: true
 bibtex:
   |-
-    @inproceedings{liu2025onboard,
+    @article{liu2025onboard,
       title={Onboard Terrain Classification via Stacked Intelligent Metasurface-DiffractiveDeep Neural Networks from SAR Level-0 Raw},
       author={Liu, Mengbing and Li, Xin and An, Jiancheng and Yuen, Chau},
-      booktitle={ICLR ML4RS Workshop},
+      journal={ICLR ML4RS Workshop},
       year={2025}
     }
 
