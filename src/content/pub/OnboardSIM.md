@@ -1,5 +1,5 @@
 ---
-title: "Onboard Terrain Classification via Stacked Intelligent Metasurface-DiffractiveDeep Neural Networks from SAR Level-0 Raw"
+title: "Onboard Terrain Classification via Stacked Intelligent Metasurface-Diffractive Deep Neural Networks from SAR Level-0 Raw"
 authors:
   - name: Mengbing Liu
     url: https://liumengbing.com/
@@ -15,12 +15,12 @@ published_month: 4
 tags:
     - Wireless Communications
 paper_id: ""
-slug: "onboard-terrain-classification-via-stacked-intelligent-metasurface-diffractivedeep-neural-networks-from-sar-level-0-raw"
+slug: "onboard-terrain-classification-via-stacked-intelligent-metasurface-diffractiv-edeep-neural-networks-from-sar-level-0-raw"
 featured: true
 bibtex:
   |-
     @article{liu2025onboard,
-      title={Onboard Terrain Classification via Stacked Intelligent Metasurface-DiffractiveDeep Neural Networks from SAR Level-0 Raw},
+      title={Onboard Terrain Classification via Stacked Intelligent Metasurface-Diffractive Deep Neural Networks from SAR Level-0 Raw},
       author={Liu, Mengbing and Li, Xin and An, Jiancheng and Yuen, Chau},
       journal={ICLR ML4RS Workshop},
       year={2025}
