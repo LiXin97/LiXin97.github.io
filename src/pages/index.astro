@@ -31,6 +31,7 @@ interface NewsItem {
   content: string;
   isHighlight?: boolean;
   link?: string;
+  category: string;
 }
 
 const newsItems: NewsItem[] = [
@@ -38,18 +39,21 @@ const newsItems: NewsItem[] = [
     date: "2025.03",
     content: "One paper accepted by ICLR 2025 ML4RS Workshop.",
     link: "https://ml-for-rs.github.io/iclr2025/",
+    category: "Publication"
   },
   {
     date: "2024.12",
     content:
       "Secured 4th place winner in the ICASSP 2025 Indoor Pathloss Radio Map Prediction Challenge.",
     link: "https://indoorradiomapchallenge.github.io/results.html",
+    category: "Award"
   },
   {
     date: "2024.10",
     content: "Reached 100+ citations milestone on Google Scholar.",
     isHighlight: true,
     link: "https://scholar.google.com/citations?user=Hxf8sNkAAAAJ",
+    category: "Achievement"
   },
   // {
   //   date: "2024.04",
@@ -75,7 +79,7 @@ const awardItems: AwardItem[] = [
   },
   {
     year: "2024",
-    category: "Conference",
+    category: "Competition",
     title: "4th Place winner",
     organization: "ICASSP 2025 Indoor Pathloss Radio Map Prediction Challenge",
     link: "https://indoorradiomapchallenge.github.io/results.html",
@@ -197,18 +201,18 @@ const serviceItems: ServiceItem[] = [
 <Layout currentPage="about">
   <Header />
 
-  <main id="main-content">
-    <section id="hero">
-      <h1>Xin Li (李鑫)</h1>
+  <main id="main-content" class="mx-auto px-4 sm:px-6 max-w-4xl transition-all duration-300 ease-in-out">
+    <section id="hero" class="pb-8 pt-10">
+      <h1 class="my-4 inline-block text-3xl font-bold sm:my-6 sm:text-5xl">Xin Li (李鑫)</h1>
 
       <img
         src="/images/XinLi.png"
         alt="Profile photo of Xin Li"
         itemprop="image"
-        style="width: 20%; border-radius: 50%; float: right;"
+        class="w-24 sm:w-32 md:w-40 border-2 border-skin-accent/20 rounded-full float-right shadow-lg transition-transform duration-300 hover:scale-105"
       />
 
-      <p>
+      <p class="text-base font-medium">
         I am currently a first-year Ph.D. student at
         <!-- I currently work as a Research Assistant at -->
         <LinkButton
@@ -222,7 +226,7 @@ const serviceItems: ServiceItem[] = [
           >Prof. Chau Yuen
         </LinkButton>.
       </p>
-      <p>
+      <p class="text-base font-medium">
         I obtained my Master's degree from
         <LinkButton
           className="underline decoration-dashed underline-offset-4 hover:text-skin-accent"
@@ -240,79 +244,114 @@ const serviceItems: ServiceItem[] = [
         understand the world around them.
       </p> -->
 
-      <br />
-      <p>
-        Email:
-        <a
-          href="mailto:xin019@e.ntu.edu.sg"
-          class="underline hover:text-skin-accent"
-        >
-        xin019@e.ntu.edu.sg</a>
+      <div class="my-6">
+        <p class="flex items-center gap-2 text-lg">
+          <svg class="w-5 h-5 text-skin-accent" fill="currentColor" viewBox="0 0 20 20">
+            <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
+            <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
+          </svg>
+          <a
+            href="mailto:xin019@e.ntu.edu.sg"
+            class="underline hover:text-skin-accent transition-colors"
+          >
+          xin019@e.ntu.edu.sg</a>
+        </p>
 
-        &nbsp;
-
-        <!-- <a
-          href="mailto:lixin.1997.lixin@gmail.com"
-          class="underline hover:text-skin-accent"
-        >
-        lixin.1997.lixin@gmail.com</a> -->
-      </p>
-
-
-      {
-        // only display if at least one social link is enabled
-        socialCount > 0 && (
-          <div class="social-wrapper">
-            <div class="social-links">Links:</div>
-            <Socials />
-          </div>
-        )
-      }
+        {
+          // only display if at least one social link is enabled
+          socialCount > 0 && (
+            <div class="social-wrapper mt-4">
+              <div class="social-links flex items-center gap-2">
+                <svg class="w-5 h-5 text-skin-accent" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M12.586 4.586a2 2 0 112.828 2.828l-3 3a2 2 0 01-2.828 0 1 1 0 00-1.414 1.414 4 4 0 005.656 0l3-3a4 4 0 00-5.656-5.656l-1.5 1.5a1 1 0 101.414 1.414l1.5-1.5zm-5 5a2 2 0 012.828 0 1 1 0 101.414-1.414 4 4 0 00-5.656 0l-3 3a4 4 0 105.656 5.656l1.5-1.5a1 1 0 10-1.414-1.414l-1.5 1.5a2 2 0 11-2.828-2.828l3-3z" clip-rule="evenodd" />
+                </svg>
+                Links:
+              </div>
+              <Socials />
+            </div>
+          )
+        }
+      </div>
     </section>
 
-    <Hr />
+    <Hr/>
 
     <section id="news" class="w-full">
-      <div class="mb-4 flex items-center gap-2">
-        <h2 class="pb-6 pt-6 text-2xl font-semibold tracking-wide">News</h2>
-        <!-- <span class="text-sm text-gray-500 pt-6">
-          ({newsItems.length} updates)
-        </span> -->
-      </div>
-
-      <div class="max-h-96 overflow-auto">
-        <ul class="divide-y">
+      <h2 class="pb-6 pt-6 text-2xl font-semibold tracking-wide">News</h2>
+      
+      <div class="rounded-lg border border-skin-line p-4">
+        <ul class="divide-y divide-skin-line">
           {
-            newsItems.map((item, index) => (
-              <li
-                class:list={[
-                  "p-2 transition-colors",
-                  // "p-4 hover:bg-gray-50 transition-colors",
-                  // { "bg-gradient-to-r from-purple-50 to-transparent": item.isHighlight }
-                ]}
-              >
-                <div class="flex flex-col gap-2 sm:flex-row sm:items-start">
-                  <div class="shrink-0 sm:w-32">
-                    <span class="text-sm font-semibold">{item.date}</span>
+            newsItems.map((item) => (
+              <li class="py-4 first:pt-0 last:pb-0 transition-colors hover:bg-skin-card/80">
+                <div class="flex flex-col sm:flex-row gap-2">
+                  <div class="sm:w-28 font-medium text-skin-accent shrink-0">
+                    {item.date}
                   </div>
-
+                  
                   <div class="flex-1">
-                    <div class="flex flex-wrap items-start gap-2">
-                      <span class="text-sm">
-                        {item.isHighlight && "🎉 "}
-                        {item.link ? (
-                          <a
-                            href={item.link}
-                            class="hover:text-skin-accent"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                          >
-                            {item.content}
-                          </a>
-                        ) : (
-                          item.content
-                        )}
-                      </span>
+                    <div class="flex items-start gap-1.5">
+                      {item.isHighlight && (
+                        <span class="inline-flex mt-0.5 items-center justify-center w-5 h-5 rounded-full bg-skin-accent/10 text-skin-accent flex-shrink-0">
+                          <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118l-2.8-2.034c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                          </svg>
+                        </span>
+                      )}
+                      
+                      <div class="flex flex-col">
+                        <div class="flex items-center gap-2 mb-1">
+                          
+                        <span class="text-sm text-skin-base">
+                          {item.link ? (
+                            <a
+                              href={item.link}
+                              class="text-skin-accent hover:underline"
+                              target="_blank"
+                              rel="noopener noreferrer"
+                            >
+                              {item.content}
+                            </a>
+                          ) : (
+                            item.content
+                          )}
+                        </span>
+                          <span class="inline-flex items-center rounded-md bg-skin-accent/10 px-2 py-0.5 text-xs font-medium text-skin-accent">
+                            {(() => {
+                              // Return appropriate icon based on category
+                              switch(item.category) {
+                                case 'Publication':
+                                  return (
+                                    <svg class="mr-1 h-3 w-3" fill="currentColor" viewBox="0 0 20 20">
+                                      <path d="M9 4.804A7.968 7.968 0 005.5 4c-1.255 0-2.443.29-3.5.804v10A7.969 7.969 0 015.5 14c1.669 0 3.218.51 4.5 1.385A7.962 7.962 0 0114.5 14c1.255 0 2.443.29 3.5.804v-10A7.968 7.968 0 0014.5 4c-1.255 0-2.443.29-3.5.804V12a1 1 0 11-2 0V4.804z" />
+                                    </svg>
+                                  );
+                                case 'Award':
+                                  return (
+                                    <svg class="mr-1 h-3 w-3" fill="currentColor" viewBox="0 0 20 20">
+                                      <path d="M5 3a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2V5a2 2 0 00-2-2H5zM5 11a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2v-2a2 2 0 00-2-2H5zM11 5a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V5zM14 11a1 1 0 011 1v1h1a1 1 0 110 2h-1v1a1 1 0 11-2 0v-1h-1a1 1 0 110-2h1v-1a1 1 0 011-1z" />
+                                    </svg>
+                                  );
+                                case 'Achievement':
+                                  return (
+                                    <svg class="mr-1 h-3 w-3" fill="currentColor" viewBox="0 0 20 20">
+                                      <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                                    </svg>
+                                  );
+                                default:
+                                  return (
+                                    <svg class="mr-1 h-3 w-3" fill="currentColor" viewBox="0 0 20 20">
+                                      <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd" />
+                                    </svg>
+                                  );
+                              }
+                            })()}
+                            {item.category}
+                          </span>
+                          
+                        </div>
+                      
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -329,7 +368,7 @@ const serviceItems: ServiceItem[] = [
       featuredPubs.length > 0 && (
         <>
           <section id="pubs">
-            <h2>Selected Publications</h2>
+            <h2 class="pb-6 pt-6 text-2xl font-semibold tracking-wide">Selected Publications</h2>
             <p>
               Here are some of the papers I've published. Full list is available on{" "}
               <LinkButton
@@ -350,13 +389,15 @@ const serviceItems: ServiceItem[] = [
               .<small>(* equal contribution)</small> <br />
             </p>
 
-            {
-              <ul max-h-96 overflow-auto class="divide-y">
+            <div class="rounded-lg border border-skin-line p-4 bg-skin-fill">
+              <ul class="divide-y divide-skin-line">
                 {featuredPubs.map(({ data, slug }) => (
-                  <PubCard client:visible href={`/pubs/${slug}/`} frontmatter={data} />
+                      <div  class="py-4 first:pt-0 last:pb-0 transition-colors hover:bg-skin-card/80">
+                        <PubCard client:visible href={`/pubs/${slug}/`} frontmatter={data} />
+                      </div>
                 ))}
               </ul>
-            }
+            </div>
           </section>
           {recentPosts.length > 0 && <Hr />}
         </>
@@ -367,260 +408,102 @@ const serviceItems: ServiceItem[] = [
       (
         <>
           <section id="profession">
-            <h2>Education</h2>
-            <table style="width: 100%;">
-              <tr>
-                <th rowspan="2">Ph.D.</th>
-                <td>
-                  <LinkButton
-                    className="underline hover:text-skin-accent"
-                    href="http://ntu.edu.sg"
-                  >
-                    Nanyang Technological University, Singapore
-                  </LinkButton>
-                </td>
-                <td>2025.01 - Present</td>
-              </tr>
-              <tr>
-                <td colspan="3">
-                  <span style="color: #888; font-style: italic; font-size: 0.8rem;">
-                    Supervisor:{" "}
-                    <LinkButton
-                      className="underline hover:text-skin-accent"
-                      href="https://blogs.ntu.edu.sg/chau-yuen/"
-                    >
-                      Prof. Chau Yuen
-                    </LinkButton>
-                  </span>
-                </td>
-              </tr>
-
-              <tr>
-                <td colspan="3">
-                  <hr />
-                </td>
-              </tr>
-              <tr>
-                <th rowspan="3">M.Eng.</th>
-                <td>
-                  <LinkButton
-                    className="underline hover:text-skin-accent"
-                    href="http://english.pku.edu.cn"
-                  >
-                    Peking University
-                  </LinkButton>
-                </td>
-                <td>2018.09 - 2021.07</td>
-              </tr>
-              <tr>
-                <td colspan="3">
-                  <span style="color: #888; font-style: italic; font-size: 0.8rem;">
-                    Thesis:
-                    <LinkButton
-                      className="underline hover:text-skin-accent"
-                      href="/pubs/master_thesis/MatserThesis.pdf"
-                    >
-                      Multi-feature Simultaneous Localization and Mapping with
-                      coplanar constraints
-                    </LinkButton>{" "}
-                  </span>
-                </td>
-              </tr>
-              <tr>
-                <td colspan="3">
-                  <span style="color: #888; font-style: italic; font-size: 0.8rem;">
-                    Supervisor:{" "}
-                    <LinkButton
-                      className="underline hover:text-skin-accent"
-                      href="https://www.ss.pku.edu.cn/teacherteam/teacherlist/1652-%E6%9E%97%E9%87%91%E9%BE%99.html"
-                    >
-                      Prof. Jinlong Lin (林金龙)
-                    </LinkButton>
-                  </span>
-                </td>
-              </tr>
-
-              <tr>
-                <td colspan="3">
-                  <hr />
-                </td>
-              </tr>
-
-              <tr>
-                <th>B.Eng.</th>
-                <td>
-                  <LinkButton
-                    className="underline hover:text-skin-accent"
-                    href="https://www.neuq.edu.cn/"
-                  >
-                    Northeastern University (CN)
-                  </LinkButton>
-                </td>
-                <td>2014.09 - 2018.07</td>
-              </tr>
-            </table>
-          </section>
-          <Hr />
-        </>
-      )
-    }
-
-    {
-      (
-        <>
-          <section id="profession">
-            <h2>Experience</h2>
-
-            <table
-              style="width: 100%; margin-right: auto; margin-left: auto;"
-              border="1"
-            >
-              <tr>
-                <th rowspan="3">Research Assistant</th>
-                <td>Nanyang Technological University</td>
-                <td>2024.04 - 2025.01</td>
-              </tr>
-
-              <tr>
-                <td>SUTD, Singapore</td>
-                <td>2021.09 - 2022.03</td>
-              </tr>
-
-              <tr>
-                <td colspan="2">
-                  <span style="color: #888; font-style: italic; font-size: 0.8rem;">
-                    Supervised by{" "}
-                    <LinkButton
-                      className="underline hover:text-skin-accent"
-                      href="https://blogs.ntu.edu.sg/chau-yuen/"
-                    >
-                      Prof. Chau Yuen
-                    </LinkButton>
-                  </span>
-                </td>
-              </tr>
-
-              <tr>
-                <td colspan="3">
-                  <hr />
-                </td>
-              </tr>
-
-              <tr>
-                <th>SLAM Engineer</th>
-                <td>Gaussian Robotics, Singapore</td>
-                <td>2022.03 - 2024.03</td>
-              </tr>
-
-              <tr>
-                <td colspan="3">
-                  <hr />
-                </td>
-              </tr>
-
-              <tr>
-                <th rowspan="4">Research Intern</th>
-                <td>Microsoft Research Asia, Beijing</td>
-                <td>2020.09 - 2021.04</td>
-              </tr>
-              <tr>
-                <td colspan="3">
-                  <span style="color: #888; font-style: italic; font-size: 0.8rem;">
-                    Supervised by{" "}
-                    <LinkButton
-                      className="underline hover:text-skin-accent"
-                      href="https://xueyuhanlang.github.io/"
-                    >
-                      Dr. Yang Liu (刘洋)
-                    </LinkButton>{" "}
-                    and{" "}
-                    <LinkButton
-                      className="underline hover:text-skin-accent"
-                      href="https://yizhongzhang1989.github.io/"
-                    >
-                      Dr. Yizhong Zhang (张译中)
-                    </LinkButton>
-                  </span>
-                </td>
-              </tr>
-              <tr>
-                <td>Megvii (a.k.a Face++), Beijing</td>
-                <td>2019.05 - 2020.03</td>
-              </tr>
-              <tr>
-                <td colspan="3">
-                  <span style="color: #888; font-style: italic; font-size: 0.8rem;">
-                    Supervised by{" "}
-                    <LinkButton
-                      className="underline hover:text-skin-accent"
-                      href="https://scholar.google.com/citations?user=_0lKGnkAAAAJ&hl=en"
-                    >
-                      Dr. Yijia He (贺一家)
-                    </LinkButton>{" "}
-                  </span>
-                </td>
-              </tr>
-            </table>
-          </section>
-          <Hr />
-        </>
-      )
-    }
-
-    {
-      (
-        <>
-          <section id="profession">
-            <h2>Academic Services</h2>
-
-            <div class="space-y-6">
-              <div>
-                <h3 class="text-lg font-medium mb-2">Conference Reviewer</h3>
-                <div class="flex flex-wrap gap-2">
-                  {serviceItems
-                    .filter(item => item.type === 'conference')
-                    .map(item => (
-                      <div class="inline-flex items-center px-3 py-1 rounded-md bg-skin-card border border-skin-line">
-                        {item.link ? (
-                          <a href={item.link} class="font-medium text-skin-accent hover:underline">
-                            {item.name}
-                          </a>
-                        ) : (
-                          <span class="font-medium">{item.name}</span>
-                        )}
-                        {item.years.length > 0 && (
-                          <span class="ml-1 text-xs">
-                            ({item.years.join(', ')})
-                          </span>
-                        )}
+            <h2 class="pb-6 pt-6 text-2xl font-semibold tracking-wide">Education</h2>
+            <div class="rounded-lg border border-skin-line p-4">
+              <ul class="divide-y divide-skin-line">
+                <li class="py-4 first:pt-0 transition-colors hover:bg-skin-card/80">
+                  <div class="flex flex-col sm:flex-row gap-3">
+                    <div class="sm:w-28 font-medium text-skin-accent shrink-0">
+                      2025.01 - Present
+                    </div>
+                    <div class="flex-1">
+                      <div class="flex items-start gap-2">
+                        <span class="inline-flex mt-0.5 items-center justify-center w-8 h-8 rounded-full bg-skin-accent/10 text-skin-accent flex-shrink-0">
+                          <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M10.394 2.08a1 1 0 00-.788 0l-7 3a1 1 0 000 1.84L5.25 8.051a.999.999 0 01.356-.257l4-1.714a1 1 0 11.788 1.838L7.667 9.088l1.94.831a1 1 0 00.787 0l7-3a1 1 0 000-1.838l-7-3zM3.31 9.397L5 10.12v4.102a8.969 8.969 0 00-1.05-.174 1 1 0 01-.89-.89 11.115 11.115 0 01.25-3.762zM9.3 16.573A9.026 9.026 0 007 14.935v-3.957l1.818.78a3 3 0 002.364 0l5.508-2.361a11.026 11.026 0 01.25 3.762 1 1 0 01-.89.89 8.968 8.968 0 00-5.35 2.524 1 1 0 01-1.4 0zM6 18a1 1 0 001-1v-2.065a8.935 8.935 0 00-2-.712V17a1 1 0 001 1z" />
+                          </svg>
+                        </span>
+                        <div>
+                          <h3 class="text-lg font-medium">Ph.D.</h3>
+                          <p class="mb-1">
+                            <a href="http://ntu.edu.sg" class="text-skin-accent hover:underline">
+                              Nanyang Technological University, Singapore
+                            </a>
+                          </p>
+                          <p class="text-sm text-skin-base opacity-75 italic">
+                            Supervisor: 
+                            <a href="https://blogs.ntu.edu.sg/chau-yuen/" class="text-skin-accent hover:underline">
+                              Prof. Chau Yuen
+                            </a>
+                          </p>
+                        </div>
                       </div>
-                    ))}
-                </div>
-              </div>
-
-              <div>
-                <h3 class="text-lg font-medium mb-2">Journal Reviewer</h3>
-                <div class="flex flex-wrap gap-2">
-                  {serviceItems
-                    .filter(item => item.type === 'journal')
-                    .map(item => (
-                      <div class="inline-flex items-center px-3 py-1 rounded-md bg-skin-card border border-skin-line">
-                        {item.link ? (
-                          <a href={item.link} class="font-medium text-skin-accent hover:underline">
-                            {item.name}
-                          </a>
-                        ) : (
-                          <span class="font-medium">{item.name}</span>
-                        )}
-                        {item.years.length > 0 && (
-                          <span class="ml-1 text-xs">
-                            ({item.years.join(', ')})
-                          </span>
-                        )}
+                    </div>
+                  </div>
+                </li>
+                
+                <li class="py-4 transition-colors hover:bg-skin-card/80">
+                  <div class="flex flex-col sm:flex-row gap-3">
+                    <div class="sm:w-28 font-medium text-skin-accent shrink-0">
+                      2018.09 - 2021.07
+                    </div>
+                    <div class="flex-1">
+                      <div class="flex items-start gap-2">
+                        <span class="inline-flex mt-0.5 items-center justify-center w-8 h-8 rounded-full bg-skin-accent/10 text-skin-accent flex-shrink-0">
+                          <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M10.394 2.08a1 1 0 00-.788 0l-7 3a1 1 0 000 1.84L5.25 8.051a.999.999 0 01.356-.257l4-1.714a1 1 0 11.788 1.838L7.667 9.088l1.94.831a1 1 0 00.787 0l7-3a1 1 0 000-1.838l-7-3zM3.31 9.397L5 10.12v4.102a8.969 8.969 0 00-1.05-.174 1 1 0 01-.89-.89 11.115 11.115 0 01.25-3.762zM9.3 16.573A9.026 9.026 0 007 14.935v-3.957l1.818.78a3 3 0 002.364 0l5.508-2.361a11.026 11.026 0 01.25 3.762 1 1 0 01-.89.89 8.968 8.968 0 00-5.35 2.524 1 1 0 01-1.4 0zM6 18a1 1 0 001-1v-2.065a8.935 8.935 0 00-2-.712V17a1 1 0 001 1z" />
+                          </svg>
+                        </span>
+                        <div>
+                          <h3 class="text-lg font-medium">M.Eng.</h3>
+                          <p class="mb-1">
+                            <a href="http://english.pku.edu.cn" class="text-skin-accent hover:underline">
+                              Peking University
+                            </a>
+                          </p>
+                          <p class="text-sm text-skin-base opacity-75 italic mb-1">
+                            Supervisor: 
+                            <a href="https://www.ss.pku.edu.cn/teacherteam/teacherlist/1652-%E6%9E%97%E9%87%91%E9%BE%99.html" class="text-skin-accent hover:underline">
+                              Prof. Jinlong Lin (林金龙)
+                            </a>
+                          </p>
+                          <p class="text-sm text-skin-base opacity-75 italic">
+                            Thesis: 
+                            <a href="/pubs/master_thesis/MatserThesis.pdf" class="text-skin-accent hover:underline">
+                              Multi-feature Simultaneous Localization and Mapping with coplanar constraints
+                            </a>
+                          </p>
+                        </div>
                       </div>
-                    ))}
-                </div>
-              </div>
+                    </div>
+                  </div>
+                </li>
+                
+                <li class="py-4 last:pb-0 transition-colors hover:bg-skin-card/80">
+                  <div class="flex flex-col sm:flex-row gap-3">
+                    <div class="sm:w-28 font-medium text-skin-accent shrink-0">
+                      2014.09 - 2018.07
+                    </div>
+                    <div class="flex-1">
+                      <div class="flex items-start gap-2">
+                        <span class="inline-flex mt-0.5 items-center justify-center w-8 h-8 rounded-full bg-skin-accent/10 text-skin-accent flex-shrink-0">
+                          <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M10.394 2.08a1 1 0 00-.788 0l-7 3a1 1 0 000 1.84L5.25 8.051a.999.999 0 01.356-.257l4-1.714a1 1 0 11.788 1.838L7.667 9.088l1.94.831a1 1 0 00.787 0l7-3a1 1 0 000-1.838l-7-3zM3.31 9.397L5 10.12v4.102a8.969 8.969 0 00-1.05-.174 1 1 0 01-.89-.89 11.115 11.115 0 01.25-3.762zM9.3 16.573A9.026 9.026 0 007 14.935v-3.957l1.818.78a3 3 0 002.364 0l5.508-2.361a11.026 11.026 0 01.25 3.762 1 1 0 01-.89.89 8.968 8.968 0 00-5.35 2.524 1 1 0 01-1.4 0zM6 18a1 1 0 001-1v-2.065a8.935 8.935 0 00-2-.712V17a1 1 0 001 1z" />
+                          </svg>
+                        </span>
+                        <div>
+                          <h3 class="text-lg font-medium">B.Eng.</h3>
+                          <p>
+                            <a href="https://www.neuq.edu.cn/" class="text-skin-accent hover:underline">
+                              Northeastern University (CN)
+                            </a>
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+              </ul>
             </div>
           </section>
           <Hr />
@@ -628,40 +511,311 @@ const serviceItems: ServiceItem[] = [
       )
     }
 
-        {
+    {
       (
         <>
-          <section id="pubs">
-            <h2>Awards</h2>
-            <ul class="divide-y">
-              {awardItems.map(item => (
-                <li class="py-3">
-                  <div class="flex flex-col sm:flex-row">
-                    <div class="sm:w-32 font-medium">{item.year}</div>
+          <section id="experience">
+            <h2 class="pb-6 pt-6 text-2xl font-semibold tracking-wide">Experience</h2>
+            <div class="rounded-lg border border-skin-line p-4">
+              <ul class="divide-y divide-skin-line">
+                <!-- Research Assistant NTU -->
+                <li class="py-4 first:pt-0 transition-colors hover:bg-skin-card/80">
+                  <div class="flex flex-col sm:flex-row gap-3">
+                    <div class="sm:w-28 font-medium text-skin-accent shrink-0">
+                      2024.04 - 2025.01
+                    </div>
                     <div class="flex-1">
-                      <div class="flex items-center">
-                        <span class="mr-2 inline-flex items-center rounded-md bg-skin-accent/10 px-2 py-1 text-xs font-medium text-skin-accent">
-                          <svg class="mr-1 h-3 w-3" fill="currentColor" viewBox="0 0 20 20">
-                            <path fill-rule="evenodd" d="M10 1l2.928 6.39 6.84.678-5.11 4.808 1.553 6.813L10 16.865l-6.21 3.824 1.553-6.813-5.11-4.808 6.84-.678L10 1z" clip-rule="evenodd" />
+                      <div class="flex items-start gap-2">
+                        <span class="inline-flex mt-0.5 items-center justify-center w-8 h-8 rounded-full bg-skin-accent/10 text-skin-accent flex-shrink-0">
+                          <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd" />
                           </svg>
-                          {item.category}
                         </span>
-                        <span class="font-medium">{item.title}</span>
+                        <div>
+                          <div class="flex items-center gap-2 mb-1">
+                            <h3 class="text-lg font-medium">Research Assistant</h3>
+                            <span class="inline-flex items-center rounded-md bg-skin-accent/10 px-2 py-0.5 text-xs font-medium text-skin-accent">
+                              Research
+                            </span>
+                          </div>
+                          <p class="mb-1">
+                            <a href="https://www.ntu.edu.sg/" class="text-skin-accent hover:underline">
+                              Nanyang Technological University
+                            </a>, Singapore
+                          </p>
+                          <p class="text-sm text-skin-base opacity-75 italic">
+                            Supervised by 
+                            <a href="https://blogs.ntu.edu.sg/chau-yuen/" class="text-skin-accent hover:underline">
+                              Prof. Chau Yuen
+                            </a>
+                          </p>
+                        </div>
                       </div>
-                      <p class="text-sm">
-                        {item.link ? (
-                          <a href={item.link} class="hover:text-skin-accent">
-                            {item.organization}
-                          </a>
-                        ) : (
-                          item.organization
-                        )}
-                      </p>
                     </div>
                   </div>
                 </li>
-              ))}
-            </ul>
+                
+                <!-- SLAM Engineer -->
+                <li class="py-4 transition-colors hover:bg-skin-card/80">
+                  <div class="flex flex-col sm:flex-row gap-3">
+                    <div class="sm:w-28 font-medium text-skin-accent shrink-0">
+                      2022.03 - 2024.03
+                    </div>
+                    <div class="flex-1">
+                      <div class="flex items-start gap-2">
+                        <span class="inline-flex mt-0.5 items-center justify-center w-8 h-8 rounded-full bg-skin-accent/10 text-skin-accent flex-shrink-0">
+                          <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M11.49 3.17c-.38-1.56-2.6-1.56-2.98 0a1.532 1.532 0 01-2.286.948c-1.372-.836-2.942.734-2.106 2.106.54.886.061 2.042-.947 2.287-1.561.379-1.561 2.6 0 2.978a1.532 1.532 0 01.947 2.287c-.836 1.372.734 2.942 2.106 2.106a1.532 1.532 0 012.287.947c.379 1.561 2.6 1.561 2.978 0a1.533 1.533 0 012.287-.947c1.372.836 2.942-.734 2.106-2.106a1.533 1.533 0 01.947-2.287c1.561-.379 1.561-2.6 0-2.978a1.532 1.532 0 01-.947-2.287c.836-1.372-.734-2.942-2.106-2.106a1.532 1.532 0 01-2.287-.947zM10 13a3 3 0 100-6 3 3 0 000 6z" clip-rule="evenodd" />
+                          </svg>
+                        </span>
+                        <div>
+                          <div class="flex items-center gap-2 mb-1">
+                            <h3 class="text-lg font-medium">SLAM Engineer</h3>
+                            <span class="inline-flex items-center rounded-md bg-skin-accent/10 px-2 py-0.5 text-xs font-medium text-skin-accent">
+                              Engineering
+                            </span>
+                          </div>
+                          <p class="mb-1">
+                            <a href="https://www.gaussianrobotics.com/" class="text-skin-accent hover:underline">
+                              Gaussian Robotics
+                            </a>, Singapore
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+                
+                <!-- Research Assistant SUTD -->
+                <li class="py-4 transition-colors hover:bg-skin-card/80">
+                  <div class="flex flex-col sm:flex-row gap-3">
+                    <div class="sm:w-28 font-medium text-skin-accent shrink-0">
+                      2021.09 - 2022.03
+                    </div>
+                    <div class="flex-1">
+                      <div class="flex items-start gap-2">
+                        <span class="inline-flex mt-0.5 items-center justify-center w-8 h-8 rounded-full bg-skin-accent/10 text-skin-accent flex-shrink-0">
+                          <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd" />
+                          </svg>
+                        </span>
+                        <div>
+                          <div class="flex items-center gap-2 mb-1">
+                            <h3 class="text-lg font-medium">Research Assistant</h3>
+                            <span class="inline-flex items-center rounded-md bg-skin-accent/10 px-2 py-0.5 text-xs font-medium text-skin-accent">
+                              Research
+                            </span>
+                          </div>
+                          <p class="mb-1">
+                            <a href="https://www.sutd.edu.sg/" class="text-skin-accent hover:underline">
+                              Singapore University of Technology and Design
+                            </a>, Singapore
+                          </p>
+                          <p class="text-sm text-skin-base opacity-75 italic">
+                            Supervised by 
+                            <a href="https://blogs.ntu.edu.sg/chau-yuen/" class="text-skin-accent hover:underline">
+                              Prof. Chau Yuen
+                            </a>
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+                
+                <!-- MSRA Intern -->
+                <li class="py-4 transition-colors hover:bg-skin-card/80">
+                  <div class="flex flex-col sm:flex-row gap-3">
+                    <div class="sm:w-28 font-medium text-skin-accent shrink-0">
+                      2020.09 - 2021.04
+                    </div>
+                    <div class="flex-1">
+                      <div class="flex items-start gap-2">
+                        <span class="inline-flex mt-0.5 items-center justify-center w-8 h-8 rounded-full bg-skin-accent/10 text-skin-accent flex-shrink-0">
+                          <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M11.5 3v8.5H3V3zm0 0v8.5H3V3zM3 13h8.5v8.5H3zm10 0h8.5v8.5H13zm0-10h8.5v8.5H13z" />
+                          </svg>
+                        </span>
+                        <div>
+                          <div class="flex items-center gap-2 mb-1">
+                            <h3 class="text-lg font-medium">Research Intern</h3>
+                            <span class="inline-flex items-center rounded-md bg-skin-accent/10 px-2 py-0.5 text-xs font-medium text-skin-accent">
+                              Research
+                            </span>
+                          </div>
+                          <p class="mb-1">
+                            <a href="https://www.microsoft.com/en-us/research/lab/microsoft-research-asia/" class="text-skin-accent hover:underline">
+                              Microsoft Research Asia
+                            </a>, Beijing
+                          </p>
+                          <p class="text-sm text-skin-base opacity-75 italic">
+                            Supervised by 
+                            <a href="https://xueyuhanlang.github.io/" class="text-skin-accent hover:underline">
+                              Dr. Yang Liu (刘洋)
+                            </a> and 
+                            <a href="https://yizhongzhang1989.github.io/" class="text-skin-accent hover:underline">
+                              Dr. Yizhong Zhang (张译中)
+                            </a>
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+                
+                <!-- Megvii Intern -->
+                <li class="py-4 last:pb-0 transition-colors hover:bg-skin-card/80">
+                  <div class="flex flex-col sm:flex-row gap-3">
+                    <div class="sm:w-28 font-medium text-skin-accent shrink-0">
+                      2019.05 - 2020.03
+                    </div>
+                    <div class="flex-1">
+                      <div class="flex items-start gap-2">
+                        <span class="inline-flex mt-0.5 items-center justify-center w-8 h-8 rounded-full bg-skin-accent/10 text-skin-accent flex-shrink-0">
+                          <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M10 12a2 2 0 100-4 2 2 0 000 4z" />
+                            <path fill-rule="evenodd" d="M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.064 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z" clip-rule="evenodd" />
+                          </svg>
+                        </span>
+                        <div>
+                          <div class="flex items-center gap-2 mb-1">
+                            <h3 class="text-lg font-medium">Research Intern</h3>
+                            <span class="inline-flex items-center rounded-md bg-skin-accent/10 px-2 py-0.5 text-xs font-medium text-skin-accent">
+                              Research
+                            </span>
+                          </div>
+                          <p class="mb-1">
+                            <a href="https://www.megvii.com/" class="text-skin-accent hover:underline">
+                              Megvii
+                            </a> (a.k.a Face++), Beijing
+                          </p>
+                          <p class="text-sm text-skin-base opacity-75 italic">
+                            Supervised by 
+                            <a href="https://scholar.google.com/citations?user=_0lKGnkAAAAJ&hl=en" class="text-skin-accent hover:underline">
+                              Dr. Yijia He (贺一家)
+                            </a>
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+          <Hr />
+        </>
+      )
+    }
+
+    {
+      (
+        <>
+          <section id="awards">
+            <h2 class="pb-6 pt-6 text-2xl font-semibold tracking-wide">Honors & Awards</h2>
+            <div class="rounded-lg border border-skin-line p-4 ">
+              <ul class="divide-y divide-skin-line">
+                {awardItems.map(item => (
+                  <li class="py-4 first:pt-0 last:pb-0 transition-colors hover:bg-skin-card/80">
+                    <div class="flex flex-col sm:flex-row gap-2">
+                      <div class="sm:w-28 font-medium text-skin-accent">{item.year}</div>
+                      <div class="flex-1">
+                        <div class="flex items-center mb-1">
+                          <span class="mr-2 inline-flex items-center rounded-md bg-skin-accent/10 px-2 py-1 text-xs font-medium text-skin-accent">
+                            <svg class="mr-1 h-3 w-3" fill="currentColor" viewBox="0 0 20 20">
+                              <path fill-rule="evenodd" d="M10 1l2.928 6.39 6.84.678-5.11 4.808 1.553 6.813L10 16.865l-6.21 3.824 1.553-6.813-5.11-4.808 6.84-.678L10 1z" clip-rule="evenodd" />
+                            </svg>
+                            {item.category}
+                          </span>
+                          <span class="font-medium text-skin-base">{item.title}</span>
+                        </div>
+                        <p class="text-sm text-skin-base">
+                          {item.link ? (
+                            <a href={item.link} class="text-skin-accent hover:underline" target="_blank" rel="noopener noreferrer">
+                              {item.organization}
+                            </a>
+                          ) : (
+                            item.organization
+                          )}
+                        </p>
+                      </div>
+                    </div>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </section>
+          <Hr />
+        </>
+      )
+    }
+
+    {
+      (
+        <>
+          <section id="academic-services">
+            <h2 class="pb-6 pt-6 text-2xl font-semibold tracking-wide">Academic Services</h2>
+            <div class="rounded-lg border border-skin-line p-4 ">
+              <div class="space-y-6">
+                <div>
+                  <h3 class="text-lg font-medium mb-3 flex items-center">
+                    <svg class="w-5 h-5 mr-2 text-skin-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+                    </svg>
+                    Conference Reviewer
+                  </h3>
+                  <div class="flex flex-wrap gap-2">
+                    {serviceItems
+                      .filter(item => item.type === 'conference')
+                      .map(item => (
+                        <div class="inline-flex items-center px-3 py-1.5 rounded-md bg-skin-fill border border-skin-line shadow-sm hover:bg-skin-card transition-colors">
+                          {item.link ? (
+                            <a href={item.link} class="font-medium text-skin-accent hover:underline" target="_blank" rel="noopener noreferrer">
+                              {item.name}
+                            </a>
+                          ) : (
+                            <span class="font-medium text-skin-accent">{item.name}</span>
+                          )}
+                          {item.years.length > 0 && (
+                            <span class="ml-1.5 text-xs bg-skin-accent/10 px-1.5 py-0.5 rounded text-skin-base">
+                              {item.years.join(', ')}
+                            </span>
+                          )}
+                        </div>
+                      ))}
+                  </div>
+                </div>
+
+                <div>
+                  <h3 class="text-lg font-medium mb-3 flex items-center">
+                    <svg class="w-5 h-5 mr-2 text-skin-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+                    </svg>
+                    Journal Reviewer
+                  </h3>
+                  <div class="flex flex-wrap gap-2">
+                    {serviceItems
+                      .filter(item => item.type === 'journal')
+                      .map(item => (
+                        <div class="inline-flex items-center px-3 py-1.5 rounded-md bg-skin-fill border border-skin-line shadow-sm hover:bg-skin-card transition-colors">
+                          {item.link ? (
+                            <a href={item.link} class="font-medium text-skin-accent hover:underline" target="_blank" rel="noopener noreferrer">
+                              {item.name}
+                            </a>
+                          ) : (
+                            <span class="font-medium text-skin-accent">{item.name}</span>
+                          )}
+                          {item.years.length > 0 && (
+                            <span class="ml-1.5 text-xs bg-skin-accent/10 px-1.5 py-0.5 rounded text-skin-base">
+                              {item.years.join(', ')}
+                            </span>
+                          )}
+                        </div>
+                      ))}
+                  </div>
+                </div>
+              </div>
+            </div>
           </section>
           <Hr />
         </>
