@@ -37,12 +37,12 @@ const newsItems: NewsItem[] = [
   {
     date: "2025.03",
     content: "One paper accepted by ICLR 2025 ML4RS Workshop.",
-    // link: "https://arxiv.org/abs/2004.11969",
+    link: "https://ml-for-rs.github.io/iclr2025/",
   },
   {
     date: "2024.12",
     content:
-      "Secured 4th place in the ICASSP 2025 Indoor Pathloss Radio Map Prediction Challenge.",
+      "Secured 4th place winner in the ICASSP 2025 Indoor Pathloss Radio Map Prediction Challenge.",
     link: "https://indoorradiomapchallenge.github.io/results.html",
   },
   {
@@ -51,10 +51,100 @@ const newsItems: NewsItem[] = [
     isHighlight: true,
     link: "https://scholar.google.com/citations?user=Hxf8sNkAAAAJ",
   },
+  // {
+  //   date: "2024.04",
+  //   content: "Joined Nanyang Technological University as a Research Assistant.",
+  //   // link: "https://www.ntu.edu.sg"
+  // },
+];
+
+interface AwardItem {
+  year: string;
+  category: string;
+  title: string;
+  organization: string;
+  link?: string;
+}
+
+const awardItems: AwardItem[] = [
   {
-    date: "2024.04",
-    content: "Joined Nanyang Technological University as a Research Assistant.",
-    // link: "https://www.ntu.edu.sg"
+    year: "2025",
+    category: "Scholarship",
+    title: "Research Scholarship",
+    organization: "Nanyang Technological University",
+  },
+  {
+    year: "2024",
+    category: "Conference",
+    title: "4th Place winner",
+    organization: "ICASSP 2025 Indoor Pathloss Radio Map Prediction Challenge",
+    link: "https://indoorradiomapchallenge.github.io/results.html",
+  },
+];
+
+interface ServiceItem {
+  type: 'conference' | 'journal';
+  name: string;
+  years: string[];
+  link?: string;
+}
+
+const serviceItems: ServiceItem[] = [
+  // Conferences
+  {
+    type: 'conference',
+    name: 'NeurIPS',
+    years: ['2024', '2025'],
+    link: 'https://neurips.cc/',
+  },
+  {
+    type: 'conference',
+    name: 'ICLR',
+    years: ['2025'],
+    link: 'https://iclr.cc/',
+  },
+  {
+    type: 'conference',
+    name: 'ICML',
+    years: ['2025'],
+    link: 'https://icml.cc/',
+  },
+  {
+    type: 'conference',
+    name: 'SIGGRAPH',
+    years: ['2025'],
+    link: 'https://www.siggraph.org/',
+  },
+  {
+    type: 'conference',
+    name: 'AISTATS',
+    years: ['2025'],
+    link: 'https://aistats.org/',
+  },
+  {
+    type: 'conference',
+    name: 'IROS',
+    years: ['2021', '2022'],
+    link: 'https://www.iros.org/',
+  },
+  {
+    type: 'conference',
+    name: 'ICRA',
+    years: ['2022', '2023', '2025'],
+    link: 'https://www.icra2023.org/',
+  },
+  // Journals
+  {
+    type: 'journal',
+    name: 'IEEE RA-L',
+    years: [],
+    link: 'https://www.ieee-ras.org/publications/ra-l',
+  },
+  {
+    type: 'journal',
+    name: 'ACM Transactions on Graphics (TOG)',
+    years: [],
+    link: 'https://dl.acm.org/journal/tog',
   },
 ];
 
@@ -239,10 +329,18 @@ const newsItems: NewsItem[] = [
       featuredPubs.length > 0 && (
         <>
           <section id="pubs">
-            <h2>Publications</h2>
+            <h2>Selected Publications</h2>
             <p>
-              Here are some of the papers I've published. You can also find them
-              on{" "}
+              Here are some of the papers I've published. Full list is available on{" "}
+              <LinkButton
+                className="underline hover:text-skin-accent"
+                href="/pubs/"
+              >
+                Pubs
+              </LinkButton>
+
+              or 
+
               <a
                 class="underline hover:text-skin-accent"
                 href="https://scholar.google.com/citations?hl=en&user=Hxf8sNkAAAAJ"
@@ -252,16 +350,6 @@ const newsItems: NewsItem[] = [
               .<small>(* equal contribution)</small> <br />
             </p>
 
-            {/* /* gap between the list and the button */}
-            {/* 
-            <div class="mb-4" />
-            {
-              <ul>
-                {featuredPubs.map(({ data, slug }) => (
-                  <MiniPubCard href={`/pubs/${slug}/`} frontmatter={data} />
-                ))}
-              </ul>
-            } */}
             {
               <ul max-h-96 overflow-auto class="divide-y">
                 {featuredPubs.map(({ data, slug }) => (
@@ -274,7 +362,6 @@ const newsItems: NewsItem[] = [
         </>
       )
     }
-    <Hr />
 
     {
       (
@@ -486,20 +573,95 @@ const newsItems: NewsItem[] = [
           <section id="profession">
             <h2>Academic Services</h2>
 
-            <p>
-              <b>Conference Reviewer:</b> IROS (2021, 2022), ICRA (2022, 2023,
-              2025), NeurIPS (2024), ICLR (2025), ICML(2025), AISTATS(2025)
-              <br />
-              <b>Journal Reviewer:</b> IEEE RA-L, IEEE TIM
-            </p>
+            <div class="space-y-6">
+              <div>
+                <h3 class="text-lg font-medium mb-2">Conference Reviewer</h3>
+                <div class="flex flex-wrap gap-2">
+                  {serviceItems
+                    .filter(item => item.type === 'conference')
+                    .map(item => (
+                      <div class="inline-flex items-center px-3 py-1 rounded-md bg-skin-card border border-skin-line">
+                        {item.link ? (
+                          <a href={item.link} class="font-medium text-skin-accent hover:underline">
+                            {item.name}
+                          </a>
+                        ) : (
+                          <span class="font-medium">{item.name}</span>
+                        )}
+                        {item.years.length > 0 && (
+                          <span class="ml-1 text-xs">
+                            ({item.years.join(', ')})
+                          </span>
+                        )}
+                      </div>
+                    ))}
+                </div>
+              </div>
 
-            {/* <table style="width: 100%;">
-              <tr>
-                <th>Reviewer</th>
-                <td>NeurIPS 2024</td>
-                <td>2024</td>
-              </tr>
-            </table> */}
+              <div>
+                <h3 class="text-lg font-medium mb-2">Journal Reviewer</h3>
+                <div class="flex flex-wrap gap-2">
+                  {serviceItems
+                    .filter(item => item.type === 'journal')
+                    .map(item => (
+                      <div class="inline-flex items-center px-3 py-1 rounded-md bg-skin-card border border-skin-line">
+                        {item.link ? (
+                          <a href={item.link} class="font-medium text-skin-accent hover:underline">
+                            {item.name}
+                          </a>
+                        ) : (
+                          <span class="font-medium">{item.name}</span>
+                        )}
+                        {item.years.length > 0 && (
+                          <span class="ml-1 text-xs">
+                            ({item.years.join(', ')})
+                          </span>
+                        )}
+                      </div>
+                    ))}
+                </div>
+              </div>
+            </div>
+          </section>
+          <Hr />
+        </>
+      )
+    }
+
+        {
+      (
+        <>
+          <section id="pubs">
+            <h2>Awards</h2>
+            <ul class="divide-y">
+              {awardItems.map(item => (
+                <li class="py-3">
+                  <div class="flex flex-col sm:flex-row">
+                    <div class="sm:w-32 font-medium">{item.year}</div>
+                    <div class="flex-1">
+                      <div class="flex items-center">
+                        <span class="mr-2 inline-flex items-center rounded-md bg-skin-accent/10 px-2 py-1 text-xs font-medium text-skin-accent">
+                          <svg class="mr-1 h-3 w-3" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M10 1l2.928 6.39 6.84.678-5.11 4.808 1.553 6.813L10 16.865l-6.21 3.824 1.553-6.813-5.11-4.808 6.84-.678L10 1z" clip-rule="evenodd" />
+                          </svg>
+                          {item.category}
+                        </span>
+                        <span class="font-medium">{item.title}</span>
+                      </div>
+                      <p class="text-sm">
+                        {item.link ? (
+                          <a href={item.link} class="hover:text-skin-accent">
+                            {item.organization}
+                          </a>
+                        ) : (
+                          item.organization
+                        )}
+                      </p>
+                    </div>
+                  </div>
+                </li>
+              ))}
+            </ul>
           </section>
           <Hr />
         </>
