@@ -293,7 +293,7 @@ const serviceItems: ServiceItem[] = [
         <ul class="divide-y divide-skin-line">
           {
             newsItems.map((item) => (
-              <li class="py-4 first:pt-0 last:pb-0 transition-colors hover:bg-skin-card/80">
+              <li class="py-4 first:pt-0 last:pb-0 transition-colors ">
                 <div class="flex flex-col sm:flex-row gap-2">
                   <div class="sm:w-28 font-medium shrink-0">
                     {item.date}
@@ -312,7 +312,7 @@ const serviceItems: ServiceItem[] = [
                       <div class="flex flex-col">
                         <div class="flex items-center gap-2 mb-1">
                           
-                        <span class="text-sm text-skin-base ">
+                        <span class="text-sm text-skin-base font-medium">
                         {item.link ? (
                           <a
                             href={item.link}
@@ -402,7 +402,7 @@ const serviceItems: ServiceItem[] = [
             <div class="rounded-lg border border-skin-line p-4 bg-skin-fill">
               <ul class="divide-y divide-skin-line">
                 {featuredPubs.map(({ data, slug }) => (
-                      <div  class="py-4 first:pt-0 last:pb-0 transition-colors hover:bg-skin-card/80">
+                      <div  class="py-4 first:pt-0 last:pb-0 transition-colors">
                         <PubCard client:visible href={`/pubs/${slug}/`} frontmatter={data} />
                       </div>
                 ))}
@@ -421,7 +421,7 @@ const serviceItems: ServiceItem[] = [
             <h2 class="pb-6 pt-6 text-2xl font-semibold tracking-wide">Education</h2>
             <div class="rounded-lg border border-skin-line p-4">
               <ul class="divide-y divide-skin-line">
-                <li class="py-4 first:pt-0 transition-colors hover:bg-skin-card/80">
+                <li class="py-4 first:pt-0 transition-colors">
                   <div class="flex flex-col sm:flex-row gap-3">
                     <div class="sm:w-28 font-medium shrink-0">
                       2025.01 - Present
@@ -452,7 +452,7 @@ const serviceItems: ServiceItem[] = [
                   </div>
                 </li>
                 
-                <li class="py-4 transition-colors hover:bg-skin-card/80">
+                <li class="py-4 transition-colors">
                   <div class="flex flex-col sm:flex-row gap-3">
                     <div class="sm:w-28 font-medium shrink-0">
                       2018.09 - 2021.07
@@ -489,7 +489,7 @@ const serviceItems: ServiceItem[] = [
                   </div>
                 </li>
                 
-                <li class="py-4 last:pb-0 transition-colors hover:bg-skin-card/80">
+                <li class="py-4 last:pb-0 transition-colors">
                   <div class="flex flex-col sm:flex-row gap-3">
                     <div class="sm:w-28 font-medium shrink-0">
                       2014.09 - 2018.07
@@ -529,7 +529,7 @@ const serviceItems: ServiceItem[] = [
             <div class="rounded-lg border border-skin-line p-4">
               <ul class="divide-y divide-skin-line">
                 <!-- Research Assistant NTU -->
-                <li class="py-4 first:pt-0 transition-colors hover:bg-skin-card/80">
+                <li class="py-4 first:pt-0 transition-colors">
                   <div class="flex flex-col sm:flex-row gap-3">
                     <div class="sm:w-28 font-medium shrink-0">
                       2024.04 - 2025.01
@@ -566,7 +566,7 @@ const serviceItems: ServiceItem[] = [
                 </li>
                 
                 <!-- SLAM Engineer -->
-                <li class="py-4 transition-colors hover:bg-skin-card/80">
+                <li class="py-4 transition-colors">
                   <div class="flex flex-col sm:flex-row gap-3">
                     <div class="sm:w-28 font-medium shrink-0">
                       2022.03 - 2024.03
@@ -597,7 +597,7 @@ const serviceItems: ServiceItem[] = [
                 </li>
                 
                 <!-- Research Assistant SUTD -->
-                <li class="py-4 transition-colors hover:bg-skin-card/80">
+                <li class="py-4 transition-colors">
                   <div class="flex flex-col sm:flex-row gap-3">
                     <div class="sm:w-28 font-medium shrink-0">
                       2021.09 - 2022.03
@@ -634,7 +634,7 @@ const serviceItems: ServiceItem[] = [
                 </li>
                 
                 <!-- MSRA Intern -->
-                <li class="py-4 transition-colors hover:bg-skin-card/80">
+                <li class="py-4 transition-colors">
                   <div class="flex flex-col sm:flex-row gap-3">
                     <div class="sm:w-28 font-medium shrink-0">
                       2020.09 - 2021.04
@@ -674,7 +674,7 @@ const serviceItems: ServiceItem[] = [
                 </li>
                 
                 <!-- Megvii Intern -->
-                <li class="py-4 last:pb-0 transition-colors hover:bg-skin-card/80">
+                <li class="py-4 last:pb-0 transition-colors">
                   <div class="flex flex-col sm:flex-row gap-3">
                     <div class="sm:w-28 font-medium shrink-0">
                       2019.05 - 2020.03
@@ -726,7 +726,7 @@ const serviceItems: ServiceItem[] = [
             <div class="rounded-lg border border-skin-line p-4 ">
               <ul class="divide-y divide-skin-line">
                 {awardItems.map(item => (
-                  <li class="py-4 first:pt-0 last:pb-0 transition-colors hover:bg-skin-card/80">
+                  <li class="py-4 first:pt-0 last:pb-0 transition-colors">
                     <div class="flex flex-col sm:flex-row gap-2">
                       <div class="sm:w-28 font-medium">{item.year}</div>
                       <div class="flex-1">
