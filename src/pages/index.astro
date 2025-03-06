@@ -250,16 +250,16 @@ const serviceItems: ServiceItem[] = [
             <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
             <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
           </svg>
-          <a
-            href="mailto:xin019@e.ntu.edu.sg"
+        <a
+          href="mailto:xin019@e.ntu.edu.sg"
             class="underline hover:text-skin-accent transition-colors"
-          >
-          xin019@e.ntu.edu.sg</a>
+        >
+        xin019@e.ntu.edu.sg</a>
         </p>
 
-        {
-          // only display if at least one social link is enabled
-          socialCount > 0 && (
+      {
+        // only display if at least one social link is enabled
+        socialCount > 0 && (
             <div class="social-wrapper mt-4">
               <div class="social-links flex items-center gap-2">
                 <svg class="w-5 h-5 text-skin-accent" fill="currentColor" viewBox="0 0 20 20">
@@ -267,17 +267,27 @@ const serviceItems: ServiceItem[] = [
                 </svg>
                 Links:
               </div>
-              <Socials />
-            </div>
-          )
-        }
+            <Socials />
+          </div>
+        )
+      }
+
+          <!-- Last Updated -->
+          <div class="text-sm text-skin-base opacity-70 text-right">
+            <p>
+              <svg class="inline-block w-4 h-4 mr-1 -mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+              </svg>
+              Last updated: {new Date().toLocaleDateString('en-US', {year: 'numeric', month: 'long', day: 'numeric'})}
+            </p>
+          </div>
       </div>
     </section>
 
     <Hr/>
 
     <section id="news" class="w-full">
-      <h2 class="pb-6 pt-6 text-2xl font-semibold tracking-wide">News</h2>
+        <h2 class="pb-6 pt-6 text-2xl font-semibold tracking-wide">News</h2>
       
       <div class="rounded-lg border border-skin-line p-4">
         <ul class="divide-y divide-skin-line">
@@ -285,10 +295,10 @@ const serviceItems: ServiceItem[] = [
             newsItems.map((item) => (
               <li class="py-4 first:pt-0 last:pb-0 transition-colors hover:bg-skin-card/80">
                 <div class="flex flex-col sm:flex-row gap-2">
-                  <div class="sm:w-28 font-medium text-skin-accent shrink-0">
+                  <div class="sm:w-28 font-medium shrink-0">
                     {item.date}
                   </div>
-                  
+
                   <div class="flex-1">
                     <div class="flex items-start gap-1.5">
                       {item.isHighlight && (
@@ -302,20 +312,20 @@ const serviceItems: ServiceItem[] = [
                       <div class="flex flex-col">
                         <div class="flex items-center gap-2 mb-1">
                           
-                        <span class="text-sm text-skin-base">
-                          {item.link ? (
-                            <a
-                              href={item.link}
-                              class="text-skin-accent hover:underline"
-                              target="_blank"
-                              rel="noopener noreferrer"
-                            >
-                              {item.content}
-                            </a>
-                          ) : (
-                            item.content
-                          )}
-                        </span>
+                        <span class="text-sm text-skin-base ">
+                        {item.link ? (
+                          <a
+                            href={item.link}
+                              class="hover:underline"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          >
+                            {item.content}
+                          </a>
+                        ) : (
+                          item.content
+                        )}
+                      </span>
                           <span class="inline-flex items-center rounded-md bg-skin-accent/10 px-2 py-0.5 text-xs font-medium text-skin-accent">
                             {(() => {
                               // Return appropriate icon based on category
@@ -369,7 +379,7 @@ const serviceItems: ServiceItem[] = [
         <>
           <section id="pubs">
             <h2 class="pb-6 pt-6 text-2xl font-semibold tracking-wide">Selected Publications</h2>
-            <p>
+            <p class="mb-4">
               Here are some of the papers I've published. Full list is available on{" "}
               <LinkButton
                 className="underline hover:text-skin-accent"
@@ -386,7 +396,7 @@ const serviceItems: ServiceItem[] = [
               >
                 Google Scholar
               </a>
-              .<small>(* equal contribution)</small> <br />
+              .<small>(* equal contribution)</small>
             </p>
 
             <div class="rounded-lg border border-skin-line p-4 bg-skin-fill">
@@ -413,12 +423,12 @@ const serviceItems: ServiceItem[] = [
               <ul class="divide-y divide-skin-line">
                 <li class="py-4 first:pt-0 transition-colors hover:bg-skin-card/80">
                   <div class="flex flex-col sm:flex-row gap-3">
-                    <div class="sm:w-28 font-medium text-skin-accent shrink-0">
+                    <div class="sm:w-28 font-medium shrink-0">
                       2025.01 - Present
                     </div>
                     <div class="flex-1">
                       <div class="flex items-start gap-2">
-                        <span class="inline-flex mt-0.5 items-center justify-center w-8 h-8 rounded-full bg-skin-accent/10 text-skin-accent flex-shrink-0">
+                        <span class="inline-flex mt-0.5 items-center justify-center w-8 h-8 rounded-full bg-skin-accent/10 flex-shrink-0">
                           <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
                             <path d="M10.394 2.08a1 1 0 00-.788 0l-7 3a1 1 0 000 1.84L5.25 8.051a.999.999 0 01.356-.257l4-1.714a1 1 0 11.788 1.838L7.667 9.088l1.94.831a1 1 0 00.787 0l7-3a1 1 0 000-1.838l-7-3zM3.31 9.397L5 10.12v4.102a8.969 8.969 0 00-1.05-.174 1 1 0 01-.89-.89 11.115 11.115 0 01.25-3.762zM9.3 16.573A9.026 9.026 0 007 14.935v-3.957l1.818.78a3 3 0 002.364 0l5.508-2.361a11.026 11.026 0 01.25 3.762 1 1 0 01-.89.89 8.968 8.968 0 00-5.35 2.524 1 1 0 01-1.4 0zM6 18a1 1 0 001-1v-2.065a8.935 8.935 0 00-2-.712V17a1 1 0 001 1z" />
                           </svg>
@@ -426,14 +436,14 @@ const serviceItems: ServiceItem[] = [
                         <div>
                           <h3 class="text-lg font-medium">Ph.D.</h3>
                           <p class="mb-1">
-                            <a href="http://ntu.edu.sg" class="text-skin-accent hover:underline">
-                              Nanyang Technological University, Singapore
+                            <a href="http://ntu.edu.sg" class="hover:underline">
+                    Nanyang Technological University, Singapore
                             </a>
                           </p>
                           <p class="text-sm text-skin-base opacity-75 italic">
                             Supervisor: 
-                            <a href="https://blogs.ntu.edu.sg/chau-yuen/" class="text-skin-accent hover:underline">
-                              Prof. Chau Yuen
+                            <a href="https://blogs.ntu.edu.sg/chau-yuen/" class="hover:underline">
+                      Prof. Chau Yuen
                             </a>
                           </p>
                         </div>
@@ -444,32 +454,32 @@ const serviceItems: ServiceItem[] = [
                 
                 <li class="py-4 transition-colors hover:bg-skin-card/80">
                   <div class="flex flex-col sm:flex-row gap-3">
-                    <div class="sm:w-28 font-medium text-skin-accent shrink-0">
+                    <div class="sm:w-28 font-medium shrink-0">
                       2018.09 - 2021.07
                     </div>
                     <div class="flex-1">
                       <div class="flex items-start gap-2">
-                        <span class="inline-flex mt-0.5 items-center justify-center w-8 h-8 rounded-full bg-skin-accent/10 text-skin-accent flex-shrink-0">
+                        <span class="inline-flex mt-0.5 items-center justify-center w-8 h-8 rounded-full bg-skin-accent/10 flex-shrink-0">
                           <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
                             <path d="M10.394 2.08a1 1 0 00-.788 0l-7 3a1 1 0 000 1.84L5.25 8.051a.999.999 0 01.356-.257l4-1.714a1 1 0 11.788 1.838L7.667 9.088l1.94.831a1 1 0 00.787 0l7-3a1 1 0 000-1.838l-7-3zM3.31 9.397L5 10.12v4.102a8.969 8.969 0 00-1.05-.174 1 1 0 01-.89-.89 11.115 11.115 0 01.25-3.762zM9.3 16.573A9.026 9.026 0 007 14.935v-3.957l1.818.78a3 3 0 002.364 0l5.508-2.361a11.026 11.026 0 01.25 3.762 1 1 0 01-.89.89 8.968 8.968 0 00-5.35 2.524 1 1 0 01-1.4 0zM6 18a1 1 0 001-1v-2.065a8.935 8.935 0 00-2-.712V17a1 1 0 001 1z" />
                           </svg>
-                        </span>
+                  </span>
                         <div>
                           <h3 class="text-lg font-medium">M.Eng.</h3>
                           <p class="mb-1">
-                            <a href="http://english.pku.edu.cn" class="text-skin-accent hover:underline">
-                              Peking University
+                            <a href="http://english.pku.edu.cn" class="hover:underline">
+                    Peking University
                             </a>
                           </p>
                           <p class="text-sm text-skin-base opacity-75 italic mb-1">
                             Supervisor: 
-                            <a href="https://www.ss.pku.edu.cn/teacherteam/teacherlist/1652-%E6%9E%97%E9%87%91%E9%BE%99.html" class="text-skin-accent hover:underline">
+                            <a href="https://www.ss.pku.edu.cn/teacherteam/teacherlist/1652-%E6%9E%97%E9%87%91%E9%BE%99.html" class="hover:underline">
                               Prof. Jinlong Lin (林金龙)
                             </a>
                           </p>
                           <p class="text-sm text-skin-base opacity-75 italic">
-                            Thesis: 
-                            <a href="/pubs/master_thesis/MatserThesis.pdf" class="text-skin-accent hover:underline">
+                    Thesis:
+                            <a href="/pubs/master_thesis/MatserThesis.pdf" class="hover:underline">
                               Multi-feature Simultaneous Localization and Mapping with coplanar constraints
                             </a>
                           </p>
@@ -481,21 +491,21 @@ const serviceItems: ServiceItem[] = [
                 
                 <li class="py-4 last:pb-0 transition-colors hover:bg-skin-card/80">
                   <div class="flex flex-col sm:flex-row gap-3">
-                    <div class="sm:w-28 font-medium text-skin-accent shrink-0">
+                    <div class="sm:w-28 font-medium shrink-0">
                       2014.09 - 2018.07
                     </div>
                     <div class="flex-1">
                       <div class="flex items-start gap-2">
-                        <span class="inline-flex mt-0.5 items-center justify-center w-8 h-8 rounded-full bg-skin-accent/10 text-skin-accent flex-shrink-0">
+                        <span class="inline-flex mt-0.5 items-center justify-center w-8 h-8 rounded-full bg-skin-accent/10 flex-shrink-0">
                           <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
                             <path d="M10.394 2.08a1 1 0 00-.788 0l-7 3a1 1 0 000 1.84L5.25 8.051a.999.999 0 01.356-.257l4-1.714a1 1 0 11.788 1.838L7.667 9.088l1.94.831a1 1 0 00.787 0l7-3a1 1 0 000-1.838l-7-3zM3.31 9.397L5 10.12v4.102a8.969 8.969 0 00-1.05-.174 1 1 0 01-.89-.89 11.115 11.115 0 01.25-3.762zM9.3 16.573A9.026 9.026 0 007 14.935v-3.957l1.818.78a3 3 0 002.364 0l5.508-2.361a11.026 11.026 0 01.25 3.762 1 1 0 01-.89.89 8.968 8.968 0 00-5.35 2.524 1 1 0 01-1.4 0zM6 18a1 1 0 001-1v-2.065a8.935 8.935 0 00-2-.712V17a1 1 0 001 1z" />
                           </svg>
-                        </span>
+                  </span>
                         <div>
                           <h3 class="text-lg font-medium">B.Eng.</h3>
                           <p>
-                            <a href="https://www.neuq.edu.cn/" class="text-skin-accent hover:underline">
-                              Northeastern University (CN)
+                            <a href="https://www.neuq.edu.cn/" class="hover:underline">
+                    Northeastern University (CN)
                             </a>
                           </p>
                         </div>
@@ -521,12 +531,12 @@ const serviceItems: ServiceItem[] = [
                 <!-- Research Assistant NTU -->
                 <li class="py-4 first:pt-0 transition-colors hover:bg-skin-card/80">
                   <div class="flex flex-col sm:flex-row gap-3">
-                    <div class="sm:w-28 font-medium text-skin-accent shrink-0">
+                    <div class="sm:w-28 font-medium shrink-0">
                       2024.04 - 2025.01
                     </div>
                     <div class="flex-1">
                       <div class="flex items-start gap-2">
-                        <span class="inline-flex mt-0.5 items-center justify-center w-8 h-8 rounded-full bg-skin-accent/10 text-skin-accent flex-shrink-0">
+                        <span class="inline-flex mt-0.5 items-center justify-center w-8 h-8 rounded-full bg-skin-accent/10 flex-shrink-0">
                           <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
                             <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd" />
                           </svg>
@@ -539,13 +549,13 @@ const serviceItems: ServiceItem[] = [
                             </span>
                           </div>
                           <p class="mb-1">
-                            <a href="https://www.ntu.edu.sg/" class="text-skin-accent hover:underline">
+                            <a href="https://www.ntu.edu.sg/" class="hover:underline">
                               Nanyang Technological University
                             </a>, Singapore
                           </p>
                           <p class="text-sm text-skin-base opacity-75 italic">
                             Supervised by 
-                            <a href="https://blogs.ntu.edu.sg/chau-yuen/" class="text-skin-accent hover:underline">
+                            <a href="https://blogs.ntu.edu.sg/chau-yuen/" class=" hover:underline">
                               Prof. Chau Yuen
                             </a>
                           </p>
@@ -558,12 +568,12 @@ const serviceItems: ServiceItem[] = [
                 <!-- SLAM Engineer -->
                 <li class="py-4 transition-colors hover:bg-skin-card/80">
                   <div class="flex flex-col sm:flex-row gap-3">
-                    <div class="sm:w-28 font-medium text-skin-accent shrink-0">
+                    <div class="sm:w-28 font-medium shrink-0">
                       2022.03 - 2024.03
                     </div>
                     <div class="flex-1">
                       <div class="flex items-start gap-2">
-                        <span class="inline-flex mt-0.5 items-center justify-center w-8 h-8 rounded-full bg-skin-accent/10 text-skin-accent flex-shrink-0">
+                        <span class="inline-flex mt-0.5 items-center justify-center w-8 h-8 rounded-full bg-skin-accent/10 flex-shrink-0">
                           <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
                             <path fill-rule="evenodd" d="M11.49 3.17c-.38-1.56-2.6-1.56-2.98 0a1.532 1.532 0 01-2.286.948c-1.372-.836-2.942.734-2.106 2.106.54.886.061 2.042-.947 2.287-1.561.379-1.561 2.6 0 2.978a1.532 1.532 0 01.947 2.287c-.836 1.372.734 2.942 2.106 2.106a1.532 1.532 0 012.287.947c.379 1.561 2.6 1.561 2.978 0a1.533 1.533 0 012.287-.947c1.372.836 2.942-.734 2.106-2.106a1.533 1.533 0 01.947-2.287c1.561-.379 1.561-2.6 0-2.978a1.532 1.532 0 01-.947-2.287c.836-1.372-.734-2.942-2.106-2.106a1.532 1.532 0 01-2.287-.947zM10 13a3 3 0 100-6 3 3 0 000 6z" clip-rule="evenodd" />
                           </svg>
@@ -576,7 +586,7 @@ const serviceItems: ServiceItem[] = [
                             </span>
                           </div>
                           <p class="mb-1">
-                            <a href="https://www.gaussianrobotics.com/" class="text-skin-accent hover:underline">
+                            <a href="https://www.gaussianrobotics.com/" class="hover:underline">
                               Gaussian Robotics
                             </a>, Singapore
                           </p>
@@ -589,12 +599,12 @@ const serviceItems: ServiceItem[] = [
                 <!-- Research Assistant SUTD -->
                 <li class="py-4 transition-colors hover:bg-skin-card/80">
                   <div class="flex flex-col sm:flex-row gap-3">
-                    <div class="sm:w-28 font-medium text-skin-accent shrink-0">
+                    <div class="sm:w-28 font-medium shrink-0">
                       2021.09 - 2022.03
                     </div>
                     <div class="flex-1">
                       <div class="flex items-start gap-2">
-                        <span class="inline-flex mt-0.5 items-center justify-center w-8 h-8 rounded-full bg-skin-accent/10 text-skin-accent flex-shrink-0">
+                        <span class="inline-flex mt-0.5 items-center justify-center w-8 h-8 rounded-full bg-skin-accent/10 flex-shrink-0">
                           <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
                             <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd" />
                           </svg>
@@ -607,13 +617,13 @@ const serviceItems: ServiceItem[] = [
                             </span>
                           </div>
                           <p class="mb-1">
-                            <a href="https://www.sutd.edu.sg/" class="text-skin-accent hover:underline">
+                            <a href="https://www.sutd.edu.sg/" class="hover:underline">
                               Singapore University of Technology and Design
                             </a>, Singapore
                           </p>
                           <p class="text-sm text-skin-base opacity-75 italic">
                             Supervised by 
-                            <a href="https://blogs.ntu.edu.sg/chau-yuen/" class="text-skin-accent hover:underline">
+                            <a href="https://blogs.ntu.edu.sg/chau-yuen/" class="hover:underline">
                               Prof. Chau Yuen
                             </a>
                           </p>
@@ -626,12 +636,12 @@ const serviceItems: ServiceItem[] = [
                 <!-- MSRA Intern -->
                 <li class="py-4 transition-colors hover:bg-skin-card/80">
                   <div class="flex flex-col sm:flex-row gap-3">
-                    <div class="sm:w-28 font-medium text-skin-accent shrink-0">
+                    <div class="sm:w-28 font-medium shrink-0">
                       2020.09 - 2021.04
                     </div>
                     <div class="flex-1">
                       <div class="flex items-start gap-2">
-                        <span class="inline-flex mt-0.5 items-center justify-center w-8 h-8 rounded-full bg-skin-accent/10 text-skin-accent flex-shrink-0">
+                        <span class="inline-flex mt-0.5 items-center justify-center w-8 h-8 rounded-full bg-skin-accent/10 flex-shrink-0">
                           <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
                             <path d="M11.5 3v8.5H3V3zm0 0v8.5H3V3zM3 13h8.5v8.5H3zm10 0h8.5v8.5H13zm0-10h8.5v8.5H13z" />
                           </svg>
@@ -641,20 +651,20 @@ const serviceItems: ServiceItem[] = [
                             <h3 class="text-lg font-medium">Research Intern</h3>
                             <span class="inline-flex items-center rounded-md bg-skin-accent/10 px-2 py-0.5 text-xs font-medium text-skin-accent">
                               Research
-                            </span>
+                  </span>
                           </div>
                           <p class="mb-1">
-                            <a href="https://www.microsoft.com/en-us/research/lab/microsoft-research-asia/" class="text-skin-accent hover:underline">
+                            <a href="https://www.microsoft.com/en-us/research/lab/microsoft-research-asia/" class="hover:underline">
                               Microsoft Research Asia
                             </a>, Beijing
                           </p>
                           <p class="text-sm text-skin-base opacity-75 italic">
                             Supervised by 
-                            <a href="https://xueyuhanlang.github.io/" class="text-skin-accent hover:underline">
-                              Dr. Yang Liu (刘洋)
+                            <a href="https://xueyuhanlang.github.io/" class="hover:underline">
+                      Dr. Yang Liu (刘洋)
                             </a> and 
-                            <a href="https://yizhongzhang1989.github.io/" class="text-skin-accent hover:underline">
-                              Dr. Yizhong Zhang (张译中)
+                            <a href="https://yizhongzhang1989.github.io/" class="hover:underline">
+                      Dr. Yizhong Zhang (张译中)
                             </a>
                           </p>
                         </div>
@@ -666,12 +676,12 @@ const serviceItems: ServiceItem[] = [
                 <!-- Megvii Intern -->
                 <li class="py-4 last:pb-0 transition-colors hover:bg-skin-card/80">
                   <div class="flex flex-col sm:flex-row gap-3">
-                    <div class="sm:w-28 font-medium text-skin-accent shrink-0">
+                    <div class="sm:w-28 font-medium shrink-0">
                       2019.05 - 2020.03
                     </div>
                     <div class="flex-1">
                       <div class="flex items-start gap-2">
-                        <span class="inline-flex mt-0.5 items-center justify-center w-8 h-8 rounded-full bg-skin-accent/10 text-skin-accent flex-shrink-0">
+                        <span class="inline-flex mt-0.5 items-center justify-center w-8 h-8 rounded-full bg-skin-accent/10 flex-shrink-0">
                           <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
                             <path d="M10 12a2 2 0 100-4 2 2 0 000 4z" />
                             <path fill-rule="evenodd" d="M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.064 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z" clip-rule="evenodd" />
@@ -682,17 +692,17 @@ const serviceItems: ServiceItem[] = [
                             <h3 class="text-lg font-medium">Research Intern</h3>
                             <span class="inline-flex items-center rounded-md bg-skin-accent/10 px-2 py-0.5 text-xs font-medium text-skin-accent">
                               Research
-                            </span>
+                  </span>
                           </div>
                           <p class="mb-1">
-                            <a href="https://www.megvii.com/" class="text-skin-accent hover:underline">
+                            <a href="https://www.megvii.com/" class="hover:underline">
                               Megvii
                             </a> (a.k.a Face++), Beijing
                           </p>
                           <p class="text-sm text-skin-base opacity-75 italic">
                             Supervised by 
-                            <a href="https://scholar.google.com/citations?user=_0lKGnkAAAAJ&hl=en" class="text-skin-accent hover:underline">
-                              Dr. Yijia He (贺一家)
+                            <a href="https://scholar.google.com/citations?user=_0lKGnkAAAAJ&hl=en" class="hover:underline">
+                      Dr. Yijia He (贺一家)
                             </a>
                           </p>
                         </div>
@@ -718,7 +728,7 @@ const serviceItems: ServiceItem[] = [
                 {awardItems.map(item => (
                   <li class="py-4 first:pt-0 last:pb-0 transition-colors hover:bg-skin-card/80">
                     <div class="flex flex-col sm:flex-row gap-2">
-                      <div class="sm:w-28 font-medium text-skin-accent">{item.year}</div>
+                      <div class="sm:w-28 font-medium">{item.year}</div>
                       <div class="flex-1">
                         <div class="flex items-center mb-1">
                           <span class="mr-2 inline-flex items-center rounded-md bg-skin-accent/10 px-2 py-1 text-xs font-medium text-skin-accent">
@@ -726,12 +736,12 @@ const serviceItems: ServiceItem[] = [
                               <path fill-rule="evenodd" d="M10 1l2.928 6.39 6.84.678-5.11 4.808 1.553 6.813L10 16.865l-6.21 3.824 1.553-6.813-5.11-4.808 6.84-.678L10 1z" clip-rule="evenodd" />
                             </svg>
                             {item.category}
-                          </span>
+                  </span>
                           <span class="font-medium text-skin-base">{item.title}</span>
                         </div>
                         <p class="text-sm text-skin-base">
                           {item.link ? (
-                            <a href={item.link} class="text-skin-accent hover:underline" target="_blank" rel="noopener noreferrer">
+                            <a href={item.link} class="hover:underline" target="_blank" rel="noopener noreferrer">
                               {item.organization}
                             </a>
                           ) : (
@@ -770,7 +780,7 @@ const serviceItems: ServiceItem[] = [
                       .map(item => (
                         <div class="inline-flex items-center px-3 py-1.5 rounded-md bg-skin-fill border border-skin-line shadow-sm hover:bg-skin-card transition-colors">
                           {item.link ? (
-                            <a href={item.link} class="font-medium text-skin-accent hover:underline" target="_blank" rel="noopener noreferrer">
+                            <a href={item.link} class="font-medium hover:underline" target="_blank" rel="noopener noreferrer">
                               {item.name}
                             </a>
                           ) : (
@@ -799,7 +809,7 @@ const serviceItems: ServiceItem[] = [
                       .map(item => (
                         <div class="inline-flex items-center px-3 py-1.5 rounded-md bg-skin-fill border border-skin-line shadow-sm hover:bg-skin-card transition-colors">
                           {item.link ? (
-                            <a href={item.link} class="font-medium text-skin-accent hover:underline" target="_blank" rel="noopener noreferrer">
+                            <a href={item.link} class="font-medium hover:underline" target="_blank" rel="noopener noreferrer">
                               {item.name}
                             </a>
                           ) : (

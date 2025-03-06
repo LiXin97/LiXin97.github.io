@@ -30,7 +30,7 @@ export const SOCIALS: SocialObjects = [
   {
     name: "Github",
     href: "https://github.com/LiXin97",
-    linkTitle: ` ${SITE.title} on Github`,
+    linkTitle: ` ${SITE.author} on Github`,
     active: true,
   },
   // {
@@ -48,19 +48,25 @@ export const SOCIALS: SocialObjects = [
   {
     name: "LinkedIn",
     href: "https://www.linkedin.com/in/xin-li-1196331a0",
-    linkTitle: `${SITE.title} on LinkedIn`,
+    linkTitle: `${SITE.author} on LinkedIn`,
     active: true,
   },
   {
     name: "GoogleScholar",
     href: "https://scholar.google.com/citations?hl=en&user=Hxf8sNkAAAAJ",
-    linkTitle: `${SITE.title} on Google Scholar`,
+    linkTitle: `${SITE.author} on Google Scholar`,
     active: true,
   },
   {
     name: "Mail",
     href: "mailto:lixin.1997.lixin@gmail.com",
-    linkTitle: `Send an email to ${SITE.title}`,
+    linkTitle: `Send an email to ${SITE.author}`,
+    active: true,
+  },
+  {
+    name: "CV",
+    href: "/assets/XinLi_CV.pdf",
+    linkTitle: `${SITE.author}'s CV`,
     active: true,
   },
   {

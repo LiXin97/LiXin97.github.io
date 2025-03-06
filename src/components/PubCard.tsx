@@ -100,6 +100,17 @@ export default function PubCard({ href, frontmatter, secHeading = true }: PubCar
         ) : displayName;
     };
 
+    // Get a color based on the tag name
+    const getTagColor = (tag: string) => {
+        // Simple hash function to get consistent colors for tags
+        const hash = tag.split('').reduce((acc, char) => {
+            return char.charCodeAt(0) + ((acc << 5) - acc);
+        }, 0);
+        
+        // Convert to a color in the accent palette with different opacity levels
+        return `var(--color-accent), ${Math.abs(hash) % 20 + 10}%`;
+    };
+
     return (
         <div>
             <StructuredMetaData title={title} authors={authors} published_year={published_year} published_place={published_place} homepage={homepage} />
@@ -107,7 +118,7 @@ export default function PubCard({ href, frontmatter, secHeading = true }: PubCar
             <li className="my-6">
                 <a
                     href={homepage}
-                    className="inline-block text-lg font-medium text-skin-accent decoration-dashed underline-offset-4 focus-visible:no-underline"
+                    className="inline-block text-lg font-medium hover:text-skin-accent  decoration-dashed underline-offset-4 focus-visible:no-underline"
                 >
                     <h3 {...headerProps}>{title}</h3>
                 </a>
@@ -121,13 +132,36 @@ export default function PubCard({ href, frontmatter, secHeading = true }: PubCar
                     ))}
                 </div>
 
-                <p className="text-sm font-light">{published_place}, {published_year.toString()}. &nbsp;</p>
+                <p className="text-sm font-light">{published_place}, {published_year.toString()}.</p>
+                
+                {/* Tags display */}
+                {tags && tags.length > 0 && (
+                    <div className="flex flex-wrap gap-2 mt-2 mb-2">
+                        {tags.map(tag => (
+                            <a 
+                                key={tag}
+                                href={`/pubs/tags/${slugifyStr(tag)}/`}
+                                className="inline-flex items-center px-2 py-0.5 rounded-md text-xs font-medium bg-skin-accent/10 text-skin-accent hover:bg-skin-accent/20 transition-colors"
+                            >
+                                <svg 
+                                    className="w-3 h-3 mr-1" 
+                                    fill="currentColor" 
+                                    viewBox="0 0 20 20"
+                                >
+                                    <path fillRule="evenodd" d="M17.707 9.293a1 1 0 010 1.414l-7 7a1 1 0 01-1.414 0l-7-7A.997.997 0 012 10V5a3 3 0 013-3h5c.256 0 .512.098.707.293l7 7zM5 6a1 1 0 100-2 1 1 0 000 2z" clipRule="evenodd" />
+                                </svg>
+                                {tag}
+                            </a>
+                        ))}
+                    </div>
+                )}
+
                 <div className="flex flex-wrap items-center gap-2">
                     {links.map((link, index) => (
                         <span key={index} className="text-sm font-light">
                             {
                                 link.url ? (
-                                    <a href={link.url} className="hover:underline text-skin-accent decoration-dashed underline-offset-4 focus-visible:no-underline focus-visible:underline-offset-0">
+                                    <a href={link.url} className="hover:underline hover:text-skin-accent  decoration-dashed underline-offset-4 focus-visible:no-underline focus-visible:underline-offset-0">
                                         {link.name}
                                     </a>
                                 ) : link.name
@@ -137,7 +171,7 @@ export default function PubCard({ href, frontmatter, secHeading = true }: PubCar
                     ))}
                     <button 
                         onClick={toggleBibtex}
-                        className="inline-flex items-center text-sm font-light text-skin-accent hover:text-skin-accent transition-colors duration-200"
+                        className="inline-flex items-center text-sm font-light hover:text-skin-accent transition-colors duration-200"
                     >
                         <svg 
                             className="w-4 h-4 mr-1" 

@@ -1,37 +1,37 @@
 ---
 export interface Props {
   tag: string;
+  tagName: string;
   size?: "sm" | "lg";
   type?: "pubs" | "posts";
 }
 
-const { tag, size = "sm", type = "posts" } = Astro.props;
+const { tag, tagName, size = "sm", type = "posts" } = Astro.props;
 ---
 
-<li
-  class={`inline-block ${
-    size === "sm" ? "my-1 underline-offset-4" : "my-3 mx-1 underline-offset-8"
-  }`}
->
+<li class="inline-block">
   <a
     href={`/${type}/tags/${tag}/`}
     transition:name={tag}
-    class={`${size === "sm" ? "text-sm" : "text-lg"} pr-2 group`}
+    class={`inline-flex items-center rounded-md px-2.5 py-0.5 
+    ${size === "sm" ? "text-xs" : "text-sm"} 
+    font-medium bg-skin-accent/10 text-skin-accent hover:bg-skin-accent/20 
+    transition-colors duration-200 group`}
   >
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      class={`${size === "sm" ? " scale-75" : "scale-110"}`}
-      ><path
-        d="M16.018 3.815 15.232 8h-4.966l.716-3.815-1.964-.37L8.232 8H4v2h3.857l-.751 4H3v2h3.731l-.714 3.805 1.965.369L8.766 16h4.966l-.714 3.805 1.965.369.783-4.174H20v-2h-3.859l.751-4H21V8h-3.733l.716-3.815-1.965-.37zM14.106 14H9.141l.751-4h4.966l-.752 4z"
-      ></path>
+    <svg 
+      class={`${size === "sm" ? "w-3 h-3" : "w-4 h-4"} mr-1 group-hover:scale-110 transition-transform duration-200`}
+      fill="currentColor" 
+      viewBox="0 0 20 20"
+    >
+      <path fill-rule="evenodd" d="M17.707 9.293a1 1 0 010 1.414l-7 7a1 1 0 01-1.414 0l-7-7A.997.997 0 012 10V5a3 3 0 013-3h5c.256 0 .512.098.707.293l7 7zM5 6a1 1 0 100-2 1 1 0 000 2z" clip-rule="evenodd" />
     </svg>
-    &nbsp;<span>{tag}</span>
+    <span>{tagName}</span>
   </a>
 </li>
 
 <style>
   a {
-    @apply relative underline decoration-dashed hover:-top-0.5 hover:text-skin-accent focus-visible:p-1;
+    @apply relative decoration-dashed hover:-top-0.5 hover:text-skin-accent focus-visible:p-1;
   }
   a svg {
     @apply -mr-5 h-6 w-6 scale-95 text-skin-base opacity-80 group-hover:fill-skin-accent;
