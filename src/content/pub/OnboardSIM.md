@@ -26,7 +26,7 @@ bibtex:
       year={2025}
     }
 
-homepage: https://ml-for-rs.github.io/iclr2025/
+homepage: /posts/onboradsim/
 links:
   - name: arXiv
     url: https://liumengbing.com/
