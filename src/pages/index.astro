@@ -75,7 +75,8 @@ const awardItems: AwardItem[] = [
     year: "2025",
     category: "Scholarship",
     title: "Research Scholarship",
-    organization: "Nanyang Technological University",
+    organization: "Nanyang Technological University, Singapore",
+    link: "https://www.ntu.edu.sg",
   },
   {
     year: "2024",
@@ -201,15 +202,15 @@ const serviceItems: ServiceItem[] = [
 <Layout currentPage="about">
   <Header />
 
-  <main id="main-content" class="mx-auto px-4 sm:px-6 max-w-4xl transition-all duration-300 ease-in-out">
-    <section id="hero" class="pb-8 pt-10">
-      <h1 class="my-4 inline-block text-3xl font-bold sm:my-6 sm:text-5xl">Xin Li (李鑫)</h1>
+  <main id="main-content" class="mx-auto px-3 sm:px-4 max-w-3xl transition-all duration-300 ease-in-out">
+    <section id="hero" class="pb-6 pt-8">
+      <h1 class="my-3 inline-block text-3xl font-bold sm:my-4 sm:text-5xl">Xin Li (李鑫)</h1>
 
       <img
         src="/images/XinLi.png"
         alt="Profile photo of Xin Li"
         itemprop="image"
-        class="w-24 sm:w-32 md:w-40 border-2 border-skin-accent/20 rounded-full float-right shadow-lg transition-transform duration-300 hover:scale-105"
+        class="w-20 sm:w-28 md:w-36 border-2 border-skin-accent/20 rounded-full float-right shadow-lg transition-transform duration-300 hover:scale-105"
       />
 
       <p class="text-base font-medium">
@@ -273,7 +274,7 @@ const serviceItems: ServiceItem[] = [
       }
 
           <!-- Last Updated -->
-          <div class="text-sm text-skin-base opacity-70 text-right">
+          <div class="mt-8 text-center text-sm text-skin-base opacity-70 pb-4">
             <p>
               <svg class="inline-block w-4 h-4 mr-1 -mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
@@ -372,7 +373,6 @@ const serviceItems: ServiceItem[] = [
       </div>
     </section>
 
-    <Hr />
 
     {
       featuredPubs.length > 0 && (
@@ -399,17 +399,14 @@ const serviceItems: ServiceItem[] = [
               .<small>(* equal contribution)</small>
             </p>
 
-            <div class="rounded-lg border border-skin-line p-4 bg-skin-fill">
-              <ul class="divide-y divide-skin-line">
+            <ul>
                 {featuredPubs.map(({ data, slug }) => (
-                      <div  class="py-4 first:pt-0 last:pb-0 transition-colors">
+                      <div  class="transition-colors">
                         <PubCard client:visible href={`/pubs/${slug}/`} frontmatter={data} />
                       </div>
                 ))}
-              </ul>
-            </div>
+            </ul>
           </section>
-          {recentPosts.length > 0 && <Hr />}
         </>
       )
     }
@@ -516,7 +513,6 @@ const serviceItems: ServiceItem[] = [
               </ul>
             </div>
           </section>
-          <Hr />
         </>
       )
     }
@@ -550,8 +546,8 @@ const serviceItems: ServiceItem[] = [
                           </div>
                           <p class="mb-1">
                             <a href="https://www.ntu.edu.sg/" class="hover:underline">
-                              Nanyang Technological University
-                            </a>, Singapore
+                              Nanyang Technological University, Singapore
+                            </a>
                           </p>
                           <p class="text-sm text-skin-base opacity-75 italic">
                             Supervised by 
@@ -587,8 +583,8 @@ const serviceItems: ServiceItem[] = [
                           </div>
                           <p class="mb-1">
                             <a href="https://www.gaussianrobotics.com/" class="hover:underline">
-                              Gaussian Robotics
-                            </a>, Singapore
+                              Gaussian Robotics, Singapore
+                            </a>
                           </p>
                         </div>
                       </div>
@@ -618,8 +614,8 @@ const serviceItems: ServiceItem[] = [
                           </div>
                           <p class="mb-1">
                             <a href="https://www.sutd.edu.sg/" class="hover:underline">
-                              Singapore University of Technology and Design
-                            </a>, Singapore
+                              Singapore University of Technology and Design, Singapore
+                            </a>
                           </p>
                           <p class="text-sm text-skin-base opacity-75 italic">
                             Supervised by 
@@ -655,8 +651,8 @@ const serviceItems: ServiceItem[] = [
                           </div>
                           <p class="mb-1">
                             <a href="https://www.microsoft.com/en-us/research/lab/microsoft-research-asia/" class="hover:underline">
-                              Microsoft Research Asia
-                            </a>, Beijing
+                              Microsoft Research Asia, Beijing
+                            </a>
                           </p>
                           <p class="text-sm text-skin-base opacity-75 italic">
                             Supervised by 
@@ -713,7 +709,6 @@ const serviceItems: ServiceItem[] = [
               </ul>
             </div>
           </section>
-          <Hr />
         </>
       )
     }
@@ -755,7 +750,6 @@ const serviceItems: ServiceItem[] = [
               </ul>
             </div>
           </section>
-          <Hr />
         </>
       )
     }
@@ -827,7 +821,6 @@ const serviceItems: ServiceItem[] = [
               </div>
             </div>
           </section>
-          <Hr />
         </>
       )
     }
@@ -842,7 +835,7 @@ const serviceItems: ServiceItem[] = [
     @apply pb-6 pt-8;
   }
   #hero h1 {
-    @apply my-4 inline-block text-3xl font-bold sm:my-8 sm:text-5xl;
+    @apply my-3 inline-block text-3xl font-bold sm:my-4 sm:text-5xl;
   }
   #hero .rss-link {
     @apply mb-6;

@@ -115,15 +115,15 @@ export default function PubCard({ href, frontmatter, secHeading = true }: PubCar
         <div>
             <StructuredMetaData title={title} authors={authors} published_year={published_year} published_place={published_place} homepage={homepage} />
 
-            <li className="my-6">
+            <li className="my-4">
                 <a
                     href={homepage}
-                    className="inline-block text-lg font-medium hover:text-skin-accent  decoration-dashed underline-offset-4 focus-visible:no-underline"
+                    className="inline-block text-lg font-medium hover:text-skin-accent decoration-dashed underline-offset-4 focus-visible:no-underline"
                 >
                     <h3 {...headerProps}>{title}</h3>
                 </a>
 
-                <div className="text-sm">
+                <div className="text-sm mt-1 mb-1">
                     {authors.map((author, index) => (
                         <span key={index}>
                             {renderAuthorName(author)}
@@ -136,7 +136,7 @@ export default function PubCard({ href, frontmatter, secHeading = true }: PubCar
                 
                 {/* Tags display */}
                 {tags && tags.length > 0 && (
-                    <div className="flex flex-wrap gap-2 mt-2 mb-2">
+                    <div className="flex flex-wrap gap-1 mt-1 mb-1">
                         {tags.map(tag => (
                             <a 
                                 key={tag}
@@ -156,7 +156,7 @@ export default function PubCard({ href, frontmatter, secHeading = true }: PubCar
                     </div>
                 )}
 
-                <div className="flex flex-wrap items-center gap-2">
+                <div className="flex flex-wrap items-center gap-1 mt-1">
                     {links.map((link, index) => (
                         <span key={index} className="text-sm font-light">
                             {
