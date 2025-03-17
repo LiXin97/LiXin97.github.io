@@ -4,12 +4,14 @@ export interface Props {
   tagName: string;
   size?: "sm" | "lg";
   type?: "pubs" | "posts";
+  show_number?: boolean;
+  number?: number;
 }
 
-const { tag, tagName, size = "sm", type = "posts" } = Astro.props;
+const { tag, tagName, size = "sm", type = "posts", show_number = false, number = 0 } = Astro.props;
 ---
 
-<li class="inline-block">
+<li class="inline-block" style="display: inline-block;">
   <a
     href={`/${type}/tags/${tag}/`}
     transition:name={tag}
@@ -26,6 +28,7 @@ const { tag, tagName, size = "sm", type = "posts" } = Astro.props;
       <path fill-rule="evenodd" d="M17.707 9.293a1 1 0 010 1.414l-7 7a1 1 0 01-1.414 0l-7-7A.997.997 0 012 10V5a3 3 0 013-3h5c.256 0 .512.098.707.293l7 7zM5 6a1 1 0 100-2 1 1 0 000 2z" clip-rule="evenodd" />
     </svg>
     <span>{tagName}</span>
+    {show_number && <span class="text-xs text-skin-base">({number})</span>}
   </a>
 </li>
 

@@ -35,9 +35,14 @@ const tags = getUniquePubTags(pubs_sort);
         </a>
       </div>
       
-      <ul class="flex flex-wrap gap-2">
-        {tags.map(({ tag, tagName }) => <Tag tag={tag} tagName={tagName} size="sm" type="pubs" />)}
-      </ul>
+      <div class="flex flex-wrap gap-3">
+        {tags.map(({ tag, tagName }) => (
+          <div class="mb-2">
+            <Tag tag={tag} tagName={tagName} size="lg" type="pubs" show_number number={pubs_sort.filter(pub => pub.data.tags && pub.data.tags.includes(tagName)).length}/>
+          </div>
+        ))}
+      </div>
+
     </div>
 
     <div class="space-y-12">
