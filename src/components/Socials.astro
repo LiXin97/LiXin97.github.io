@@ -27,9 +27,37 @@ const { centered = false } = Astro.props;
 
 <style>
   .social-icons {
-    @apply flex-wrap justify-center gap-1;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
   }
   .link-button {
-    @apply p-2 hover:rotate-6 sm:p-1;
+    padding: 0;
+    border-radius: 9999px;
+    background-color: rgb(var(--color-fill));
+    border: 1px solid rgb(var(--color-border));
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    transition: all 0.2s;
+    width: 38px;
+    height: 38px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .link-button:hover {
+    background-color: rgba(var(--color-accent), 0.1);
+    transform: scale(1.1);
+  }
+  .link-button :global(svg) {
+    width: 22px;
+    height: 22px;
+    stroke-width: 1.5;
+  }
+  .link-button :global(.icon-tabler) {
+    width: 22px;
+    height: 22px;
+    stroke-width: 1.5;
   }
 </style>

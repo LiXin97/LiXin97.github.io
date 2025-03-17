@@ -29,9 +29,11 @@ const {
   ) : (
     <a
       {href}
-      class:list={["group inline-block hover:text-skin-accent", className]}
+      class:list={["group inline-block transition-colors duration-200 hover:text-skin-accent", className]}
       aria-label={ariaLabel}
       title={title}
+      target={href.startsWith("http") ? "_blank" : undefined}
+      rel={href.startsWith("http") ? "noopener noreferrer" : undefined}
     >
       <slot />
     </a>

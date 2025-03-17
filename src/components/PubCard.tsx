@@ -62,7 +62,7 @@ export default function PubCard({ href, frontmatter, secHeading = true }: PubCar
 
     const headerProps = {
         style: { viewTransitionName: slugifyStr(title) },
-        className: "text-base font-medium decoration-dashed hover:underline",
+        className: "text-lg font-medium decoration-dashed hover:underline",
     };
 
     let toggleBibtex = () => {
@@ -73,8 +73,8 @@ export default function PubCard({ href, frontmatter, secHeading = true }: PubCar
         if (paper_id == "") return null;
         let citation_url = "https://img.shields.io/endpoint?logo=Google%20Scholar&url=https%3A%2F%2Fcdn.jsdelivr.net%2Fgh%2FLiXin97%2Flixin97.github.io@google-scholar-stats%2Fgs_data_Hxf8sNkAAAAJ:" + paper_id + ".json&labelColor=f6f6f6&color=9cf&style=flat&label=citations";
         return (
-            <a href="https://scholar.google.com/citations?user=Hxf8sNkAAAAJ" className="inline-block align-middle">
-                <img src={citation_url} alt="Google Scholar Citations" />
+            <a href="https://scholar.google.com/citations?user=Hxf8sNkAAAAJ" className="inline-block align-middle transition-transform hover:scale-105">
+                <img src={citation_url} alt="Google Scholar Citations" className="shadow-sm" />
             </a>
         );
     }
@@ -90,40 +90,29 @@ export default function PubCard({ href, frontmatter, secHeading = true }: PubCar
     const renderAuthorName = (author: Author) => {
         const isXinLi = author.name === "Xin Li" || author.name === "Xin Li*";
         const displayName = (
-            isXinLi ? <b>{author.name}</b> : author.name
+            isXinLi ? <b className="text-skin-accent">{author.name}</b> : author.name
         );
 
         return author.url ? (
-            <a href={author.url} className="decoration-dashed hover:underline">
+            <a href={author.url} className="decoration-dashed hover:underline hover:text-skin-accent transition-colors">
                 {displayName}
             </a>
         ) : displayName;
-    };
-
-    // Get a color based on the tag name
-    const getTagColor = (tag: string) => {
-        // Simple hash function to get consistent colors for tags
-        const hash = tag.split('').reduce((acc, char) => {
-            return char.charCodeAt(0) + ((acc << 5) - acc);
-        }, 0);
-        
-        // Convert to a color in the accent palette with different opacity levels
-        return `var(--color-accent), ${Math.abs(hash) % 20 + 10}%`;
     };
 
     return (
         <div>
             <StructuredMetaData title={title} authors={authors} published_year={published_year} published_place={published_place} homepage={homepage} />
 
-            <li className="my-4">
+            <li className="my-3 p-3 rounded-lg transition-all duration-200 hover:bg-skin-card border border-transparent hover:border-skin-line">
                 <a
                     href={homepage}
-                    className="inline-block text-lg font-medium hover:text-skin-accent decoration-dashed underline-offset-4 focus-visible:no-underline"
+                    className="inline-block text-lg font-medium hover:text-skin-accent decoration-dashed underline-offset-4 focus-visible:no-underline transition-colors"
                 >
                     <h3 {...headerProps}>{title}</h3>
                 </a>
 
-                <div className="text-sm mt-1 mb-1">
+                <div className="text-sm mt-1">
                     {authors.map((author, index) => (
                         <span key={index}>
                             {renderAuthorName(author)}
@@ -132,16 +121,16 @@ export default function PubCard({ href, frontmatter, secHeading = true }: PubCar
                     ))}
                 </div>
 
-                <p className="text-sm font-light">{published_place}, {published_year.toString()}.</p>
+                <p className="text-sm font-light mt-1">{published_place}, {published_year.toString()}.</p>
                 
                 {/* Tags display */}
                 {tags && tags.length > 0 && (
-                    <div className="flex flex-wrap gap-1 mt-1 mb-1">
+                    <div className="flex flex-wrap gap-1.5 mt-2">
                         {tags.map(tag => (
                             <a 
                                 key={tag}
                                 href={`/pubs/tags/${slugifyStr(tag)}/`}
-                                className="inline-flex items-center px-2 py-0.5 rounded-md text-xs font-medium bg-skin-accent/10 text-skin-accent hover:bg-skin-accent/20 transition-colors"
+                                className="inline-flex items-center px-2 py-0.5 rounded-md text-xs font-medium bg-skin-accent/10 text-skin-accent hover:bg-skin-accent/20 transition-all duration-200 hover:-translate-y-0.5"
                             >
                                 <svg 
                                     className="w-3 h-3 mr-1" 
@@ -156,12 +145,12 @@ export default function PubCard({ href, frontmatter, secHeading = true }: PubCar
                     </div>
                 )}
 
-                <div className="flex flex-wrap items-center gap-1 mt-1">
+                <div className="flex flex-wrap items-center gap-1.5 mt-2">
                     {links.map((link, index) => (
                         <span key={index} className="text-sm font-light">
                             {
                                 link.url ? (
-                                    <a href={link.url} className="hover:underline hover:text-skin-accent  decoration-dashed underline-offset-4 focus-visible:no-underline focus-visible:underline-offset-0">
+                                    <a href={link.url} className="hover:underline hover:text-skin-accent decoration-dashed underline-offset-4 focus-visible:no-underline focus-visible:underline-offset-0 transition-colors">
                                         {link.name}
                                     </a>
                                 ) : link.name
@@ -171,10 +160,10 @@ export default function PubCard({ href, frontmatter, secHeading = true }: PubCar
                     ))}
                     <button 
                         onClick={toggleBibtex}
-                        className="inline-flex items-center text-sm font-light hover:text-skin-accent transition-colors duration-200"
+                        className="inline-flex items-center text-sm font-light hover:text-skin-accent transition-colors duration-200 ml-1"
                     >
                         <svg 
-                            className="w-4 h-4 mr-1" 
+                            className={`w-4 h-4 mr-1 transition-transform duration-200 ${showBibtex ? 'rotate-180' : ''}`}
                             fill="none" 
                             stroke="currentColor" 
                             viewBox="0 0 24 24"
@@ -190,14 +179,14 @@ export default function PubCard({ href, frontmatter, secHeading = true }: PubCar
                     </button>
                 </div>
                 {showBibtex && (
-                    <div className="mt-3 p-4 bg-skin-card rounded-lg border border-skin-line shadow-sm transition-all duration-200 ease-in-out">
+                    <div className="mt-3 p-4 bg-skin-card rounded-lg border border-skin-line shadow-sm transition-all duration-300 ease-in-out animate-fadeIn">
                         <pre className="text-sm overflow-x-auto font-mono bg-skin-fill p-3 rounded border border-skin-line text-skin-base">
                             {bibtex}
                         </pre>
                         <div className="mt-2 flex justify-end">
                             <button 
                                 onClick={copyToClipboard}
-                                className="inline-flex items-center px-3 py-1 text-sm font-medium text-skin-base bg-skin-card border border-skin-line rounded-md hover:bg-skin-card hover:text-skin-accent transition-colors duration-200"
+                                className="inline-flex items-center px-3 py-1 text-sm font-medium text-skin-base bg-skin-card border border-skin-line rounded-md hover:bg-skin-accent/10 hover:text-skin-accent transition-all duration-200"
                             >
                                 <svg 
                                     className="w-4 h-4 mr-1" 

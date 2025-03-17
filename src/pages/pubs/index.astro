@@ -17,38 +17,50 @@ const { pubs_sort, unique_years } = getSortedPubsYears(pubs);
 const tags = getUniquePubTags(pubs_sort);
 ---
 
-<Layout title={`Pubs | ${SITE.title}`} currentPage="pubs">
+<Layout title={`Publications | ${SITE.title}`} currentPage="pubs">
   <Header activeNav="pubs" />
   <Main pageTitle="Publications" pageDesc="All the papers I've published.">
     
-    <div class="mb-5">
-      <div class="flex items-center gap-1 mb-2">
-        <svg class="w-4 h-4 text-skin-accent" fill="currentColor" viewBox="0 0 20 20">
+    <div class="mb-8 p-5 rounded-lg border-2 border-skin-line bg-skin-fill shadow-sm">
+      <div class="flex items-center gap-2 mb-4">
+        <svg class="w-5 h-5 text-skin-accent" fill="currentColor" viewBox="0 0 20 20">
           <path fill-rule="evenodd" d="M17.707 9.293a1 1 0 010 1.414l-7 7a1 1 0 01-1.414 0l-7-7A.997.997 0 012 10V5a3 3 0 013-3h5c.256 0 .512.098.707.293l7 7zM5 6a1 1 0 100-2 1 1 0 000 2z" clip-rule="evenodd" />
         </svg>
         <h3 class="text-lg font-medium">Browse by tags</h3>
-        <a href="/pubs/tags/" class="ml-auto text-sm text-skin-accent hover:underline">View all tags →</a>
+        <a href="/pubs/tags/" class="ml-auto text-sm text-skin-accent hover:underline hover:text-skin-accent/80 transition-colors group inline-flex items-center">
+          View all tags 
+          <svg class="w-4 h-4 ml-1 group-hover:translate-x-0.5 transition-transform" fill="currentColor" viewBox="0 0 20 20">
+            <path fill-rule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+          </svg>
+        </a>
       </div>
       
-      <ul class="flex flex-wrap gap-1.5">
+      <ul class="flex flex-wrap gap-2">
         {tags.map(({ tag, tagName }) => <Tag tag={tag} tagName={tagName} size="sm" type="pubs" />)}
       </ul>
     </div>
 
-    <ul>
+    <div class="space-y-12">
       {
         unique_years.map(year => (
-          <div>
-            <h2 class="mb-3 mt-6 text-lg font-bold">{year}</h2>
-            {pubs_sort
-              .filter(({ data }) => data.published_year === year)
-              .map(({ data, slug }) => (
-                <PubCard client:visible href={`/pubs/${slug}/`} frontmatter={data} />
-              ))}
+          <div class="bg-skin-fill rounded-lg border border-skin-line p-5 shadow-sm">
+            <h2 class="mb-5 text-xl font-bold flex items-center gap-2">
+              <span class="inline-flex items-center justify-center w-8 h-8 rounded-full bg-skin-accent/10 text-skin-accent">
+                {year}
+              </span>
+              <span class="text-skin-base">Publications</span>
+            </h2>
+            <ul class="space-y-1">
+              {pubs_sort
+                .filter(({ data }) => data.published_year === year)
+                .map(({ data, slug }) => (
+                  <PubCard client:visible href={`/pubs/${slug}/`} frontmatter={data} />
+                ))}
+            </ul>
           </div>
         ))
       }
-    </ul>
+    </div>
   </Main>
   <Footer />
 </Layout>

@@ -111,30 +111,31 @@ const { activeNav } = Astro.props;
       </nav>
     </div>
   </div>
-  <Hr />
+  <!-- <Hr /> -->
 </header>
 <div class="h-14"></div>
-<div class="h-10"></div>
 
 <style>
   /* Light theme styles */
   html[data-theme="light"] #header_nav {
     background: rgb(251, 254, 251);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
   }
 
   /* Dark theme styles */
   html[data-theme="dark"] #header_nav {
     background: rgb(33, 39, 55);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
   }
 
   #skip-to-content {
     @apply absolute -top-full left-16 z-50 bg-skin-accent px-3 py-2 text-skin-inverted transition-all focus:top-4;
   }
   .nav-container {
-    @apply mx-auto flex max-w-3xl flex-col items-center justify-between sm:flex-row;
+    @apply mx-auto flex max-w-3xl flex-col items-center justify-between sm:flex-row px-3 sm:px-4;
   }
   .top-nav-wrap {
-    @apply relative flex w-full items-start justify-between p-4 sm:items-center sm:py-8;
+    @apply relative flex w-full items-start justify-between p-2 sm:items-center sm:py-4;
   }
   .logo {
     @apply absolute py-1 text-xl font-semibold sm:static sm:text-2xl;

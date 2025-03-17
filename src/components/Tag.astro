@@ -16,10 +16,10 @@ const { tag, tagName, size = "sm", type = "posts" } = Astro.props;
     class={`inline-flex items-center rounded-md px-2 py-0.5 
     ${size === "sm" ? "text-xs" : "text-sm"} 
     font-medium bg-skin-accent/10 text-skin-accent hover:bg-skin-accent/20 
-    transition-colors duration-200 group`}
+    transition-all duration-200 hover:-translate-y-0.5 shadow-sm group`}
   >
     <svg 
-      class={`${size === "sm" ? "w-2.5 h-2.5" : "w-3.5 h-3.5"} mr-0.5 group-hover:scale-110 transition-transform duration-200`}
+      class={`${size === "sm" ? "w-2.5 h-2.5" : "w-3.5 h-3.5"} mr-0.5 group-hover:rotate-12 transition-transform duration-200`}
       fill="currentColor" 
       viewBox="0 0 20 20"
     >
@@ -34,6 +34,6 @@ const { tag, tagName, size = "sm", type = "posts" } = Astro.props;
     @apply relative decoration-dashed hover:-top-0.5 hover:text-skin-accent focus-visible:p-1;
   }
   a svg {
-    @apply -mr-5 h-5 w-5 scale-95 text-skin-base opacity-80 group-hover:fill-skin-accent;
+    @apply -mr-5 h-4 w-4 scale-95 text-skin-accent opacity-90 group-hover:opacity-100;
   }
 </style>

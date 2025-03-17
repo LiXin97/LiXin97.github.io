@@ -26,7 +26,7 @@ bibtex:
       year={2025}
     }
 
-homepage: /posts/onboradsim/
+homepage: https://onboradsim.github.io/
 links:
   - name: arXiv
     url: https://liumengbing.com/

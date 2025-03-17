@@ -206,91 +206,85 @@ const serviceItems: ServiceItem[] = [
     <section id="hero" class="pb-6 pt-8">
       <h1 class="my-3 inline-block text-3xl font-bold sm:my-4 sm:text-5xl">Xin Li (李鑫)</h1>
 
-      <img
-        src="/images/XinLi.png"
-        alt="Profile photo of Xin Li"
-        itemprop="image"
-        class="w-20 sm:w-28 md:w-36 border-2 border-skin-accent/20 rounded-full float-right shadow-lg transition-transform duration-300 hover:scale-105"
-      />
-
-      <p class="text-base font-medium">
-        I am currently a first-year Ph.D. student at
-        <!-- I currently work as a Research Assistant at -->
-        <LinkButton
-          className="underline decoration-dashed underline-offset-4 hover:text-skin-accent"
-          href="https://www.ntu.edu.sg/"
-          >Nanyang Technological University (NTU)
-        </LinkButton>, Singapore, under the supervision of
-        <LinkButton
-          className="underline decoration-dashed underline-offset-4 hover:text-skin-accent"
-          href="https://blogs.ntu.edu.sg/chau-yuen/"
-          >Prof. Chau Yuen
-        </LinkButton>.
-      </p>
-      <p class="text-base font-medium">
-        I obtained my Master's degree from
-        <LinkButton
-          className="underline decoration-dashed underline-offset-4 hover:text-skin-accent"
-          href="http://english.pku.edu.cn"
-          >Peking University
-        </LinkButton> and Bachelor's degree from
-        <LinkButton
-          className="underline decoration-dashed underline-offset-4 hover:text-skin-accent"
-          href="https://www.neuq.edu.cn/"
-          >Northeastern University (CN)
-        </LinkButton>.
-      </p>
-      <!-- <p>
-        I am passionate about developing algorithms that enable robots to
-        understand the world around them.
-      </p> -->
-
-      <div class="my-6">
-        <p class="flex items-center gap-2 text-lg">
-          <svg class="w-5 h-5 text-skin-accent" fill="currentColor" viewBox="0 0 20 20">
-            <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
-            <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
-          </svg>
-        <a
-          href="mailto:xin019@e.ntu.edu.sg"
-            class="underline hover:text-skin-accent transition-colors"
-        >
-        xin019@e.ntu.edu.sg</a>
-        </p>
-
-      {
-        // only display if at least one social link is enabled
-        socialCount > 0 && (
-            <div class="social-wrapper mt-4">
-              <div class="social-links flex items-center gap-2">
-                <svg class="w-5 h-5 text-skin-accent" fill="currentColor" viewBox="0 0 20 20">
-                  <path fill-rule="evenodd" d="M12.586 4.586a2 2 0 112.828 2.828l-3 3a2 2 0 01-2.828 0 1 1 0 00-1.414 1.414 4 4 0 005.656 0l3-3a4 4 0 00-5.656-5.656l-1.5 1.5a1 1 0 101.414 1.414l1.5-1.5zm-5 5a2 2 0 012.828 0 1 1 0 101.414-1.414 4 4 0 00-5.656 0l-3 3a4 4 0 105.656 5.656l1.5-1.5a1 1 0 10-1.414-1.414l-1.5 1.5a2 2 0 11-2.828-2.828l3-3z" clip-rule="evenodd" />
-                </svg>
-                Links:
-              </div>
-            <Socials />
-          </div>
-        )
-      }
-
-          <!-- Last Updated -->
-          <div class="mt-8 text-center text-sm text-skin-base opacity-70 pb-4">
+          <img
+            src="/images/XinLi.png"
+            alt="Profile photo of Xin Li"
+            itemprop="image"
+            class="w-20 sm:w-28 md:w-36 border-2 border-skin-accent/20 rounded-full float-right shadow-lg transition-transform duration-300 hover:scale-105"
+          />
+          <div class="prose prose-lg">
+            <p class="mb-3">
+              I am currently a first-year Ph.D. student at
+              <a href="https://www.ntu.edu.sg/" class="text-skin-accent hover:underline decoration-dashed underline-offset-4">
+                Nanyang Technological University (NTU)
+              </a>, Singapore, under the supervision of
+              <a href="https://blogs.ntu.edu.sg/chau-yuen/" class="text-skin-accent hover:underline decoration-dashed underline-offset-4">
+                Prof. Chau Yuen
+              </a>.
+            </p>
+            
             <p>
-              <svg class="inline-block w-4 h-4 mr-1 -mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-              </svg>
-              Last updated: {new Date().toLocaleDateString('en-US', {year: 'numeric', month: 'long', day: 'numeric'})}
+              I obtained my Master's degree from
+              <a href="http://english.pku.edu.cn" class="text-skin-accent hover:underline decoration-dashed underline-offset-4">
+                Peking University
+              </a> and Bachelor's degree from
+              <a href="https://www.neuq.edu.cn/" class="text-skin-accent hover:underline decoration-dashed underline-offset-4">
+                Northeastern University (CN)
+              </a>.
             </p>
           </div>
+          
+          <div class="mt-6 space-y-3">
+            <p class="flex items-center gap-3">
+              <span class="inline-flex items-center justify-center w-8 h-8 rounded-full bg-skin-accent/10 text-skin-accent flex-shrink-0">
+                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                  <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
+                  <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
+                </svg>
+              </span>
+              <a href="mailto:xin019@e.ntu.edu.sg" class="hover:text-skin-accent transition-colors">
+                xin019@e.ntu.edu.sg
+              </a>
+            </p>
+
+            {socialCount > 0 && (
+              <div class="flex items-start gap-3">
+                <span class="inline-flex items-center justify-center w-8 h-8 rounded-full bg-skin-accent/10 text-skin-accent flex-shrink-0">
+                  <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M12.586 4.586a2 2 0 112.828 2.828l-3 3a2 2 0 01-2.828 0 1 1 0 00-1.414 1.414 4 4 0 005.656 0l3-3a4 4 0 00-5.656-5.656l-1.5 1.5a1 1 0 101.414 1.414l1.5-1.5zm-5 5a2 2 0 012.828 0 1 1 0 101.414-1.414 4 4 0 00-5.656 0l-3 3a4 4 0 105.656 5.656l1.5-1.5a1 1 0 10-1.414-1.414l-1.5 1.5a2 2 0 11-2.828-2.828l3-3z" clip-rule="evenodd" />
+                  </svg>
+                </span>
+                <div class="flex flex-wrap gap-2">
+                  <Socials />
+                </div>
+              </div>
+            )}
+          </div>
+        </div>
+      </div>
+
+      <!-- Last Updated -->
+      <div class="mt-8 text-right text-sm text-skin-base opacity-70">
+        <p>
+          <svg class="inline-block w-4 h-4 mr-1 -mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+          </svg>
+          Last updated: {new Date().toLocaleDateString('en-US', {year: 'numeric', month: 'long', day: 'numeric'})}
+        </p>
       </div>
     </section>
 
-    <Hr/>
+    <Hr className="w-2/3 mx-auto opacity-50"/>
 
-    <section id="news" class="w-full">
-        <h2 class="pb-6 pt-6 text-2xl font-semibold tracking-wide">News</h2>
+    <section id="news" class="w-full animate-fadeIn animation-delay-500">
+        <h2 class="pb-4 pt-6 text-2xl font-semibold tracking-wide flex items-center gap-2">
+          <svg class="w-6 h-6 text-skin-accent" fill="currentColor" viewBox="0 0 20 20">
+            <path fill-rule="evenodd" d="M18 3a1 1 0 00-1.447-.894L8.763 6H5a3 3 0 000 6h.28l1.771 5.316A1 1 0 008 18h1a1 1 0 001-1v-4.382l6.553 3.276A1 1 0 0018 15V3z" clip-rule="evenodd" />
+          </svg>
+          News
+        </h2>
       
-      <div class="rounded-lg border border-skin-line p-4">
+      <div class="rounded-lg border-2 border-skin-line bg-skin-fill p-4 shadow-sm">
         <ul class="divide-y divide-skin-line">
           {
             newsItems.map((item) => (
@@ -378,7 +372,12 @@ const serviceItems: ServiceItem[] = [
       featuredPubs.length > 0 && (
         <>
           <section id="pubs">
-            <h2 class="pb-6 pt-6 text-2xl font-semibold tracking-wide">Selected Publications</h2>
+            <h2 class="pb-4 pt-6 text-2xl font-semibold tracking-wide flex items-center gap-2">
+              <svg class="w-6 h-6 text-skin-accent" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M9 4.804A7.968 7.968 0 005.5 4c-1.255 0-2.443.29-3.5.804v10A7.969 7.969 0 015.5 14c1.669 0 3.218.51 4.5 1.385A7.962 7.962 0 0114.5 14c1.255 0 2.443.29 3.5.804v-10A7.968 7.968 0 0014.5 4c-1.255 0-2.443.29-3.5.804V12a1 1 0 11-2 0V4.804z" />
+              </svg>
+              Selected Publications
+            </h2>
             <p class="mb-4">
               Here are some of the papers I've published. Full list is available on{" "}
               <LinkButton
@@ -415,8 +414,13 @@ const serviceItems: ServiceItem[] = [
       (
         <>
           <section id="profession">
-            <h2 class="pb-6 pt-6 text-2xl font-semibold tracking-wide">Education</h2>
-            <div class="rounded-lg border border-skin-line p-4">
+            <h2 class="pb-4 pt-6 text-2xl font-semibold tracking-wide flex items-center gap-2">
+              <svg class="w-6 h-6 text-skin-accent" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M10.394 2.08a1 1 0 00-.788 0l-7 3a1 1 0 000 1.84L5.25 8.051a.999.999 0 01.356-.257l4-1.714a1 1 0 11.788 1.838L7.667 9.088l1.94.831a1 1 0 00.787 0l7-3a1 1 0 000-1.838l-7-3zM3.31 9.397L5 10.12v4.102a8.969 8.969 0 00-1.05-.174 1 1 0 01-.89-.89 11.115 11.115 0 01.25-3.762zM9.3 16.573A9.026 9.026 0 007 14.935v-3.957l1.818.78a3 3 0 002.364 0l5.508-2.361a11.026 11.026 0 01.25 3.762 1 1 0 01-.89.89 8.968 8.968 0 00-5.35 2.524 1 1 0 01-1.4 0zM6 18a1 1 0 001-1v-2.065a8.935 8.935 0 00-2-.712V17a1 1 0 001 1z" />
+              </svg>
+              Education
+            </h2>
+            <div class="rounded-lg border-2 border-skin-line p-4 shadow-sm bg-skin-fill">
               <ul class="divide-y divide-skin-line">
                 <li class="py-4 first:pt-0 transition-colors">
                   <div class="flex flex-col sm:flex-row gap-3">
@@ -521,8 +525,14 @@ const serviceItems: ServiceItem[] = [
       (
         <>
           <section id="experience">
-            <h2 class="pb-6 pt-6 text-2xl font-semibold tracking-wide">Experience</h2>
-            <div class="rounded-lg border border-skin-line p-4">
+            <h2 class="pb-4 pt-6 text-2xl font-semibold tracking-wide flex items-center gap-2">
+              <svg class="w-6 h-6 text-skin-accent" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M6 6V5a3 3 0 013-3h2a3 3 0 013 3v1h2a2 2 0 012 2v3.57A22.952 22.952 0 0110 13a22.95 22.95 0 01-8-1.43V8a2 2 0 012-2h2zm2-1a1 1 0 011-1h2a1 1 0 011 1v1H8V5zm1 5a1 1 0 011-1h.01a1 1 0 110 2H10a1 1 0 01-1-1z" clip-rule="evenodd" />
+                <path d="M2 13.692V16a2 2 0 002 2h12a2 2 0 002-2v-2.308A24.974 24.974 0 0110 15c-2.796 0-5.487-.46-8-1.308z" />
+              </svg>
+              Experience
+            </h2>
+            <div class="rounded-lg border-2 border-skin-line p-4 shadow-sm bg-skin-fill">
               <ul class="divide-y divide-skin-line">
                 <!-- Research Assistant NTU -->
                 <li class="py-4 first:pt-0 transition-colors">
@@ -717,8 +727,13 @@ const serviceItems: ServiceItem[] = [
       (
         <>
           <section id="awards">
-            <h2 class="pb-6 pt-6 text-2xl font-semibold tracking-wide">Honors & Awards</h2>
-            <div class="rounded-lg border border-skin-line p-4 ">
+            <h2 class="pb-4 pt-6 text-2xl font-semibold tracking-wide flex items-center gap-2">
+              <svg class="w-6 h-6 text-skin-accent" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M10 1l2.928 6.39 6.84.678-5.11 4.808 1.553 6.813L10 16.865l-6.21 3.824 1.553-6.813-5.11-4.808 6.84-.678L10 1z" clip-rule="evenodd" />
+              </svg>
+              Honors & Awards
+            </h2>
+            <div class="rounded-lg border-2 border-skin-line p-4 shadow-sm bg-skin-fill">
               <ul class="divide-y divide-skin-line">
                 {awardItems.map(item => (
                   <li class="py-4 first:pt-0 last:pb-0 transition-colors">
@@ -758,8 +773,13 @@ const serviceItems: ServiceItem[] = [
       (
         <>
           <section id="academic-services">
-            <h2 class="pb-6 pt-6 text-2xl font-semibold tracking-wide">Academic Services</h2>
-            <div class="rounded-lg border border-skin-line p-4 ">
+            <h2 class="pb-4 pt-6 text-2xl font-semibold tracking-wide flex items-center gap-2">
+              <svg class="w-6 h-6 text-skin-accent" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M12 4v1H8V4h4zm2 12V6H6v10h8zM5 3h10a2 2 0 012 2v10a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2zm-1 7h3v2H4v-2zm0 4h3v2H4v-2z" />
+              </svg>
+              Academic Services
+            </h2>
+            <div class="rounded-lg border-2 border-skin-line p-4 shadow-sm bg-skin-fill">
               <div class="space-y-6">
                 <div>
                   <h3 class="text-lg font-medium mb-3 flex items-center">
