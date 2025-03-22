@@ -1,9 +1,9 @@
 {
     "citation_metrics": {
-        "citations": 120,
+        "citations": 121,
         "h-index": 4,
         "i10-index": 4,
-        "last_updated": "2025-03-21"
+        "last_updated": "2025-03-22"
     },
     "publications": [
         {
@@ -25,7 +25,8 @@
                 }
             ],
             "bibtex": "@article{liu2025onboard,\n  title={Onboard Terrain Classification via Stacked Intelligent Metasurface-Diffractive Deep Neural Networks from SAR Level-0 Raw Data},\n  author={Liu, Mengbing and Li, Xin and An, Jiancheng and Yuen, Chau},\n  journal={ICLR ML4RS Workshop},\n  year={2025}\n}",
-            "hidden": false
+            "hidden": false,
+            "num_citations": 0
         },
         {
             "title": "TransPathNet: A Novel Two-Stage Framework for Indoor Radio Map Prediction",
@@ -184,7 +185,7 @@
             ],
             "bibtex": "@inproceedings{li2020leveraging,\n  title={Leveraging Planar Regularities for Point Line Visual-Inertial Odometry},\n  author={Li, Xin and He, Yijia and Lin, Jinlong and Liu, Xiao},\n  booktitle={2020 IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS)},\n  year={2020},\n  pages={10792--10798},\n  organization={IEEE}\n}",
             "hidden": false,
-            "num_citations": 40
+            "num_citations": 41
         }
     ]
 }

@@ -572,7 +572,7 @@
             </a>
           </div>
           <div style="font-size: 0.875rem; text-align: right; color: var(--text-secondary); margin-top: 1rem;">
-            <span style="margin-left: 0.5rem;">(Last updated: 2025-03-21)</span>
+            <span style="margin-left: 0.5rem;">(Last updated: 2025-03-22)</span>
           </div>
         </div>
 
@@ -1001,7 +1001,7 @@
                 <h3 style="margin-top: 0; margin-bottom: 0.5rem; font-size: 1.25rem; color: var(--text-primary);">Citation Metrics</h3>
                 <div style="display: flex; flex-wrap: wrap; gap: 1.5rem;">
                     <div style="text-align: center; min-width: 80px;">
-                        <div style="font-size: 2rem; font-weight: 700; color: var(--primary); line-height: 1.2;">120</div>
+                        <div style="font-size: 2rem; font-weight: 700; color: var(--primary); line-height: 1.2;">121</div>
                         <div style="font-size: 0.9rem; color: var(--text-secondary);">Citations</div>
                     </div>
                     <div style="text-align: center; min-width: 80px;">
@@ -1018,7 +1018,7 @@
         
         <div style="font-size: 0.875rem; text-align: right; color: var(--text-secondary); margin-top: 1rem;">
             Data from <a href="https://scholar.google.com/citations?user=Hxf8sNkAAAAJ" target="_blank" rel="noopener" style="color: var(--primary);">Google Scholar</a>
-            <span style="margin-left: 0.5rem;">(Updated: 2025-03-21)</span>
+            <span style="margin-left: 0.5rem;">(Updated: 2025-03-22)</span>
         </div>
     </div>
     
@@ -1210,7 +1210,7 @@
 <button class="pub-link bibtex-btn">
                 <i class="fas fa-quote-right"></i> BibTeX
             </button><button class="pub-link citation-btn">
-                Citations 40
+                Citations 41
             </button>
             </div>
             <pre class="bibtex-content">@inproceedings{li2020leveraging,
@@ -1481,6 +1481,57 @@
       });
     });
   </script>
+
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // Publication filters
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    
+    filterButtons.forEach(btn => {
+      btn.addEventListener('click', function() {
+        // Remove active class from all buttons
+        filterButtons.forEach(b => b.classList.remove('active'));
+        
+        // Add active class to clicked button
+        this.classList.add('active');
+        
+        // Get filter value
+        const filter = this.getAttribute('data-filter');
+        
+        // Apply filtering logic
+        const publicationCards = document.querySelectorAll('.publications-list .card');
+        
+        publicationCards.forEach(card => {
+          if (filter === 'all') {
+            card.style.display = '';
+            card.style.opacity = '1';
+          } else if (filter === 'first-author') {
+            const authorText = card.querySelector('p')?.textContent || '';
+            
+            if (authorText.indexOf('Xin Li') === 0 || authorText.indexOf('<strong>Xin Li</strong>') === 0) {
+              card.style.display = '';
+              card.style.opacity = '1';
+            } else {
+              card.style.opacity = '0.5';
+            }
+          } else if (filter === 'recent') {
+            const yearText = card.querySelector('p:nth-child(3)')?.textContent || '';
+            const yearMatch = yearText.match(/\d{4}/);
+            const year = yearMatch ? parseInt(yearMatch[0]) : 0;
+            
+            if (year >= 2023) {
+              card.style.display = '';
+              card.style.opacity = '1';
+            } else {
+              card.style.opacity = '0.5';
+            }
+          }
+        });
+      });
+    });
+  });
+</script>
 
 
 <script>
