@@ -1180,7 +1180,7 @@ def generate_standalone_publications_page(data):
               card.style.display = '';
               card.style.opacity = '1';
             } else if (filter === 'first-author') {
-              const authorText = card.querySelector('p')?.textContent || '';
+              const authorText = card.querySelector('p:nth-child(2)')?.textContent || '';
               
               if (authorText.includes("Xin Li*") || authorText.startsWith("Xin Li,")) {
                 card.style.display = '';

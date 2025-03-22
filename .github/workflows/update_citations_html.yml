@@ -1,4 +1,4 @@
-name: Get Citation Data
+name: Update Google Scholar Citations and Publications HTML
 
 on:
   push:
