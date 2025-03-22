@@ -853,7 +853,7 @@
 
       <!-- Publications Section -->
       <section id="publications" class="section">
-        <script type="application/ld+json">
+    <script type="application/ld+json">
     {
   "@context": "https://schema.org",
   "@graph": [
@@ -1092,92 +1092,88 @@
   ]
 }
     </script>
-
-        <div class="publications-header">
-          <h2 class="section-title">Selected Publications</h2>
-        </div>
-
-        <div class="citation-info"
-          style="margin-bottom: 2rem; padding: 1.25rem; background-color: var(--background-alt); border-radius: 0.5rem; box-shadow: var(--shadow); display: block; width: 100%;">
-          <div style="display: flex; flex-wrap: wrap; gap: 1.5rem; margin-bottom: 1rem;">
+    
+    <div class="publications-header">
+        <h2 class="section-title">Selected Publications</h2>
+    </div>
+    
+    <div class="citation-info" style="margin-bottom: 2rem; padding: 1.25rem; background-color: var(--background-alt); border-radius: 0.5rem; box-shadow: var(--shadow); display: block; width: 100%;">
+        <div style="display: flex; flex-wrap: wrap; gap: 1.5rem; margin-bottom: 1rem;">
             <div style="flex: 1;">
-              <h3 style="margin-top: 0; margin-bottom: 0.5rem; font-size: 1.25rem; color: var(--text-primary);">Citation
-                Metrics</h3>
-              <div style="display: flex; flex-wrap: wrap; gap: 1.5rem;">
-                <div style="text-align: center; min-width: 80px;">
-                  <div style="font-size: 2rem; font-weight: 700; color: var(--primary); line-height: 1.2;">121</div>
-                  <div style="font-size: 0.9rem; color: var(--text-secondary);">Citations</div>
+                <h3 style="margin-top: 0; margin-bottom: 0.5rem; font-size: 1.25rem; color: var(--text-primary);">Citation Metrics</h3>
+                <div style="display: flex; flex-wrap: wrap; gap: 1.5rem;">
+                    <div style="text-align: center; min-width: 80px;">
+                        <div style="font-size: 2rem; font-weight: 700; color: var(--primary); line-height: 1.2;">121</div>
+                        <div style="font-size: 0.9rem; color: var(--text-secondary);">Citations</div>
+                    </div>
+                    <div style="text-align: center; min-width: 80px;">
+                        <div style="font-size: 2rem; font-weight: 700; color: var(--primary); line-height: 1.2;">4</div>
+                        <div style="font-size: 0.9rem; color: var(--text-secondary);">h-index</div>
+                    </div>
+                    <div style="text-align: center; min-width: 80px;">
+                        <div style="font-size: 2rem; font-weight: 700; color: var(--primary); line-height: 1.2;">4</div>
+                        <div style="font-size: 0.9rem; color: var(--text-secondary);">i10-index</div>
+                    </div>
                 </div>
-                <div style="text-align: center; min-width: 80px;">
-                  <div style="font-size: 2rem; font-weight: 700; color: var(--primary); line-height: 1.2;">4</div>
-                  <div style="font-size: 0.9rem; color: var(--text-secondary);">h-index</div>
-                </div>
-                <div style="text-align: center; min-width: 80px;">
-                  <div style="font-size: 2rem; font-weight: 700; color: var(--primary); line-height: 1.2;">4</div>
-                  <div style="font-size: 0.9rem; color: var(--text-secondary);">i10-index</div>
-                </div>
-              </div>
             </div>
-          </div>
-
-          <div style="font-size: 0.875rem; text-align: right; color: var(--text-secondary); margin-top: 1rem;">
-            Data from <a href="https://scholar.google.com/citations?user=Hxf8sNkAAAAJ" target="_blank" rel="noopener"
-              style="color: var(--primary);">Google Scholar</a>
-            <span style="margin-left: 0.5rem;">(Updated: 2025-03-22)</span>
-          </div>
         </div>
+        
+        <div style="font-size: 0.875rem; text-align: right; color: var(--text-secondary); margin-top: 1rem;">
+            Data from <a href="https://scholar.google.com/citations?user=Hxf8sNkAAAAJ" target="_blank" rel="noopener" style="color: var(--primary);">Google Scholar</a>
+            <span style="margin-left: 0.5rem;">(Updated: 2025-03-22)</span>
+        </div>
+    </div>
+    
+    <style>
+    /* BibTeX copy button styling */
+    .bibtex-content {
+      position: relative;
+      padding: 1rem;
+      background-color: #f8f9fa;
+      border-radius: 4px;
+      font-family: monospace;
+      font-size: 0.85rem;
+      overflow-x: auto;
+      white-space: pre-wrap;
+      margin-top: 0.5rem;
+    }
+    
+    .copy-bibtex-btn {
+      position: absolute;
+      top: 0.5rem;
+      right: 0.5rem;
+      background-color: rgba(255, 255, 255, 0.8);
+      border: 1px solid #dee2e6;
+      border-radius: 4px;
+      padding: 0.25rem 0.5rem;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      font-size: 0.8rem;
+    }
+    
+    .copy-bibtex-btn:hover {
+      background-color: var(--primary-light);
+      color: white;
+    }
+    
+    .copy-bibtex-btn.copied {
+      background-color: #28a745;
+      color: white;
+    }
+    </style>
 
-        <style>
-          /* BibTeX copy button styling */
-          .bibtex-content {
-            position: relative;
-            padding: 1rem;
-            background-color: #f8f9fa;
-            border-radius: 4px;
-            font-family: monospace;
-            font-size: 0.85rem;
-            overflow-x: auto;
-            white-space: pre-wrap;
-            margin-top: 0.5rem;
-          }
-
-          .copy-bibtex-btn {
-            position: absolute;
-            top: 0.5rem;
-            right: 0.5rem;
-            background-color: rgba(255, 255, 255, 0.8);
-            border: 1px solid #dee2e6;
-            border-radius: 4px;
-            padding: 0.25rem 0.5rem;
-            cursor: pointer;
-            transition: all 0.2s ease;
-            font-size: 0.8rem;
-          }
-
-          .copy-bibtex-btn:hover {
-            background-color: var(--primary-light);
-            color: white;
-          }
-
-          .copy-bibtex-btn.copied {
-            background-color: #28a745;
-            color: white;
-          }
-        </style>
-
-        <div class="publications-list">
-          <div class="card ">
-            <p><span class="pub-title">Onboard Terrain Classification via Stacked Intelligent Metasurface-Diffractive
-                Deep Neural Networks from SAR Level-0 Raw Data</span></p>
+    <div class="publications-list">
+    <div class="card ">
+            <p><span class="pub-title">Onboard Terrain Classification via Stacked Intelligent Metasurface-Diffractive Deep Neural Networks from SAR Level-0 Raw Data</span></p>
             <p>Mengbing Liu, <strong>Xin Li</strong>, Jiancheng An, Chau Yuen</p>
             <p><em>ICLR ML4RS Workshop</em>, 2025</p>
             <div class="pub-links">
-              <a href="https://onboradsim.github.io/" class="pub-link" target="_blank" rel="noopener noreferrer">
+                <a href="https://onboradsim.github.io/" class="pub-link" target="_blank" rel="noopener noreferrer">
                 <i class="fas fa-external-link-alt"></i> Project Homepage
-              </a>
-              <button class="pub-link bibtex-btn">
+            </a>
+<button class="pub-link bibtex-btn">
                 <i class="fas fa-quote-right"></i> BibTeX
-              </button>
+            </button>
             </div>
             <pre class="bibtex-content">@article{liu2025onboard,
   title={Onboard Terrain Classification via Stacked Intelligent Metasurface-Diffractive Deep Neural Networks from SAR Level-0 Raw Data},
@@ -1185,21 +1181,19 @@
   journal={ICLR ML4RS Workshop},
   year={2025}
 }<button class="copy-bibtex-btn" aria-label="Copy BibTeX"><i class="fas fa-copy"></i></button></pre>
-          </div>
-          <div class="card ">
-            <p><span class="pub-title">TransPathNet: A Novel Two-Stage Framework for Indoor Radio Map Prediction</span>
-            </p>
+          </div><div class="card ">
+            <p><span class="pub-title">TransPathNet: A Novel Two-Stage Framework for Indoor Radio Map Prediction</span></p>
             <p><strong>Xin Li</strong>, Ran Liu, Saihua Xu, Sirajudeen Gulam Razul, Chau Yuen</p>
             <p><em>ICASSP</em>, 2025</p>
             <div class="pub-links">
-              <a href="https://lixin.ai/TransPathNet/" class="pub-link" target="_blank" rel="noopener noreferrer">
+                <a href="https://lixin.ai/TransPathNet/" class="pub-link" target="_blank" rel="noopener noreferrer">
                 <i class="fas fa-external-link-alt"></i> Project Homepage
-              </a>
-              <button class="pub-link bibtex-btn">
+            </a>
+<button class="pub-link bibtex-btn">
                 <i class="fas fa-quote-right"></i> BibTeX
-              </button><button class="pub-link citation-btn">
+            </button><button class="pub-link citation-btn">
                 Citations 1
-              </button>
+            </button>
             </div>
             <pre class="bibtex-content">@inproceedings{li2025transpathnet,
   title={TransPathNet: A Novel Two-Stage Framework for Indoor Radio Map Prediction},
@@ -1208,15 +1202,14 @@
   year={2025},
   month={April}
 }<button class="copy-bibtex-btn" aria-label="Copy BibTeX"><i class="fas fa-copy"></i></button></pre>
-          </div>
-          <div class="card hidden-publication">
+          </div><div class="card hidden-publication">
             <p><span class="pub-title">Robust Gaussian Splatting SLAM by Leveraging Loop Closure</span></p>
             <p>Zunjie Zhu, Youxu Fang, <strong>Xin Li</strong>, Chengang Yan, Feng Xu, Chau Yuen, Yanyan Li</p>
             <p><em>Under review</em>, 2024</p>
             <div class="pub-links">
-              <button class="pub-link bibtex-btn">
+                <button class="pub-link bibtex-btn">
                 <i class="fas fa-quote-right"></i> BibTeX
-              </button>
+            </button>
             </div>
             <pre class="bibtex-content">@article{zhu2024robust,
   title={Robust Gaussian Splatting SLAM by Leveraging Loop Closure},
@@ -1224,21 +1217,19 @@
   journal={arXiv preprint},
   year={2024}
 }<button class="copy-bibtex-btn" aria-label="Copy BibTeX"><i class="fas fa-copy"></i></button></pre>
-          </div>
-          <div class="card hidden-publication">
-            <p><span class="pub-title">PVI-DSO: Leveraging Planar Regularities for Direct Sparse Visual-Inertial
-                Odometry</span></p>
+          </div><div class="card hidden-publication">
+            <p><span class="pub-title">PVI-DSO: Leveraging Planar Regularities for Direct Sparse Visual-Inertial Odometry</span></p>
             <p>Bo Xu, <strong>Xin Li</strong>, Jingrong Wang, Chau Yuen, Jiancheng Li</p>
             <p><em>IEEE Sensors Journal</em>, 2023</p>
             <div class="pub-links">
-              <a href="https://arxiv.org/abs/2204.02635" class="pub-link" target="_blank" rel="noopener noreferrer">
+                <a href="https://arxiv.org/abs/2204.02635" class="pub-link" target="_blank" rel="noopener noreferrer">
                 <i class="fas fa-external-link-alt"></i> arXiv
-              </a>
-              <button class="pub-link bibtex-btn">
+            </a>
+<button class="pub-link bibtex-btn">
                 <i class="fas fa-quote-right"></i> BibTeX
-              </button><button class="pub-link citation-btn">
+            </button><button class="pub-link citation-btn">
                 Citations 10
-              </button>
+            </button>
             </div>
             <pre class="bibtex-content">@article{xu2023pvi,
   title={PVI-DSO: Leveraging Planar Regularities for Direct Sparse Visual-Inertial Odometry},
@@ -1250,21 +1241,19 @@
   pages={17415--17425},
   publisher={IEEE}
 }<button class="copy-bibtex-btn" aria-label="Copy BibTeX"><i class="fas fa-copy"></i></button></pre>
-          </div>
-          <div class="card hidden-publication">
-            <p><span class="pub-title">Deep Learning-Based Channel Estimation for Double-RIS Aided Massive MIMO
-                System</span></p>
+          </div><div class="card hidden-publication">
+            <p><span class="pub-title">Deep Learning-Based Channel Estimation for Double-RIS Aided Massive MIMO System</span></p>
             <p>Mengbing Liu, <strong>Xin Li</strong>, Boyu Ning, Chongwen Huang, Sumei Sun, Chau Yuen</p>
             <p><em>IEEE Wireless Communications Letters (WCL)</em>, 2022</p>
             <div class="pub-links">
-              <a href="https://arxiv.org/abs/2210.12447" class="pub-link" target="_blank" rel="noopener noreferrer">
+                <a href="https://arxiv.org/abs/2210.12447" class="pub-link" target="_blank" rel="noopener noreferrer">
                 <i class="fas fa-external-link-alt"></i> arXiv
-              </a>
-              <button class="pub-link bibtex-btn">
+            </a>
+<button class="pub-link bibtex-btn">
                 <i class="fas fa-quote-right"></i> BibTeX
-              </button><button class="pub-link citation-btn">
+            </button><button class="pub-link citation-btn">
                 Citations 38
-              </button>
+            </button>
             </div>
             <pre class="bibtex-content">@article{liu2022deep,
   title={Deep learning-based channel estimation for double-RIS aided massive MIMO system},
@@ -1276,28 +1265,25 @@
   year={2022},
   publisher={IEEE}
 }<button class="copy-bibtex-btn" aria-label="Copy BibTeX"><i class="fas fa-copy"></i></button></pre>
-          </div>
-          <div class="card ">
+          </div><div class="card ">
             <p><span class="pub-title">Co-Planar Parametrization for Stereo-SLAM and Visual-Inertial Odometry</span></p>
-            <p><strong>Xin Li*</strong>, Yanyan Li*, Evin Pinar Örnek, Jinlong Lin, Federico Tombari <span
-                class="text-secondary">(*equal contribution)</span></p>
+            <p><strong>Xin Li*</strong>, Yanyan Li*, Evin Pinar Örnek, Jinlong Lin, Federico Tombari <span class="text-secondary">(*equal contribution)</span></p>
             <p><em>IEEE RA-L</em>, 2020</p>
             <div class="pub-links">
-              <a href="/data/RAL-2020/RA-L2020.pdf" class="pub-link" target="_blank" rel="noopener noreferrer">
+                <a href="/data/RAL-2020/RA-L2020.pdf" class="pub-link" target="_blank" rel="noopener noreferrer">
                 <i class="fas fa-file-pdf"></i> PDF
-              </a>
-              <a href="https://github.com/LiXin97/Co-Planar-Parametrization-VIO" class="pub-link" target="_blank"
-                rel="noopener noreferrer">
+            </a>
+<a href="https://github.com/LiXin97/Co-Planar-Parametrization-VIO" class="pub-link" target="_blank" rel="noopener noreferrer">
                 <i class="fab fa-github"></i> Code
-              </a>
-              <a href="https://arxiv.org/abs/2009.12662" class="pub-link" target="_blank" rel="noopener noreferrer">
+            </a>
+<a href="https://arxiv.org/abs/2009.12662" class="pub-link" target="_blank" rel="noopener noreferrer">
                 <i class="fas fa-external-link-alt"></i> arXiv
-              </a>
-              <button class="pub-link bibtex-btn">
+            </a>
+<button class="pub-link bibtex-btn">
                 <i class="fas fa-quote-right"></i> BibTeX
-              </button><button class="pub-link citation-btn">
+            </button><button class="pub-link citation-btn">
                 Citations 31
-              </button>
+            </button>
             </div>
             <pre class="bibtex-content">@article{li2020co,
   title={Co-planar parametrization for stereo-SLAM and visual-inertial odometry},
@@ -1309,28 +1295,25 @@
   year={2020},
   publisher={IEEE}
 }<button class="copy-bibtex-btn" aria-label="Copy BibTeX"><i class="fas fa-copy"></i></button></pre>
-          </div>
-          <div class="card ">
+          </div><div class="card ">
             <p><span class="pub-title">Leveraging Planar Regularities for Point Line Visual-Inertial Odometry</span></p>
-            <p><strong>Xin Li*</strong>, Yijia He*, Jinlong Lin, Xiao Liu <span class="text-secondary">(*equal
-                contribution)</span></p>
+            <p><strong>Xin Li*</strong>, Yijia He*, Jinlong Lin, Xiao Liu <span class="text-secondary">(*equal contribution)</span></p>
             <p><em>IROS</em>, 2020</p>
             <div class="pub-links">
-              <a href="/data/IROS-2020/IROS2020.pdf" class="pub-link" target="_blank" rel="noopener noreferrer">
+                <a href="/data/IROS-2020/IROS2020.pdf" class="pub-link" target="_blank" rel="noopener noreferrer">
                 <i class="fas fa-file-pdf"></i> PDF
-              </a>
-              <a href="https://github.com/LiXin97/Co-Planar-Parametrization-VIO" class="pub-link" target="_blank"
-                rel="noopener noreferrer">
+            </a>
+<a href="https://github.com/LiXin97/Co-Planar-Parametrization-VIO" class="pub-link" target="_blank" rel="noopener noreferrer">
                 <i class="fab fa-github"></i> Code
-              </a>
-              <a href="https://arxiv.org/abs/2004.11969" class="pub-link" target="_blank" rel="noopener noreferrer">
+            </a>
+<a href="https://arxiv.org/abs/2004.11969" class="pub-link" target="_blank" rel="noopener noreferrer">
                 <i class="fas fa-external-link-alt"></i> arXiv
-              </a>
-              <button class="pub-link bibtex-btn">
+            </a>
+<button class="pub-link bibtex-btn">
                 <i class="fas fa-quote-right"></i> BibTeX
-              </button><button class="pub-link citation-btn">
+            </button><button class="pub-link citation-btn">
                 Citations 41
-              </button>
+            </button>
             </div>
             <pre class="bibtex-content">@inproceedings{li2020leveraging,
   title={Leveraging Planar Regularities for Point Line Visual-Inertial Odometry},
@@ -1341,100 +1324,100 @@
   organization={IEEE}
 }<button class="copy-bibtex-btn" aria-label="Copy BibTeX"><i class="fas fa-copy"></i></button></pre>
           </div>
-        </div>
+    </div>
+    
+    <div class="publications-buttons" style="display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 1.5rem;">
+      <button id="pub-toggle-btn" class="view-all-button"
+        style="display: inline-block; padding: 0.5rem 1rem; background-color: var(--primary); color: white; border-radius: 0.375rem; font-weight: 500; border: none; cursor: pointer;"
+        onclick="window.location.href='/pubs.html'; return false;">View all publications</button>
+    </div>
 
-        <div class="publications-buttons" style="display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 1.5rem;">
-          <button id="pub-toggle-btn" class="view-all-button"
-            style="display: inline-block; padding: 0.5rem 1rem; background-color: var(--primary); color: white; border-radius: 0.375rem; font-weight: 500; border: none; cursor: pointer;"
-            onclick="window.location.href='/pubs.html'; return false;">View all publications</button>
-        </div>
-
-        <script>
-          function togglePublications() {
-            var hiddenPubs = document.querySelectorAll('.hidden-publication');
-            var toggleBtn = document.getElementById('pub-toggle-btn');
-
-            // Check if publications are currently hidden
-            if (hiddenPubs[0].style.display === 'none' || hiddenPubs[0].style.display === '') {
-              // Show all publications
-              for (var i = 0; i < hiddenPubs.length; i++) {
-                hiddenPubs[i].style.display = 'block';
-              }
-              toggleBtn.textContent = 'Show fewer publications';
-            } else {
-              // Hide publications
-              for (var i = 0; i < hiddenPubs.length; i++) {
-                hiddenPubs[i].style.display = 'none';
-              }
-              toggleBtn.textContent = 'View all publications';
-            }
-
-            return false;
+    <script>
+      function togglePublications() {
+        var hiddenPubs = document.querySelectorAll('.hidden-publication');
+        var toggleBtn = document.getElementById('pub-toggle-btn');
+        
+        // Check if publications are currently hidden
+        if (hiddenPubs[0].style.display === 'none' || hiddenPubs[0].style.display === '') {
+          // Show all publications
+          for (var i = 0; i < hiddenPubs.length; i++) {
+            hiddenPubs[i].style.display = 'block';
           }
-
-          // Hide publications marked as hidden on page load
-          document.addEventListener('DOMContentLoaded', function () {
-            var hiddenPubs = document.querySelectorAll('.hidden-publication');
-            for (var i = 0; i < hiddenPubs.length; i++) {
-              hiddenPubs[i].style.display = 'none';
-            }
-
-            // Ensure the button shows the correct text
-            document.getElementById('pub-toggle-btn').textContent = 'View all publications';
-
-            // BibTeX buttons functionality
-            const bibtexButtons = document.querySelectorAll('.bibtex-btn');
-
-            bibtexButtons.forEach(btn => {
-              btn.addEventListener('click', function () {
+          toggleBtn.textContent = 'Show fewer publications';
+        } else {
+          // Hide publications
+          for (var i = 0; i < hiddenPubs.length; i++) {
+            hiddenPubs[i].style.display = 'none';
+          }
+          toggleBtn.textContent = 'View all publications';
+        }
+        
+        return false;
+      }
+      
+      // Hide publications marked as hidden on page load
+      document.addEventListener('DOMContentLoaded', function() {
+        var hiddenPubs = document.querySelectorAll('.hidden-publication');
+        for (var i = 0; i < hiddenPubs.length; i++) {
+          hiddenPubs[i].style.display = 'none';
+        }
+        
+        // Ensure the button shows the correct text
+        document.getElementById('pub-toggle-btn').textContent = 'View all publications';
+        
+        // BibTeX buttons functionality
+        const bibtexButtons = document.querySelectorAll('.bibtex-btn');
+        
+        bibtexButtons.forEach(btn => {
+            btn.addEventListener('click', function() {
                 // Find the closest parent card
                 const card = this.closest('.card');
-
+                
                 // Find the bibtex content within this card
                 const bibtexContent = card.querySelector('.bibtex-content');
-
+                
                 // Toggle visibility with !important override
                 if (bibtexContent.style.display === 'block') {
-                  bibtexContent.style.display = 'none';
+                    bibtexContent.style.display = 'none';
                 } else {
-                  // Force display block with !important by using inline style setAttribute
-                  bibtexContent.setAttribute('style', 'display: block !important');
+                    // Force display block with !important by using inline style setAttribute
+                    bibtexContent.setAttribute('style', 'display: block !important');
                 }
-              });
             });
-
-            // BibTeX copy buttons functionality
-            const copyBibtexButtons = document.querySelectorAll('.copy-bibtex-btn');
-
-            copyBibtexButtons.forEach(btn => {
-              btn.addEventListener('click', function (e) {
+        });
+        
+        // BibTeX copy buttons functionality
+        const copyBibtexButtons = document.querySelectorAll('.copy-bibtex-btn');
+        
+        copyBibtexButtons.forEach(btn => {
+            btn.addEventListener('click', function(e) {
                 // Prevent the click from bubbling up and toggling the display
                 e.stopPropagation();
-
+                
                 // Get the bibtex content (parent element's text content without the button text)
                 const bibtexElement = this.parentElement;
                 const bibtexText = bibtexElement.textContent.trim();
-
+                
                 // Copy to clipboard
                 navigator.clipboard.writeText(bibtexText).then(() => {
-                  // Visual feedback
-                  this.classList.add('copied');
-                  const originalIcon = this.innerHTML;
-                  this.innerHTML = '<i class="fas fa-check"></i>';
-
-                  // Reset after 2 seconds
-                  setTimeout(() => {
-                    this.classList.remove('copied');
-                    this.innerHTML = originalIcon;
-                  }, 2000);
+                    // Visual feedback
+                    this.classList.add('copied');
+                    const originalIcon = this.innerHTML;
+                    this.innerHTML = '<i class="fas fa-check"></i>';
+                    
+                    // Reset after 2 seconds
+                    setTimeout(() => {
+                        this.classList.remove('copied');
+                        this.innerHTML = originalIcon;
+                    }, 2000);
                 }).catch(err => {
-                  console.error('Could not copy text: ', err);
+                    console.error('Could not copy text: ', err);
                 });
-              });
             });
-          });
-        </script>
-      </section>
+        });
+      });
+    </script>
+    </section>
 
       <!-- Awards Section -->
       <section id="awards" class="section">
