@@ -70,7 +70,7 @@ def generate_publication_card(pub):
 
     # Generate HTML for the publication card - fixing indentation and whitespace
     html = f"""<div class="card {hidden_class}">
-            <h3>{pub['title']}</h3>
+            <p><span class="pub-title">{pub['title']}</span></p>
             <p>{format_authors(pub['authors'])}{equal_contribution_text}</p>
             <p><em>{pub['venue']}</em>, {pub['year']}</p>
             <div class="pub-links">
@@ -479,13 +479,14 @@ def update_html_file(input_file, publications_html, last_updated, output_file=No
     # Find and replace last updated date
     # <span style="margin-left: 0.5rem;">(Last updated: 2025-03-19)</span>
     # Find this line and replace the date with the new last_updated date
-    updated_last_updated_date = f'<span style="margin-left: 0.5rem;">(Last updated: {last_updated})</span>'
-    content = re.sub(
-        r'<span style="margin-left: 0.5rem;">\(Last updated: \d{4}-\d{2}-\d{2}\)</span>',
-        updated_last_updated_date,
-        content,
-        flags=re.DOTALL
-    )
+
+    # updated_last_updated_date = f'<span style="margin-left: 0.5rem;">(Last updated: {last_updated})</span>'
+    # content = re.sub(
+    #     r'<span style="margin-left: 0.5rem;">\(Last updated: \d{4}-\d{2}-\d{2}\)</span>',
+    #     updated_last_updated_date,
+    #     content,
+    #     flags=re.DOTALL
+    # )
     
     # print update success
     print(f"Updated last updated date to {last_updated}")
@@ -504,10 +505,10 @@ def update_html_file(input_file, publications_html, last_updated, output_file=No
     )
     
     # Add the filters JavaScript if it doesn't exist
-    filters_js = generate_publications_filters_js()
-    if '<script>document.addEventListener(\'DOMContentLoaded\', function() {' not in updated_content:
-        # Add before the closing body tag
-        updated_content = updated_content.replace('</body>', f'{filters_js}\n</body>')
+    # filters_js = generate_publications_filters_js()
+    # if '<script>document.addEventListener(\'DOMContentLoaded\', function() {' not in updated_content:
+    #     # Add before the closing body tag
+    #     updated_content = updated_content.replace('</body>', f'{filters_js}\n</body>')
     
     with open(output_file, 'w', encoding='utf-8') as file:
         file.write(updated_content)

@@ -732,6 +732,7 @@ nav {
 
 .award-title {
   font-weight: 600;
+  font-size: 1.125rem;
 }
 
 .award-org {
@@ -853,6 +854,12 @@ footer {
   text-align: right !important;
   color: var(--text-secondary) !important;
   margin-top: 0.5rem !important;
+}
+
+.pub-title {
+  font-weight: 600;
+  font-size: 1.125rem;
+  color: var(--primary);
 }
 
 .pub-links {

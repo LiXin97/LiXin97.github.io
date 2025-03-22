@@ -141,21 +141,21 @@
       position: relative;
       z-index: 1;
     }
-    
+
     /* Header styling with margin */
     header {
       margin-bottom: 2.5rem;
       padding: 1.5rem 0;
       border-bottom: 1px solid rgba(0, 0, 0, 0.05);
     }
-    
+
     .header-content {
       display: flex;
       justify-content: space-between;
       align-items: center;
       flex-wrap: wrap;
     }
-    
+
     .logo {
       font-size: 1.5rem;
       font-weight: 700;
@@ -163,17 +163,17 @@
       text-decoration: none;
       transition: all 0.3s ease;
     }
-    
+
     .logo:hover {
       color: var(--primary-dark);
     }
-    
+
     nav {
       display: flex;
       gap: 1.25rem;
       flex-wrap: wrap;
     }
-    
+
     .nav-link {
       position: relative;
       color: var(--text-primary);
@@ -182,11 +182,11 @@
       padding: 0.5rem 0;
       transition: all 0.3s ease;
     }
-    
+
     .nav-link:hover {
       color: var(--primary);
     }
-    
+
     .nav-link::after {
       content: '';
       position: absolute;
@@ -197,7 +197,7 @@
       background-color: var(--primary);
       transition: width 0.3s ease;
     }
-    
+
     .nav-link:hover::after {
       width: 100%;
     }
@@ -368,7 +368,8 @@
 
     .container {
       max-width: 1100px;
-      padding: 2rem 1.5rem; /* Increased top/bottom padding */
+      padding: 2rem 1.5rem;
+      /* Increased top/bottom padding */
       margin: 0 auto;
     }
 
@@ -461,7 +462,7 @@
       white-space: pre-wrap;
       margin-top: 0.5rem;
     }
-    
+
     .copy-bibtex-btn {
       position: absolute;
       top: 0.5rem;
@@ -474,12 +475,12 @@
       transition: all 0.2s ease;
       font-size: 0.8rem;
     }
-    
+
     .copy-bibtex-btn:hover {
       background-color: var(--primary-light);
       color: white;
     }
-    
+
     .copy-bibtex-btn.copied {
       background-color: #28a745;
       color: white;
@@ -493,7 +494,8 @@
 <body>
   <div class="container">
     <!-- Header/Navigation -->
-    <header style="margin-bottom: 3rem; padding: 1.5rem 0; border-bottom: 1px solid rgba(0, 0, 0, 0.08); box-shadow: 0 2px 10px rgba(0, 0, 0, 0.02);">
+    <header
+      style="margin-bottom: 3rem; padding: 1.5rem 0; border-bottom: 1px solid rgba(0, 0, 0, 0.08); box-shadow: 0 2px 10px rgba(0, 0, 0, 0.02);">
       <div class="header-content">
         <a href="/" class="logo">
           Xin Li @ NTU
@@ -502,14 +504,22 @@
           <i class="fas fa-bars"></i>
         </button>
         <nav>
-          <a href="#about" class="nav-link" style="color: var(--primary-dark); padding: 0.5rem 0.75rem; font-weight: 500; text-decoration: none; transition: all 0.3s ease; border-radius: 4px;">About</a>
-          <a href="#news" class="nav-link" style="color: var(--primary-dark); padding: 0.5rem 0.75rem; font-weight: 500; text-decoration: none; transition: all 0.3s ease; border-radius: 4px;">News</a>
-          <a href="#education" class="nav-link" style="color: var(--primary-dark); padding: 0.5rem 0.75rem; font-weight: 500; text-decoration: none; transition: all 0.3s ease; border-radius: 4px;">Education</a>
-          <a href="#experience" class="nav-link" style="color: var(--primary-dark); padding: 0.5rem 0.75rem; font-weight: 500; text-decoration: none; transition: all 0.3s ease; border-radius: 4px;">Experience</a>
-          <a href="#research" class="nav-link" style="color: var(--primary-dark); padding: 0.5rem 0.75rem; font-weight: 500; text-decoration: none; transition: all 0.3s ease; border-radius: 4px;">Research</a>
-          <a href="#publications" class="nav-link" style="color: var(--primary-dark); padding: 0.5rem 0.75rem; font-weight: 500; text-decoration: none; transition: all 0.3s ease; border-radius: 4px;">Publications</a>
-          <a href="#awards" class="nav-link" style="color: var(--primary-dark); padding: 0.5rem 0.75rem; font-weight: 500; text-decoration: none; transition: all 0.3s ease; border-radius: 4px;">Awards</a>
-          <a href="#service" class="nav-link" style="color: var(--primary-dark); padding: 0.5rem 0.75rem; font-weight: 500; text-decoration: none; transition: all 0.3s ease; border-radius: 4px;">Service</a>
+          <a href="#about" class="nav-link"
+            style="color: var(--primary-dark); padding: 0.5rem 0.75rem; font-weight: 500; text-decoration: none; transition: all 0.3s ease; border-radius: 4px;">About</a>
+          <a href="#news" class="nav-link"
+            style="color: var(--primary-dark); padding: 0.5rem 0.75rem; font-weight: 500; text-decoration: none; transition: all 0.3s ease; border-radius: 4px;">News</a>
+          <a href="#education" class="nav-link"
+            style="color: var(--primary-dark); padding: 0.5rem 0.75rem; font-weight: 500; text-decoration: none; transition: all 0.3s ease; border-radius: 4px;">Education</a>
+          <a href="#experience" class="nav-link"
+            style="color: var(--primary-dark); padding: 0.5rem 0.75rem; font-weight: 500; text-decoration: none; transition: all 0.3s ease; border-radius: 4px;">Experience</a>
+          <a href="#research" class="nav-link"
+            style="color: var(--primary-dark); padding: 0.5rem 0.75rem; font-weight: 500; text-decoration: none; transition: all 0.3s ease; border-radius: 4px;">Research</a>
+          <a href="#publications" class="nav-link"
+            style="color: var(--primary-dark); padding: 0.5rem 0.75rem; font-weight: 500; text-decoration: none; transition: all 0.3s ease; border-radius: 4px;">Publications</a>
+          <a href="#awards" class="nav-link"
+            style="color: var(--primary-dark); padding: 0.5rem 0.75rem; font-weight: 500; text-decoration: none; transition: all 0.3s ease; border-radius: 4px;">Awards</a>
+          <a href="#service" class="nav-link"
+            style="color: var(--primary-dark); padding: 0.5rem 0.75rem; font-weight: 500; text-decoration: none; transition: all 0.3s ease; border-radius: 4px;">Service</a>
         </nav>
       </div>
     </header>
@@ -537,14 +547,14 @@
             <a href="https://blogs.ntu.edu.sg/chau-yuen/"
               class="text-skin-accent hover:underline decoration-dashed underline-offset-4">
               Prof. Yuen Chau
-            </a>, IEEE Fellow. Previously, I obtained my M.Eng and B.Eng. degrees from
+            </a>, IEEE Fellow. Previously, I obtained my M.Eng degrees from
             <a href="https://www.pku.edu.cn/"
               class="text-skin-accent hover:underline decoration-dashed underline-offset-4">
               Peking University
-            </a> and <a href="https://www.neuq.edu.cn/"
+            </a> in 2021 and B.Eng from <a href="https://www.neuq.edu.cn/"
               class="text-skin-accent hover:underline decoration-dashed underline-offset-4">
               Northeastern University
-            </a>, respectively.
+            </a> in 2018.
           </p>
 
           <div class="social-links">
@@ -552,7 +562,7 @@
               <i class="fas fa-envelope"></i>
               <span>xin019@e.ntu.edu.sg</span>
             </a>
-            <a href="/assets/XinLi_CV.pdf" class="social-link" target="_blank" rel="noopener noreferrer">
+            <a href="/data/XinLi_CV.pdf" class="social-link" target="_blank" rel="noopener noreferrer">
               <i class="fas fa-file-alt"></i>
               <span>Curriculum Vitae</span>
             </a>
@@ -588,32 +598,32 @@
           <ul class="news-list">
             <li>
               <div class="news-content">
-                <h3 class="news-title">
+                <span class="news-title">
                   <a href="https://onboradsim.github.io/" target="_blank" rel="noopener noreferrer">
                     One paper accepted by ICLR 2025 ML4RS Workshop.
                   </a>
-                </h3>
+                </span>
                 <p class="news-date">2025.03</p>
               </div>
             </li>
             <li>
               <div class="news-content">
-                <h3 class="news-title">
+                <span class="news-title">
                   <a href="https://lixin.ai/TransPathNet/" target="_blank" rel="noopener noreferrer">
                     Secured 4th place winner in the ICASSP 2025 Indoor Pathloss Radio Map Prediction Challenge.
                   </a>
-                </h3>
+                </span>
                 <p class="news-date">2024.12</p>
               </div>
             </li>
             <li class="hidden-news">
               <div class="news-content">
-                <h3 class="news-title">
+                <span class="news-title">
                   <a href="https://scholar.google.com/citations?user=Hxf8sNkAAAAJ" target="_blank"
                     rel="noopener noreferrer">
                     Reached 100+ citations milestone on Google Scholar.
                   </a>
-                </h3>
+                </span>
                 <p class="news-date">2024.10</p>
               </div>
             </li>
@@ -1062,7 +1072,7 @@
 
     <div class="publications-list">
     <div class="card ">
-            <h3>Onboard Terrain Classification via Stacked Intelligent Metasurface-Diffractive Deep Neural Networks from SAR Level-0 Raw Data</h3>
+            <p><span class="pub-title">Onboard Terrain Classification via Stacked Intelligent Metasurface-Diffractive Deep Neural Networks from SAR Level-0 Raw Data</span></p>
             <p>Mengbing Liu, <strong>Xin Li</strong>, Jiancheng An, Chau Yuen</p>
             <p><em>ICLR ML4RS Workshop</em>, 2025</p>
             <div class="pub-links">
@@ -1080,7 +1090,7 @@
   year={2025}
 }<button class="copy-bibtex-btn" aria-label="Copy BibTeX"><i class="fas fa-copy"></i></button></pre>
           </div><div class="card ">
-            <h3>TransPathNet: A Novel Two-Stage Framework for Indoor Radio Map Prediction</h3>
+            <p><span class="pub-title">TransPathNet: A Novel Two-Stage Framework for Indoor Radio Map Prediction</span></p>
             <p><strong>Xin Li</strong>, Ran Liu, Saihua Xu, Sirajudeen Gulam Razul, Chau Yuen</p>
             <p><em>ICASSP</em>, 2025</p>
             <div class="pub-links">
@@ -1101,7 +1111,7 @@
   month={April}
 }<button class="copy-bibtex-btn" aria-label="Copy BibTeX"><i class="fas fa-copy"></i></button></pre>
           </div><div class="card hidden-publication">
-            <h3>Robust Gaussian Splatting SLAM by Leveraging Loop Closure</h3>
+            <p><span class="pub-title">Robust Gaussian Splatting SLAM by Leveraging Loop Closure</span></p>
             <p>Zunjie Zhu, Youxu Fang, <strong>Xin Li</strong>, Chengang Yan, Feng Xu, Chau Yuen, Yanyan Li</p>
             <p><em>Under review</em>, 2024</p>
             <div class="pub-links">
@@ -1116,7 +1126,7 @@
   year={2024}
 }<button class="copy-bibtex-btn" aria-label="Copy BibTeX"><i class="fas fa-copy"></i></button></pre>
           </div><div class="card hidden-publication">
-            <h3>PVI-DSO: Leveraging Planar Regularities for Direct Sparse Visual-Inertial Odometry</h3>
+            <p><span class="pub-title">PVI-DSO: Leveraging Planar Regularities for Direct Sparse Visual-Inertial Odometry</span></p>
             <p>Bo Xu, <strong>Xin Li</strong>, Jingrong Wang, Chau Yuen, Jiancheng Li</p>
             <p><em>IEEE Sensors Journal</em>, 2023</p>
             <div class="pub-links">
@@ -1140,7 +1150,7 @@
   publisher={IEEE}
 }<button class="copy-bibtex-btn" aria-label="Copy BibTeX"><i class="fas fa-copy"></i></button></pre>
           </div><div class="card hidden-publication">
-            <h3>Deep Learning-Based Channel Estimation for Double-RIS Aided Massive MIMO System</h3>
+            <p><span class="pub-title">Deep Learning-Based Channel Estimation for Double-RIS Aided Massive MIMO System</span></p>
             <p>Mengbing Liu, <strong>Xin Li</strong>, Boyu Ning, Chongwen Huang, Sumei Sun, Chau Yuen</p>
             <p><em>IEEE Wireless Communications Letters (WCL)</em>, 2022</p>
             <div class="pub-links">
@@ -1164,7 +1174,7 @@
   publisher={IEEE}
 }<button class="copy-bibtex-btn" aria-label="Copy BibTeX"><i class="fas fa-copy"></i></button></pre>
           </div><div class="card ">
-            <h3>Co-Planar Parametrization for Stereo-SLAM and Visual-Inertial Odometry</h3>
+            <p><span class="pub-title">Co-Planar Parametrization for Stereo-SLAM and Visual-Inertial Odometry</span></p>
             <p><strong>Xin Li*</strong>, Yanyan Li*, Evin Pinar Örnek, Jinlong Lin, Federico Tombari <span class="text-secondary">(*equal contribution)</span></p>
             <p><em>IEEE RA-L</em>, 2020</p>
             <div class="pub-links">
@@ -1194,7 +1204,7 @@
   publisher={IEEE}
 }<button class="copy-bibtex-btn" aria-label="Copy BibTeX"><i class="fas fa-copy"></i></button></pre>
           </div><div class="card ">
-            <h3>Leveraging Planar Regularities for Point Line Visual-Inertial Odometry</h3>
+            <p><span class="pub-title">Leveraging Planar Regularities for Point Line Visual-Inertial Odometry</span></p>
             <p><strong>Xin Li*</strong>, Yijia He*, Jinlong Lin, Xiao Liu <span class="text-secondary">(*equal contribution)</span></p>
             <p><em>IROS</em>, 2020</p>
             <div class="pub-links">
@@ -1423,36 +1433,36 @@
     document.addEventListener('DOMContentLoaded', function () {
       // BibTeX buttons functionality
       const bibtexButtons = document.querySelectorAll('.bibtex-btn');
-      
+
       bibtexButtons.forEach(btn => {
-        btn.addEventListener('click', function() {
+        btn.addEventListener('click', function () {
           // Find the closest parent card
           const card = this.closest('.card');
-          
+
           // Find the bibtex content within this card
           const bibtexContent = card.querySelector('.bibtex-content');
         });
       });
-      
+
       // BibTeX copy buttons functionality
       const copyBibtexButtons = document.querySelectorAll('.copy-bibtex-btn');
-      
+
       copyBibtexButtons.forEach(btn => {
-        btn.addEventListener('click', function(e) {
+        btn.addEventListener('click', function (e) {
           // Prevent the click from bubbling up and toggling the display
           e.stopPropagation();
-          
+
           // Get the bibtex content (parent element's text content without the button text)
           const bibtexElement = this.parentElement;
           const bibtexText = bibtexElement.textContent.trim();
-          
+
           // Copy to clipboard
           navigator.clipboard.writeText(bibtexText).then(() => {
             // Visual feedback
             this.classList.add('copied');
             const originalIcon = this.innerHTML;
             this.innerHTML = '<i class="fas fa-check"></i>';
-            
+
             // Reset after 2 seconds
             setTimeout(() => {
               this.classList.remove('copied');
@@ -1466,123 +1476,21 @@
 
       // Set current year in the footer
       document.getElementById('current-year').textContent = new Date().getFullYear();
-      
+
       // Add hover effect to nav links
       const navLinks = document.querySelectorAll('.nav-link');
       navLinks.forEach(link => {
-        link.addEventListener('mouseenter', function() {
+        link.addEventListener('mouseenter', function () {
           this.style.backgroundColor = 'rgba(10, 102, 194, 0.1)';
           this.style.color = 'var(--primary)';
         });
-        link.addEventListener('mouseleave', function() {
+        link.addEventListener('mouseleave', function () {
           this.style.backgroundColor = 'transparent';
           this.style.color = 'var(--primary-dark)';
         });
       });
     });
   </script>
-
-
-<script>
-  document.addEventListener('DOMContentLoaded', function() {
-    // Publication filters
-    const filterButtons = document.querySelectorAll('.filter-btn');
-    
-    filterButtons.forEach(btn => {
-      btn.addEventListener('click', function() {
-        // Remove active class from all buttons
-        filterButtons.forEach(b => b.classList.remove('active'));
-        
-        // Add active class to clicked button
-        this.classList.add('active');
-        
-        // Get filter value
-        const filter = this.getAttribute('data-filter');
-        
-        // Apply filtering logic
-        const publicationCards = document.querySelectorAll('.publications-list .card');
-        
-        publicationCards.forEach(card => {
-          if (filter === 'all') {
-            card.style.display = '';
-            card.style.opacity = '1';
-          } else if (filter === 'first-author') {
-            const authorText = card.querySelector('p')?.textContent || '';
-            
-            if (authorText.indexOf('Xin Li') === 0 || authorText.indexOf('<strong>Xin Li</strong>') === 0) {
-              card.style.display = '';
-              card.style.opacity = '1';
-            } else {
-              card.style.opacity = '0.5';
-            }
-          } else if (filter === 'recent') {
-            const yearText = card.querySelector('p:nth-child(3)')?.textContent || '';
-            const yearMatch = yearText.match(/\d{4}/);
-            const year = yearMatch ? parseInt(yearMatch[0]) : 0;
-            
-            if (year >= 2023) {
-              card.style.display = '';
-              card.style.opacity = '1';
-            } else {
-              card.style.opacity = '0.5';
-            }
-          }
-        });
-      });
-    });
-  });
-</script>
-
-
-<script>
-  document.addEventListener('DOMContentLoaded', function() {
-    // Publication filters
-    const filterButtons = document.querySelectorAll('.filter-btn');
-    
-    filterButtons.forEach(btn => {
-      btn.addEventListener('click', function() {
-        // Remove active class from all buttons
-        filterButtons.forEach(b => b.classList.remove('active'));
-        
-        // Add active class to clicked button
-        this.classList.add('active');
-        
-        // Get filter value
-        const filter = this.getAttribute('data-filter');
-        
-        // Apply filtering logic
-        const publicationCards = document.querySelectorAll('.publications-list .card');
-        
-        publicationCards.forEach(card => {
-          if (filter === 'all') {
-            card.style.display = '';
-            card.style.opacity = '1';
-          } else if (filter === 'first-author') {
-            const authorText = card.querySelector('p')?.textContent || '';
-            
-            if (authorText.indexOf('Xin Li') === 0 || authorText.indexOf('<strong>Xin Li</strong>') === 0) {
-              card.style.display = '';
-              card.style.opacity = '1';
-            } else {
-              card.style.opacity = '0.5';
-            }
-          } else if (filter === 'recent') {
-            const yearText = card.querySelector('p:nth-child(3)')?.textContent || '';
-            const yearMatch = yearText.match(/\d{4}/);
-            const year = yearMatch ? parseInt(yearMatch[0]) : 0;
-            
-            if (year >= 2023) {
-              card.style.display = '';
-              card.style.opacity = '1';
-            } else {
-              card.style.opacity = '0.5';
-            }
-          }
-        });
-      });
-    });
-  });
-</script>
 
 </body>
 
