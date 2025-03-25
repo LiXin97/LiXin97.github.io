@@ -180,9 +180,10 @@ def generate_scholarly_article_json_ld(publications):
                 "name": author
             })
         
-        # Construct the ScholarlyArticle object
+        # Construct the Article object
         article = {
-            "@type": "ScholarlyArticle",
+            "@context": "https://schema.org",
+            "@type": "Article",
             "headline": pub.get('title', ''),
             "author": authors,
             "datePublished": str(pub.get('year', '')),

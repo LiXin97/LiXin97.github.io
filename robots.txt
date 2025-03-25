@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /scripts/
+
+# Sitemap
+Sitemap: https://lixin.ai/sitemap.xml 
