@@ -22,9 +22,8 @@
   <link rel="canonical" href="https://lixin.ai/" />
 
   <!-- Meta tags for SEO -->
-  <meta name="keywords" content="Xin Li, PhD, NTU, LLMs, Robotics, Wireless Communications, AI Researcher, Singapore">
   <meta name="description" content="Xin Li is a PhD student at NTU Singapore specializing in AI, Robotics, Wireless Communications, and LLMs. Explore research, publications, and academic contributions.">
-  <meta name="keywords" content="Xin Li, PhD, NTU, AI, Robotics, Wireless Communications, LLM, Research, Publications, NTU Singapore">
+  <meta name="keywords" content="Xin Li, PhD, NTU, LLMs, Robotics, Wireless Communications, AI Researcher, Singapore, AI, LLM, Research, Publications, NTU Singapore">
   <meta name="author" content="Xin Li">
   <meta name="robots" content="index, follow">
 
@@ -621,30 +620,30 @@
       });
     </script>
 
+  <style>
+    /* ------ Minimal extra fixes ------ */
+    :root{--border-color:#e5e7eb;--shadow:0 2px 6px rgba(0,0,0,.05);--shadow-lg:0 6px 14px rgba(0,0,0,.08);--transition-standard:.25s all ease;}
+    body{font-family:'Inter',sans-serif;background:#fff;margin:0;color:var(--text-primary);}    
+    header{position:sticky;top:0;background:#fff;z-index:100;border-bottom:1px solid var(--border-color);}    
+    .tagline{margin:.25rem 0 1rem;font-weight:600;color:var(--primary);}  
+  </style>
     <main>
       <!-- Hero/About Section -->
       <section id="about" class="hero">
         <div class="profile-info card">
           <h1>Xin Li (李鑫)</h1>
-          <p class="position">PhD Student</p>
-          <p class="institution">Nanyang Technological University (NTU), Singapore</p>
-          <p>
-            I am a dedicated AI researcher with interdisciplinary expertise in machine learning, robotics, and wireless
-            communications, supported by extensive industry experience.
-            My mission is to leverage AI to solve complex engineering challenges, and my work has made influential
-            contributions in top conferences and journals, including IEEE RA-L, IROS, IEEE Sensors Journal, and ICASSP.
-          </p>
-
+          <p class="tagline">Accelerate Engineering with LLM Automation</p>
+          <p>I am building <strong>LLM systems</strong> that automate wireless-communication design and embodied-AI workflows. My vision is to turn complex engineering problems into <em>self-optimising, reproducible pipelines</em>.</p>
           <p>
             I am currently pursuing my Ph.D. at
             <a href="https://www.ntu.edu.sg/"
               class="text-skin-accent hover:underline decoration-dashed underline-offset-4">
-              Nanyang Technological University (NTU)
-            </a>, Singapore, under the supervision of
+              Nanyang Technological University (NTU)</a>,
+              Singapore, under the supervision of
             <a href="https://blogs.ntu.edu.sg/chau-yuen/"
               class="text-skin-accent hover:underline decoration-dashed underline-offset-4">
-              Prof. Yuen Chau
-            </a>, IEEE Fellow. Previously, I obtained my M.Eng degrees from
+              Prof. Yuen Chau</a>,
+             IEEE Fellow. Previously, I obtained my M.Eng degrees from
             <a href="https://www.pku.edu.cn/"
               class="text-skin-accent hover:underline decoration-dashed underline-offset-4">
               Peking University
@@ -653,7 +652,8 @@
               Northeastern University
             </a> in 2018.
           </p>
-
+          <p style="margin-top:1rem;font-style:italic;">💡 Always looking for collaborators on <u>LLM-powered engineering automation</u>. Feel free to drop me a line!</p>
+          
           <div class="social-links">
             <a href="mailto:xin019@e.ntu.edu.sg" class="social-link">
               <i class="fas fa-envelope"></i>
@@ -679,7 +679,7 @@
             </a>
           </div>
           <div style="font-size: 0.875rem; text-align: right; color: var(--text-secondary); margin-top: 1rem;">
-            <span style="margin-left: 0.5rem;">(Last updated: 2025-03-22)</span>
+            <span style="margin-left: 0.5rem;">(Last updated: 2025-04-20)</span>
           </div>
         </div>
 
@@ -824,42 +824,29 @@
         </div>
       </section>
 
+
+
       <!-- Research Interests Section -->
       <section id="research" class="section">
         <h2 class="section-title">Research Interests</h2>
-        <div class="interests-container" itemscope itemtype="http://schema.org/ItemList">
-          <div class="interest-item" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+        <ul class="interests-container" style="display:flex;flex-wrap:wrap;gap:1.5rem;margin:0;padding:0;list-style:none;">
+          <li class="interest-item" style="flex:1 1 180px;padding:1.5rem;text-align:center;">
             <div class="interest-icon"><i class="fas fa-comment-dots"></i></div>
-            <h3 itemprop="name">Large Language Models</h3>
-            <p itemprop="description">Applications and advancements in large language models for various domains.</p>
-            <meta itemprop="position" content="1" />
-          </div>
-          <div class="interest-item" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
-            <div class="interest-icon"><i class="fas fa-brain"></i></div>
-            <h3 itemprop="name">Embodied AI</h3>
-            <p itemprop="description">Intelligent agents that can perceive, understand and act in real-world environments.</p>
-            <meta itemprop="position" content="2" />
-          </div>
-          <div class="interest-item" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
-            <div class="interest-icon"><i class="fas fa-broadcast-tower"></i></div>
-            <h3 itemprop="name">Wireless Communications</h3>
-            <p itemprop="description">New algorithms and techniques for improving wireless communication systems.</p>
-            <meta itemprop="position" content="3" />
-          </div>
-          <div class="interest-item" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
-            <div class="interest-icon"><i class="fas fa-cogs"></i></div>
-            <h3 itemprop="name">Auto Research</h3>
-            <p itemprop="description">Automated research and development of new algorithms and techniques for improving wireless communication systems.</p>
-            <meta itemprop="position" content="4" />
-          </div>
-          <div class="interest-item" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+            <h3>Large Language Models</h3><p>Multi-agent orchestration, tool-use & reasoning.</p>
+          </li>
+          <li class="interest-item" style="flex:1 1 180px;padding:1.5rem;text-align:center;">
+            <div class="interest-icon"><i class="fas fa-satellite"></i></div>
+            <h3>Wireless Engineering</h3><p>LLMassisted modelling & optimisation for 6G.</p>
+          </li>
+          <li class="interest-item" style="flex:1 1 180px;padding:1.5rem;text-align:center;">
             <div class="interest-icon"><i class="fas fa-robot"></i></div>
-            <h3 itemprop="name">SLAM</h3>
-            <p itemprop="description">Simultaneous Localization and Mapping for autonomous systems and robotics applications.</p>
-            <meta itemprop="position" content="5" />
-          </div>
-        </div>
-
+            <h3>Embodied AI &amp; SLAM</h3><p>Neural-field SLAM & language-conditioned control.</p>
+          </li>
+          <li class="interest-item" style="flex:1 1 180px;padding:1.5rem;text-align:center;">
+            <div class="interest-icon"><i class="fas fa-cogs"></i></div>
+            <h3>LLM-powered Engineering Automation</h3><p>Auto-design loops & scientific discovery agents.</p>
+          </li>
+        </ul>
       </section>
 
 
