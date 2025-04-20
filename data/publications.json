@@ -1,9 +1,9 @@
 {
     "citation_metrics": {
-        "citations": 121,
+        "citations": 122,
         "h-index": 4,
         "i10-index": 4,
-        "last_updated": "2025-03-28"
+        "last_updated": "2025-04-10"
     },
     "publications": [
         {
@@ -114,7 +114,7 @@
             ],
             "bibtex": "@article{liu2022deep,\n  title={Deep learning-based channel estimation for double-RIS aided massive MIMO system},\n  author={Liu, Mengbing and Li, Xin and Ning, Boyu and Huang, Chongwen and Sun, Sumei and Yuen, Chau},\n  journal={IEEE Wireless Communications Letters},\n  volume={12},\n  number={1},\n  pages={70--74},\n  year={2022},\n  publisher={IEEE}\n}",
             "hidden": true,
-            "num_citations": 38
+            "num_citations": 39
         },
         {
             "title": "Co-Planar Parametrization for Stereo-SLAM and Visual-Inertial Odometry",
