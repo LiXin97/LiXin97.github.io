@@ -3,9 +3,9 @@ name: Update Google Scholar Citations and Publications HTML
 on:
   # push:
   #   branches: ["html-update"]
-  workflow_dispatch:
-  schedule:
-    - cron: '0 0 */3 * *'
+  # workflow_dispatch:
+  # schedule:
+  #   - cron: '0 0 */3 * *'
 
 jobs:
   build:

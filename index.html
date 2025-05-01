@@ -2,45 +2,27 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Xin Li @ NTU</title>
 
-  <!-- Favicon -->
-  <link rel="icon" type="image/png" href="/images/icon.png">
-
-  <!-- CSS -->
-  <link rel="stylesheet" href="/styles/academic-profile.css">
-
-  <!-- Font Awesome for icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-  <!-- Google Fonts -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
 
   <!-- Canonical URL -->
   <link rel="canonical" href="https://lixin.ai/" />
 
   <!-- Meta tags for SEO -->
-  <meta name="description" content="Xin Li is a PhD student at NTU Singapore specializing in AI, Robotics, Wireless Communications, and LLMs. Explore research, publications, and academic contributions.">
-  <meta name="keywords" content="Xin Li, PhD, NTU, LLMs, Robotics, Wireless Communications, AI Researcher, Singapore, AI, LLM, Research, Publications, NTU Singapore">
+  <meta name="description"
+    content="Xin Li is a PhD student at NTU Singapore specializing in AI, Robotics, Wireless Communications, and LLMs.">
+  <meta name="keywords"
+    content="Xin Li, PhD, NTU, LLMs, Robotics, Wireless Communications, AI Researcher, Singapore, AI, LLM, Research, Publications, NTU Singapore">
   <meta name="author" content="Xin Li">
   <meta name="robots" content="index, follow">
 
-  <!-- Immediate initialization to hide BibTeX content -->
-  <script>
-    // Hide BibTeX content immediately to prevent flash of visible content
-    document.addEventListener('DOMContentLoaded', function () {
-      // Apply display:none to all BibTeX content elements
-      var style = document.createElement('style');
-      style.textContent = '.bibtex-content { display: none !important; }';
-      document.head.appendChild(style);
-    });
-  </script>
 
   <!-- Open Graph tags for social media -->
   <meta property="og:title" content="Xin Li @ NTU">
-  <meta property="og:description" content="Explore Xin Li's academic profile, research, publications, and contributions to AI, robotics, and wireless communications at NTU Singapore.">
+  <meta property="og:description"
+    content="Explore Xin Li's academic profile, research, publications, and contributions to AI, robotics, and wireless communications at NTU Singapore.">
   <meta property="og:image" content="https://lixin.ai/images/XinLi.png">
   <meta property="og:url" content="https://lixin.ai/">
   <meta property="og:type" content="website">
@@ -49,1594 +31,353 @@
   <!-- Twitter Card tags -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Xin Li @ NTU">
-  <meta name="twitter:description" content="Explore Xin Li's research and publications in AI, robotics, and wireless communications at NTU Singapore.">
+  <meta name="twitter:description"
+    content="Explore Xin Li's research and publications in AI, robotics, and wireless communications at NTU Singapore.">
   <meta name="twitter:image" content="https://lixin.ai/images/XinLi.png">
 
   <!-- JSON-LD structured data -->
   <script type="application/ld+json">
-  {
-    "@context": "http://schema.org",
-    "@type": "ProfilePage",
-    "@dateCreated":"2024-04-05T14:53:00+08:00",
-    "@dateModified": "2025-03-11T14:21:00-05:00",
-    "mainEntity": {
-      "@type": "Person",
-      "name": "Xin Li",
-      "alternateName": "李鑫",
-      "address": {
-        "@type": "PostalAddress",
-        "addressLocality": "Singapore",
-        "addressRegion": "SG",
-        "postalCode": "639798",
-        "streetAddress": "50 Nanyang Avenue"
-      },
-      "url": "https://lixin.ai/",
-      "image": "https://lixin.ai/images/XinLi.png",
-      "jobTitle": "PhD Student",
-      "description": "PhD Student at Nanyang Technological University (NTU), Singapore with research interests in LLMs, Robotics, and Wireless Communications.",
-      "familyName": "Li",
-      "givenName": "Xin",
-      "birthDate": "1997-10-27",
-      "email": "xin019@e.ntu.edu.sg",
-      "telephone": "+65 86243893",
-      "mainEntityOfPage": "https://lixin.ai/",
-      "colleague": {
+    {
+      "@context": "http://schema.org",
+      "@type": "ProfilePage",
+      "@dateCreated":"2024-04-05T14:53:00+08:00",
+      "@dateModified": "2025-03-11T14:21:00-05:00",
+      "mainEntity": {
         "@type": "Person",
-        "name": "Prof. Chau Yuen",
-        "affiliation": "Nanyang Technological University",
-        "url": "https://blogs.ntu.edu.sg/chau-yuen"
-      },
-      "worksFor": {
-        "@type": "Organization",
-        "name": "Nanyang Technological University",
-        "url": "https://www.ntu.edu.sg/"
-      },
-      "alumniOf": [
-        {
-          "@type": "CollegeOrUniversity",
+        "name": "Xin Li",
+        "alternateName": "李鑫",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Singapore",
+          "addressRegion": "SG",
+          "postalCode": "639798",
+          "streetAddress": "50 Nanyang Avenue"
+        },
+        "url": "https://lixin.ai/",
+        "image": "https://lixin.ai/images/XinLi.png",
+        "jobTitle": "PhD Student",
+        "description": "PhD Student at Nanyang Technological University (NTU), Singapore with research interests in LLMs, Robotics, and Wireless Communications.",
+        "familyName": "Li",
+        "givenName": "Xin",
+        "birthDate": "1997-10-27",
+        "email": "xin019@e.ntu.edu.sg",
+        "telephone": "+65 86243893",
+        "mainEntityOfPage": "https://lixin.ai/",
+        "colleague": {
+          "@type": "Person",
+          "name": "Prof. Chau Yuen",
+          "affiliation": "Nanyang Technological University",
+          "url": "https://blogs.ntu.edu.sg/chau-yuen"
+        },
+        "worksFor": {
+          "@type": "Organization",
           "name": "Nanyang Technological University",
           "url": "https://www.ntu.edu.sg/"
         },
-        {
-          "@type": "CollegeOrUniversity",
-          "name": "Peking University",
-          "url": "http://english.pku.edu.cn"
-        },
-        {
-          "@type": "CollegeOrUniversity",
-          "name": "Northeastern University",
-          "url": "https://www.neuq.edu.cn/"
-        },
-        {
-          "@type": "Organization",
-          "name": "Microsoft Research Asia",
-          "url": "https://www.microsoft.com/en-us/research/lab/microsoft-research-asia/"
-        }
-      ],
-      "sameAs": [
-        "https://lixin.ai/",
-        "https://github.com/LiXin97",
-        "https://lixin97.github.io/",
-        "https://twitter.com/XinLi72542893",
-        "https://www.linkedin.com/in/xin-li-1196331a0",
-        "https://scholar.google.com/citations?hl=en&user=Hxf8sNkAAAAJ"
-      ]
+        "alumniOf": [
+          {
+            "@type": "CollegeOrUniversity",
+            "name": "Nanyang Technological University",
+            "url": "https://www.ntu.edu.sg/"
+          },
+          {
+            "@type": "CollegeOrUniversity",
+            "name": "Peking University",
+            "url": "http://english.pku.edu.cn"
+          },
+          {
+            "@type": "CollegeOrUniversity",
+            "name": "Northeastern University",
+            "url": "https://www.neuq.edu.cn/"
+          },
+          {
+            "@type": "Organization",
+            "name": "Microsoft Research Asia",
+            "url": "https://www.microsoft.com/en-us/research/lab/microsoft-research-asia/"
+          }
+        ],
+        "sameAs": [
+          "https://lixin.ai/",
+          "https://github.com/LiXin97",
+          "https://lixin97.github.io/",
+          "https://twitter.com/XinLi72542893",
+          "https://www.linkedin.com/in/xin-li-1196331a0",
+          "https://scholar.google.com/citations?hl=en&user=Hxf8sNkAAAAJ"
+        ]
+      }
     }
-  }
   </script>
 
+  <link rel="icon" type="image/png" href="images/icon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <style>
-    /* Additional custom styles for visual enhancement */
-    .hero {
-      position: relative;
-      overflow: hidden;
-      border-radius: 12px;
-      box-shadow: 0 8px 20px rgba(0, 50, 150, 0.08);
-      background-color: #ffffff;
+    :root {
+      --text: #222;
+      --bg: #ffffff;
     }
 
-    .hero::before {
-      content: none;
-      /* Remove the patterned background */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Inter', sans-serif;
+      color: var(--text);
     }
 
-    .hero>* {
-      position: relative;
-      z-index: 1;
+    body {
+      background: var(--bg);
+      line-height: 1.6;
+      padding: 2rem 1rem 4rem;
+      max-width: 960px;
+      margin: auto;
     }
 
-    /* Header styling with margin */
     header {
-      margin-bottom: 2.5rem;
-      padding: 1.5rem 0;
-      border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-    }
-
-    .header-content {
       display: flex;
-      justify-content: space-between;
       align-items: center;
+      gap: 1.5rem;
       flex-wrap: wrap;
-    }
-
-    .logo {
-      font-size: 1.5rem;
-      font-weight: 700;
-      color: var(--primary);
-      text-decoration: none;
-      transition: all 0.3s ease;
-      margin-left: 1rem;
-    }
-
-    .logo:hover {
-      color: var(--primary-dark);
-    }
-
-    nav {
-      display: flex;
-      gap: 1.25rem;
-      flex-wrap: wrap;
-    }
-
-    .nav-link {
-      position: relative;
-      color: var(--text-primary);
-      text-decoration: none;
-      font-weight: 500;
-      padding: 0.5rem 0;
-      transition: all 0.3s ease;
-    }
-
-    .nav-link:hover {
-      color: var(--primary);
-    }
-
-    .nav-link::after {
-      content: '';
-      position: absolute;
-      width: 0;
-      height: 2px;
-      bottom: 0;
-      left: 0;
-      background-color: var(--primary);
-      transition: width 0.3s ease;
-    }
-
-    .nav-link:hover::after {
-      width: 100%;
-    }
-
-    .section {
-      position: relative;
-      border-radius: 12px;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
-      background-color: #ffffff;
-      padding: 2.5rem 2rem;
-      margin-bottom: 2.5rem;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .section:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
-    }
-
-    .section-title {
-      position: relative;
       margin-bottom: 2rem;
-      padding-bottom: 0.5rem;
-      color: var(--primary-dark);
     }
 
-    .section-title::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 80px;
-      height: 3px;
-      background: linear-gradient(90deg, var(--primary) 0%, var(--primary-light) 100%);
-      border-radius: 3px;
-    }
-
-    /* Enhance cards */
-    .card {
-      border: none;
-      border-radius: 8px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-      transition: all 0.3s ease;
-      overflow: hidden;
-      background: #ffffff;
-    }
-
-    .card:hover {
-      box-shadow: 0 12px 20px rgba(0, 0, 0, 0.1);
-    }
-
-    /* Publication buttons enhancement */
-    .pub-link {
-      transition: all 0.3s ease;
-    }
-
-    .pub-link:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    }
-
-    /* Custom scrollbar */
-    ::-webkit-scrollbar {
-      width: 8px;
-    }
-
-    ::-webkit-scrollbar-track {
-      background: #f1f1f1;
-    }
-
-    ::-webkit-scrollbar-thumb {
-      background: var(--primary-light);
-      border-radius: 4px;
-    }
-
-    ::-webkit-scrollbar-thumb:hover {
-      background: var(--primary);
-    }
-
-    /* Education items enhancement */
-    .education-item {
-      border-left: 3px solid var(--primary);
-      padding-left: 1.5rem;
-      position: relative;
-    }
-
-    .education-item::before {
-      content: '';
-      position: absolute;
-      left: -6px;
-      top: 0;
-      width: 12px;
-      height: 12px;
+    .profile {
+      width: 160px;
+      height: 160px;
       border-radius: 50%;
-      background-color: var(--primary);
+      object-fit: cover;
+      border: 4px solid var(--accent);
     }
 
-    /* Social links enhancement */
-    .social-links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.75rem;
+    h1 {
+      font-size: 2rem;
+      font-weight: 700;
     }
 
-    .social-link {
-      padding: 0.75rem 1rem;
-      border-radius: 8px;
-      transition: all 0.3s ease;
-      background-color: rgba(240, 245, 255, 0.7);
-    }
-
-    .social-link:hover {
-      background-color: var(--primary);
-      color: white;
-      transform: translateY(-3px);
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    }
-
-    /* Research interests enhancement */
-    .interests-container {
-      gap: 2rem;
-    }
-
-    .interest-item {
-      border-radius: 10px;
-      transition: all 0.3s ease;
-      background: #ffffff;
-      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.05);
-    }
-
-    .interest-item:hover .interest-icon {
-      transform: translateY(-10px);
+    h2 {
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin-top: 2rem;
+      margin-bottom: .5rem;
       color: var(--accent);
     }
 
-    .interest-icon {
-      font-size: 2.5rem;
-      transition: all 0.3s ease;
-      margin-bottom: 1.5rem;
+    a {
+      color: var(--accent);
+      text-decoration: underline;
     }
 
-    /* News section enhancement */
-    .news-list::before {
-      background: linear-gradient(to bottom, var(--primary-light), var(--primary-dark));
+    nav {
+      margin-top: .5rem;
     }
 
-    .news-list li::before {
-      box-shadow: 0 0 0 4px rgba(30, 64, 175, 0.2);
+    nav a {
+      margin-right: 1rem;
+      font-weight: 500;
     }
 
-    /* Footer enhancement */
+    ul {
+      list-style: disc inside;
+      margin-left: 1rem;
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem 2.5rem;
+    }
+
+    @media (max-width:700px) {
+      .two-col {
+        grid-template-columns: 1fr;
+      }
+    }
+
     footer {
-      background: #ffffff;
-      border-top: 1px solid rgba(0, 0, 0, 0.05);
-      padding: 3rem 0 2rem;
-    }
-
-    /* Page background enhancement */
-    body {
-      background: #ffffff;
-      position: relative;
-    }
-
-    body::before {
-      content: none;
-      /* Remove the patterned background */
-    }
-
-    .container {
-      max-width: 1100px;
-      padding: 2rem 1.5rem;
-      /* Increased top/bottom padding */
-      margin: 0 auto;
-    }
-
-    @media (min-width: 768px) {
-      .hero {
-        flex-direction: row;
-        align-items: center;
-        gap: 4rem;
-      }
-
-      .profile-image-container {
-        margin: 0;
-      }
-    }
-
-    /* Citation data enhancements */
-
-    /* Add transition for smoother appearance */
-    .section,
-    .card {
-      animation: fadeIn 0.8s ease-out forwards;
-    }
-
-    @keyframes fadeIn {
-      from {
-        opacity: 0;
-        transform: translateY(20px);
-      }
-
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    /* Publications section header enhancement */
-    .publications-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 2rem;
-      flex-wrap: wrap;
-      gap: 1rem;
-    }
-
-    .publication-filters {
-      display: flex;
-      gap: 0.5rem;
-    }
-
-    .filter-btn {
-      padding: 0.5rem 1rem;
-      border: 1px solid var(--border-color);
-      border-radius: 4px;
-      background: white;
-      font-size: 0.9rem;
-      cursor: pointer;
-      transition: all 0.3s ease;
-    }
-
-    .filter-btn:hover,
-    .filter-btn.active {
-      background: var(--primary);
-      color: white;
-      border-color: var(--primary);
-    }
-
-    .profile-image-container {
-      flex-shrink: 0;
-      width: 250px;
-      height: 250px;
-      border-radius: 50%;
-      overflow: hidden;
-      box-shadow: var(--shadow-lg);
-      margin: 0 auto;
-      border: 4px solid var(--primary-light);
-      transition: var(--transition-standard);
-      position: relative;
-    }
-
-    /* BibTeX copy button styling */
-    .bibtex-content {
-      position: relative;
-      padding: 1rem;
-      background-color: #f8f9fa;
-      border-radius: 4px;
-      font-family: monospace;
-      font-size: 0.85rem;
-      overflow-x: auto;
-      white-space: pre-wrap;
-      margin-top: 0.5rem;
-    }
-
-    .copy-bibtex-btn {
-      position: absolute;
-      top: 0.5rem;
-      right: 0.5rem;
-      background-color: rgba(255, 255, 255, 0.8);
-      border: 1px solid #dee2e6;
-      border-radius: 4px;
-      padding: 0.25rem 0.5rem;
-      cursor: pointer;
-      transition: all 0.2s ease;
-      font-size: 0.8rem;
-    }
-
-    .copy-bibtex-btn:hover {
-      background-color: var(--primary-light);
-      color: white;
-    }
-
-    .copy-bibtex-btn.copied {
-      background-color: #28a745;
-      color: white;
+      margin-top: 3rem;
+      font-size: .875rem;
     }
   </style>
-
-  <!-- JavaScript -->
-  <script src="/scripts/publications.js"></script>
 </head>
 
 <body>
-  <div class="container">
-    <!-- Header/Navigation -->
-    <header
-      style="margin-bottom: 3rem; padding: 1.5rem 0; border-bottom: 1px solid rgba(0, 0, 0, 0.08); box-shadow: 0 2px 10px rgba(0, 0, 0, 0.02);">
-      <div class="header-content">
-        <a href="/" class="logo">
-          Xin Li @ NTU
+  <header>
+    <img src="images/XinLi.png" alt="Xin Li profile photo" class="profile" />
+    <div>
+      <h1>Xin Li</h1>
+      <p>Ph.D. Student, <a href="https://www.ntu.edu.sg/" target="_blank">Nanyang Technological University</a></p>
+      <!-- <p>Machine Learning · Robotics · Wireless Communications</p> -->
+      <p>Email: <a href="mailto:xin019@e.ntu.edu.sg">xin019@e.ntu.edu.sg</a> </p>
+      <nav>
+        <!-- <a href="#research">Research</a>
+        <a href="#publications">Publications</a>
+        <a href="#experience">Experience</a>
+        <a href="#service">Service</a> -->
+        <a href="XinLi_CV.pdf" target="_blank">CV&nbsp;⤻</a>
+        <a href="https://scholar.google.com/citations?user=Hxf8sNkAAAAJ" target="_blank">Google Scholar&nbsp;⤻</a>
+        <a href="https://github.com/LiXin97" target="_blank">GitHub&nbsp;⤻</a>
+        <a href="https://www.linkedin.com/in/xin-li-1196331a0/" target="_blank">LinkedIn&nbsp;⤻</a>
+      </nav>
+    </div>
+  </header>
+
+  <section id="bio">
+    <p>I currently work on <strong>large language models</strong> and <strong>agent frameworks</strong>.
+      I am interested in developing Large Language Model-based tools and agent frameworks to automate mathematically
+      rigorous tasks in
+      <strong>wireless system design</strong>, <strong>robotic perception &amp; SLAM</strong>, and <strong>AI-driven
+        engineering workflows</strong>.
+    </p>
+    <p>
+      I am currently a Ph.D. student at <a href="https://www.ntu.edu.sg/" target="_blank">Nanyang Technological
+        University</a>, advised by <a href="https://blogs.ntu.edu.sg/chau-yuen/" target="_blank">Prof. Chau Yuen</a>.
+      Previously, I obtained my Master's degree at <a href="https://www.pku.edu.cn/" target="_blank">Peking
+        University</a> and Bachelor's degree at <a href="https://www.neuq.edu.cn/" target="_blank">Northeastern
+        University, CN</a>.
+    </p>
+  </section>
+
+  <section id="news">
+    <h2>Recent News</h2>
+    <ul>
+      <li><em>Mar 2025</em>
+        <a href="https://onboradsim.github.io/" target="_blank">
+          <strong>Onboard Terrain Classification via SIM-DNN</strong>
+          accepted at <strong>ICLR ML4RS Workshop 2025</strong>.
         </a>
-        <button class="mobile-menu-button" aria-label="Toggle mobile menu">
-          <i class="fas fa-bars"></i>
-        </button>
-        <nav id="nav" class="nav">
-          <a href="#about" class="nav-link"
-            style="color: var(--primary-dark); padding: 0.5rem 0.75rem; font-weight: 500; text-decoration: none; transition: all 0.3s ease; border-radius: 4px;">About</a>
-          <a href="#news" class="nav-link"
-            style="color: var(--primary-dark); padding: 0.5rem 0.75rem; font-weight: 500; text-decoration: none; transition: all 0.3s ease; border-radius: 4px;">News</a>
-          <a href="#education" class="nav-link"
-            style="color: var(--primary-dark); padding: 0.5rem 0.75rem; font-weight: 500; text-decoration: none; transition: all 0.3s ease; border-radius: 4px;">Education</a>
-          <a href="#experience" class="nav-link"
-            style="color: var(--primary-dark); padding: 0.5rem 0.75rem; font-weight: 500; text-decoration: none; transition: all 0.3s ease; border-radius: 4px;">Experience</a>
-          <a href="#research" class="nav-link"
-            style="color: var(--primary-dark); padding: 0.5rem 0.75rem; font-weight: 500; text-decoration: none; transition: all 0.3s ease; border-radius: 4px;">Research</a>
-          <a href="#publications" class="nav-link"
-            style="color: var(--primary-dark); padding: 0.5rem 0.75rem; font-weight: 500; text-decoration: none; transition: all 0.3s ease; border-radius: 4px;">Publications</a>
-          <a href="#awards" class="nav-link"
-            style="color: var(--primary-dark); padding: 0.5rem 0.75rem; font-weight: 500; text-decoration: none; transition: all 0.3s ease; border-radius: 4px;">Awards</a>
-          <a href="#service" class="nav-link"
-            style="color: var(--primary-dark); padding: 0.5rem 0.75rem; font-weight: 500; text-decoration: none; transition: all 0.3s ease; border-radius: 4px;">Service</a>
-        </nav>
+      </li>
+      <li><em>Jan 2025</em>
+        <a href="https://lixin.ai/TransPathNet/" target="_blank">
+          <strong>TransPathNet</strong>
+
+          accepted to <strong>ICASSP 2025</strong>; team ranked 4th in
+          the
+          Indoor Pathloss Challenge.
+        </a>
+      </li>
+      <li><em>Jan 2025</em> Started Ph.D. programme at NTU, funded by an NTU Research Scholarship.</li>
+    </ul>
+  </section>
+
+  <section id="publications">
+    <h2>Selected Publications</h2>
+    <p style="margin-bottom: 1rem;">
+      <strong>Note:</strong> * indicates equal contribution. Full details can be found in <a
+        href="https://scholar.google.com/citations?user=Hxf8sNkAAAAJ" target="_blank">Google Scholar&nbsp;⤻</a>.
+    </p>
+    <div class="two-col">
+      <div>
+        <p><strong>Onboard Terrain Classification via Stacked Intelligent Metasurface-Diffractive Deep Neural Networks
+            from SAR Level-0 Raw Data</strong><br />M. Liu, <u><strong>Xin Li</strong></u>, J. An, C. Yuen<br /><em>ICLR
+            ML4RS
+            Workshop, 2025</em></p>
       </div>
-    </header>
+      <div>
+        <p><strong>TransPathNet: A Two-Stage Framework for Indoor Radio Map Prediction</strong><br /><u><strong>Xin
+              Li</strong></u>,
+          R. Liu, S. Xu, S. G. Razul, C. Yuen<br /><em>ICASSP, 2025</em></p>
+      </div>
+      <div>
+        <p><strong>Co-planar Parametrization for Stereo-SLAM and Visual-Inertial Odometry</strong><br /><u><strong>Xin
+              Li</strong></u>*,
+          Y. Li*, E. P. Örnek, J. Lin, F. Tombari<br /><em>IEEE RA-L, 2020</em></p>
+      </div>
+      <div>
+        <p><strong>Leveraging Planar Regularities for Point-Line Visual-Inertial Odometry</strong><br /><u><strong>Xin
+              Li</strong></u>*,
+          Y. He*, J. Lin, X. Liu<br /><em>IROS, 2020</em></p>
+      </div>
+    </div>
 
-    <style>
-      /* Mobile menu styles */
-      .mobile-menu-button {
-        display: none;
-        background: none;
-        border: none;
-        font-size: 1.5rem;
-        color: var(--primary-dark);
-        cursor: pointer;
-        padding: 0.5rem;
-      }
+  </section>
 
-      @media (max-width: 768px) {
-        .mobile-menu-button {
-          display: block;
-        }
-
-        .nav {
-          display: none;
-          width: 100%;
-          flex-direction: column;
-          padding: 1rem 0;
-          margin-top: 1rem;
-          background-color: white;
-          box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-          max-height: calc(100vh - 80px);
-          /* Limit height to viewport minus header */
-          overflow-x: auto;
-          /* Enable scrolling */
-          position: absolute;
-          /* Position the menu below header */
-          top: 100%;
-          /* Place right below header */
-          left: 0;
-          z-index: 1000;
-          /* Ensure menu appears above other content */
-        }
-
-        .nav.show {
-          display: flex;
-        }
-
-        .nav-link {
-          padding: 0.75rem 1rem !important;
-          width: 100%;
-          text-align: left;
-        }
-
-        .header-content {
-          flex-wrap: wrap;
-          position: relative;
-          /* For absolute positioning of nav */
-        }
-      }
-    </style>
-
-    <script>
-      // Mobile menu toggle
-      const mobileMenuButton = document.querySelector('.mobile-menu-button');
-      const nav = document.querySelector('.nav');
-
-      // Hide nav by default on mobile
-      if (window.innerWidth <= 768) {
-        nav.style.display = 'none';
-      }
-
-      // Toggle menu when button is clicked
-      mobileMenuButton.addEventListener('click', function () {
-        if (window.innerWidth <= 768) {
-          nav.style.display = nav.style.display === 'flex' ? 'none' : 'flex';
-        }
-      });
-
-      // Handle window resize
-      window.addEventListener('resize', function () {
-        if (window.innerWidth > 768) {
-          nav.style.display = 'flex';
-        } else {
-          nav.style.display = 'none';
-        }
-      });
-
-      // Close menu when clicking outside
-      document.addEventListener('click', function (event) {
-        if (window.innerWidth <= 768 &&
-          !nav.contains(event.target) &&
-          !mobileMenuButton.contains(event.target)) {
-          nav.style.display = 'none';
-        }
-      });
-    </script>
-
-  <style>
-    /* ------ Minimal extra fixes ------ */
-    :root{--border-color:#e5e7eb;--shadow:0 2px 6px rgba(0,0,0,.05);--shadow-lg:0 6px 14px rgba(0,0,0,.08);--transition-standard:.25s all ease;}
-    body{font-family:'Inter',sans-serif;background:#fff;margin:0;color:var(--text-primary);}    
-    header{position:sticky;top:0;background:#fff;z-index:100;border-bottom:1px solid var(--border-color);}    
-    .tagline{margin:.25rem 0 1rem;font-weight:600;color:var(--primary);}  
-  </style>
-    <main>
-      <!-- Hero/About Section -->
-      <section id="about" class="hero">
-        <div class="profile-info card">
-          <h1>Xin Li (李鑫)</h1>
-          <p class="tagline">Accelerate Engineering with LLM Automation</p>
-          <p>I am building <strong>LLM systems</strong> that automate wireless-communication design and embodied-AI workflows. My vision is to turn complex engineering problems into <em>self-optimising, reproducible pipelines</em>.</p>
-          <p>
-            I am currently pursuing my Ph.D. at
-            <a href="https://www.ntu.edu.sg/"
-              class="text-skin-accent hover:underline decoration-dashed underline-offset-4">
-              Nanyang Technological University (NTU)</a>,
-              Singapore, under the supervision of
-            <a href="https://blogs.ntu.edu.sg/chau-yuen/"
-              class="text-skin-accent hover:underline decoration-dashed underline-offset-4">
-              Prof. Yuen Chau</a>,
-             IEEE Fellow. Previously, I obtained my M.Eng degrees from
-            <a href="https://www.pku.edu.cn/"
-              class="text-skin-accent hover:underline decoration-dashed underline-offset-4">
-              Peking University
-            </a> in 2021 and B.Eng from <a href="https://www.neuq.edu.cn/"
-              class="text-skin-accent hover:underline decoration-dashed underline-offset-4">
-              Northeastern University
-            </a> in 2018.
-          </p>
-          <p style="margin-top:1rem;font-style:italic;">💡 Always looking for collaborators on <u>LLM-powered engineering automation</u>. Feel free to drop me a line!</p>
-          
-          <div class="social-links">
-            <a href="mailto:xin019@e.ntu.edu.sg" class="social-link">
-              <i class="fas fa-envelope"></i>
-              <span>xin019@e.ntu.edu.sg</span>
+  <section id="experience">
+    <h2>Experience</h2>
+    <ul>
+      <li><strong>Research Assistant</strong>, NTU Singapore, Apr 2024 - Jan 2025
+        <ul>
+          <li>Supervised by <a href="https://blogs.ntu.edu.sg/chau-yuen/" target="_blank">Prof. Chau Yuen</a>, IEEE
+            Fellow</li>
+        </ul>
+      </li>
+      <li><strong>SLAM Algorithm Engineer</strong>, Gausium Robotics, Singapore, Mar 2022 - Feb 2024</li>
+      <li><strong>Research Assistant</strong>, Singapore University of Technology & Design, Aug 2021 - Feb 2022
+        <ul>
+          <li>Supervised by <a href="https://blogs.ntu.edu.sg/chau-yuen/" target="_blank">Prof. Chau Yuen</a>, IEEE
+            Fellow</li>
+        </ul>
+      </li>
+      <li><strong>Research Intern</strong>, Microsoft Research Asia, Beijing, Sep 2020 - Mar 2021
+        <ul>
+          <li>Supervised by <a href="https://xueyuhanlang.github.io/" target="_blank">Dr. Yang Liu</a> and
+            <a href="https://yizhongzhang1989.github.io/" target="_blank">
+              Dr. Yizhong Zhang
             </a>
-            <a href="/data/XinLi_CV.pdf" class="social-link" target="_blank" rel="noopener noreferrer">
-              <i class="fas fa-file-alt"></i>
-              <span>Curriculum Vitae</span>
-            </a>
-            <a href="https://scholar.google.com/citations?user=Hxf8sNkAAAAJ" class="social-link" target="_blank"
-              rel="noopener noreferrer">
-              <i class="fas fa-graduation-cap"></i>
-              <span>Google Scholar</span>
-            </a>
-            <a href="https://github.com/LiXin97" class="social-link" target="_blank" rel="noopener noreferrer">
-              <i class="fab fa-github"></i>
-              <span>GitHub</span>
-            </a>
-            <a href="https://www.linkedin.com/in/xin-li-1196331a0" class="social-link" target="_blank"
-              rel="noopener noreferrer">
-              <i class="fab fa-linkedin"></i>
-              <span>LinkedIn</span>
-            </a>
-          </div>
-          <div style="font-size: 0.875rem; text-align: right; color: var(--text-secondary); margin-top: 1rem;">
-            <span style="margin-left: 0.5rem;">(Last updated: 2025-04-20)</span>
-          </div>
-        </div>
-
-        <div class="profile-image-container">
-          <img src="/images/XinLi.png" alt="Xin Li - PhD Student at Nanyang Technological University (NTU) Singapore" class="profile-image" width="250" height="250">
-        </div>
-      </section>
-
-      <!-- News Section -->
-      <section id="news" class="section">
-        <h2 class="section-title">Latest News</h2>
-        <div class="news-container">
-          <ul class="news-list" itemscope itemtype="http://schema.org/ItemList">
-            <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
-              <div class="news-content">
-                <span class="news-title" itemprop="name">
-                  <a href="https://onboradsim.github.io/" target="_blank" rel="noopener noreferrer" itemprop="url">
-                    One paper accepted by ICLR 2025 ML4RS Workshop.
-                  </a>
-                </span>
-                <p class="news-date"><meta itemprop="datePublished" content="2025-03">2025.03</p>
-              </div>
-              <meta itemprop="position" content="1" />
-            </li>
-            <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
-              <div class="news-content">
-                <span class="news-title" itemprop="name">
-                  <a href="https://lixin.ai/TransPathNet/" target="_blank" rel="noopener noreferrer" itemprop="url">
-                    Secured 4th place winner in the ICASSP 2025 Indoor Pathloss Radio Map Prediction Challenge.
-                  </a>
-                </span>
-                <p class="news-date"><meta itemprop="datePublished" content="2024-12">2024.12</p>
-              </div>
-              <meta itemprop="position" content="2" />
-            </li>
-            <li class="hidden-news" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
-              <div class="news-content">
-                <span class="news-title" itemprop="name">
-                  <a href="https://scholar.google.com/citations?user=Hxf8sNkAAAAJ" target="_blank"
-                    rel="noopener noreferrer" itemprop="url">
-                    Reached 100+ citations milestone on Google Scholar.
-                  </a>
-                </span>
-                <p class="news-date"><meta itemprop="datePublished" content="2024-10">2024.10</p>
-              </div>
-              <meta itemprop="position" content="3" />
-            </li>
-          </ul>
-          <button id="news-toggle-btn" class="view-all-button">View all news</button>
-        </div>
-      </section>
-
-      <!-- Education Section -->
-      <section id="education" class="section">
-        <h2 class="section-title">Education</h2>
-        <div class="education-item">
-          <h3 class="degree">Ph.D. in Electrical and Electronic Engineering</h3>
-          <p><span class="institution-name">Nanyang Technological University</span></p>
-          <p>Supervisor: <a href="https://blogs.ntu.edu.sg/chau-yuen/" target="_blank">Prof. Yuen Chau</a>, IEEE Fellow
-          </p>
-          <p class="education-date">Jan. 2025 - Present</p>
-        </div>
-        <div class="education-item">
-          <h3 class="degree">M.Eng. in Electronics and Communication Engineering</h3>
-          <p><span class="institution-name">Peking University</span></p>
-          <p>Supervisor: <a
-              href="https://www.ss.pku.edu.cn/teacherteam/teacherlist/1652-%E6%9E%97%E9%87%91%E9%BE%99.htmlJ"
-              target="_blank" rel="noopener noreferrer">Prof. Jinlong Lin</a>
-          </p>
-          <p class="education-date">Sept. 2018 - Jul. 2021</p>
-        </div>
-        <div class="education-item">
-          <h3 class="degree">B.Eng. in Measurement and Control Technology and Instruments</h3>
-          <p><span class="institution-name">Northeastern University</span></p>
-          <p class="education-date">Sept. 2014 - Jun. 2018</p>
-        </div>
-      </section>
-
-      <!-- Experience Section -->
-      <section id="experience" class="section">
-        <h2 class="section-title">Professional Experience</h2>
-
-        <div class="education-item">
-          <h3 class="degree">Research Assistant</h3>
-          <p><span class="institution-name">Nanyang Technological University (NTU)</span></p>
-          <p>Supervisor: <a href="https://blogs.ntu.edu.sg/chau-yuen/" target="_blank">Prof. Yuen Chau</a></p>
-          <ul style="margin-top: 0.5rem;">
-            <li>Leveraged Large Language Models (LLMs) to solve complex mathematical engineering challenges in wireless
-              communications.</li>
-            <li>Designed and implemented advanced robotic perception systems, integrating deep learning techniques for
-              robust dense scene reconstruction.</li>
-          </ul>
-          <p class="education-date">Apr. 2024 - Jan. 2025</p>
-        </div>
-
-        <div class="education-item">
-          <h3 class="degree">SLAM Algorithm Engineer</h3>
-          <p><span class="institution-name">Gausium Robotics (alias "Gaussian Robotics")</span></p>
-          <ul style="margin-top: 0.5rem;">
-            <li>Led a team in engineering a high-performance hierarchical visual localization system for large-scale
-              environments using compact neural networks.</li>
-            <li>Directed the integration of real-time map update modules and spearheaded the development of a novel
-              indoor localization system that combines learning-based methods with traditional signal processing.</li>
-          </ul>
-          <p class="education-date">Mar. 2022 - Feb. 2024</p>
-        </div>
-
-        <div class="education-item">
-          <h3 class="degree">Research Assistant</h3>
-          <p><span class="institution-name">Singapore University of Technology and Design (SUTD)</span></p>
-          <p>Supervisor: <a href="https://blogs.ntu.edu.sg/chau-yuen/" target="_blank">Prof. Yuen Chau</a></p>
-          <ul style="margin-top: 0.5rem;">
-            <li>Developed a coplanar direct visual-inertial odometry system that overcomes 2D feature matching
-              inaccuracies, outperforming conventional planar-constrained methods.</li>
-          </ul>
-          <p class="education-date">Aug. 2021 - Feb. 2022</p>
-        </div>
-
-        <div class="education-item">
-          <h3 class="degree">Research Intern</h3>
-          <p><span class="institution-name">Microsoft Research Asia (MSRA)</span></p>
-          <p>Supervisors: <a href="https://xueyuhanlang.github.io/" target="_blank">Dr. Yang Liu</a> & <a
-              href="https://yizhongzhang1989.github.io/" target="_blank">Dr. Yizhong Zhang</a></p>
-          <ul style="margin-top: 0.5rem;">
-            <li>Engineered a multi-sensor reconstruction system that integrates mobile camera and IMU data to generate
-              high-fidelity vectorized maps of large-scale supermarkets, enhancing indoor localization and navigation.
-            </li>
-          </ul>
-          <p class="education-date">Sep. 2020 - Mar. 2021</p>
-        </div>
-
-        <div class="education-item">
-          <h3 class="degree">Research Intern</h3>
-          <p><span class="institution-name">MEGVII</span></p>
-          <p>Supervisor: <a href="https://www.researchgate.net/profile/He-Yijia" target="_blank">Dr. Yijia He</a></p>
-          <ul style="margin-top: 0.5rem;">
-            <li>Researched geometric feature extraction in visual SLAM systems and developed a robust, tightly-coupled
-              monocular Visual-Inertial Odometry (VIO) system that leverages heterogeneous features to generate
-              semi-dense 3D scene meshes in real time.</li>
-          </ul>
-          <p class="education-date">Feb. 2019 - Mar. 2020</p>
-        </div>
-      </section>
-
-
-
-      <!-- Research Interests Section -->
-      <section id="research" class="section">
-        <h2 class="section-title">Research Interests</h2>
-        <ul class="interests-container" style="display:flex;flex-wrap:wrap;gap:1.5rem;margin:0;padding:0;list-style:none;">
-          <li class="interest-item" style="flex:1 1 180px;padding:1.5rem;text-align:center;">
-            <div class="interest-icon"><i class="fas fa-comment-dots"></i></div>
-            <h3>Large Language Models</h3><p>Multi-agent orchestration, tool-use & reasoning.</p>
-          </li>
-          <li class="interest-item" style="flex:1 1 180px;padding:1.5rem;text-align:center;">
-            <div class="interest-icon"><i class="fas fa-satellite"></i></div>
-            <h3>Wireless Engineering</h3><p>LLMassisted modelling & optimisation for 6G.</p>
-          </li>
-          <li class="interest-item" style="flex:1 1 180px;padding:1.5rem;text-align:center;">
-            <div class="interest-icon"><i class="fas fa-robot"></i></div>
-            <h3>Embodied AI &amp; SLAM</h3><p>Neural-field SLAM & language-conditioned control.</p>
-          </li>
-          <li class="interest-item" style="flex:1 1 180px;padding:1.5rem;text-align:center;">
-            <div class="interest-icon"><i class="fas fa-cogs"></i></div>
-            <h3>LLM-powered Engineering Automation</h3><p>Auto-design loops & scientific discovery agents.</p>
           </li>
         </ul>
-      </section>
+      </li>
+      <li><strong>Research Intern</strong>, MEGVII, Beijing, Feb 2019 - Mar 2020
+        <ul>
+          <li>Supervised by <a href="https://www.researchgate.net/profile/He-Yijia" target="_blank">Dr.
+              Yijia He</a></li>
+        </ul>
+      </li>
+    </ul>
+  </section>
 
+  <section id="education">
+    <h2>Education</h2>
+    <ul>
+      <li><strong>Ph.D.</strong> &nbsp; Nanyang Technological University, Singapore, 2025 - Present
+        <ul>
+          <li>Supervised by <a href="https://blogs.ntu.edu.sg/chau-yuen/" target="_blank">Prof. Chau Yuen</a>, IEEE
+            Fellow</li>
+        </ul>
+      </li>
+      <li><strong>M.E.</strong> &nbsp; Peking University, 2018 - 2021
+        <ul>
+          <li>Supervised by <a
+              href="https://www.ss.pku.edu.cn/teacherteam/teacherlist/1652-%E6%9E%97%E9%87%91%E9%BE%99.html"
+              target="_blank">Prof.
+              Jinglong Lin</a></li>
+        </ul>
+      </li>
+      <li><strong>B.E.</strong> &nbsp; Northeastern University, China, 2014 - 2018</li>
+    </ul>
+  </section>
 
-      <!-- Publications Section -->
-      <section id="publications" class="section">
-    <script type="application/ld+json">
-    {
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@context": "https://schema.org",
-      "@type": "Article",
-      "headline": "Onboard Terrain Classification via Stacked Intelligent Metasurface-Diffractive Deep Neural Networks from SAR Level-0 Raw Data",
-      "author": [
-        {
-          "@type": "Person",
-          "name": "Mengbing Liu"
-        },
-        {
-          "@type": "Person",
-          "name": "Xin Li"
-        },
-        {
-          "@type": "Person",
-          "name": "Jiancheng An"
-        },
-        {
-          "@type": "Person",
-          "name": "Chau Yuen"
-        }
-      ],
-      "datePublished": "2025",
-      "name": "Onboard Terrain Classification via Stacked Intelligent Metasurface-Diffractive Deep Neural Networks from SAR Level-0 Raw Data",
-      "publisher": {
-        "@type": "Organization",
-        "name": "ICLR ML4RS Workshop"
-      },
-      "url": "https://onboradsim.github.io/"
-    },
-    {
-      "@context": "https://schema.org",
-      "@type": "Article",
-      "headline": "TransPathNet: A Novel Two-Stage Framework for Indoor Radio Map Prediction",
-      "author": [
-        {
-          "@type": "Person",
-          "name": "Xin Li"
-        },
-        {
-          "@type": "Person",
-          "name": "Ran Liu"
-        },
-        {
-          "@type": "Person",
-          "name": "Saihua Xu"
-        },
-        {
-          "@type": "Person",
-          "name": "Sirajudeen Gulam Razul"
-        },
-        {
-          "@type": "Person",
-          "name": "Chau Yuen"
-        }
-      ],
-      "datePublished": "2025",
-      "name": "TransPathNet: A Novel Two-Stage Framework for Indoor Radio Map Prediction",
-      "publisher": {
-        "@type": "Organization",
-        "name": "ICASSP"
-      },
-      "url": "https://lixin.ai/TransPathNet/"
-    },
-    {
-      "@context": "https://schema.org",
-      "@type": "Article",
-      "headline": "Robust Gaussian Splatting SLAM by Leveraging Loop Closure",
-      "author": [
-        {
-          "@type": "Person",
-          "name": "Zunjie Zhu"
-        },
-        {
-          "@type": "Person",
-          "name": "Youxu Fang"
-        },
-        {
-          "@type": "Person",
-          "name": "Xin Li"
-        },
-        {
-          "@type": "Person",
-          "name": "Chengang Yan"
-        },
-        {
-          "@type": "Person",
-          "name": "Feng Xu"
-        },
-        {
-          "@type": "Person",
-          "name": "Chau Yuen"
-        },
-        {
-          "@type": "Person",
-          "name": "Yanyan Li"
-        }
-      ],
-      "datePublished": "2024",
-      "name": "Robust Gaussian Splatting SLAM by Leveraging Loop Closure",
-      "publisher": {
-        "@type": "Organization",
-        "name": "Under review"
-      }
-    },
-    {
-      "@context": "https://schema.org",
-      "@type": "Article",
-      "headline": "PVI-DSO: Leveraging Planar Regularities for Direct Sparse Visual-Inertial Odometry",
-      "author": [
-        {
-          "@type": "Person",
-          "name": "Bo Xu"
-        },
-        {
-          "@type": "Person",
-          "name": "Xin Li"
-        },
-        {
-          "@type": "Person",
-          "name": "Jingrong Wang"
-        },
-        {
-          "@type": "Person",
-          "name": "Chau Yuen"
-        },
-        {
-          "@type": "Person",
-          "name": "Jiancheng Li"
-        }
-      ],
-      "datePublished": "2023",
-      "name": "PVI-DSO: Leveraging Planar Regularities for Direct Sparse Visual-Inertial Odometry",
-      "publisher": {
-        "@type": "Organization",
-        "name": "IEEE Sensors Journal"
-      }
-    },
-    {
-      "@context": "https://schema.org",
-      "@type": "Article",
-      "headline": "Deep Learning-Based Channel Estimation for Double-RIS Aided Massive MIMO System",
-      "author": [
-        {
-          "@type": "Person",
-          "name": "Mengbing Liu"
-        },
-        {
-          "@type": "Person",
-          "name": "Xin Li"
-        },
-        {
-          "@type": "Person",
-          "name": "Boyu Ning"
-        },
-        {
-          "@type": "Person",
-          "name": "Chongwen Huang"
-        },
-        {
-          "@type": "Person",
-          "name": "Sumei Sun"
-        },
-        {
-          "@type": "Person",
-          "name": "Chau Yuen"
-        }
-      ],
-      "datePublished": "2022",
-      "name": "Deep Learning-Based Channel Estimation for Double-RIS Aided Massive MIMO System",
-      "publisher": {
-        "@type": "Organization",
-        "name": "IEEE Wireless Communications Letters (WCL)"
-      }
-    },
-    {
-      "@context": "https://schema.org",
-      "@type": "Article",
-      "headline": "Co-Planar Parametrization for Stereo-SLAM and Visual-Inertial Odometry",
-      "author": [
-        {
-          "@type": "Person",
-          "name": "Xin Li*"
-        },
-        {
-          "@type": "Person",
-          "name": "Yanyan Li*"
-        },
-        {
-          "@type": "Person",
-          "name": "Evin Pinar \u00d6rnek"
-        },
-        {
-          "@type": "Person",
-          "name": "Jinlong Lin"
-        },
-        {
-          "@type": "Person",
-          "name": "Federico Tombari"
-        }
-      ],
-      "datePublished": "2020",
-      "name": "Co-Planar Parametrization for Stereo-SLAM and Visual-Inertial Odometry",
-      "publisher": {
-        "@type": "Organization",
-        "name": "IEEE RA-L"
-      },
-      "url": "/data/RAL-2020/RA-L2020.pdf"
-    },
-    {
-      "@context": "https://schema.org",
-      "@type": "Article",
-      "headline": "Leveraging Planar Regularities for Point Line Visual-Inertial Odometry",
-      "author": [
-        {
-          "@type": "Person",
-          "name": "Xin Li*"
-        },
-        {
-          "@type": "Person",
-          "name": "Yijia He*"
-        },
-        {
-          "@type": "Person",
-          "name": "Jinlong Lin"
-        },
-        {
-          "@type": "Person",
-          "name": "Xiao Liu"
-        }
-      ],
-      "datePublished": "2020",
-      "name": "Leveraging Planar Regularities for Point Line Visual-Inertial Odometry",
-      "publisher": {
-        "@type": "Organization",
-        "name": "IROS"
-      },
-      "url": "/data/IROS-2020/IROS2020.pdf"
-    }
-  ]
-}
-    </script>
-    
-    <div class="publications-header">
-        <h2 class="section-title">Selected Publications</h2>
-    </div>
-    
-    <div class="citation-info" style="margin-bottom: 2rem; padding: 1.25rem; background-color: var(--background-alt); border-radius: 0.5rem; box-shadow: var(--shadow); display: block; width: 100%;">
-        <div style="display: flex; flex-wrap: wrap; gap: 1.5rem; margin-bottom: 1rem;">
-            <div style="flex: 1;">
-                <h3 style="margin-top: 0; margin-bottom: 0.5rem; font-size: 1.25rem; color: var(--text-primary);">Citation Metrics</h3>
-                <div style="display: flex; flex-wrap: wrap; gap: 1.5rem;">
-                    <div style="text-align: center; min-width: 80px;">
-                        <div style="font-size: 2rem; font-weight: 700; color: var(--primary); line-height: 1.2;">122</div>
-                        <div style="font-size: 0.9rem; color: var(--text-secondary);">Citations</div>
-                    </div>
-                    <div style="text-align: center; min-width: 80px;">
-                        <div style="font-size: 2rem; font-weight: 700; color: var(--primary); line-height: 1.2;">4</div>
-                        <div style="font-size: 0.9rem; color: var(--text-secondary);">h-index</div>
-                    </div>
-                    <div style="text-align: center; min-width: 80px;">
-                        <div style="font-size: 2rem; font-weight: 700; color: var(--primary); line-height: 1.2;">4</div>
-                        <div style="font-size: 0.9rem; color: var(--text-secondary);">i10-index</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-        <div style="font-size: 0.875rem; text-align: right; color: var(--text-secondary); margin-top: 1rem;">
-            Data from <a href="https://scholar.google.com/citations?user=Hxf8sNkAAAAJ" target="_blank" rel="noopener" style="color: var(--primary);">Google Scholar</a>
-            <span style="margin-left: 0.5rem;">(Updated: 2025-04-10)</span>
-        </div>
-    </div>
-    
-    <style>
-    /* BibTeX copy button styling */
-    .bibtex-content {
-      position: relative;
-      padding: 1rem;
-      background-color: #f8f9fa;
-      border-radius: 4px;
-      font-family: monospace;
-      font-size: 0.85rem;
-      overflow-x: auto;
-      white-space: pre-wrap;
-      margin-top: 0.5rem;
-    }
-    
-    .copy-bibtex-btn {
-      position: absolute;
-      top: 0.5rem;
-      right: 0.5rem;
-      background-color: rgba(255, 255, 255, 0.8);
-      border: 1px solid #dee2e6;
-      border-radius: 4px;
-      padding: 0.25rem 0.5rem;
-      cursor: pointer;
-      transition: all 0.2s ease;
-      font-size: 0.8rem;
-    }
-    
-    .copy-bibtex-btn:hover {
-      background-color: var(--primary-light);
-      color: white;
-    }
-    
-    .copy-bibtex-btn.copied {
-      background-color: #28a745;
-      color: white;
-    }
-    </style>
+  <section id="service">
+    <h2>Academic Service &amp; Awards</h2>
+    <ul>
+      <li>Reviewer: NeurIPS 2024-2025, ICLR 2025, ICML 2025, SIGGRAPH 2025, AISTATS 2025, IROS 2021-2022,
+        ICRA 2022-2025, IEEE RA-L, ACM TOG</li>
+  </section>
 
-    <div class="publications-list">
-    <div class="card ">
-            <p><span class="pub-title">Onboard Terrain Classification via Stacked Intelligent Metasurface-Diffractive Deep Neural Networks from SAR Level-0 Raw Data</span></p>
-            <p>Mengbing Liu, <strong>Xin Li</strong>, Jiancheng An, Chau Yuen</p>
-            <p><em>ICLR ML4RS Workshop</em>, 2025</p>
-            <div class="pub-links">
-                <a href="https://onboradsim.github.io/" class="pub-link" target="_blank" rel="noopener noreferrer">
-                <i class="fas fa-external-link-alt"></i> Project Homepage
-            </a>
-<button class="pub-link bibtex-btn">
-                <i class="fas fa-quote-right"></i> BibTeX
-            </button>
-            </div>
-            <pre class="bibtex-content">@article{liu2025onboard,
-  title={Onboard Terrain Classification via Stacked Intelligent Metasurface-Diffractive Deep Neural Networks from SAR Level-0 Raw Data},
-  author={Liu, Mengbing and Li, Xin and An, Jiancheng and Yuen, Chau},
-  journal={ICLR ML4RS Workshop},
-  year={2025}
-}<button class="copy-bibtex-btn" aria-label="Copy BibTeX"><i class="fas fa-copy"></i></button></pre>
-          </div><div class="card ">
-            <p><span class="pub-title">TransPathNet: A Novel Two-Stage Framework for Indoor Radio Map Prediction</span></p>
-            <p><strong>Xin Li</strong>, Ran Liu, Saihua Xu, Sirajudeen Gulam Razul, Chau Yuen</p>
-            <p><em>ICASSP</em>, 2025</p>
-            <div class="pub-links">
-                <a href="https://lixin.ai/TransPathNet/" class="pub-link" target="_blank" rel="noopener noreferrer">
-                <i class="fas fa-external-link-alt"></i> Project Homepage
-            </a>
-<button class="pub-link bibtex-btn">
-                <i class="fas fa-quote-right"></i> BibTeX
-            </button><button class="pub-link citation-btn">
-                Citations 1
-            </button>
-            </div>
-            <pre class="bibtex-content">@inproceedings{li2025transpathnet,
-  title={TransPathNet: A Novel Two-Stage Framework for Indoor Radio Map Prediction},
-  author={Li, Xin and Liu, Ran and Xu, Saihua and Razul, Sirajudeen Gulam and Yuen, Chau},
-  booktitle={Proc. IEEE International Conference on Acoustics, Speech, and Signal Processing (ICASSP)},
-  year={2025},
-  month={April}
-}<button class="copy-bibtex-btn" aria-label="Copy BibTeX"><i class="fas fa-copy"></i></button></pre>
-          </div><div class="card hidden-publication">
-            <p><span class="pub-title">Robust Gaussian Splatting SLAM by Leveraging Loop Closure</span></p>
-            <p>Zunjie Zhu, Youxu Fang, <strong>Xin Li</strong>, Chengang Yan, Feng Xu, Chau Yuen, Yanyan Li</p>
-            <p><em>Under review</em>, 2024</p>
-            <div class="pub-links">
-                <button class="pub-link bibtex-btn">
-                <i class="fas fa-quote-right"></i> BibTeX
-            </button>
-            </div>
-            <pre class="bibtex-content">@article{zhu2024robust,
-  title={Robust Gaussian Splatting SLAM by Leveraging Loop Closure},
-  author={Zhu, Zunjie and Fang, Youxu and Li, Xin and Yan, Chengang and Xu, Feng and Yuen, Chau and Li, Yanyan},
-  journal={arXiv preprint},
-  year={2024}
-}<button class="copy-bibtex-btn" aria-label="Copy BibTeX"><i class="fas fa-copy"></i></button></pre>
-          </div><div class="card hidden-publication">
-            <p><span class="pub-title">PVI-DSO: Leveraging Planar Regularities for Direct Sparse Visual-Inertial Odometry</span></p>
-            <p>Bo Xu, <strong>Xin Li</strong>, Jingrong Wang, Chau Yuen, Jiancheng Li</p>
-            <p><em>IEEE Sensors Journal</em>, 2023</p>
-            <div class="pub-links">
-                <a href="https://arxiv.org/abs/2204.02635" class="pub-link" target="_blank" rel="noopener noreferrer">
-                <i class="fas fa-external-link-alt"></i> arXiv
-            </a>
-<button class="pub-link bibtex-btn">
-                <i class="fas fa-quote-right"></i> BibTeX
-            </button><button class="pub-link citation-btn">
-                Citations 10
-            </button>
-            </div>
-            <pre class="bibtex-content">@article{xu2023pvi,
-  title={PVI-DSO: Leveraging Planar Regularities for Direct Sparse Visual-Inertial Odometry},
-  author={Xu, Bo and Li, Xin and Wang, Jingrong and Yuen, Chau and Li, Jiancheng},
-  journal={IEEE Sensors Journal},
-  year={2023},
-  volume={23},
-  number={15},
-  pages={17415--17425},
-  publisher={IEEE}
-}<button class="copy-bibtex-btn" aria-label="Copy BibTeX"><i class="fas fa-copy"></i></button></pre>
-          </div><div class="card hidden-publication">
-            <p><span class="pub-title">Deep Learning-Based Channel Estimation for Double-RIS Aided Massive MIMO System</span></p>
-            <p>Mengbing Liu, <strong>Xin Li</strong>, Boyu Ning, Chongwen Huang, Sumei Sun, Chau Yuen</p>
-            <p><em>IEEE Wireless Communications Letters (WCL)</em>, 2022</p>
-            <div class="pub-links">
-                <a href="https://arxiv.org/abs/2210.12447" class="pub-link" target="_blank" rel="noopener noreferrer">
-                <i class="fas fa-external-link-alt"></i> arXiv
-            </a>
-<button class="pub-link bibtex-btn">
-                <i class="fas fa-quote-right"></i> BibTeX
-            </button><button class="pub-link citation-btn">
-                Citations 39
-            </button>
-            </div>
-            <pre class="bibtex-content">@article{liu2022deep,
-  title={Deep learning-based channel estimation for double-RIS aided massive MIMO system},
-  author={Liu, Mengbing and Li, Xin and Ning, Boyu and Huang, Chongwen and Sun, Sumei and Yuen, Chau},
-  journal={IEEE Wireless Communications Letters},
-  volume={12},
-  number={1},
-  pages={70--74},
-  year={2022},
-  publisher={IEEE}
-}<button class="copy-bibtex-btn" aria-label="Copy BibTeX"><i class="fas fa-copy"></i></button></pre>
-          </div><div class="card ">
-            <p><span class="pub-title">Co-Planar Parametrization for Stereo-SLAM and Visual-Inertial Odometry</span></p>
-            <p><strong>Xin Li*</strong>, Yanyan Li*, Evin Pinar Örnek, Jinlong Lin, Federico Tombari <span class="text-secondary">(*equal contribution)</span></p>
-            <p><em>IEEE RA-L</em>, 2020</p>
-            <div class="pub-links">
-                <a href="/data/RAL-2020/RA-L2020.pdf" class="pub-link" target="_blank" rel="noopener noreferrer">
-                <i class="fas fa-file-pdf"></i> PDF
-            </a>
-<a href="https://github.com/LiXin97/Co-Planar-Parametrization-VIO" class="pub-link" target="_blank" rel="noopener noreferrer">
-                <i class="fab fa-github"></i> Code
-            </a>
-<a href="https://arxiv.org/abs/2009.12662" class="pub-link" target="_blank" rel="noopener noreferrer">
-                <i class="fas fa-external-link-alt"></i> arXiv
-            </a>
-<button class="pub-link bibtex-btn">
-                <i class="fas fa-quote-right"></i> BibTeX
-            </button><button class="pub-link citation-btn">
-                Citations 31
-            </button>
-            </div>
-            <pre class="bibtex-content">@article{li2020co,
-  title={Co-planar parametrization for stereo-SLAM and visual-inertial odometry},
-  author={Li, Xin and Li, Yanyan and Örnek, Evin Pinar and Lin, Jinlong and Tombari, Federico},
-  journal={IEEE Robotics and Automation Letters},
-  volume={5},
-  number={4},
-  pages={6972--6979},
-  year={2020},
-  publisher={IEEE}
-}<button class="copy-bibtex-btn" aria-label="Copy BibTeX"><i class="fas fa-copy"></i></button></pre>
-          </div><div class="card ">
-            <p><span class="pub-title">Leveraging Planar Regularities for Point Line Visual-Inertial Odometry</span></p>
-            <p><strong>Xin Li*</strong>, Yijia He*, Jinlong Lin, Xiao Liu <span class="text-secondary">(*equal contribution)</span></p>
-            <p><em>IROS</em>, 2020</p>
-            <div class="pub-links">
-                <a href="/data/IROS-2020/IROS2020.pdf" class="pub-link" target="_blank" rel="noopener noreferrer">
-                <i class="fas fa-file-pdf"></i> PDF
-            </a>
-<a href="https://github.com/LiXin97/Co-Planar-Parametrization-VIO" class="pub-link" target="_blank" rel="noopener noreferrer">
-                <i class="fab fa-github"></i> Code
-            </a>
-<a href="https://arxiv.org/abs/2004.11969" class="pub-link" target="_blank" rel="noopener noreferrer">
-                <i class="fas fa-external-link-alt"></i> arXiv
-            </a>
-<button class="pub-link bibtex-btn">
-                <i class="fas fa-quote-right"></i> BibTeX
-            </button><button class="pub-link citation-btn">
-                Citations 41
-            </button>
-            </div>
-            <pre class="bibtex-content">@inproceedings{li2020leveraging,
-  title={Leveraging Planar Regularities for Point Line Visual-Inertial Odometry},
-  author={Li, Xin and He, Yijia and Lin, Jinlong and Liu, Xiao},
-  booktitle={2020 IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS)},
-  year={2020},
-  pages={10792--10798},
-  organization={IEEE}
-}<button class="copy-bibtex-btn" aria-label="Copy BibTeX"><i class="fas fa-copy"></i></button></pre>
-          </div>
-    </div>
-    
-    <div class="publications-buttons" style="display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 1.5rem;">
-      <button id="pub-toggle-btn" class="view-all-button"
-        style="display: inline-block; padding: 0.5rem 1rem; background-color: var(--primary); color: white; border-radius: 0.375rem; font-weight: 500; border: none; cursor: pointer;"
-        onclick="window.location.href='/pubs.html'; return false;">View all publications</button>
-    </div>
+  <section id="awards">
+    <h2>Awards</h2>
+    <ul>
+      <li>NTU Research Scholarship</li>
+      <li>4th Place, ICASSP 2025 Indoor Pathloss Challenge</li>
+    </ul>
+  </section>
 
-    <script>
-      function togglePublications() {
-        var hiddenPubs = document.querySelectorAll('.hidden-publication');
-        var toggleBtn = document.getElementById('pub-toggle-btn');
-        
-        // Check if publications are currently hidden
-        if (hiddenPubs[0].style.display === 'none' || hiddenPubs[0].style.display === '') {
-          // Show all publications
-          for (var i = 0; i < hiddenPubs.length; i++) {
-            hiddenPubs[i].style.display = 'block';
-          }
-          toggleBtn.textContent = 'Show fewer publications';
-        } else {
-          // Hide publications
-          for (var i = 0; i < hiddenPubs.length; i++) {
-            hiddenPubs[i].style.display = 'none';
-          }
-          toggleBtn.textContent = 'View all publications';
-        }
-        
-        return false;
-      }
-      
-      // Hide publications marked as hidden on page load
-      document.addEventListener('DOMContentLoaded', function() {
-        var hiddenPubs = document.querySelectorAll('.hidden-publication');
-        for (var i = 0; i < hiddenPubs.length; i++) {
-          hiddenPubs[i].style.display = 'none';
-        }
-        
-        // Ensure the button shows the correct text
-        document.getElementById('pub-toggle-btn').textContent = 'View all publications';
-        
-        // BibTeX buttons functionality
-        const bibtexButtons = document.querySelectorAll('.bibtex-btn');
-        
-        bibtexButtons.forEach(btn => {
-            btn.addEventListener('click', function() {
-                // Find the closest parent card
-                const card = this.closest('.card');
-                
-                // Find the bibtex content within this card
-                const bibtexContent = card.querySelector('.bibtex-content');
-                
-                // Toggle visibility with !important override
-                if (bibtexContent.style.display === 'block') {
-                    bibtexContent.style.display = 'none';
-                } else {
-                    // Force display block with !important by using inline style setAttribute
-                    bibtexContent.setAttribute('style', 'display: block !important');
-                }
-            });
-        });
-        
-        // BibTeX copy buttons functionality
-        const copyBibtexButtons = document.querySelectorAll('.copy-bibtex-btn');
-        
-        copyBibtexButtons.forEach(btn => {
-            btn.addEventListener('click', function(e) {
-                // Prevent the click from bubbling up and toggling the display
-                e.stopPropagation();
-                
-                // Get the bibtex content (parent element's text content without the button text)
-                const bibtexElement = this.parentElement;
-                const bibtexText = bibtexElement.textContent.trim();
-                
-                // Copy to clipboard
-                navigator.clipboard.writeText(bibtexText).then(() => {
-                    // Visual feedback
-                    this.classList.add('copied');
-                    const originalIcon = this.innerHTML;
-                    this.innerHTML = '<i class="fas fa-check"></i>';
-                    
-                    // Reset after 2 seconds
-                    setTimeout(() => {
-                        this.classList.remove('copied');
-                        this.innerHTML = originalIcon;
-                    }, 2000);
-                }).catch(err => {
-                    console.error('Could not copy text: ', err);
-                });
-            });
-        });
-      });
-    </script>
-    </section>
-
-      <!-- Awards Section -->
-      <section id="awards" class="section">
-        <h2 class="section-title">Honors and Awards</h2>
-        <div class="awards-list">
-          <div class="award-item">
-            <h3 class="award-title">NTU Research Scholarship</h3>
-            <p class="award-org">
-              <a href="https://www.ntu.edu.sg" target="_blank" rel="noopener noreferrer">
-                Nanyang Technological University, Singapore
-              </a>
-            </p>
-            <p class="award-year">2025</p>
-          </div>
-          <div class="award-item">
-            <h3 class="award-title">4th Place Winner</h3>
-            <p class="award-org">
-              <a href="https://indoorradiomapchallenge.github.io/results.html" target="_blank"
-                rel="noopener noreferrer">
-                ICASSP 2025 Indoor Pathloss Radio Map Prediction Challenge
-              </a>
-            </p>
-            <p class="award-year">2025</p>
-          </div>
-        </div>
-      </section>
-
-      <!-- Professional Activities Section -->
-      <section id="service" class="section">
-        <h2 class="section-title">Academic Service</h2>
-        <div class="activities-container">
-          <div class="activity-category">
-            <h3 class="activity-title">Reviewer</h3>
-            <ul>
-              <li>
-                <a href="https://neurips.cc/" target="_blank" rel="noopener noreferrer">
-                  NeurIPS
-                </a>
-                (2024, 2025)
-              </li>
-              <li>
-                <a href="https://iclr.cc/" target="_blank" rel="noopener noreferrer">
-                  ICLR
-                </a>
-                (2025)
-              </li>
-              <li>
-                <a href="https://icml.cc/" target="_blank" rel="noopener noreferrer">
-                  ICML
-                </a>
-                (2025)
-              </li>
-              <li>
-                <a href="https://www.siggraph.org/" target="_blank" rel="noopener noreferrer">
-                  SIGGRAPH
-                </a>
-                (2025)
-              </li>
-              <li>
-                <a href="https://aistats.org/" target="_blank" rel="noopener noreferrer">
-                  AISTATS
-                </a>
-                (2025)
-              </li>
-              <li>
-                <a href="https://www.ieee-ras.org/conferences-workshops/financially-co-sponsored/iros" target="_blank"
-                  rel="noopener noreferrer">
-                  IROS
-                </a>
-                (2021, 2022, 2025)
-              </li>
-              <li>
-                <a href="https://www.ieee-ras.org/conferences-workshops/fully-sponsored/icra" target="_blank"
-                  rel="noopener noreferrer">
-                  ICRA
-                </a>
-                (2022, 2023, 2025)
-              </li>
-              <li>
-                <a href="https://www.ieee-ras.org/publications/ra-l" target="_blank" rel="noopener noreferrer">
-                  IEEE RA-L
-                </a>
-              </li>
-              <li>
-                <a href="https://dl.acm.org/journal/tog" target="_blank" rel="noopener noreferrer">
-                  ACM Transactions on Graphics (TOG)
-                </a>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </section>
-
-    </main>
-
-    <footer style="background: #f8f9fa; padding: 2rem 0; margin-top: 3rem; border-top: 1px solid rgba(0, 0, 0, 0.1);">
-      <div class="footer-content" style="display: flex; justify-content: space-between; align-items: center; max-width: 1100px; margin: 0 auto; padding: 0 1.5rem;">
-        <div style="display: flex; align-items: center;">
-          <p style="margin: 0; color: #666;">&copy; <span id="current-year"></span> Xin Li. All rights reserved.</p>
-        </div>
-        
-        <div style="display: flex; align-items: center;">
-          <a href="https://clustrmaps.com/site/1c54q" title="Visit tracker">
-            <img src="//clustrmaps.com/map_v2.png?cl=080808&w=a&t=n&d=B5NomgZ8KZlp6qqDI50mXbSXYjWqdeneexojuozJ7pQ&co=ffffff&ct=808080" 
-                 alt="Visitor Map" 
-                 style="max-width: 300px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
-          </a>
-        </div>
+  <footer>
+    <div class="footer-content"
+      style="display: flex; justify-content: space-between; align-items: center; max-width: 1100px; margin: 0 auto; padding: 0 1.5rem;">
+      <div style="display: flex; align-items: center;">
+        <p>&copy; <span id="current-year"></span> Xin Li · Last updated 01 May 2025</p>
       </div>
-    </footer>
-  </div>
 
-  <script src="/scripts/academic-profile.js"></script>
-  <script>
-    document.addEventListener('DOMContentLoaded', function () {
-      // BibTeX buttons functionality
-      const bibtexButtons = document.querySelectorAll('.bibtex-btn');
-
-      bibtexButtons.forEach(btn => {
-        btn.addEventListener('click', function () {
-          // Find the closest parent card
-          const card = this.closest('.card');
-
-          // Find the bibtex content within this card
-          const bibtexContent = card.querySelector('.bibtex-content');
-        });
-      });
-
-      // BibTeX copy buttons functionality
-      const copyBibtexButtons = document.querySelectorAll('.copy-bibtex-btn');
-
-      copyBibtexButtons.forEach(btn => {
-        btn.addEventListener('click', function (e) {
-          // Prevent the click from bubbling up and toggling the display
-          e.stopPropagation();
-
-          // Get the bibtex content (parent element's text content without the button text)
-          const bibtexElement = this.parentElement;
-          const bibtexText = bibtexElement.textContent.trim();
-
-          // Copy to clipboard
-          navigator.clipboard.writeText(bibtexText).then(() => {
-            // Visual feedback
-            this.classList.add('copied');
-            const originalIcon = this.innerHTML;
-            this.innerHTML = '<i class="fas fa-check"></i>';
-
-            // Reset after 2 seconds
-            setTimeout(() => {
-              this.classList.remove('copied');
-              this.innerHTML = originalIcon;
-            }, 2000);
-          }).catch(err => {
-            console.error('Could not copy text: ', err);
-          });
-        });
-      });
-
-      // Set current year in the footer
-      document.getElementById('current-year').textContent = new Date().getFullYear();
-
-      // Add hover effect to nav links
-      const navLinks = document.querySelectorAll('.nav-link');
-      navLinks.forEach(link => {
-        link.addEventListener('mouseenter', function () {
-          this.style.backgroundColor = 'rgba(10, 102, 194, 0.1)';
-          this.style.color = 'var(--primary)';
-        });
-        link.addEventListener('mouseleave', function () {
-          this.style.backgroundColor = 'transparent';
-          this.style.color = 'var(--primary-dark)';
-        });
-      });
-      
-      // Add schema.org breadcrumb markup dynamically
-      const breadcrumbList = {
-        "@context": "https://schema.org",
-        "@type": "BreadcrumbList",
-        "itemListElement": [
-          {
-            "@type": "ListItem",
-            "position": 1,
-            "name": "Home",
-            "item": "https://lixin.ai/"
-          },
-          {
-            "@type": "ListItem",
-            "position": 2,
-            "name": "About",
-            "item": "https://lixin.ai/#about"
-          },
-          {
-            "@type": "ListItem",
-            "position": 3,
-            "name": "Research",
-            "item": "https://lixin.ai/#research"
-          },
-          {
-            "@type": "ListItem",
-            "position": 4,
-            "name": "Publications",
-            "item": "https://lixin.ai/#publications"
-          }
-        ]
-      };
-      
-      const breadcrumbScript = document.createElement('script');
-      breadcrumbScript.type = 'application/ld+json';
-      breadcrumbScript.innerHTML = JSON.stringify(breadcrumbList);
-      document.head.appendChild(breadcrumbScript);
-    });
-  </script>
-
+      <div style="display: flex; align-items: center;">
+        <a href="https://clustrmaps.com/site/1c54q" title="Visit tracker">
+          <img
+            src="//clustrmaps.com/map_v2.png?cl=080808&w=a&t=n&d=B5NomgZ8KZlp6qqDI50mXbSXYjWqdeneexojuozJ7pQ&co=ffffff&ct=808080"
+            alt="Visitor Map" style="max-width: 300px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+        </a>
+      </div>
+    </div>
+  </footer>
 </body>
 
 </html>
