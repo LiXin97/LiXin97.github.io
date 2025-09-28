@@ -103,24 +103,48 @@
     }
   </script>
 
-  <!-- Inlined tiny critical styles to reduce CLS; keep the rest in style.css -->
+  <!-- Inlined critical styles to reduce CLS; keep the rest in style.css -->
   <style>
     :root { color-scheme: light dark; }
     html { scroll-behavior: smooth; }
-    body { font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji"; margin: 0; }
-    .container { max-width: 980px; padding: 1.25rem; margin: 0 auto; }
-    nav a { margin-right: .75rem; }
-    section { margin-top: 2rem; }
-    .publication-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
-    .publication-item { border: 1px solid color-mix(in srgb, currentColor, transparent 80%); border-radius: 12px; padding: 1rem; }
+    body {
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+      margin: 0;
+      background: linear-gradient(135deg, #fafbfc 0%, #f5f7fa 100%);
+      color: #2d3748;
+      line-height: 1.7;
+    }
+    .container { max-width: 900px; padding: 2rem 1.5rem 4rem; margin: 0 auto; }
     .visually-hidden { position: absolute !important; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
-    footer { margin: 2.5rem 0 1rem; font-size: .875rem; color: #64748b; }
 
-    header { display: flex; align-items: center; justify-content: center; gap: 1rem; text-align: center; }
-    .profile-photo { width: 180px; height: 180px; border-radius: 50%; object-fit: cover; border: 2px solid color-mix(in srgb, currentColor, transparent 70%); }
-    @media (max-width: 640px) { header { flex-direction: column; } .profile-photo { width: 180px; height: 180px; } }
-    .header-text { text-align: center; }
+    header {
+      display: flex;
+      align-items: center;
+      gap: 2.5rem;
+      margin-bottom: 4rem;
+      padding: 2rem 0;
+      background: #ffffff;
+      border-radius: 16px;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+      position: relative;
+      overflow: hidden;
+    }
+    .profile-photo {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid #f1f5f9;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+      margin-left: 2rem;
+    }
+    .header-text { flex: 1; min-width: 300px; }
     header nav ul { justify-content: center; }
+    @media (max-width: 768px) {
+      header { flex-direction: column; text-align: center; gap: 2rem; padding: 2rem 1rem; }
+      .profile-photo { width: 160px; height: 160px; margin-left: 0; }
+      .container { padding: 1.5rem 1rem 3rem; }
+    }
 </style>
 </head>
 
