@@ -110,40 +110,43 @@
     body {
       font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
       margin: 0;
-      background: linear-gradient(135deg, #fafbfc 0%, #f5f7fa 100%);
-      color: #2d3748;
+      background: #ffffff;
+      color: #000000;
       line-height: 1.7;
     }
-    .container { max-width: 900px; padding: 2rem 1.5rem 4rem; margin: 0 auto; }
+    .container { max-width: 1000px; padding: 1.5rem 1rem 2rem; margin: 0 auto; }
     .visually-hidden { position: absolute !important; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
 
     header {
       display: flex;
       align-items: center;
-      gap: 2.5rem;
-      margin-bottom: 4rem;
-      padding: 2rem 0;
+      gap: 1rem;
+      margin-bottom: 2rem;
+      padding: 1.5rem;
       background: #ffffff;
-      border-radius: 16px;
-      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+      border-radius: 12px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
       position: relative;
       overflow: hidden;
     }
     .profile-photo {
-      width: 180px;
-      height: 180px;
+      width: 140px;
+      height: 140px;
       border-radius: 50%;
       object-fit: cover;
-      border: 4px solid #f1f5f9;
-      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-      margin-left: 2rem;
+      border: 3px solid #f0f0f0;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      margin-left: 5rem;
+      margin-right: 0rem;
+      flex-shrink: 0;
     }
-    .header-text { flex: 1; min-width: 300px; }
+    .header-text { flex: 1; min-width: 280px;
+      margin-left: 0rem;}
     header nav ul { justify-content: center; }
     @media (max-width: 768px) {
-      header { flex-direction: column; text-align: center; gap: 2rem; padding: 2rem 1rem; }
-      .profile-photo { width: 160px; height: 160px; margin-left: 0; }
-      .container { padding: 1.5rem 1rem 3rem; }
+      header { flex-direction: column; text-align: center; gap: 1.5rem; padding: 1.25rem 1rem; }
+      .profile-photo { width: 120px; height: 120px; margin-left: 0; }
+      .container { padding: 1rem 0.75rem 1.5rem; }
     }
 </style>
 </head>
@@ -153,7 +156,7 @@
   <div class="container">
     <header>
       <!-- Use eager loading & high fetch priority for LCP hero image -->
-      <img src="/images/XinLi.png" alt="Headshot of Xin Li" class="profile-photo" loading="eager" decoding="async" fetchpriority="high" />
+      <img src="data/XinLI_profile.jpg" alt="Headshot of Xin Li" class="profile-photo" loading="eager" decoding="async" fetchpriority="high" />
       <div class="header-text">
         <h1>Xin Li (李鑫)</h1>
         <p>Ph.D. Student</p>
@@ -186,7 +189,7 @@
         <ul>
           <li><strong>Sep 2025:</strong> Our paper, <a href="https://lixin.ai/LACP/" target="_blank" rel="noopener noreferrer"><strong>LACP: LLM Agent Communication Protocol</strong></a>, was accepted to <strong><a href="https://ai4nextg.github.io/" target="_blank" rel="noopener noreferrer"> AI4NextG @ NeurIPS 2025</strong></a>.</li>
           <li><strong>May 2025:</strong> Our paper, <a href="https://lixin.ai/WirelessMathBench/" target="_blank" rel="noopener noreferrer"><strong>WirelessMathBench</strong></a>, was accepted to <strong>Findings of ACL 2025</strong>.</li>
-          <li><strong>May 2025:</strong> Our <a href="https://4drobotics-iros2025.github.io/" target="_blank" rel="noopener noreferrer">workshop on <strong>4D Robotics</strong></a> at <strong>IROS 2025</strong> was accepted!</li>
+          <li><strong>May 2025:</strong> Our workshop on <a href="https://4drobotics-iros2025.github.io/" target="_blank" rel="noopener noreferrer"><strong>Advancements for Intelligent Robotics in 4D Scenes</strong></a> at <strong>IROS 2025</strong> was accepted!</li>
           <li><strong>Mar 2025:</strong> Our paper, <a href="https://onboradsim.github.io/" target="_blank" rel="noopener noreferrer"><strong>Onboard Terrain Classification via SIM-DNN</strong></a>, was accepted to the <strong><a href="https://ml-for-rs.github.io/iclr2025/" target="_blank" rel="noopener noreferrer">ML4RS @ ICLR 2025</a></strong>.</li>
           <li><strong>Jan 2025:</strong> Our paper, <a href="https://lixin.ai/TransPathNet/" target="_blank" rel="noopener noreferrer"><strong>TransPathNet</strong></a>, was accepted to <strong>ICASSP 2025</strong> (ranked 4th in the Indoor Pathloss Challenge).</li>
           <li><strong>Jan 2025:</strong> Started my Ph.D. at NTU, supported by the NTU Research Scholarship.</li>
@@ -202,18 +205,18 @@
           <article class="publication-item" role="listitem">
             <p class="pub-title">LACP: LLM Agent Communication Protocol Requires Urgent Standardization</p>
             <p class="pub-authors"><u><strong>Xin Li</strong></u>, M. Liu, C. Yuen</p>
-            <p class="pub-venue">NeurIPS Workshop on AI/ML for NextG Wireless, 2025</p>
+            <p class="pub-venue"><span class="venue-highlight">AI4NextG @ NeurIPS</span>, 2025</p>
             <div class="pub-links">
-              <a href="https://lixin.ai/LACP/" target="_blank" rel="noopener noreferrer">Project Homepage&nbsp;⤻</a>
+              <a href="https://lixin.ai/LACP/" target="_blank" rel="noopener noreferrer">Homepage&nbsp;⤻</a>
             </div>
           </article>
 
           <article class="publication-item" role="listitem">
             <p class="pub-title">Re:Form—Reducing Human Priors in Scalable Formal Software Verification with RL in LLMs</p>
             <p class="pub-authors">C. Yan*, F. Che*, X. Huang*, X. Xu*, <u><strong>Xin Li</strong></u>*, Y. Li*, X. Qu*, et al</p>
-            <p class="pub-venue">Technical Report, 2025</p>
+            <p class="pub-venue"><span class="venue-highlight">Technical Report</span>, 2025</p>
             <div class="pub-links">
-              <a href="https://arxiv.org/abs/2507.16331" target="_blank" rel="noopener noreferrer">arXiv&nbsp;⤻</a>
+              <a href="https://arxiv.org/pdf/2507.16331" target="_blank" rel="noopener noreferrer">arXiv&nbsp;⤻</a>
               <a href="https://github.com/Veri-Code" target="_blank" rel="noopener noreferrer">Code&nbsp;⤻</a>
             </div>
           </article>
@@ -221,37 +224,40 @@
           <article class="publication-item" role="listitem">
             <p class="pub-title">WirelessMathBench: A Mathematical Modeling Benchmark for LLMs in Wireless Communications</p>
             <p class="pub-authors"><u><strong>Xin Li</strong></u>, M. Liu, L. Wei, J. An, M. Debbah, C. Yuen</p>
-            <p class="pub-venue">Findings of ACL, 2025</p>
+            <p class="pub-venue"><span class="venue-highlight">Findings of ACL</span>, 2025</p>
             <div class="pub-links">
-              <a href="https://lixin.ai/WirelessMathBench/" target="_blank" rel="noopener noreferrer">Project Homepage&nbsp;⤻</a>
+              <a href="https://lixin.ai/WirelessMathBench/" target="_blank" rel="noopener noreferrer">Homepage&nbsp;⤻</a>
+              <a href="https://arxiv.org/pdf/2505.14354" target="_blank" rel="noopener noreferrer">arXiv&nbsp;⤻</a>
             </div>
           </article>
 
           <article class="publication-item" role="listitem">
             <p class="pub-title">Onboard Terrain Classification via Stacked Intelligent Metasurface-Diffractive Deep Neural Networks from SAR Level-0 Raw Data</p>
             <p class="pub-authors">M. Liu, <u><strong>Xin Li</strong></u>, J. An, C. Yuen</p>
-            <p class="pub-venue">ICLR ML4RS Workshop, 2025</p>
+            <p class="pub-venue"><span class="venue-highlight">ML4RS @ ICLR</span>, 2025</p>
             <div class="pub-links">
-              <a href="https://onboradsim.github.io/" target="_blank" rel="noopener noreferrer">Project Homepage&nbsp;⤻</a>
+              <a href="https://onboradsim.github.io/" target="_blank" rel="noopener noreferrer">Homepage&nbsp;⤻</a>
+              <a href="https://www.arxiv.org/pdf/2503.13488" target="_blank" rel="noopener noreferrer">arXiv&nbsp;⤻</a>
             </div>
           </article>
 
           <article class="publication-item" role="listitem">
             <p class="pub-title">TransPathNet: A Two-Stage Framework for Indoor Radio Map Prediction</p>
             <p class="pub-authors"><u><strong>Xin Li</strong></u>, R. Liu, S. Xu, S. G. Razul, C. Yuen</p>
-            <p class="pub-venue">ICASSP, 2025</p>
+            <p class="pub-venue"><span class="venue-highlight">ICASSP</span>, 2025</p>
             <div class="pub-links">
-              <a href="https://lixin.ai/TransPathNet/" target="_blank" rel="noopener noreferrer">Project Homepage&nbsp;⤻</a>
+              <a href="https://lixin.ai/TransPathNet/" target="_blank" rel="noopener noreferrer">Homepage&nbsp;⤻</a>
               <a href="https://github.com/LiXin97/TransPathNet" target="_blank" rel="noopener noreferrer">Code&nbsp;⤻</a>
+              <a href="https://arxiv.org/pdf/2501.16023" target="_blank" rel="noopener noreferrer">arXiv&nbsp;⤻</a>
             </div>
           </article>
 
           <article class="publication-item" role="listitem">
             <p class="pub-title">Co-planar Parametrization for Stereo-SLAM and Visual-Inertial Odometry</p>
             <p class="pub-authors"><u><strong>Xin Li</strong></u>*, Y. Li*, E. P. Örnek, J. Lin, F. Tombari</p>
-            <p class="pub-venue">IEEE Robotics and Automation Letters (RA-L), 2020</p>
+            <p class="pub-venue"><span class="venue-highlight">IEEE Robotics and Automation Letters (RA-L)</span>, 2020</p>
             <div class="pub-links">
-              <a href="https://arxiv.org/abs/2009.12662" target="_blank" rel="noopener noreferrer">arXiv&nbsp;⤻</a>
+              <a href="https://arxiv.org/pdf/2009.12662" target="_blank" rel="noopener noreferrer">arXiv&nbsp;⤻</a>
               <a href="https://github.com/LiXin97/Co-Planar-Parametrization-VIO" target="_blank" rel="noopener noreferrer">Code&nbsp;⤻</a>
             </div>
           </article>
@@ -259,9 +265,9 @@
           <article class="publication-item" role="listitem">
             <p class="pub-title">Leveraging Planar Regularities for Point-Line Visual-Inertial Odometry</p>
             <p class="pub-authors"><u><strong>Xin Li</strong></u>*, Y. He*, J. Lin, X. Liu</p>
-            <p class="pub-venue">IROS, 2020</p>
+            <p class="pub-venue"><span class="venue-highlight">IROS</span>, 2020</p>
             <div class="pub-links">
-              <a href="https://arxiv.org/abs/2004.11969" target="_blank" rel="noopener noreferrer">arXiv&nbsp;⤻</a>
+              <a href="https://arxiv.org/pdf/2004.11969" target="_blank" rel="noopener noreferrer">arXiv&nbsp;⤻</a>
               <a href="https://github.com/LiXin97/Co-Planar-Parametrization-VIO" target="_blank" rel="noopener noreferrer">Code&nbsp;⤻</a>
             </div>
           </article>
@@ -297,17 +303,18 @@
         <h2>Professional Activities &amp; Awards</h2>
         <ul>
           <li><strong>Conference Reviewer:</strong> NeurIPS (2024-25), ICLR (2025-2026), ICML (2025), SIGGRAPH (2025), AAAI (2026), AISTATS (2025-2026), ICRA (2022-25), IROS (2021-25)</li>
-          <li><strong>Journal Reviewer:</strong> IEEE RA-L, ACM TOG</li>
+          <li><strong>Journal Reviewer:</strong> IEEE RA-L, ACM TOG, IEEE TNNLS</li>
           <li><strong>Workshop Organizer:</strong> <a href="https://4drobotics-iros2025.github.io/" target="_blank" rel="noopener noreferrer">AIR4D@IROS 2025</a></li>
-          <li><strong>Grants:</strong> Cohere Labs Catalyst Grant</li>
-          <li><strong>Grants:</strong> OpenAI Researcher Access Program</li>
+          <li><strong>Research Project:</strong> <a href="https://project-maxwell.github.io/" target="_blank" rel="noopener noreferrer">Project Maxwell</a></li>
+          <li><strong>Grant:</strong> Cohere Labs Catalyst Grant</li>
+          <li><strong>Grant:</strong> OpenAI Researcher Access Program</li>
           <li><strong>Award:</strong> NTU Research Scholarship</li>
         </ul>
       </section>
     </main>
 
     <footer>
-      <p>&copy; <span id="copyright-year">2025</span> Xin Li. Last updated: Sep 26, 2025.</p>
+      <p>&copy; <span id="copyright-year">2025</span> Xin Li. Last updated: Sep 28, 2025.</p>
       <a href="https://clustrmaps.com/site/1c54q" title="Visit tracker" target="_blank" rel="noopener noreferrer">
         <img src="//clustrmaps.com/map_v2.png?cl=ffffff&w=120&t=n&d=B5NomgZ8KZlp6qqDI50mXbSXYjWqdeneexojuozJ7pQ&co=2d79c7&ct=000000" alt="Visitor map" loading="lazy" referrerpolicy="no-referrer-when-downgrade" />
       </a>
