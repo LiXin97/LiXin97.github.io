@@ -425,6 +425,12 @@ footer img:hover {
   transition: var(--transition);
 }
 
+#news ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+
 #news ul li:hover {
   background: var(--card-bg);
   box-shadow: var(--card-shadow);
