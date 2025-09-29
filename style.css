@@ -124,9 +124,18 @@ header nav a:hover {
 }
 
 /* --- Links --- */
-a {
+/* a {
   color: var(--accent-color);
   text-decoration: none;
+  transition: var(--transition);
+  position: relative;
+} */
+
+a {
+  color: var(--accent-color);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  text-decoration-thickness: 1.25px;
   transition: var(--transition);
   position: relative;
 }
