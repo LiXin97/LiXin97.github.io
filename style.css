@@ -203,6 +203,11 @@ section ul li::marker {
   color: var(--accent-color);
 }
 
+/* Remove markers from news section specifically */
+#news ul li::marker {
+  content: none;
+}
+
 /* Supervisor list styling */
 section ul ul {
     list-style-type: circle;
@@ -411,7 +416,6 @@ footer img:hover {
   border-radius: 2px;
 }
 
-/* News section special styling */
 #news ul li {
   background: var(--border-light);
   padding: 0.75rem 1rem;
