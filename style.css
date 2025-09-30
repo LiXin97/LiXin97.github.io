@@ -131,11 +131,11 @@ header nav a:hover {
   position: relative;
 } */
 
+/* --- Links --- */
+/* Base link styles */
 a {
   color: var(--accent-color);
-  text-decoration: underline;
-  text-underline-offset: 2px;
-  text-decoration-thickness: 1.25px;
+  text-decoration: none; /* Remove default underline */
   transition: var(--transition);
   position: relative;
 }
@@ -144,15 +144,19 @@ a:hover {
   color: var(--accent-hover);
 }
 
+/* Section links with border-bottom approach */
 section a:not(.pub-links a):not(header nav a) {
-  border-bottom: 2px solid transparent;
+  border-bottom: 1px solid var(--accent-color);
+  padding-bottom: 1px; /* Small padding to prevent text touching border */
   transition: var(--transition);
 }
 
 section a:not(.pub-links a):not(header nav a):hover {
   border-bottom-color: var(--accent-color);
-  text-decoration: none;
+  border-bottom-width: 3px; /* Thicker on hover */
+  margin-bottom: -1px; /* Compensate for thicker border to prevent layout shift */
 }
+
 
 /* --- Main Content & Sections --- */
 main section {
