@@ -124,14 +124,6 @@ header nav a:hover {
 }
 
 /* --- Links --- */
-/* a {
-  color: var(--accent-color);
-  text-decoration: none;
-  transition: var(--transition);
-  position: relative;
-} */
-
-/* --- Links --- */
 /* Base link styles */
 a {
   color: var(--accent-color);
@@ -142,6 +134,20 @@ a {
 
 a:hover {
   color: var(--accent-hover);
+}
+
+/* Accessible focus indicators */
+a:focus-visible,
+button:focus-visible {
+  outline: 3px solid var(--accent-color);
+  outline-offset: 2px;
+  border-radius: 3px;
+}
+
+/* Focus indicators for interactive elements */
+*:focus-visible {
+  outline: 2px solid var(--accent-color);
+  outline-offset: 2px;
 }
 
 /* Section links with border-bottom approach */
