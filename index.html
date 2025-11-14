@@ -7,7 +7,7 @@
 
   <!-- Canonical & basic SEO -->
   <link rel="canonical" href="https://lixin.ai/" />
-  <meta name="description" content="Xin Li is a PhD student at NTU Singapore specializing in AI, Robotics, Wireless Communications, and LLMs." />
+  <meta name="description" content="Xin Li - PhD student at NTU Singapore researching Large Language Models (LLMs), AI evaluation, wireless communications, and robotics. Specializing in LLM benchmarking, mathematical reasoning, and engineering automation. Published in ACL, NeurIPS, ICASSP, IEEE RA-L." />
   <!-- (Optional) The keywords meta is ignored by most search engines; keep only if you need it elsewhere. -->
   <meta name="keywords" content="Xin Li, PhD, NTU, LLMs, Robotics, Wireless Communications, AI Researcher, Singapore, AI, LLM, Research, Publications, NTU Singapore" />
   <meta name="author" content="Xin Li" />
@@ -15,23 +15,28 @@
   <meta name="theme-color" content="#0f172a" />
 
   <!-- Open Graph / Twitter -->
-  <meta property="og:title" content="Xin Li @ NTU" />
+  <meta property="og:title" content="Xin Li @ NTU - LLM Research, AI Evaluation, Wireless Communications" />
   <meta property="og:site_name" content="lixin.ai" />
-  <meta property="og:description" content="Explore Xin Li's academic profile, research, publications, and contributions to AI, robotics, and wireless communications at NTU Singapore." />
-  <meta property="og:image" content="https://lixin.ai/images/XinLi.png" />
+  <meta property="og:description" content="PhD researcher specializing in Large Language Models (LLMs), AI benchmarking, wireless communications, and robotics. Published in ACL, NeurIPS, ICASSP, IEEE RA-L." />
+  <meta property="og:image" content="https://lixin.ai/data/XinLI_profile.webp" />
   <meta property="og:url" content="https://lixin.ai/" />
   <meta property="og:type" content="website" />
   <meta property="og:locale" content="en_SG" />
   <meta property="og:locale:alternate" content="en_US" />
 
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Xin Li @ NTU" />
-  <meta name="twitter:description" content="Explore Xin Li's research and publications in AI, robotics, and wireless communications at NTU Singapore." />
-  <meta name="twitter:image" content="https://lixin.ai/images/XinLi.png" />
+  <meta name="twitter:title" content="Xin Li @ NTU - LLM Research & AI Evaluation" />
+  <meta name="twitter:description" content="PhD researcher at NTU Singapore. LLMs, AI benchmarking, wireless communications, robotics. ACL, NeurIPS, ICASSP, IEEE RA-L." />
+  <meta name="twitter:image" content="https://lixin.ai/data/XinLI_profile.webp" />
 
   <!-- Icons -->
   <link rel="icon" type="image/png" href="/images/icon.png" />
   <link rel="apple-touch-icon" href="/images/icon.png" />
+
+  <!-- DNS prefetch for external resources -->
+  <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+  <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
+  <link rel="dns-prefetch" href="https://clustrmaps.com" />
 
   <!-- Fonts (optimize loading) -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -39,7 +44,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
   <!-- Preload LCP image for faster first paint -->
-  <link rel="preload" as="image" href="/images/XinLi.png" fetchpriority="high" />
+  <link rel="preload" as="image" href="/data/XinLI_profile.webp" fetchpriority="high" />
 
   <!-- CSS & JS -->
   <link rel="stylesheet" href="/style.css" />
@@ -60,7 +65,7 @@
         "name": "Xin Li",
         "alternateName": "李鑫",
         "url": "https://lixin.ai/",
-        "image": "https://lixin.ai/images/XinLi.png",
+        "image": "https://lixin.ai/data/XinLI_profile.webp",
         "jobTitle": "PhD Student",
         "affiliation": {
           "@type": "Organization",
@@ -154,9 +159,9 @@
 <body>
   <a class="visually-hidden" href="#main-content">Skip to main content</a>
   <div class="container">
-    <header>
+    <header role="banner" aria-label="Site header with profile and navigation">
       <!-- Use eager loading & high fetch priority for LCP hero image -->
-      <img src="data/XinLI_profile.jpg" alt="Headshot of Xin Li" class="profile-photo" loading="eager" decoding="async" fetchpriority="high" />
+      <img src="data/XinLI_profile.webp" alt="Xin Li - PhD student at NTU Singapore researching LLMs and AI" class="profile-photo" loading="eager" decoding="async" fetchpriority="high" width="140" height="140" />
       <div class="header-text">
         <h1>Xin Li (李鑫)</h1>
         <p>Ph.D. Student</p>
@@ -173,10 +178,10 @@
       </div>
     </header>
 
-    <main id="main-content">
+    <main id="main-content" role="main">
 
-      <section id="bio">
-        <h2>About Me</h2>
+      <section id="bio" aria-labelledby="bio-heading">
+        <h2 id="bio-heading">About Me</h2>
         <p>
           I am a Ph.D. student at
           <a href="https://www.ntu.edu.sg/" target="_blank" rel="noopener noreferrer">Nanyang Technological University (NTU)</a>,
@@ -230,8 +235,8 @@
         </p>
       </section>
 
-      <section id="news" aria-live="polite">
-        <h2>Recent News</h2>
+      <section id="news" aria-live="polite" aria-labelledby="news-heading">
+        <h2 id="news-heading">Recent News</h2>
         <ul>
           <li><strong>Sep 2025:</strong> Our paper, <a href="https://lixin.ai/LACP/" target="_blank" rel="noopener noreferrer"><strong>LACP: LLM Agent Communication Protocol</strong></a>, was accepted to <a href="https://ai4nextg.github.io/" target="_blank" rel="noopener noreferrer"> <strong>AI4NextG @ NeurIPS 2025</strong></a>.</li>
           <li><strong>May 2025:</strong> Our paper, <a href="https://lixin.ai/WirelessMathBench/" target="_blank" rel="noopener noreferrer"><strong>WirelessMathBench</strong></a>, was accepted to <strong>Findings of ACL 2025</strong>.</li>
@@ -242,8 +247,8 @@
         </ul>
       </section>
 
-      <section id="publications">
-        <h2>Selected Publications</h2>
+      <section id="publications" aria-labelledby="publications-heading">
+        <h2 id="publications-heading">Selected Publications</h2>
         <p class="section-note">
           (* indicates equal contribution. For a full list, please see my <a href="https://scholar.google.com/citations?user=Hxf8sNkAAAAJ" target="_blank" rel="noopener noreferrer">Google Scholar&nbsp;⤻</a>.)
         </p>
@@ -365,8 +370,8 @@
         </div>
       </section>
 
-      <section id="experience">
-        <h2>Experience</h2>
+      <section id="experience" aria-labelledby="experience-heading">
+        <h2 id="experience-heading">Experience</h2>
         <ul>
           <li><strong>Research Assistant</strong> @ <strong>NTU Singapore</strong> (Apr 2024 - Jan 2025) - Supervised by <a href="https://blogs.ntu.edu.sg/chau-yuen/" target="_blank" rel="noopener noreferrer">Prof. Chau Yuen</a>, IEEE Fellow</li>
           <li><strong>SLAM Algorithm Engineer</strong> @ <strong>Gausium Robotics</strong>, Singapore (Mar 2022 - Feb 2024)</li>
@@ -375,8 +380,8 @@
         </ul>
       </section>
 
-      <section id="education">
-        <h2>Education</h2>
+      <section id="education" aria-labelledby="education-heading">
+        <h2 id="education-heading">Education</h2>
         <ul>
           <li><strong>Ph.D.</strong> @ <a href="https://www.ntu.edu.sg/" target="_blank" rel="noopener noreferrer"><strong>Nanyang Technological University</strong></a>, Singapore (2025 - 2029 expected) - Supervised by <a href="https://blogs.ntu.edu.sg/chau-yuen/" target="_blank" rel="noopener noreferrer">Prof. Chau Yuen</a>, IEEE Fellow.</li>
           <li><strong>M.E.</strong> @ <a href="https://www.pku.edu.cn/" target="_blank" rel="noopener noreferrer"><strong>Peking University</strong></a>, China (2018 - 2021) - Supervised by <a href="https://www.ss.pku.edu.cn/teacherteam/teacherlist/1652-%E6%9E%97%E9%87%91%E9%BE%99.html" target="_blank" rel="noopener noreferrer">Prof. Jinlong Lin</a>.</li>
@@ -384,8 +389,8 @@
         </ul>
       </section>
 
-      <section id="talks">
-        <h2>Invited Talks</h2>
+      <section id="talks" aria-labelledby="talks-heading">
+        <h2 id="talks-heading">Invited Talks</h2>
         <ul>
           <li>
             <a href="/data/talk_slides/WirelessMath_Slides.pdf" target="_blank" rel="noopener noreferrer">Teaching Large Language Models Mathematical Reasoning in Wireless Communications: From Benchmarking to Efficient Training&nbsp;⤻</a>
@@ -400,9 +405,9 @@
         </ul>
       </section>
 
-      <section id="service">
+      <section id="service" aria-labelledby="service-heading">
         <!-- <h2>Professional Activities &amp; Awards</h2> -->
-        <h2>Professional Activities</h2>
+        <h2 id="service-heading">Professional Activities</h2>
         <ul>
           <li><strong>Conference Reviewer</strong> - NeurIPS (2024-2025), ICLR (2025-2026), ICML (2025), SIGGRAPH (2025), AAAI (2026), AISTATS (2025-2026), ICRA (2022-2025), IROS (2021-2025).</li>
           <li><strong>Journal Reviewer</strong> - IEEE RA-L, ACM TOG, IEEE TNNLS.</li>
@@ -413,10 +418,10 @@
       </section>
     </main>
 
-    <footer>
+    <footer role="contentinfo" aria-label="Site footer with copyright and visitor statistics">
       <p>&copy; <span id="copyright-year">2025</span> Xin Li. Last updated: Nov 2, 2025.</p>
       <a href="https://clustrmaps.com/site/1c54q" title="Visit tracker" target="_blank" rel="noopener noreferrer">
-        <img src="//clustrmaps.com/map_v2.png?cl=ffffff&w=120&t=n&d=B5NomgZ8KZlp6qqDI50mXbSXYjWqdeneexojuozJ7pQ&co=2d79c7&ct=000000" alt="Visitor map" referrerpolicy="no-referrer-when-downgrade" />
+        <img src="//clustrmaps.com/map_v2.png?cl=ffffff&w=120&t=n&d=B5NomgZ8KZlp6qqDI50mXbSXYjWqdeneexojuozJ7pQ&co=2d79c7&ct=000000" alt="Visitor map showing geographic distribution of site visitors" loading="lazy" decoding="async" width="120" height="60" referrerpolicy="no-referrer-when-downgrade" />
       </a>
     </footer>
   </div>
