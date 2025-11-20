@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -7,9 +8,11 @@
 
   <!-- Canonical & basic SEO -->
   <link rel="canonical" href="https://lixin.ai/" />
-  <meta name="description" content="Xin Li - PhD student at NTU Singapore researching Large Language Models (LLMs), AI evaluation, wireless communications, and robotics. Specializing in LLM benchmarking, mathematical reasoning, and engineering automation. Published in ACL, NeurIPS, ICASSP, IEEE RA-L." />
+  <meta name="description"
+    content="Xin Li - PhD student at NTU Singapore researching Large Language Models (LLMs), AI evaluation, wireless communications, and robotics. Specializing in LLM benchmarking, mathematical reasoning, and engineering automation. Published in ACL, NeurIPS, ICASSP, IEEE RA-L." />
   <!-- (Optional) The keywords meta is ignored by most search engines; keep only if you need it elsewhere. -->
-  <meta name="keywords" content="Xin Li, PhD, NTU, LLMs, Robotics, Wireless Communications, AI Researcher, Singapore, AI, LLM, Research, Publications, NTU Singapore" />
+  <meta name="keywords"
+    content="Xin Li, PhD, NTU, LLMs, Robotics, Wireless Communications, AI Researcher, Singapore, AI, LLM, Research, Publications, NTU Singapore" />
   <meta name="author" content="Xin Li" />
   <meta name="robots" content="index, follow" />
   <meta name="theme-color" content="#0f172a" />
@@ -17,7 +20,8 @@
   <!-- Open Graph / Twitter -->
   <meta property="og:title" content="Xin Li @ NTU - LLM Research, AI Evaluation, Wireless Communications" />
   <meta property="og:site_name" content="lixin.ai" />
-  <meta property="og:description" content="PhD researcher specializing in Large Language Models (LLMs), AI benchmarking, wireless communications, and robotics. Published in ACL, NeurIPS, ICASSP, IEEE RA-L." />
+  <meta property="og:description"
+    content="PhD researcher specializing in Large Language Models (LLMs), AI benchmarking, wireless communications, and robotics. Published in ACL, NeurIPS, ICASSP, IEEE RA-L." />
   <meta property="og:image" content="https://lixin.ai/data/XinLI_profile.webp" />
   <meta property="og:url" content="https://lixin.ai/" />
   <meta property="og:type" content="website" />
@@ -26,7 +30,8 @@
 
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Xin Li @ NTU - LLM Research & AI Evaluation" />
-  <meta name="twitter:description" content="PhD researcher at NTU Singapore. LLMs, AI benchmarking, wireless communications, robotics. ACL, NeurIPS, ICASSP, IEEE RA-L." />
+  <meta name="twitter:description"
+    content="PhD researcher at NTU Singapore. LLMs, AI benchmarking, wireless communications, robotics. ACL, NeurIPS, ICASSP, IEEE RA-L." />
   <meta name="twitter:image" content="https://lixin.ai/data/XinLI_profile.webp" />
 
   <!-- Icons -->
@@ -110,8 +115,14 @@
 
   <!-- Inlined critical styles to reduce CLS; keep the rest in style.css -->
   <style>
-    :root { color-scheme: light dark; }
-    html { scroll-behavior: smooth; }
+    :root {
+      color-scheme: light dark;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
       margin: 0;
@@ -119,8 +130,24 @@
       color: #000000;
       line-height: 1.7;
     }
-    .container { max-width: 1000px; padding: 1.5rem 1rem 2rem; margin: 0 auto; }
-    .visually-hidden { position: absolute !important; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
+
+    .container {
+      max-width: 1000px;
+      padding: 1.5rem 1rem 2rem;
+      margin: 0 auto;
+    }
+
+    .visually-hidden {
+      position: absolute !important;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
 
     header {
       display: flex;
@@ -134,6 +161,7 @@
       position: relative;
       overflow: hidden;
     }
+
     .profile-photo {
       width: 140px;
       height: 140px;
@@ -145,15 +173,36 @@
       margin-right: 0rem;
       flex-shrink: 0;
     }
-    .header-text { flex: 1; min-width: 280px;
-      margin-left: 0rem;}
-    header nav ul { justify-content: center; }
-    @media (max-width: 768px) {
-      header { flex-direction: column; text-align: center; gap: 1.5rem; padding: 1.25rem 1rem; }
-      .profile-photo { width: 120px; height: 120px; margin-left: 0; }
-      .container { padding: 1rem 0.75rem 1.5rem; }
+
+    .header-text {
+      flex: 1;
+      min-width: 280px;
+      margin-left: 0rem;
     }
-</style>
+
+    header nav ul {
+      justify-content: center;
+    }
+
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        text-align: center;
+        gap: 1.5rem;
+        padding: 1.25rem 1rem;
+      }
+
+      .profile-photo {
+        width: 120px;
+        height: 120px;
+        margin-left: 0;
+      }
+
+      .container {
+        padding: 1rem 0.75rem 1.5rem;
+      }
+    }
+  </style>
 </head>
 
 <body>
@@ -161,18 +210,24 @@
   <div class="container">
     <header role="banner" aria-label="Site header with profile and navigation">
       <!-- Use eager loading & high fetch priority for LCP hero image -->
-      <img src="data/XinLI_profile.webp" alt="Xin Li - PhD student at NTU Singapore researching LLMs and AI" class="profile-photo" loading="eager" decoding="async" fetchpriority="high" width="140" height="140" />
+      <img src="data/XinLI_profile.webp" alt="Xin Li - PhD student at NTU Singapore researching LLMs and AI"
+        class="profile-photo" loading="eager" decoding="async" fetchpriority="high" width="140" height="140" />
       <div class="header-text">
         <h1>Xin Li (李鑫)</h1>
         <p>Ph.D. Student</p>
-        <p><a href="https://www.ntu.edu.sg/" target="_blank" rel="noopener noreferrer me">Nanyang Technological University</a></p>
+        <p><a href="https://www.ntu.edu.sg/" target="_blank" rel="noopener noreferrer me">Nanyang Technological
+            University</a></p>
         <p class="email">Email: <a href="mailto:xin019@e.ntu.edu.sg">xin019@e.ntu.edu.sg</a></p>
         <nav aria-label="Primary">
-          <ul style="list-style: none; padding: 0; margin: 0; display:flex; gap:.75rem; flex-wrap: wrap; justify-content:center;">
-            <li><a href="/data/Xin_Li_s_CV.pdf" target="_blank" rel="noopener noreferrer" aria-label="Open CV in a new tab">CV&nbsp;⤻</a></li>
-            <li><a href="https://scholar.google.com/citations?user=Hxf8sNkAAAAJ" target="_blank" rel="noopener noreferrer">Google Scholar&nbsp;⤻</a></li>
+          <ul
+            style="list-style: none; padding: 0; margin: 0; display:flex; gap:.75rem; flex-wrap: wrap; justify-content:center;">
+            <li><a href="/data/Xin_Li_s_CV.pdf" target="_blank" rel="noopener noreferrer"
+                aria-label="Open CV in a new tab">CV&nbsp;⤻</a></li>
+            <li><a href="https://scholar.google.com/citations?user=Hxf8sNkAAAAJ" target="_blank"
+                rel="noopener noreferrer">Google Scholar&nbsp;⤻</a></li>
             <li><a href="https://github.com/LiXin97" target="_blank" rel="noopener noreferrer me">GitHub&nbsp;⤻</a></li>
-            <li><a href="https://www.linkedin.com/in/xin-li-1196331a0/" target="_blank" rel="noopener noreferrer me">LinkedIn&nbsp;⤻</a></li>
+            <li><a href="https://www.linkedin.com/in/xin-li-1196331a0/" target="_blank"
+                rel="noopener noreferrer me">LinkedIn&nbsp;⤻</a></li>
           </ul>
         </nav>
       </div>
@@ -184,32 +239,49 @@
         <h2 id="bio-heading">About Me</h2>
         <p>
           I am a Ph.D. student at
-          <a href="https://www.ntu.edu.sg/" target="_blank" rel="noopener noreferrer">Nanyang Technological University (NTU)</a>,
-          advised by Prof. <a href="https://blogs.ntu.edu.sg/chau-yuen/" target="_blank" rel="noopener noreferrer">Chau Yuen</a>.
+          <a href="https://www.ntu.edu.sg/" target="_blank" rel="noopener noreferrer">Nanyang Technological University
+            (NTU)</a>,
+          advised by Prof. <a href="https://blogs.ntu.edu.sg/chau-yuen/" target="_blank" rel="noopener noreferrer">Chau
+            Yuen</a>.
           My work sits at the intersection of large language models and engineering automation, with three focus areas:
         </p>
 
         <ul>
 
-          <li><strong>LLM Evaluation</strong> - Designing practical, trustworthy ways to measure what LLMs can and cannot do. 
-            Representative works: <a href="https://dafnycomp.github.io/" target="_blank" rel="noopener noreferrer">DafnyComp</a> (Preprint; formal verification & <em>compositional generalization</em>), 
-            <a href="https://lixin.ai/WirelessMathBench/" target="_blank" rel="noopener noreferrer">WirelessMathBench</a> (Findings of ACL 2025; math-centric modeling for wireless),
-            <a href="https://WritingPreferenceBench.github.io/" target="_blank" rel="noopener noreferrer">WritingPreferenceBench</a> (Preprint; subjective writing preferences across cultures), and
-            <a href="https://COIG-Writer.github.io/" target="_blank" rel="noopener noreferrer">COIG-Writer</a> (Preprint; Chinese creative writing with thought processes).
+          <li><strong>LLM Evaluation</strong> - Designing practical, trustworthy ways to measure what LLMs can and
+            cannot do.
+            Representative works: <a href="https://dafnycomp.github.io/" target="_blank"
+              rel="noopener noreferrer">DafnyComp</a> (Preprint; formal verification & <em>compositional
+              generalization</em>),
+            <a href="https://lixin.ai/WirelessMathBench/" target="_blank"
+              rel="noopener noreferrer">WirelessMathBench</a> (Findings of ACL 2025; math-centric modeling for
+            wireless),
+            <a href="https://WritingPreferenceBench.github.io/" target="_blank"
+              rel="noopener noreferrer">WritingPreferenceBench</a> (Preprint; subjective writing preferences across
+            cultures), and
+            <a href="https://COIG-Writer.github.io/" target="_blank" rel="noopener noreferrer">COIG-Writer</a>
+            (Preprint; Chinese creative writing with thought processes).
           </li>
 
-          <li><strong>LLMs for Wireless Communication</strong> - Studying how LLMs can be integrated into wireless research (<a href="https://project-maxwell.github.io/" target="_blank" rel="noopener noreferrer">Project Maxwell</a>). 
-            Representative works: <a href="https://lixin.ai/LACP/" target="_blank" rel="noopener noreferrer">LACP</a> (AI4NextG @ NeurIPS 2025; agent communication protocol), 
-            <a href="https://lixin.ai/WirelessMathBench/" target="_blank" rel="noopener noreferrer">WirelessMathBench</a> (Findings of ACL 2025; domain benchmark), and 
-            <a href="https://lixin.ai/WirelessMathLM/" target="_blank" rel="noopener noreferrer">WirelessMathLM</a> (Preprint; 0.5B-7B models with verification-based RL on WirelessMathBench-XL).
+          <li><strong>LLMs for Wireless Communication</strong> - Studying how LLMs can be integrated into wireless
+            research (<a href="https://project-maxwell.github.io/" target="_blank" rel="noopener noreferrer">Project
+              Maxwell</a>).
+            Representative works: <a href="https://lixin.ai/LACP/" target="_blank" rel="noopener noreferrer">LACP</a>
+            (AI4NextG @ NeurIPS 2025; agent communication protocol),
+            <a href="https://lixin.ai/WirelessMathBench/" target="_blank"
+              rel="noopener noreferrer">WirelessMathBench</a> (Findings of ACL 2025; domain benchmark), and
+            <a href="https://lixin.ai/WirelessMathLM/" target="_blank" rel="noopener noreferrer">WirelessMathLM</a>
+            (Preprint; 0.5B-7B models with verification-based RL on WirelessMathBench-XL).
           </li>
-          <li><strong>LLMs for Robotics</strong> - Leveraging LLMs alongside classical perception/SLAM/navigation to build embedded AI systems.
+          <li><strong>LLMs for Robotics</strong> - Leveraging LLMs alongside classical perception/SLAM/navigation to
+            build embedded AI systems.
           </li>
         </ul>
 
 
         <p>
-          Previously at <strong>MSRA</strong>, <strong>MEGVII</strong>, and <strong>Gausium Robotics</strong>, I led perception projects from prototype to deployment across SLAM, VIO, and radio/vision stacks.
+          Previously at <strong>MSRA</strong>, <strong>MEGVII</strong>, and <strong>Gausium Robotics</strong>, I led
+          perception projects from prototype to deployment across SLAM, VIO, and radio/vision stacks.
         </p>
 
         <!-- <p><strong>Selected works (venue, year)</strong>:</p>
@@ -223,26 +295,43 @@
         </ul> -->
 
         <p>
-          I received my M.E. from <a href="https://www.pku.edu.cn/" target="_blank" rel="noopener noreferrer">Peking University</a> and my B.E. from
-          <a href="https://www.neuq.edu.cn/" target="_blank" rel="noopener noreferrer">Northeastern University, China</a>.
+          I received my M.E. from <a href="https://www.pku.edu.cn/" target="_blank" rel="noopener noreferrer">Peking
+            University</a> and my B.E. from
+          <a href="https://www.neuq.edu.cn/" target="_blank" rel="noopener noreferrer">Northeastern University,
+            China</a>.
         </p>
 
         <p>
-          <strong>Open to Collaboration:</strong> If you are seeking any form of <strong>academic collaboration</strong> 🤝 on LLMs, wireless communications, or robotics, please feel free to email me at <a href="mailto:xin019@e.ntu.edu.sg">xin019@e.ntu.edu.sg</a>.
+          <strong>Open to Collaboration:</strong> If you are seeking any form of <strong>academic collaboration</strong>
+          🤝 on LLMs, wireless communications, or robotics, please feel free to email me at <a
+            href="mailto:xin019@e.ntu.edu.sg">xin019@e.ntu.edu.sg</a>.
         </p>
         <p>
-          I am actively looking for <strong>research internship opportunities</strong> in related areas. If you have any openings, I'd love to hear from you!
+          I am actively looking for <strong>research internship opportunities</strong> in related areas. If you have any
+          openings, I'd love to hear from you!
         </p>
       </section>
 
       <section id="news" aria-live="polite" aria-labelledby="news-heading">
         <h2 id="news-heading">Recent News</h2>
         <ul>
-          <li><strong>Sep 2025:</strong> Our paper, <a href="https://lixin.ai/LACP/" target="_blank" rel="noopener noreferrer"><strong>LACP: LLM Agent Communication Protocol</strong></a>, was accepted to <a href="https://ai4nextg.github.io/" target="_blank" rel="noopener noreferrer"> <strong>AI4NextG @ NeurIPS 2025</strong></a>.</li>
-          <li><strong>May 2025:</strong> Our paper, <a href="https://lixin.ai/WirelessMathBench/" target="_blank" rel="noopener noreferrer"><strong>WirelessMathBench</strong></a>, was accepted to <strong>Findings of ACL 2025</strong>.</li>
-          <li><strong>May 2025:</strong> Our workshop on <a href="https://4drobotics-iros2025.github.io/" target="_blank" rel="noopener noreferrer"><strong>Advancements for Intelligent Robotics in 4D Scenes</strong></a> at <strong>IROS 2025</strong> was accepted!</li>
-          <li><strong>Mar 2025:</strong> Our paper, <a href="https://onboradsim.github.io/" target="_blank" rel="noopener noreferrer"><strong>Onboard Terrain Classification via SIM-DNN</strong></a>, was accepted to the <a href="https://ml-for-rs.github.io/iclr2025/" target="_blank" rel="noopener noreferrer"><strong>ML4RS @ ICLR 2025</strong></a>.</li>
-          <li><strong>Jan 2025:</strong> Our paper, <a href="https://lixin.ai/TransPathNet/" target="_blank" rel="noopener noreferrer"><strong>TransPathNet</strong></a>, was accepted to <strong>ICASSP 2025</strong> (ranked 4th in the Indoor Pathloss Challenge).</li>
+          <li><strong>Sep 2025:</strong> Our paper, <a href="https://lixin.ai/LACP/" target="_blank"
+              rel="noopener noreferrer"><strong>LACP: LLM Agent Communication Protocol</strong></a>, was accepted to <a
+              href="https://ai4nextg.github.io/" target="_blank" rel="noopener noreferrer"> <strong>AI4NextG @ NeurIPS
+                2025</strong></a>.</li>
+          <li><strong>May 2025:</strong> Our paper, <a href="https://lixin.ai/WirelessMathBench/" target="_blank"
+              rel="noopener noreferrer"><strong>WirelessMathBench</strong></a>, was accepted to <strong>Findings of ACL
+              2025</strong>.</li>
+          <li><strong>May 2025:</strong> Our workshop on <a href="https://4drobotics-iros2025.github.io/"
+              target="_blank" rel="noopener noreferrer"><strong>Advancements for Intelligent Robotics in 4D
+                Scenes</strong></a> at <strong>IROS 2025</strong> was accepted!</li>
+          <li><strong>Mar 2025:</strong> Our paper, <a href="https://onboradsim.github.io/" target="_blank"
+              rel="noopener noreferrer"><strong>Onboard Terrain Classification via SIM-DNN</strong></a>, was accepted to
+            the <a href="https://ml-for-rs.github.io/iclr2025/" target="_blank" rel="noopener noreferrer"><strong>ML4RS
+                @ ICLR 2025</strong></a>.</li>
+          <li><strong>Jan 2025:</strong> Our paper, <a href="https://lixin.ai/TransPathNet/" target="_blank"
+              rel="noopener noreferrer"><strong>TransPathNet</strong></a>, was accepted to <strong>ICASSP 2025</strong>
+            (ranked 4th in the Indoor Pathloss Challenge).</li>
           <li><strong>Jan 2025:</strong> Started my Ph.D. at NTU, supported by the NTU Research Scholarship.</li>
         </ul>
       </section>
@@ -250,22 +339,25 @@
       <section id="publications" aria-labelledby="publications-heading">
         <h2 id="publications-heading">Selected Publications</h2>
         <p class="section-note">
-          (* indicates equal contribution. For a full list, please see my <a href="https://scholar.google.com/citations?user=Hxf8sNkAAAAJ" target="_blank" rel="noopener noreferrer">Google Scholar&nbsp;⤻</a>.)
+          (* indicates equal contribution. For a full list, please see my <a
+            href="https://scholar.google.com/citations?user=Hxf8sNkAAAAJ" target="_blank"
+            rel="noopener noreferrer">Google Scholar&nbsp;⤻</a>.)
         </p>
         <div class="publication-grid" role="list">
 
           <article class="publication-item" role="listitem">
-            <p class="pub-title">Local Success Does Not Compose: Benchmarking Large Language Models for Compositional Formal Verification</p>
-            <p class="pub-authors">X. Xu*, <u><strong>Xin Li</strong></u>*, X. Qu, J. Fu, B. Yuan</p>
+            <p class="pub-title">Local Success Does Not Compose: Benchmarking Large Language Models for Compositional
+              Formal Verification</p>
+            <p class="pub-authors">X. Xu*, <u><strong>Xin Li*</strong></u>, X. Qu, J. Fu, B. Yuan</p>
             <p class="pub-venue"><span class="venue-highlight">arXiv</span>, 2025</p>
             <div class="pub-links">
               <a href="https://dafnycomp.github.io/" target="_blank" rel="noopener noreferrer">Homepage&nbsp;⤻</a>
               <a href="https://arxiv.org/pdf/2509.23061" target="_blank" rel="noopener noreferrer">arXiv&nbsp;⤻</a>
             </div>
           </article>
-
           <article class="publication-item" role="listitem">
-            <p class="pub-title">WirelessMathLM: Teaching Mathematical Reasoning for LLMs in Wireless Communications with Reinforcement Learning</p>
+            <p class="pub-title">WirelessMathLM: Teaching Mathematical Reasoning for LLMs in Wireless Communications
+              with Reinforcement Learning</p>
             <p class="pub-authors"><u><strong>Xin Li</strong></u>, M. Liu, Y. Zhu, W. Zhang, L. Wei, J. An, C. Yuen</p>
             <p class="pub-venue"><span class="venue-highlight">arXiv</span>, 2025</p>
             <div class="pub-links">
@@ -273,22 +365,20 @@
               <a href="https://arxiv.org/pdf/2509.23219" target="_blank" rel="noopener noreferrer">arXiv&nbsp;⤻</a>
             </div>
           </article>
-
-
           <article class="publication-item" role="listitem">
             <p class="pub-title">Beyond Correctness: Evaluating Subjective Writing Preferences Across Cultures</p>
-            <!-- <p class="pub-authors">S. Ying, Y. Li, X. Qu, <u><strong>Xin Li</strong></u>, S. Jin, M. Liu, Z. Wen, X. Du, T. Zheng, Y. Zhang, L. Ni, Y. Cheng, Q. Chen, J. Ding, S. Long, W. Zhou, J. Feng, W. Zhong, L. Qin, G. Zhang, W. Huang, W. Che, C. Lin</p> -->
-            <p class="pub-authors">S. Ying, Y. Li, X. Qu, <u><strong>Xin Li</strong></u>, et al., G. Zhang, W. Huang, W. Che, C. Lin</p>
+            <p class="pub-authors">S. Ying, Y. Li, X. Qu, <u><strong>Xin Li</strong></u>, et al., G. Zhang, W. Huang, W.
+              Che, C. Lin</p>
             <p class="pub-venue"><span class="venue-highlight">arXiv</span>, 2025</p>
             <div class="pub-links">
-              <a href="https://WritingPreferenceBench.github.io/" target="_blank" rel="noopener noreferrer">Homepage&nbsp;⤻</a>
+              <a href="https://WritingPreferenceBench.github.io/" target="_blank"
+                rel="noopener noreferrer">Homepage&nbsp;⤻</a>
               <a href="https://arxiv.org/pdf/2510.14616" target="_blank" rel="noopener noreferrer">arXiv&nbsp;⤻</a>
             </div>
           </article>
-
           <article class="publication-item" role="listitem">
-            <p class="pub-title">COIG-Writer: A High-Quality Dataset for Chinese Creative Writing with Thought Processes</p>
-            <!-- <p class="pub-authors">Y. Li, S. Ying, X. Qu, <u><strong>Xin Li</strong></u>, S. Jin, M. Liu, Z. Wen, T. Zheng, X. Du, Q. Chen, J. Shi, W. Zhou, J. Feng, W. Zhong, L. Qin, S. Huang, W. Che, C. Lin, E. Zhang</p> -->
+            <p class="pub-title">COIG-Writer: A High-Quality Dataset for Chinese Creative Writing with Thought Processes
+            </p>
             <p class="pub-authors">Y. Li, S. Ying, X. Qu, <u><strong>Xin Li</strong></u>, et al., E. Zhang</p>
             <p class="pub-venue"><span class="venue-highlight">arXiv</span>, 2025</p>
             <div class="pub-links">
@@ -296,7 +386,6 @@
               <a href="https://arxiv.org/pdf/2510.14763" target="_blank" rel="noopener noreferrer">arXiv&nbsp;⤻</a>
             </div>
           </article>
-
           <article class="publication-item" role="listitem">
             <p class="pub-title">LACP: LLM Agent Communication Protocol Requires Urgent Standardization</p>
             <p class="pub-authors"><u><strong>Xin Li</strong></u>, M. Liu, C. Yuen</p>
@@ -306,65 +395,70 @@
               <a href="https://arxiv.org/pdf/2510.13821" target="_blank" rel="noopener noreferrer">arXiv&nbsp;⤻</a>
             </div>
           </article>
-
           <article class="publication-item" role="listitem">
-            <p class="pub-title">Re:Form-Reducing Human Priors in Scalable Formal Software Verification with RL in LLMs</p>
-            <p class="pub-authors">C. Yan*, F. Che*, X. Huang*, X. Xu*, <u><strong>Xin Li</strong></u>*, Y. Li*, X. Qu*, et al., J. Fu</p>
+            <p class="pub-title">Re:Form-Reducing Human Priors in Scalable Formal Software Verification with RL in LLMs
+            </p>
+            <p class="pub-authors">C. Yan*, F. Che*, X. Huang*, X. Xu*, <u><strong>Xin Li*</strong></u>, Y. Li*, X. Qu*,
+              et al., J. Fu</p>
             <p class="pub-venue"><span class="venue-highlight">Technical Report</span>, 2025</p>
             <div class="pub-links">
               <a href="https://arxiv.org/pdf/2507.16331" target="_blank" rel="noopener noreferrer">arXiv&nbsp;⤻</a>
               <a href="https://github.com/Veri-Code" target="_blank" rel="noopener noreferrer">Code&nbsp;⤻</a>
             </div>
           </article>
-
           <article class="publication-item" role="listitem">
-            <p class="pub-title">WirelessMathBench: A Mathematical Modeling Benchmark for LLMs in Wireless Communications</p>
+            <p class="pub-title">WirelessMathBench: A Mathematical Modeling Benchmark for LLMs in Wireless
+              Communications</p>
             <p class="pub-authors"><u><strong>Xin Li</strong></u>, M. Liu, L. Wei, J. An, M. Debbah, C. Yuen</p>
             <p class="pub-venue"><span class="venue-highlight">Findings of ACL</span>, 2025</p>
             <div class="pub-links">
-              <a href="https://lixin.ai/WirelessMathBench/" target="_blank" rel="noopener noreferrer">Homepage&nbsp;⤻</a>
+              <a href="https://lixin.ai/WirelessMathBench/" target="_blank"
+                rel="noopener noreferrer">Homepage&nbsp;⤻</a>
               <a href="https://arxiv.org/pdf/2505.14354" target="_blank" rel="noopener noreferrer">arXiv&nbsp;⤻</a>
             </div>
           </article>
-
           <article class="publication-item" role="listitem">
-            <p class="pub-title">Onboard Terrain Classification via Stacked Intelligent Metasurface-Diffractive Deep Neural Networks from SAR Level-0 Raw Data</p>
-            <p class="pub-authors">M. Liu, <u><strong>Xin Li</strong></u>, J. An, C. Yuen</p>
+            <p class="pub-title">Onboard Terrain Classification via Stacked Intelligent Metasurface-Diffractive Deep
+              Neural Networks from SAR Level-0 Raw Data</p>
+            <p class="pub-authors">Mengbing Liu, <u><strong>Xin Li</strong></u>, Jiancheng An, Chau Yuen</p>
             <p class="pub-venue"><span class="venue-highlight">ML4RS @ ICLR</span>, 2025</p>
             <div class="pub-links">
               <a href="https://onboradsim.github.io/" target="_blank" rel="noopener noreferrer">Homepage&nbsp;⤻</a>
               <a href="https://www.arxiv.org/pdf/2503.13488" target="_blank" rel="noopener noreferrer">arXiv&nbsp;⤻</a>
             </div>
           </article>
-
           <article class="publication-item" role="listitem">
             <p class="pub-title">TransPathNet: A Two-Stage Framework for Indoor Radio Map Prediction</p>
-            <p class="pub-authors"><u><strong>Xin Li</strong></u>, R. Liu, S. Xu, S. G. Razul, C. Yuen</p>
+            <p class="pub-authors"><u><strong>Xin Li</strong></u>, Ran Liu, Saihua Xu, Sirajudeen Gulam Razul, Chau Yuen
+            </p>
             <p class="pub-venue"><span class="venue-highlight">ICASSP</span>, 2025</p>
             <div class="pub-links">
               <a href="https://lixin.ai/TransPathNet/" target="_blank" rel="noopener noreferrer">Homepage&nbsp;⤻</a>
-              <a href="https://github.com/LiXin97/TransPathNet" target="_blank" rel="noopener noreferrer">Code&nbsp;⤻</a>
+              <a href="https://github.com/LiXin97/TransPathNet" target="_blank"
+                rel="noopener noreferrer">Code&nbsp;⤻</a>
               <a href="https://arxiv.org/pdf/2501.16023" target="_blank" rel="noopener noreferrer">arXiv&nbsp;⤻</a>
             </div>
           </article>
-
           <article class="publication-item" role="listitem">
-            <p class="pub-title">Co-planar Parametrization for Stereo-SLAM and Visual-Inertial Odometry</p>
-            <p class="pub-authors"><u><strong>Xin Li</strong></u>*, Y. Li*, E. P. Örnek, J. Lin, F. Tombari</p>
-            <p class="pub-venue"><span class="venue-highlight">IEEE Robotics and Automation Letters (RA-L)</span>, 2020</p>
+            <p class="pub-title">Co-Planar Parametrization for Stereo-SLAM and Visual-Inertial Odometry</p>
+            <p class="pub-authors"><u><strong>Xin Li*</strong></u>, Yanyan Li*, Evin Pinar Örnek, Jinlong Lin, Federico
+              Tombari</p>
+            <p class="pub-venue"><span class="venue-highlight">IEEE Robotics and Automation Letters (RA-L)</span>, 2020
+            </p>
             <div class="pub-links">
               <a href="https://arxiv.org/pdf/2009.12662" target="_blank" rel="noopener noreferrer">arXiv&nbsp;⤻</a>
-              <a href="https://github.com/LiXin97/Co-Planar-Parametrization-VIO" target="_blank" rel="noopener noreferrer">Code&nbsp;⤻</a>
+              <a href="https://github.com/LiXin97/Co-Planar-Parametrization-VIO" target="_blank"
+                rel="noopener noreferrer">Code&nbsp;⤻</a>
             </div>
           </article>
-
           <article class="publication-item" role="listitem">
             <p class="pub-title">Leveraging Planar Regularities for Point-Line Visual-Inertial Odometry</p>
-            <p class="pub-authors"><u><strong>Xin Li</strong></u>*, Y. He*, J. Lin, X. Liu</p>
+            <p class="pub-authors"><u><strong>Xin Li*</strong></u>, Yijia He*, Jinlong Lin, Xiao Liu</p>
             <p class="pub-venue"><span class="venue-highlight">IROS</span>, 2020</p>
             <div class="pub-links">
               <a href="https://arxiv.org/pdf/2004.11969" target="_blank" rel="noopener noreferrer">arXiv&nbsp;⤻</a>
-              <a href="https://github.com/LiXin97/Co-Planar-Parametrization-VIO" target="_blank" rel="noopener noreferrer">Code&nbsp;⤻</a>
+              <a href="https://github.com/LiXin97/Co-Planar-Parametrization-VIO" target="_blank"
+                rel="noopener noreferrer">Code&nbsp;⤻</a>
             </div>
           </article>
         </div>
@@ -373,19 +467,36 @@
       <section id="experience" aria-labelledby="experience-heading">
         <h2 id="experience-heading">Experience</h2>
         <ul>
-          <li><strong>Research Assistant</strong> @ <strong>NTU Singapore</strong> (Apr 2024 - Jan 2025) - Supervised by <a href="https://blogs.ntu.edu.sg/chau-yuen/" target="_blank" rel="noopener noreferrer">Prof. Chau Yuen</a>, IEEE Fellow</li>
-          <li><strong>SLAM Algorithm Engineer</strong> @ <strong>Gausium Robotics</strong>, Singapore (Mar 2022 - Feb 2024)</li>
-          <li><strong>Research Intern</strong> @ <strong>Microsoft Research Asia</strong>, Beijing (Sep 2020 - Mar 2021) - Supervised by <a href="https://xueyuhanlang.github.io/" target="_blank" rel="noopener noreferrer">Dr. Yang Liu</a> and <a href="https://yizhongzhang1989.github.io/" target="_blank" rel="noopener noreferrer">Dr. Yizhong Zhang</a></li>
-          <li><strong>Research Intern</strong> @ <strong>MEGVII</strong>, Beijing (Feb 2019 - Mar 2020) - Supervised by <a href="https://www.researchgate.net/profile/He-Yijia" target="_blank" rel="noopener noreferrer">Dr. Yijia He</a></li>
+          <li><strong>Research Assistant</strong> @ <strong>NTU Singapore</strong> (Apr 2024 - Jan 2025) - Supervised by
+            <a href="https://blogs.ntu.edu.sg/chau-yuen/" target="_blank" rel="noopener noreferrer">Prof. Chau Yuen</a>,
+            IEEE Fellow
+          </li>
+          <li><strong>SLAM Algorithm Engineer</strong> @ <strong>Gausium Robotics</strong>, Singapore (Mar 2022 - Feb
+            2024)</li>
+          <li><strong>Research Intern</strong> @ <strong>Microsoft Research Asia</strong>, Beijing (Sep 2020 - Mar 2021)
+            - Supervised by <a href="https://xueyuhanlang.github.io/" target="_blank" rel="noopener noreferrer">Dr. Yang
+              Liu</a> and <a href="https://yizhongzhang1989.github.io/" target="_blank" rel="noopener noreferrer">Dr.
+              Yizhong Zhang</a></li>
+          <li><strong>Research Intern</strong> @ <strong>MEGVII</strong>, Beijing (Feb 2019 - Mar 2020) - Supervised by
+            <a href="https://www.researchgate.net/profile/He-Yijia" target="_blank" rel="noopener noreferrer">Dr. Yijia
+              He</a>
+          </li>
         </ul>
       </section>
 
       <section id="education" aria-labelledby="education-heading">
         <h2 id="education-heading">Education</h2>
         <ul>
-          <li><strong>Ph.D.</strong> @ <a href="https://www.ntu.edu.sg/" target="_blank" rel="noopener noreferrer"><strong>Nanyang Technological University</strong></a>, Singapore (2025 - 2029 expected) - Supervised by <a href="https://blogs.ntu.edu.sg/chau-yuen/" target="_blank" rel="noopener noreferrer">Prof. Chau Yuen</a>, IEEE Fellow.</li>
-          <li><strong>M.E.</strong> @ <a href="https://www.pku.edu.cn/" target="_blank" rel="noopener noreferrer"><strong>Peking University</strong></a>, China (2018 - 2021) - Supervised by <a href="https://www.ss.pku.edu.cn/teacherteam/teacherlist/1652-%E6%9E%97%E9%87%91%E9%BE%99.html" target="_blank" rel="noopener noreferrer">Prof. Jinlong Lin</a>.</li>
-          <li><strong>B.E.</strong> @ <a href="https://www.neuq.edu.cn/" target="_blank" rel="noopener noreferrer"><strong>Northeastern University</strong></a>, China (2014 - 2018).</li>
+          <li><strong>Ph.D.</strong> @ <a href="https://www.ntu.edu.sg/" target="_blank"
+              rel="noopener noreferrer"><strong>Nanyang Technological University</strong></a>, Singapore (2025 - 2029
+            expected) - Supervised by <a href="https://blogs.ntu.edu.sg/chau-yuen/" target="_blank"
+              rel="noopener noreferrer">Prof. Chau Yuen</a>, IEEE Fellow.</li>
+          <li><strong>M.E.</strong> @ <a href="https://www.pku.edu.cn/" target="_blank"
+              rel="noopener noreferrer"><strong>Peking University</strong></a>, China (2018 - 2021) - Supervised by <a
+              href="https://www.ss.pku.edu.cn/teacherteam/teacherlist/1652-%E6%9E%97%E9%87%91%E9%BE%99.html"
+              target="_blank" rel="noopener noreferrer">Prof. Jinlong Lin</a>.</li>
+          <li><strong>B.E.</strong> @ <a href="https://www.neuq.edu.cn/" target="_blank"
+              rel="noopener noreferrer"><strong>Northeastern University</strong></a>, China (2014 - 2018).</li>
         </ul>
       </section>
 
@@ -393,12 +504,17 @@
         <h2 id="talks-heading">Invited Talks</h2>
         <ul>
           <li>
-            <a href="/data/talk_slides/WirelessMath_Slides.pdf" target="_blank" rel="noopener noreferrer">Teaching Large Language Models Mathematical Reasoning in Wireless Communications: From Benchmarking to Efficient Training&nbsp;⤻</a>
+            <a href="/data/talk_slides/WirelessMath_Slides.pdf" target="_blank" rel="noopener noreferrer">Teaching Large
+              Language Models Mathematical Reasoning in Wireless Communications: From Benchmarking to Efficient
+              Training&nbsp;⤻</a>
             <br />
-            ISEE Youth Scholar Forum, School of Information and Electronic Engineering, Zhejiang University - October 27, 2025
+            ISEE Youth Scholar Forum, School of Information and Electronic Engineering, Zhejiang University - October
+            27, 2025
           </li>
           <li>
-            <a href="/data/talk_slides/ACL_WirelessMathBench_Slides.pdf" target="_blank" rel="noopener noreferrer">WirelessMathBench: A Mathematical Modeling Benchmark for LLMs in Wireless Communications&nbsp;⤻</a>
+            <a href="/data/talk_slides/ACL_WirelessMathBench_Slides.pdf" target="_blank"
+              rel="noopener noreferrer">WirelessMathBench: A Mathematical Modeling Benchmark for LLMs in Wireless
+              Communications&nbsp;⤻</a>
             <br />
             NICE (NLP Academic Exchange Platform) Session 66: Evaluation Paper Sharing @ ICML & ACL 2025 - June 11, 2025
           </li>
@@ -409,9 +525,11 @@
         <!-- <h2>Professional Activities &amp; Awards</h2> -->
         <h2 id="service-heading">Professional Activities</h2>
         <ul>
-          <li><strong>Conference Reviewer</strong> - NeurIPS (2024-2025), ICLR (2025-2026), ICML (2025), SIGGRAPH (2025), AAAI (2026), AISTATS (2025-2026), ICRA (2022-2025), IROS (2021-2025).</li>
+          <li><strong>Conference Reviewer</strong> - NeurIPS (2024-2025), ICLR (2025-2026), ICML (2025), SIGGRAPH
+            (2025), AAAI (2026), AISTATS (2025-2026), ICRA (2022-2025), IROS (2021-2025).</li>
           <li><strong>Journal Reviewer</strong> - IEEE RA-L, ACM TOG, IEEE TNNLS.</li>
-          <li><strong>Workshop Organizer</strong> - <a href="https://4drobotics-iros2025.github.io/" target="_blank" rel="noopener noreferrer">AIR4D@IROS 2025</a>.</li>
+          <li><strong>Workshop Organizer</strong> - <a href="https://4drobotics-iros2025.github.io/" target="_blank"
+              rel="noopener noreferrer">AIR4D@IROS 2025</a>.</li>
           <li><strong>Grants</strong> - Cohere Labs Catalyst Grant; OpenAI Researcher Access Program.</li>
           <!-- <li><strong>Awards</strong> - NTU Research Scholarship.</li> -->
         </ul>
@@ -421,11 +539,18 @@
     <footer role="contentinfo" aria-label="Site footer with copyright and visitor statistics">
       <p>&copy; <span id="copyright-year">2025</span> Xin Li. Last updated: Nov 2, 2025.</p>
       <a href="https://clustrmaps.com/site/1c54q" title="Visit tracker" target="_blank" rel="noopener noreferrer">
-        <img src="//clustrmaps.com/map_v2.png?cl=ffffff&w=120&t=n&d=B5NomgZ8KZlp6qqDI50mXbSXYjWqdeneexojuozJ7pQ&co=2d79c7&ct=000000" alt="Visitor map showing geographic distribution of site visitors" loading="lazy" decoding="async" width="120" height="60" referrerpolicy="no-referrer-when-downgrade" />
+        <img
+          src="//clustrmaps.com/map_v2.png?cl=ffffff&w=120&t=n&d=B5NomgZ8KZlp6qqDI50mXbSXYjWqdeneexojuozJ7pQ&co=2d79c7&ct=000000"
+          alt="Visitor map showing geographic distribution of site visitors" loading="lazy" decoding="async" width="120"
+          height="60" referrerpolicy="no-referrer-when-downgrade" />
       </a>
     </footer>
   </div>
 
-  <noscript><div style="padding:1rem; background:#fff3cd; color:#92400e;">This site works best with JavaScript enabled (for minor UX). All content is still accessible without it.</div></noscript>
+  <noscript>
+    <div style="padding:1rem; background:#fff3cd; color:#92400e;">This site works best with JavaScript enabled (for
+      minor UX). All content is still accessible without it.</div>
+  </noscript>
 </body>
+
 </html>
