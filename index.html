@@ -214,13 +214,15 @@
         class="profile-photo" loading="eager" decoding="async" fetchpriority="high" width="140" height="140" />
       <div class="header-text">
         <h1>Xin Li (李鑫)</h1>
-        <p>Ph.D. Student</p>
-        <p><a href="https://www.ntu.edu.sg/" target="_blank" rel="noopener noreferrer me">Nanyang Technological
-            University</a></p>
+        <p class="tagline">LLM evaluation, domain reasoning, and multi-agent systems</p>
+        <p>Ph.D. Student, <a href="https://www.ntu.edu.sg/" target="_blank" rel="noopener noreferrer me">Nanyang
+            Technological University</a></p>
         <p class="email">Email: <a href="mailto:xin019@e.ntu.edu.sg">xin019@e.ntu.edu.sg</a></p>
         <nav aria-label="Primary">
           <ul
             style="list-style: none; padding: 0; margin: 0; display:flex; gap:.75rem; flex-wrap: wrap; justify-content:center;">
+            <li><a href="#news">News</a></li>
+            <li><a href="#publications">Publications</a></li>
             <li><a href="/data/Xin_Li_CV_2026.pdf" target="_blank" rel="noopener noreferrer"
                 aria-label="Open CV in a new tab">CV&nbsp;⤻</a></li>
             <li><a href="https://scholar.google.com/citations?user=Hxf8sNkAAAAJ" target="_blank"
@@ -234,7 +236,7 @@
     </header>
 
     <main id="main-content" role="main">
-<section id="bio" aria-labelledby="bio-heading">
+      <section id="bio" aria-labelledby="bio-heading">
         <h2 id="bio-heading">About Me</h2>
         <p>
           I am a Ph.D. student at
@@ -242,31 +244,27 @@
             (NTU)</a>,
           advised by Prof. <a href="https://blogs.ntu.edu.sg/chau-yuen/" target="_blank" rel="noopener noreferrer">Chau
             Yuen</a>.
-          My research focuses on the intersection of Large Language Models (LLMs) and engineering automation, organized into three pillars:
+          My research develops benchmarks, training methods, and agent systems for verifiable and domain-specific
+          reasoning in Large Language Models (LLMs).
         </p>
 
         <ul>
-          <li><strong>LLM Evaluation</strong> - Designing trustworthy, scalable benchmarks to measure reasoning and generalization.
-            Representative works: <a href="https://dafnycomp.github.io/" target="_blank"
-              rel="noopener noreferrer">DafnyComp</a> (formal verification & <em>compositional generalization</em>),
-            <a href="https://lixin.ai/WirelessMathBench/" target="_blank"
-              rel="noopener noreferrer">WirelessMathBench</a> (math-centric modeling), and
-            <a href="https://WritingPreferenceBench.github.io/" target="_blank"
-              rel="noopener noreferrer">WritingPreferenceBench</a> (subjective evaluation across cultures).
+          <li><strong>LLM Evaluation</strong> - Trustworthy benchmarks for reasoning and generalization, including
+            <a href="https://dafnycomp.github.io/" target="_blank" rel="noopener noreferrer">DafnyComp</a>,
+            <a href="https://lixin.ai/WirelessMathBench/" target="_blank" rel="noopener noreferrer">WirelessMathBench</a>,
+            and <a href="https://WritingPreferenceBench.github.io/" target="_blank"
+              rel="noopener noreferrer">WritingPreferenceBench</a>.
           </li>
 
-          <li><strong>Domain LLMs</strong> - Adapting foundation models for vertical engineering domains.
-            <!-- , specifically in <strong>wireless communications</strong> and <strong>robotics</strong>. -->
-            Representative works:
-            <a href="https://lixin.ai/WirelessMathLM/" target="_blank" rel="noopener noreferrer">WirelessMathLM</a>
-            (verification-based RL for wireless reasoning) and
-            <a href="https://COIG-Writer.github.io/" target="_blank" rel="noopener noreferrer">COIG-Writer</a>
-            (high-quality data synthesis).
+          <li><strong>Domain LLMs</strong> - Adapting foundation models to engineering domains such as wireless
+            communications and formal verification, including <a href="https://lixin.ai/WirelessMathLM/" target="_blank"
+              rel="noopener noreferrer">WirelessMathLM</a> and <a href="https://arxiv.org/pdf/2507.16331"
+              target="_blank" rel="noopener noreferrer">Re:Form</a>.
           </li>
 
-          <li><strong>Multi-Agent Systems</strong> - Investigating <strong>agent communication protocols</strong> and <strong>memory mechanisms</strong> to enable efficient collaboration.
-            Representative works: <a href="https://lixin.ai/LACP/" target="_blank" rel="noopener noreferrer">LACP</a>
-            (standardizing LLM agent communication) and ongoing research into shared memory structures for autonomous agents.
+          <li><strong>Multi-Agent Systems</strong> - Agent communication protocols and memory mechanisms, including
+            <a href="https://lixin.ai/LACP/" target="_blank" rel="noopener noreferrer">LACP</a> and ongoing work on
+            shared-memory structures for autonomous agents.
           </li>
         </ul>
 
@@ -283,8 +281,8 @@
         </p>
 
         <p>
-          <strong>Open to Collaboration:</strong> If you are seeking academic collaboration
-          🤝 on LLMs, agents, or engineering applications, please email me at <a
+          <strong>Open to Collaboration:</strong> If you are interested in academic collaboration on LLMs, agents, or
+          engineering applications, please email me at <a
             href="mailto:xin019@e.ntu.edu.sg">xin019@e.ntu.edu.sg</a>.
         </p>
         <!-- <p>
@@ -292,7 +290,6 @@
           openings, I'd love to hear from you!
         </p> -->
       </section>
-
       <section id="news" aria-live="polite" aria-labelledby="news-heading">
         <h2 id="news-heading">Recent News</h2>
         <ul id="news-list">
@@ -301,18 +298,18 @@
           <li><strong>Apr 2026:</strong> Our paper, <a href="https://lixin.ai/" target="_blank"
               rel="noopener noreferrer"><strong>LiveCANNBench: Benchmark SWE AI Coding for Ascend CANN</strong></a>, was accepted to <strong>Findings of ACL 2026</strong>.</li>
           <li><strong>Jan 2026:</strong> Our paper, <a href="https://dafnycomp.github.io/" target="_blank"
-            rel="noopener noreferrer"><strong>Local Success Does Not Compose (DafnyComp)</strong></a>, was accepted to <strong>ICLR 2026</strong>.</li>
+              rel="noopener noreferrer"><strong>Local Success Does Not Compose (DafnyComp)</strong></a>, was accepted to <strong>ICLR 2026</strong>.</li>
           <li><strong>Dec 2025:</strong> Received the <strong>Rohde & Schwarz Award</strong> at the IEEE 6G Summit Singapore.</li>
-            <li><strong>Sep 2025:</strong> Our paper, <a href="https://lixin.ai/LACP/" target="_blank"
+          <li><strong>Sep 2025:</strong> Our paper, <a href="https://lixin.ai/LACP/" target="_blank"
               rel="noopener noreferrer"><strong>LACP: LLM Agent Communication Protocol</strong></a>, was accepted to <a
-              href="https://ai4nextg.github.io/" target="_blank" rel="noopener noreferrer"> <strong>AI4NextG @ NeurIPS
+              href="https://ai4nextg.github.io/" target="_blank" rel="noopener noreferrer"><strong>AI4NextG @ NeurIPS
                 2025</strong></a>.</li>
           <li class="news-extra"><strong>May 2025:</strong> Our paper, <a href="https://lixin.ai/WirelessMathBench/" target="_blank"
               rel="noopener noreferrer"><strong>WirelessMathBench</strong></a>, was accepted to <strong>Findings of ACL
               2025</strong>.</li>
           <li class="news-extra"><strong>May 2025:</strong> Our workshop on <a href="https://4drobotics-iros2025.github.io/"
               target="_blank" rel="noopener noreferrer"><strong>Advancements for Intelligent Robotics in 4D
-                Scenes</strong></a> at <strong>IROS 2025</strong> was accepted!</li>
+                Scenes</strong></a> at <strong>IROS 2025</strong> was accepted.</li>
           <li class="news-extra"><strong>Mar 2025:</strong> Our paper, <a href="https://onboradsim.github.io/" target="_blank"
               rel="noopener noreferrer"><strong>Onboard Terrain Classification via SIM-DNN</strong></a>, was accepted to
             the <a href="https://ml-for-rs.github.io/iclr2025/" target="_blank" rel="noopener noreferrer"><strong>ML4RS
@@ -343,6 +340,16 @@
             </div>
           </article>
           <article class="publication-item" role="listitem">
+            <p class="pub-title">Re:Form: Reducing Human Priors in Scalable Formal Software Verification with RL in LLMs: A Preliminary Study on Dafny</p>
+            <p class="pub-authors">C. Yan*, F. Che*, X. Huang*, X. Xu*, <u><strong>Xin Li*</strong></u>, Y. Li*, X. Qu*, et al., J. Fu</p>
+            <p class="pub-venue"><span class="venue-highlight">TMLR</span>, 2026</p>
+            <div class="pub-links">
+              <a href="https://openreview.net/forum?id=cAQmIS4GOe" target="_blank" rel="noopener noreferrer">OpenReview&nbsp;⤻</a>
+              <a href="https://arxiv.org/pdf/2507.16331" target="_blank" rel="noopener noreferrer">arXiv&nbsp;⤻</a>
+              <a href="https://github.com/Veri-Code" target="_blank" rel="noopener noreferrer">Code&nbsp;⤻</a>
+            </div>
+          </article>
+          <article class="publication-item" role="listitem">
             <p class="pub-title">WirelessMathLM: Teaching Mathematical Reasoning for LLMs in Wireless Communications with Reinforcement Learning</p>
             <p class="pub-authors"><u><strong>Xin Li</strong></u>, M. Liu, Y. Zhu, W. Zhang, L. Wei, J. An, C. Yuen</p>
             <p class="pub-venue"><span class="venue-highlight">arXiv</span>, 2025</p>
@@ -361,15 +368,6 @@
             </div>
           </article>
           <article class="publication-item" role="listitem">
-            <p class="pub-title">COIG-Writer: A High-Quality Dataset for Chinese Creative Writing with Thought Processes</p>
-            <p class="pub-authors">Y. Li, S. Ying, X. Qu, <u><strong>Xin Li</strong></u>, et al., E. Zhang</p>
-            <p class="pub-venue"><span class="venue-highlight">arXiv</span>, 2025</p>
-            <div class="pub-links">
-              <a href="https://COIG-Writer.github.io/" target="_blank" rel="noopener noreferrer">Homepage&nbsp;⤻</a>
-              <a href="https://arxiv.org/pdf/2510.14763" target="_blank" rel="noopener noreferrer">arXiv&nbsp;⤻</a>
-            </div>
-          </article>
-          <article class="publication-item" role="listitem">
             <p class="pub-title">LACP: LLM Agent Communication Protocol Requires Urgent Standardization</p>
             <p class="pub-authors"><u><strong>Xin Li</strong></u>, M. Liu, C. Yuen</p>
             <p class="pub-venue"><span class="venue-highlight">AI4NextG @ NeurIPS</span>, 2025</p>
@@ -379,31 +377,12 @@
             </div>
           </article>
           <article class="publication-item" role="listitem">
-            <p class="pub-title">Re:Form: Reducing Human Priors in Scalable Formal Software Verification with RL in LLMs: A Preliminary Study on Dafny</p>
-            <p class="pub-authors">C. Yan*, F. Che*, X. Huang*, X. Xu*, <u><strong>Xin Li*</strong></u>, Y. Li*, X. Qu*, et al., J. Fu</p>
-            <p class="pub-venue"><span class="venue-highlight">TMLR</span>, 2026</p>
-            <div class="pub-links">
-              <a href="https://openreview.net/forum?id=cAQmIS4GOe" target="_blank" rel="noopener noreferrer">OpenReview&nbsp;⤻</a>
-              <a href="https://arxiv.org/pdf/2507.16331" target="_blank" rel="noopener noreferrer">arXiv&nbsp;⤻</a>
-              <a href="https://github.com/Veri-Code" target="_blank" rel="noopener noreferrer">Code&nbsp;⤻</a>
-            </div>
-          </article>
-          <article class="publication-item" role="listitem">
             <p class="pub-title">WirelessMathBench: A Mathematical Modeling Benchmark for LLMs in Wireless Communications</p>
             <p class="pub-authors"><u><strong>Xin Li</strong></u>, M. Liu, L. Wei, J. An, M. Debbah, C. Yuen</p>
             <p class="pub-venue"><span class="venue-highlight">Findings of ACL</span>, 2025</p>
             <div class="pub-links">
               <a href="https://lixin.ai/WirelessMathBench/" target="_blank" rel="noopener noreferrer">Homepage&nbsp;⤻</a>
               <a href="https://arxiv.org/pdf/2505.14354" target="_blank" rel="noopener noreferrer">arXiv&nbsp;⤻</a>
-            </div>
-          </article>
-          <article class="publication-item" role="listitem">
-            <p class="pub-title">Onboard Terrain Classification via Stacked Intelligent Metasurface-Diffractive Deep Neural Networks from SAR Level-0 Raw Data</p>
-            <p class="pub-authors">Mengbing Liu, <u><strong>Xin Li</strong></u>, Jiancheng An, Chau Yuen</p>
-            <p class="pub-venue"><span class="venue-highlight">ML4RS @ ICLR</span>, 2025</p>
-            <div class="pub-links">
-              <a href="https://onboradsim.github.io/" target="_blank" rel="noopener noreferrer">Homepage&nbsp;⤻</a>
-              <a href="https://www.arxiv.org/pdf/2503.13488" target="_blank" rel="noopener noreferrer">arXiv&nbsp;⤻</a>
             </div>
           </article>
           <article class="publication-item" role="listitem">
@@ -473,27 +452,6 @@
         </ul>
       </section>
 
-      <section id="talks" aria-labelledby="talks-heading">
-        <h2 id="talks-heading">Invited Talks</h2>
-        <ul>
-          <li>
-            <a href="/data/talk_slides/WirelessMath_Slides.pdf" target="_blank" rel="noopener noreferrer">Teaching Large
-              Language Models Mathematical Reasoning in Wireless Communications: From Benchmarking to Efficient
-              Training&nbsp;⤻</a>
-            <br />
-            ISEE Youth Scholar Forum, School of Information and Electronic Engineering, Zhejiang University - October
-            27, 2025
-          </li>
-          <li>
-            <a href="/data/talk_slides/ACL_WirelessMathBench_Slides.pdf" target="_blank"
-              rel="noopener noreferrer">WirelessMathBench: A Mathematical Modeling Benchmark for LLMs in Wireless
-              Communications&nbsp;⤻</a>
-            <br />
-            NICE (NLP Academic Exchange Platform) Session 66: Evaluation Paper Sharing @ ICML & ACL 2025 - June 11, 2025
-          </li>
-        </ul>
-      </section>
-    
       <section id="awards" aria-labelledby="awards-heading">
         <h2 id="awards-heading">Grants & Awards</h2>
         <ul>
@@ -516,6 +474,28 @@
           </li>
         </ul>
       </section>
+
+      <section id="talks" aria-labelledby="talks-heading">
+        <h2 id="talks-heading">Invited Talks</h2>
+        <ul>
+          <li>
+            <a href="/data/talk_slides/WirelessMath_Slides.pdf" target="_blank" rel="noopener noreferrer">Teaching Large
+              Language Models Mathematical Reasoning in Wireless Communications: From Benchmarking to Efficient
+              Training&nbsp;⤻</a>
+            <br />
+            ISEE Youth Scholar Forum, School of Information and Electronic Engineering, Zhejiang University - October
+            27, 2025
+          </li>
+          <li>
+            <a href="/data/talk_slides/ACL_WirelessMathBench_Slides.pdf" target="_blank"
+              rel="noopener noreferrer">WirelessMathBench: A Mathematical Modeling Benchmark for LLMs in Wireless
+              Communications&nbsp;⤻</a>
+            <br />
+            NICE (NLP Academic Exchange Platform) Session 66: Evaluation Paper Sharing @ ICML & ACL 2025 - June 11, 2025
+          </li>
+        </ul>
+      </section>
+
       <section id="service" aria-labelledby="service-heading">
         <!-- <h2>Professional Activities &amp; Awards</h2> -->
         <h2 id="service-heading">Professional Activities</h2>

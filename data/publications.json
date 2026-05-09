@@ -29,6 +29,36 @@
             ]
         },
         {
+            "title": "Re:Form: Reducing Human Priors in Scalable Formal Software Verification with RL in LLMs: A Preliminary Study on Dafny",
+            "authors": [
+                "C. Yan*",
+                "F. Che*",
+                "X. Huang*",
+                "X. Xu*",
+                "Xin Li*",
+                "Y. Li*",
+                "X. Qu*",
+                "et al.",
+                "J. Fu"
+            ],
+            "venue": "TMLR",
+            "year": "2026",
+            "links": [
+                {
+                    "text": "OpenReview",
+                    "url": "https://openreview.net/forum?id=cAQmIS4GOe"
+                },
+                {
+                    "text": "arXiv",
+                    "url": "https://arxiv.org/pdf/2507.16331"
+                },
+                {
+                    "text": "Code",
+                    "url": "https://github.com/Veri-Code"
+                }
+            ]
+        },
+        {
             "title": "WirelessMathLM: Teaching Mathematical Reasoning for LLMs in Wireless Communications with Reinforcement Learning",
             "authors": [
                 "Xin Li",
@@ -79,29 +109,6 @@
             ]
         },
         {
-            "title": "COIG-Writer: A High-Quality Dataset for Chinese Creative Writing with Thought Processes",
-            "authors": [
-                "Y. Li",
-                "S. Ying",
-                "X. Qu",
-                "Xin Li",
-                "et al.",
-                "E. Zhang"
-            ],
-            "venue": "arXiv",
-            "year": "2025",
-            "links": [
-                {
-                    "text": "Homepage",
-                    "url": "https://COIG-Writer.github.io/"
-                },
-                {
-                    "text": "arXiv",
-                    "url": "https://arxiv.org/pdf/2510.14763"
-                }
-            ]
-        },
-        {
             "title": "LACP: LLM Agent Communication Protocol Requires Urgent Standardization",
             "authors": [
                 "Xin Li",
@@ -118,36 +125,6 @@
                 {
                     "text": "arXiv",
                     "url": "https://arxiv.org/pdf/2510.13821"
-                }
-            ]
-        },
-        {
-            "title": "Re:Form: Reducing Human Priors in Scalable Formal Software Verification with RL in LLMs: A Preliminary Study on Dafny",
-            "authors": [
-                "C. Yan*",
-                "F. Che*",
-                "X. Huang*",
-                "X. Xu*",
-                "Xin Li*",
-                "Y. Li*",
-                "X. Qu*",
-                "et al.",
-                "J. Fu"
-            ],
-            "venue": "TMLR",
-            "year": "2026",
-            "links": [
-                {
-                    "text": "OpenReview",
-                    "url": "https://openreview.net/forum?id=cAQmIS4GOe"
-                },
-                {
-                    "text": "arXiv",
-                    "url": "https://arxiv.org/pdf/2507.16331"
-                },
-                {
-                    "text": "Code",
-                    "url": "https://github.com/Veri-Code"
                 }
             ]
         },
@@ -171,27 +148,6 @@
                 {
                     "text": "arXiv",
                     "url": "https://arxiv.org/pdf/2505.14354"
-                }
-            ]
-        },
-        {
-            "title": "Onboard Terrain Classification via Stacked Intelligent Metasurface-Diffractive Deep Neural Networks from SAR Level-0 Raw Data",
-            "authors": [
-                "Mengbing Liu",
-                "Xin Li",
-                "Jiancheng An",
-                "Chau Yuen"
-            ],
-            "venue": "ML4RS @ ICLR",
-            "year": "2025",
-            "links": [
-                {
-                    "text": "Homepage",
-                    "url": "https://onboradsim.github.io/"
-                },
-                {
-                    "text": "arXiv",
-                    "url": "https://www.arxiv.org/pdf/2503.13488"
                 }
             ]
         },
