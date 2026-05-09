@@ -1,7 +1,13 @@
 from scholarly import scholarly
 import json
 from datetime import datetime
-import os
+from pathlib import Path
+
+
+SCRIPT_DIR = Path(__file__).resolve().parent
+ROOT_DIR = SCRIPT_DIR.parent
+RESULTS_DIR = SCRIPT_DIR / "results"
+PUBLICATIONS_FILE = ROOT_DIR / "data" / "publications.json"
 
 author: dict = scholarly.search_author_id("Hxf8sNkAAAAJ")
 scholarly.fill(author, sections=[
@@ -10,8 +16,8 @@ name = author["name"]
 author["updated"] = str(datetime.now())
 author["publications"] = {v["author_pub_id"]                          : v for v in author["publications"]}
 print(json.dumps(author, indent=2))
-os.makedirs("results", exist_ok=True)
-with open(f"results/gs_data.json", "w") as outfile:
+RESULTS_DIR.mkdir(exist_ok=True)
+with (RESULTS_DIR / "gs_data.json").open("w", encoding="utf-8") as outfile:
     json.dump(author, outfile, ensure_ascii=False)
 
 shieldio_data = {
@@ -20,12 +26,12 @@ shieldio_data = {
     "message": f"{author['citedby']}",
 }
 
-with open(f"results/gs_data_shieldsio.json", "w") as outfile:
+with (RESULTS_DIR / "gs_data_shieldsio.json").open("w", encoding="utf-8") as outfile:
     json.dump(shieldio_data, outfile, ensure_ascii=False)
 
 # output each paper subdict to a separate file
 for pub_id, pub in author["publications"].items():
-    with open(f"results/gs_data_{pub_id}.json", "w") as outfile:
+    with (RESULTS_DIR / f"gs_data_{pub_id}.json").open("w", encoding="utf-8") as outfile:
         pub_shieldio_data = {
             "schemaVersion": 1,
             "label": "citations",
@@ -34,8 +40,8 @@ for pub_id, pub in author["publications"].items():
         json.dump(pub_shieldio_data, outfile, ensure_ascii=False)
 
 
-# update ../data/publications.json
-with open("../data/publications.json", "r") as infile:
+# update data/publications.json
+with PUBLICATIONS_FILE.open("r", encoding="utf-8") as infile:
     publications = json.load(infile)
 
 publications["citation_metrics"] = {
@@ -59,5 +65,5 @@ for pub in publications["publications"]:
     if title in scholar_opubs_title_list:
         pub["num_citations"] = scholar_pubs_cite_dic[title]
 
-with open("../data/publications.json", "w") as outfile:
+with PUBLICATIONS_FILE.open("w", encoding="utf-8") as outfile:
     json.dump(publications, outfile, ensure_ascii=False, indent=4)

@@ -62,7 +62,7 @@
       "@type": "ProfilePage",
       "@id": "https://lixin.ai/#profile",
       "dateCreated": "2024-04-05T14:53:00+08:00",
-      "dateModified": "2025-09-26T10:00:00+08:00",
+      "dateModified": "2026-05-09T10:00:00+08:00",
       "url": "https://lixin.ai/",
       "mainEntity": {
         "@type": "Person",
@@ -295,30 +295,35 @@
 
       <section id="news" aria-live="polite" aria-labelledby="news-heading">
         <h2 id="news-heading">Recent News</h2>
-        <ul><li><strong>Jan 2026:</strong> Our paper, <a href="https://dafnycomp.github.io/" target="_blank" 
+        <ul id="news-list">
+          <li><strong>May 2026:</strong> Our paper, <a href="https://arxiv.org/pdf/2507.16331" target="_blank"
+              rel="noopener noreferrer"><strong>Re:Form: Reducing Human Priors in Scalable Formal Software Verification with RL in LLMs</strong></a>, was accepted to <strong>TMLR</strong>.</li>
+          <li><strong>Apr 2026:</strong> Our paper, <a href="https://lixin.ai/" target="_blank"
+              rel="noopener noreferrer"><strong>LiveCANNBench: Benchmark SWE AI Coding for Ascend CANN</strong></a>, was accepted to <strong>Findings of ACL 2026</strong>.</li>
+          <li><strong>Jan 2026:</strong> Our paper, <a href="https://dafnycomp.github.io/" target="_blank"
             rel="noopener noreferrer"><strong>Local Success Does Not Compose (DafnyComp)</strong></a>, was accepted to <strong>ICLR 2026</strong>.</li>
           <li><strong>Dec 2025:</strong> Received the <strong>Rohde & Schwarz Award</strong> at the IEEE 6G Summit Singapore.</li>
             <li><strong>Sep 2025:</strong> Our paper, <a href="https://lixin.ai/LACP/" target="_blank"
               rel="noopener noreferrer"><strong>LACP: LLM Agent Communication Protocol</strong></a>, was accepted to <a
               href="https://ai4nextg.github.io/" target="_blank" rel="noopener noreferrer"> <strong>AI4NextG @ NeurIPS
                 2025</strong></a>.</li>
-          <li><strong>May 2025:</strong> Our paper, <a href="https://lixin.ai/WirelessMathBench/" target="_blank"
+          <li class="news-extra"><strong>May 2025:</strong> Our paper, <a href="https://lixin.ai/WirelessMathBench/" target="_blank"
               rel="noopener noreferrer"><strong>WirelessMathBench</strong></a>, was accepted to <strong>Findings of ACL
               2025</strong>.</li>
-          <li><strong>May 2025:</strong> Our workshop on <a href="https://4drobotics-iros2025.github.io/"
+          <li class="news-extra"><strong>May 2025:</strong> Our workshop on <a href="https://4drobotics-iros2025.github.io/"
               target="_blank" rel="noopener noreferrer"><strong>Advancements for Intelligent Robotics in 4D
                 Scenes</strong></a> at <strong>IROS 2025</strong> was accepted!</li>
-          <li><strong>Mar 2025:</strong> Our paper, <a href="https://onboradsim.github.io/" target="_blank"
+          <li class="news-extra"><strong>Mar 2025:</strong> Our paper, <a href="https://onboradsim.github.io/" target="_blank"
               rel="noopener noreferrer"><strong>Onboard Terrain Classification via SIM-DNN</strong></a>, was accepted to
             the <a href="https://ml-for-rs.github.io/iclr2025/" target="_blank" rel="noopener noreferrer"><strong>ML4RS
                 @ ICLR 2025</strong></a>.</li>
-          <li><strong>Jan 2025:</strong> Our paper, <a href="https://lixin.ai/TransPathNet/" target="_blank"
+          <li class="news-extra"><strong>Jan 2025:</strong> Our paper, <a href="https://lixin.ai/TransPathNet/" target="_blank"
               rel="noopener noreferrer"><strong>TransPathNet</strong></a>, was accepted to <strong>ICASSP 2025</strong>
             (ranked 4th in the Indoor Pathloss Challenge).</li>
-          <li><strong>Jan 2025:</strong> Started my Ph.D. at NTU, supported by the NTU Research Scholarship.</li>
+          <li class="news-extra"><strong>Jan 2025:</strong> Started my Ph.D. at NTU, supported by the NTU Research Scholarship.</li>
         </ul>
+        <button class="news-toggle" type="button" aria-expanded="false" aria-controls="news-list">View older news</button>
       </section>
-
       <section id="publications" aria-labelledby="publications-heading">
         <h2 id="publications-heading">Selected Publications</h2>
         <p class="section-note">
@@ -329,8 +334,7 @@
         <div class="publication-grid" role="list">
 
           <article class="publication-item" role="listitem">
-            <p class="pub-title">Local Success Does Not Compose: Benchmarking Large Language Models for Compositional
-              Formal Verification</p>
+            <p class="pub-title">Local Success Does Not Compose: Benchmarking Large Language Models for Compositional Formal Verification</p>
             <p class="pub-authors">X. Xu*, <u><strong>Xin Li*</strong></u>, X. Qu, J. Fu, B. Yuan</p>
             <p class="pub-venue"><span class="venue-highlight">ICLR</span>, 2026</p>
             <div class="pub-links">
@@ -339,8 +343,7 @@
             </div>
           </article>
           <article class="publication-item" role="listitem">
-            <p class="pub-title">WirelessMathLM: Teaching Mathematical Reasoning for LLMs in Wireless Communications
-              with Reinforcement Learning</p>
+            <p class="pub-title">WirelessMathLM: Teaching Mathematical Reasoning for LLMs in Wireless Communications with Reinforcement Learning</p>
             <p class="pub-authors"><u><strong>Xin Li</strong></u>, M. Liu, Y. Zhu, W. Zhang, L. Wei, J. An, C. Yuen</p>
             <p class="pub-venue"><span class="venue-highlight">arXiv</span>, 2025</p>
             <div class="pub-links">
@@ -350,18 +353,15 @@
           </article>
           <article class="publication-item" role="listitem">
             <p class="pub-title">Beyond Correctness: Evaluating Subjective Writing Preferences Across Cultures</p>
-            <p class="pub-authors">S. Ying, Y. Li, X. Qu, <u><strong>Xin Li</strong></u>, et al., G. Zhang, W. Huang, W.
-              Che, C. Lin</p>
+            <p class="pub-authors">S. Ying, Y. Li, X. Qu, <u><strong>Xin Li</strong></u>, et al., G. Zhang, W. Huang, W. Che, C. Lin</p>
             <p class="pub-venue"><span class="venue-highlight">arXiv</span>, 2025</p>
             <div class="pub-links">
-              <a href="https://WritingPreferenceBench.github.io/" target="_blank"
-                rel="noopener noreferrer">Homepage&nbsp;⤻</a>
+              <a href="https://WritingPreferenceBench.github.io/" target="_blank" rel="noopener noreferrer">Homepage&nbsp;⤻</a>
               <a href="https://arxiv.org/pdf/2510.14616" target="_blank" rel="noopener noreferrer">arXiv&nbsp;⤻</a>
             </div>
           </article>
           <article class="publication-item" role="listitem">
-            <p class="pub-title">COIG-Writer: A High-Quality Dataset for Chinese Creative Writing with Thought Processes
-            </p>
+            <p class="pub-title">COIG-Writer: A High-Quality Dataset for Chinese Creative Writing with Thought Processes</p>
             <p class="pub-authors">Y. Li, S. Ying, X. Qu, <u><strong>Xin Li</strong></u>, et al., E. Zhang</p>
             <p class="pub-venue"><span class="venue-highlight">arXiv</span>, 2025</p>
             <div class="pub-links">
@@ -379,30 +379,26 @@
             </div>
           </article>
           <article class="publication-item" role="listitem">
-            <p class="pub-title">Re:Form-Reducing Human Priors in Scalable Formal Software Verification with RL in LLMs
-            </p>
-            <p class="pub-authors">C. Yan*, F. Che*, X. Huang*, X. Xu*, <u><strong>Xin Li*</strong></u>, Y. Li*, X. Qu*,
-              et al., J. Fu</p>
-            <p class="pub-venue"><span class="venue-highlight">Technical Report</span>, 2025</p>
+            <p class="pub-title">Re:Form: Reducing Human Priors in Scalable Formal Software Verification with RL in LLMs: A Preliminary Study on Dafny</p>
+            <p class="pub-authors">C. Yan*, F. Che*, X. Huang*, X. Xu*, <u><strong>Xin Li*</strong></u>, Y. Li*, X. Qu*, et al., J. Fu</p>
+            <p class="pub-venue"><span class="venue-highlight">TMLR</span>, 2026</p>
             <div class="pub-links">
+              <a href="https://openreview.net/forum?id=cAQmIS4GOe" target="_blank" rel="noopener noreferrer">OpenReview&nbsp;⤻</a>
               <a href="https://arxiv.org/pdf/2507.16331" target="_blank" rel="noopener noreferrer">arXiv&nbsp;⤻</a>
               <a href="https://github.com/Veri-Code" target="_blank" rel="noopener noreferrer">Code&nbsp;⤻</a>
             </div>
           </article>
           <article class="publication-item" role="listitem">
-            <p class="pub-title">WirelessMathBench: A Mathematical Modeling Benchmark for LLMs in Wireless
-              Communications</p>
+            <p class="pub-title">WirelessMathBench: A Mathematical Modeling Benchmark for LLMs in Wireless Communications</p>
             <p class="pub-authors"><u><strong>Xin Li</strong></u>, M. Liu, L. Wei, J. An, M. Debbah, C. Yuen</p>
             <p class="pub-venue"><span class="venue-highlight">Findings of ACL</span>, 2025</p>
             <div class="pub-links">
-              <a href="https://lixin.ai/WirelessMathBench/" target="_blank"
-                rel="noopener noreferrer">Homepage&nbsp;⤻</a>
+              <a href="https://lixin.ai/WirelessMathBench/" target="_blank" rel="noopener noreferrer">Homepage&nbsp;⤻</a>
               <a href="https://arxiv.org/pdf/2505.14354" target="_blank" rel="noopener noreferrer">arXiv&nbsp;⤻</a>
             </div>
           </article>
           <article class="publication-item" role="listitem">
-            <p class="pub-title">Onboard Terrain Classification via Stacked Intelligent Metasurface-Diffractive Deep
-              Neural Networks from SAR Level-0 Raw Data</p>
+            <p class="pub-title">Onboard Terrain Classification via Stacked Intelligent Metasurface-Diffractive Deep Neural Networks from SAR Level-0 Raw Data</p>
             <p class="pub-authors">Mengbing Liu, <u><strong>Xin Li</strong></u>, Jiancheng An, Chau Yuen</p>
             <p class="pub-venue"><span class="venue-highlight">ML4RS @ ICLR</span>, 2025</p>
             <div class="pub-links">
@@ -412,26 +408,21 @@
           </article>
           <article class="publication-item" role="listitem">
             <p class="pub-title">TransPathNet: A Two-Stage Framework for Indoor Radio Map Prediction</p>
-            <p class="pub-authors"><u><strong>Xin Li</strong></u>, Ran Liu, Saihua Xu, Sirajudeen Gulam Razul, Chau Yuen
-            </p>
+            <p class="pub-authors"><u><strong>Xin Li</strong></u>, Ran Liu, Saihua Xu, Sirajudeen Gulam Razul, Chau Yuen</p>
             <p class="pub-venue"><span class="venue-highlight">ICASSP</span>, 2025</p>
             <div class="pub-links">
               <a href="https://lixin.ai/TransPathNet/" target="_blank" rel="noopener noreferrer">Homepage&nbsp;⤻</a>
-              <a href="https://github.com/LiXin97/TransPathNet" target="_blank"
-                rel="noopener noreferrer">Code&nbsp;⤻</a>
+              <a href="https://github.com/LiXin97/TransPathNet" target="_blank" rel="noopener noreferrer">Code&nbsp;⤻</a>
               <a href="https://arxiv.org/pdf/2501.16023" target="_blank" rel="noopener noreferrer">arXiv&nbsp;⤻</a>
             </div>
           </article>
           <article class="publication-item" role="listitem">
             <p class="pub-title">Co-Planar Parametrization for Stereo-SLAM and Visual-Inertial Odometry</p>
-            <p class="pub-authors"><u><strong>Xin Li*</strong></u>, Yanyan Li*, Evin Pinar Örnek, Jinlong Lin, Federico
-              Tombari</p>
-            <p class="pub-venue"><span class="venue-highlight">IEEE Robotics and Automation Letters (RA-L)</span>, 2020
-            </p>
+            <p class="pub-authors"><u><strong>Xin Li*</strong></u>, Yanyan Li*, Evin Pinar Örnek, Jinlong Lin, Federico Tombari</p>
+            <p class="pub-venue"><span class="venue-highlight">IEEE Robotics and Automation Letters (RA-L)</span>, 2020</p>
             <div class="pub-links">
               <a href="https://arxiv.org/pdf/2009.12662" target="_blank" rel="noopener noreferrer">arXiv&nbsp;⤻</a>
-              <a href="https://github.com/LiXin97/Co-Planar-Parametrization-VIO" target="_blank"
-                rel="noopener noreferrer">Code&nbsp;⤻</a>
+              <a href="https://github.com/LiXin97/Co-Planar-Parametrization-VIO" target="_blank" rel="noopener noreferrer">Code&nbsp;⤻</a>
             </div>
           </article>
           <article class="publication-item" role="listitem">
@@ -440,8 +431,7 @@
             <p class="pub-venue"><span class="venue-highlight">IROS</span>, 2020</p>
             <div class="pub-links">
               <a href="https://arxiv.org/pdf/2004.11969" target="_blank" rel="noopener noreferrer">arXiv&nbsp;⤻</a>
-              <a href="https://github.com/LiXin97/Co-Planar-Parametrization-VIO" target="_blank"
-                rel="noopener noreferrer">Code&nbsp;⤻</a>
+              <a href="https://github.com/LiXin97/Co-Planar-Parametrization-VIO" target="_blank" rel="noopener noreferrer">Code&nbsp;⤻</a>
             </div>
           </article>
         </div>
@@ -541,7 +531,7 @@
     </main>
 
     <footer role="contentinfo" aria-label="Site footer with copyright and visitor statistics">
-      <p>&copy; <span id="copyright-year">2026</span> Xin Li. Last updated: January 29, 2026.</p>
+      <p>&copy; <span id="copyright-year">2026</span> Xin Li. Last updated: May 9, 2026.</p>
       <a href="https://clustrmaps.com/site/1c54q" title="Visit tracker" target="_blank" rel="noopener noreferrer">
         <img
           src="//clustrmaps.com/map_v2.png?cl=ffffff&w=120&t=n&d=B5NomgZ8KZlp6qqDI50mXbSXYjWqdeneexojuozJ7pQ&co=2d79c7&ct=000000"

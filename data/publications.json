@@ -7,6 +7,174 @@
     },
     "publications": [
         {
+            "title": "Local Success Does Not Compose: Benchmarking Large Language Models for Compositional Formal Verification",
+            "authors": [
+                "X. Xu*",
+                "Xin Li*",
+                "X. Qu",
+                "J. Fu",
+                "B. Yuan"
+            ],
+            "venue": "ICLR",
+            "year": "2026",
+            "links": [
+                {
+                    "text": "Homepage",
+                    "url": "https://dafnycomp.github.io/"
+                },
+                {
+                    "text": "arXiv",
+                    "url": "https://arxiv.org/pdf/2509.23061"
+                }
+            ]
+        },
+        {
+            "title": "WirelessMathLM: Teaching Mathematical Reasoning for LLMs in Wireless Communications with Reinforcement Learning",
+            "authors": [
+                "Xin Li",
+                "M. Liu",
+                "Y. Zhu",
+                "W. Zhang",
+                "L. Wei",
+                "J. An",
+                "C. Yuen"
+            ],
+            "venue": "arXiv",
+            "year": "2025",
+            "links": [
+                {
+                    "text": "Homepage",
+                    "url": "https://lixin.ai/WirelessMathLM/"
+                },
+                {
+                    "text": "arXiv",
+                    "url": "https://arxiv.org/pdf/2509.23219"
+                }
+            ]
+        },
+        {
+            "title": "Beyond Correctness: Evaluating Subjective Writing Preferences Across Cultures",
+            "authors": [
+                "S. Ying",
+                "Y. Li",
+                "X. Qu",
+                "Xin Li",
+                "et al.",
+                "G. Zhang",
+                "W. Huang",
+                "W. Che",
+                "C. Lin"
+            ],
+            "venue": "arXiv",
+            "year": "2025",
+            "links": [
+                {
+                    "text": "Homepage",
+                    "url": "https://WritingPreferenceBench.github.io/"
+                },
+                {
+                    "text": "arXiv",
+                    "url": "https://arxiv.org/pdf/2510.14616"
+                }
+            ]
+        },
+        {
+            "title": "COIG-Writer: A High-Quality Dataset for Chinese Creative Writing with Thought Processes",
+            "authors": [
+                "Y. Li",
+                "S. Ying",
+                "X. Qu",
+                "Xin Li",
+                "et al.",
+                "E. Zhang"
+            ],
+            "venue": "arXiv",
+            "year": "2025",
+            "links": [
+                {
+                    "text": "Homepage",
+                    "url": "https://COIG-Writer.github.io/"
+                },
+                {
+                    "text": "arXiv",
+                    "url": "https://arxiv.org/pdf/2510.14763"
+                }
+            ]
+        },
+        {
+            "title": "LACP: LLM Agent Communication Protocol Requires Urgent Standardization",
+            "authors": [
+                "Xin Li",
+                "M. Liu",
+                "C. Yuen"
+            ],
+            "venue": "AI4NextG @ NeurIPS",
+            "year": "2025",
+            "links": [
+                {
+                    "text": "Homepage",
+                    "url": "https://lixin.ai/LACP/"
+                },
+                {
+                    "text": "arXiv",
+                    "url": "https://arxiv.org/pdf/2510.13821"
+                }
+            ]
+        },
+        {
+            "title": "Re:Form: Reducing Human Priors in Scalable Formal Software Verification with RL in LLMs: A Preliminary Study on Dafny",
+            "authors": [
+                "C. Yan*",
+                "F. Che*",
+                "X. Huang*",
+                "X. Xu*",
+                "Xin Li*",
+                "Y. Li*",
+                "X. Qu*",
+                "et al.",
+                "J. Fu"
+            ],
+            "venue": "TMLR",
+            "year": "2026",
+            "links": [
+                {
+                    "text": "OpenReview",
+                    "url": "https://openreview.net/forum?id=cAQmIS4GOe"
+                },
+                {
+                    "text": "arXiv",
+                    "url": "https://arxiv.org/pdf/2507.16331"
+                },
+                {
+                    "text": "Code",
+                    "url": "https://github.com/Veri-Code"
+                }
+            ]
+        },
+        {
+            "title": "WirelessMathBench: A Mathematical Modeling Benchmark for LLMs in Wireless Communications",
+            "authors": [
+                "Xin Li",
+                "M. Liu",
+                "L. Wei",
+                "J. An",
+                "M. Debbah",
+                "C. Yuen"
+            ],
+            "venue": "Findings of ACL",
+            "year": "2025",
+            "links": [
+                {
+                    "text": "Homepage",
+                    "url": "https://lixin.ai/WirelessMathBench/"
+                },
+                {
+                    "text": "arXiv",
+                    "url": "https://arxiv.org/pdf/2505.14354"
+                }
+            ]
+        },
+        {
             "title": "Onboard Terrain Classification via Stacked Intelligent Metasurface-Diffractive Deep Neural Networks from SAR Level-0 Raw Data",
             "authors": [
                 "Mengbing Liu",
@@ -14,22 +182,21 @@
                 "Jiancheng An",
                 "Chau Yuen"
             ],
-            "venue": "ICLR ML4RS Workshop",
+            "venue": "ML4RS @ ICLR",
             "year": "2025",
             "links": [
                 {
-                    "type": "project",
-                    "url": "https://onboradsim.github.io/",
-                    "icon": "fas fa-external-link-alt",
-                    "text": "Project Homepage"
+                    "text": "Homepage",
+                    "url": "https://onboradsim.github.io/"
+                },
+                {
+                    "text": "arXiv",
+                    "url": "https://www.arxiv.org/pdf/2503.13488"
                 }
-            ],
-            "bibtex": "@article{liu2025onboard,\n  title={Onboard Terrain Classification via Stacked Intelligent Metasurface-Diffractive Deep Neural Networks from SAR Level-0 Raw Data},\n  author={Liu, Mengbing and Li, Xin and An, Jiancheng and Yuen, Chau},\n  journal={ICLR ML4RS Workshop},\n  year={2025}\n}",
-            "hidden": false,
-            "num_citations": 0
+            ]
         },
         {
-            "title": "TransPathNet: A Novel Two-Stage Framework for Indoor Radio Map Prediction",
+            "title": "TransPathNet: A Two-Stage Framework for Indoor Radio Map Prediction",
             "authors": [
                 "Xin Li",
                 "Ran Liu",
@@ -41,80 +208,18 @@
             "year": "2025",
             "links": [
                 {
-                    "type": "project",
-                    "url": "https://lixin.ai/TransPathNet/",
-                    "icon": "fas fa-external-link-alt",
-                    "text": "Project Homepage"
-                }
-            ],
-            "bibtex": "@inproceedings{li2025transpathnet,\n  title={TransPathNet: A Novel Two-Stage Framework for Indoor Radio Map Prediction},\n  author={Li, Xin and Liu, Ran and Xu, Saihua and Razul, Sirajudeen Gulam and Yuen, Chau},\n  booktitle={Proc. IEEE International Conference on Acoustics, Speech, and Signal Processing (ICASSP)},\n  year={2025},\n  month={April}\n}",
-            "hidden": false,
-            "num_citations": 1
-        },
-        {
-            "title": "Robust Gaussian Splatting SLAM by Leveraging Loop Closure",
-            "authors": [
-                "Zunjie Zhu",
-                "Youxu Fang",
-                "Xin Li",
-                "Chengang Yan",
-                "Feng Xu",
-                "Chau Yuen",
-                "Yanyan Li"
-            ],
-            "venue": "Under review",
-            "year": "2024",
-            "links": [],
-            "bibtex": "@article{zhu2024robust,\n  title={Robust Gaussian Splatting SLAM by Leveraging Loop Closure},\n  author={Zhu, Zunjie and Fang, Youxu and Li, Xin and Yan, Chengang and Xu, Feng and Yuen, Chau and Li, Yanyan},\n  journal={arXiv preprint},\n  year={2024}\n}",
-            "hidden": true,
-            "num_citations": 0
-        },
-        {
-            "title": "PVI-DSO: Leveraging Planar Regularities for Direct Sparse Visual-Inertial Odometry",
-            "authors": [
-                "Bo Xu",
-                "Xin Li",
-                "Jingrong Wang",
-                "Chau Yuen",
-                "Jiancheng Li"
-            ],
-            "venue": "IEEE Sensors Journal",
-            "year": "2023",
-            "links": [
+                    "text": "Homepage",
+                    "url": "https://lixin.ai/TransPathNet/"
+                },
                 {
-                    "type": "arxiv",
-                    "url": "https://arxiv.org/abs/2204.02635",
-                    "icon": "fas fa-external-link-alt",
-                    "text": "arXiv"
-                }
-            ],
-            "bibtex": "@article{xu2023pvi,\n  title={PVI-DSO: Leveraging Planar Regularities for Direct Sparse Visual-Inertial Odometry},\n  author={Xu, Bo and Li, Xin and Wang, Jingrong and Yuen, Chau and Li, Jiancheng},\n  journal={IEEE Sensors Journal},\n  year={2023},\n  volume={23},\n  number={15},\n  pages={17415--17425},\n  publisher={IEEE}\n}",
-            "hidden": true,
-            "num_citations": 10
-        },
-        {
-            "title": "Deep Learning-Based Channel Estimation for Double-RIS Aided Massive MIMO System",
-            "authors": [
-                "Mengbing Liu",
-                "Xin Li",
-                "Boyu Ning",
-                "Chongwen Huang",
-                "Sumei Sun",
-                "Chau Yuen"
-            ],
-            "venue": "IEEE Wireless Communications Letters (WCL)",
-            "year": "2022",
-            "links": [
+                    "text": "Code",
+                    "url": "https://github.com/LiXin97/TransPathNet"
+                },
                 {
-                    "type": "arxiv",
-                    "url": "https://arxiv.org/abs/2210.12447",
-                    "icon": "fas fa-external-link-alt",
-                    "text": "arXiv"
+                    "text": "arXiv",
+                    "url": "https://arxiv.org/pdf/2501.16023"
                 }
-            ],
-            "bibtex": "@article{liu2022deep,\n  title={Deep learning-based channel estimation for double-RIS aided massive MIMO system},\n  author={Liu, Mengbing and Li, Xin and Ning, Boyu and Huang, Chongwen and Sun, Sumei and Yuen, Chau},\n  journal={IEEE Wireless Communications Letters},\n  volume={12},\n  number={1},\n  pages={70--74},\n  year={2022},\n  publisher={IEEE}\n}",
-            "hidden": true,
-            "num_citations": 39
+            ]
         },
         {
             "title": "Co-Planar Parametrization for Stereo-SLAM and Visual-Inertial Odometry",
@@ -125,35 +230,21 @@
                 "Jinlong Lin",
                 "Federico Tombari"
             ],
-            "venue": "IEEE RA-L",
+            "venue": "IEEE Robotics and Automation Letters (RA-L)",
             "year": "2020",
-            "equalContribution": true,
             "links": [
                 {
-                    "type": "pdf",
-                    "url": "/data/RAL-2020/RA-L2020.pdf",
-                    "icon": "fas fa-file-pdf",
-                    "text": "PDF"
+                    "text": "arXiv",
+                    "url": "https://arxiv.org/pdf/2009.12662"
                 },
                 {
-                    "type": "github",
-                    "url": "https://github.com/LiXin97/Co-Planar-Parametrization-VIO",
-                    "icon": "fab fa-github",
-                    "text": "Code"
-                },
-                {
-                    "type": "arxiv",
-                    "url": "https://arxiv.org/abs/2009.12662",
-                    "icon": "fas fa-external-link-alt",
-                    "text": "arXiv"
+                    "text": "Code",
+                    "url": "https://github.com/LiXin97/Co-Planar-Parametrization-VIO"
                 }
-            ],
-            "bibtex": "@article{li2020co,\n  title={Co-planar parametrization for stereo-SLAM and visual-inertial odometry},\n  author={Li, Xin and Li, Yanyan and Örnek, Evin Pinar and Lin, Jinlong and Tombari, Federico},\n  journal={IEEE Robotics and Automation Letters},\n  volume={5},\n  number={4},\n  pages={6972--6979},\n  year={2020},\n  publisher={IEEE}\n}",
-            "hidden": false,
-            "num_citations": 31
+            ]
         },
         {
-            "title": "Leveraging Planar Regularities for Point Line Visual-Inertial Odometry",
+            "title": "Leveraging Planar Regularities for Point-Line Visual-Inertial Odometry",
             "authors": [
                 "Xin Li*",
                 "Yijia He*",
@@ -162,30 +253,16 @@
             ],
             "venue": "IROS",
             "year": "2020",
-            "equalContribution": true,
             "links": [
                 {
-                    "type": "pdf",
-                    "url": "/data/IROS-2020/IROS2020.pdf",
-                    "icon": "fas fa-file-pdf",
-                    "text": "PDF"
+                    "text": "arXiv",
+                    "url": "https://arxiv.org/pdf/2004.11969"
                 },
                 {
-                    "type": "github",
-                    "url": "https://github.com/LiXin97/Co-Planar-Parametrization-VIO",
-                    "icon": "fab fa-github",
-                    "text": "Code"
-                },
-                {
-                    "type": "arxiv",
-                    "url": "https://arxiv.org/abs/2004.11969",
-                    "icon": "fas fa-external-link-alt",
-                    "text": "arXiv"
+                    "text": "Code",
+                    "url": "https://github.com/LiXin97/Co-Planar-Parametrization-VIO"
                 }
-            ],
-            "bibtex": "@inproceedings{li2020leveraging,\n  title={Leveraging Planar Regularities for Point Line Visual-Inertial Odometry},\n  author={Li, Xin and He, Yijia and Lin, Jinlong and Liu, Xiao},\n  booktitle={2020 IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS)},\n  year={2020},\n  pages={10792--10798},\n  organization={IEEE}\n}",
-            "hidden": false,
-            "num_citations": 41
+            ]
         }
     ]
 }

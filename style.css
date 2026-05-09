@@ -5,6 +5,8 @@
   --text-muted: #666666;
   --accent-color: #000000;
   --accent-hover: #333333;
+  --accent-light: #666666;
+  --accent-gradient: linear-gradient(90deg, #000000 0%, #666666 100%);
   --border-color: #e0e0e0;
   --border-light: #f0f0f0;
   --card-bg: #ffffff;
@@ -454,6 +456,40 @@ footer img:hover {
   background: var(--card-bg);
   box-shadow: var(--card-shadow);
   transform: translateX(5px);
+}
+
+.js #news .news-extra {
+  display: none;
+}
+
+.js #news .news-extra.is-visible {
+  display: block;
+}
+
+.news-toggle {
+  display: none;
+  margin-top: 0.25rem;
+  padding: 0.45rem 0.85rem;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  background: var(--card-bg);
+  color: var(--accent-color);
+  font: inherit;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.js .news-toggle {
+  display: inline-block;
+}
+
+.news-toggle:hover {
+  background: var(--accent-color);
+  color: white;
+  box-shadow: var(--card-shadow);
+  transform: translateY(-1px);
 }
 
 #news ul li strong {
