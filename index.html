@@ -6,16 +6,26 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Xin Li @ NTU</title>
 
+  <!-- Set theme before paint to avoid a flash of the wrong theme -->
+  <script>
+    (function () {
+      try {
+        var mode = localStorage.getItem('theme') || 'system';
+        var dark = mode === 'dark' || (mode === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches);
+        document.documentElement.setAttribute('data-theme', dark ? 'dark' : 'light');
+      } catch (e) {}
+    })();
+  </script>
+
   <!-- Canonical & basic SEO -->
   <link rel="canonical" href="https://lixin.ai/" />
   <meta name="description"
     content="Xin Li - PhD student at NTU Singapore researching Large Language Models (LLMs), AI evaluation, wireless communications, and robotics. Specializing in LLM benchmarking, mathematical reasoning, and engineering automation. Published in ACL, NeurIPS, ICASSP, IEEE RA-L." />
-  <!-- (Optional) The keywords meta is ignored by most search engines; keep only if you need it elsewhere. -->
   <meta name="keywords"
     content="Xin Li, PhD, NTU, LLMs, Robotics, Wireless Communications, AI Researcher, Singapore, AI, LLM, Research, Publications, NTU Singapore" />
   <meta name="author" content="Xin Li" />
   <meta name="robots" content="index, follow" />
-  <meta name="theme-color" content="#0f172a" />
+  <meta name="theme-color" content="#F4F6F8" />
 
   <!-- Open Graph / Twitter -->
   <meta property="og:title" content="Xin Li @ NTU - LLM Research, AI Evaluation, Wireless Communications" />
@@ -41,19 +51,16 @@
   <!-- DNS prefetch for external resources -->
   <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
   <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
-  <link rel="dns-prefetch" href="https://clustrmaps.com" />
 
-  <!-- Fonts (optimize loading) -->
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500;600&family=Newsreader:opsz,wght@6..72,500;6..72,600&family=Noto+Sans+SC:wght@500;600&display=swap"
+    rel="stylesheet" />
 
   <!-- Preload LCP image for faster first paint -->
   <link rel="preload" as="image" href="/data/XinLI_profile.webp" fetchpriority="high" />
-
-  <!-- CSS & JS -->
-  <link rel="stylesheet" href="/style.css" />
-  <script src="/script.js" defer></script>
 
   <!-- Structured Data: ProfilePage with Person as mainEntity -->
   <script type="application/ld+json">
@@ -62,7 +69,7 @@
       "@type": "ProfilePage",
       "@id": "https://lixin.ai/#profile",
       "dateCreated": "2024-04-05T14:53:00+08:00",
-      "dateModified": "2026-05-09T10:00:00+08:00",
+      "dateModified": "2026-06-18T10:00:00+08:00",
       "url": "https://lixin.ai/",
       "mainEntity": {
         "@type": "Person",
@@ -98,7 +105,7 @@
     }
   </script>
 
-  <!-- Structured Data: WebSite (optional, helpful for identity) -->
+  <!-- Structured Data: WebSite -->
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -113,32 +120,122 @@
     }
   </script>
 
-  <!-- Inlined critical styles to reduce CLS; keep the rest in style.css -->
   <style>
     :root {
-      color-scheme: light dark;
+      --bg: #F4F6F8;
+      --surface: #FFFFFF;
+      --ink: #15171C;
+      --muted: #5B636E;
+      --faint: #8A929C;
+      --hairline: #E2E6EC;
+      --accent: #2540D0;
+      --accent-strong: #1B33A8;
+      --accent-wash: #E9ECFB;
+      --accent-border: #D4DAF7;
+      --hover-bg: rgba(21, 23, 28, 0.04);
+
+      --serif: "Newsreader", Georgia, "Times New Roman", serif;
+      --sans: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+      --mono: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace;
+      --cjk: "Noto Sans SC", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+
+      --maxw: 1120px;
+      --rail: 290px;
+      --gap: 56px;
+    }
+
+    [data-theme="dark"] {
+      --bg: #0F1217;
+      --surface: #161A21;
+      --ink: #E8EBF1;
+      --muted: #A3ABB9;
+      --faint: #6C7682;
+      --hairline: #272D38;
+      --accent: #7E97FF;
+      --accent-strong: #AAB9FF;
+      --accent-wash: rgba(126, 151, 255, 0.14);
+      --accent-border: rgba(126, 151, 255, 0.28);
+      --hover-bg: rgba(255, 255, 255, 0.06);
+    }
+
+    [data-theme="dark"] .rail__photo {
+      box-shadow: 0 10px 28px rgba(0, 0, 0, 0.45);
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
     }
 
     html {
       scroll-behavior: smooth;
+      -webkit-text-size-adjust: 100%;
     }
 
     body {
-      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
       margin: 0;
-      background: #ffffff;
-      color: #000000;
-      line-height: 1.7;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: var(--sans);
+      font-size: 16px;
+      line-height: 1.6;
+      font-weight: 400;
+      letter-spacing: -0.003em;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+      padding-bottom: 48px;
     }
 
-    .container {
-      max-width: 1000px;
-      padding: 1.5rem 1rem 2rem;
-      margin: 0 auto;
+    a {
+      color: var(--accent);
+      text-decoration: none;
     }
 
-    .visually-hidden {
-      position: absolute !important;
+    a:hover {
+      color: var(--accent-strong);
+      text-decoration: underline;
+      text-underline-offset: 2px;
+      text-decoration-thickness: 1px;
+    }
+
+    :focus-visible {
+      outline: 2.5px solid var(--accent);
+      outline-offset: 3px;
+      border-radius: 3px;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    /* ---------- Skip link ---------- */
+    .skip-link {
+      position: absolute;
+      left: 12px;
+      top: -100px;
+      z-index: 1000;
+      background: var(--accent);
+      color: #fff;
+      padding: 10px 16px;
+      border-radius: 6px;
+      font-family: var(--mono);
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      transition: top 0.18s ease;
+    }
+
+    .skip-link:focus {
+      top: 12px;
+      color: #fff;
+      text-decoration: none;
+    }
+
+    .sr-only {
+      position: absolute;
       width: 1px;
       height: 1px;
       padding: 0;
@@ -149,385 +246,1557 @@
       border: 0;
     }
 
-    header {
-      display: flex;
+    /* ---------- Theme switch (system / light / dark) ---------- */
+    .theme-switch {
+      position: fixed;
+      top: 18px;
+      right: 18px;
+      z-index: 1000;
+      display: inline-flex;
       align-items: center;
-      gap: 1rem;
-      margin-bottom: 2rem;
-      padding: 1.5rem;
-      background: #ffffff;
-      border-radius: 12px;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-      position: relative;
-      overflow: hidden;
+      gap: 2px;
+      background: var(--surface);
+      border: 1px solid var(--hairline);
+      border-radius: 999px;
+      padding: 3px;
+      box-shadow: 0 2px 12px rgba(21, 23, 28, 0.08);
     }
 
-    .profile-photo {
+    .theme-switch__btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 30px;
+      height: 30px;
+      padding: 0;
+      border: 0;
+      border-radius: 999px;
+      background: transparent;
+      color: var(--muted);
+      cursor: pointer;
+      transition: background 0.15s ease, color 0.15s ease;
+    }
+
+    .theme-switch__btn:hover {
+      color: var(--ink);
+      background: var(--hover-bg);
+    }
+
+    .theme-switch__btn.is-active {
+      color: #fff;
+      background: var(--accent);
+    }
+
+    [data-theme="dark"] .theme-switch__btn.is-active {
+      color: #0F1217;
+    }
+
+    .theme-switch__btn svg {
+      width: 16px;
+      height: 16px;
+    }
+
+    /* ---------- Shared mono utilities ---------- */
+    .eyebrow {
+      font-family: var(--mono);
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin: 0 0 10px;
+      display: block;
+    }
+
+    .mono {
+      font-family: var(--mono);
+    }
+
+    /* ---------- Page grid ---------- */
+    .page {
+      max-width: var(--maxw);
+      margin: 0 auto;
+      padding: 0 28px;
+      display: grid;
+      grid-template-columns: var(--rail) 1fr;
+      gap: var(--gap);
+      align-items: start;
+    }
+
+    /* ---------- Identity rail ---------- */
+    .rail {
+      position: sticky;
+      top: 2rem;
+      max-height: calc(100vh - 4rem);
+      overflow-y: auto;
+      overscroll-behavior: contain;
+      scrollbar-width: none;
+      padding: 40px 0 32px;
+    }
+
+    .rail::-webkit-scrollbar {
+      width: 0;
+      height: 0;
+    }
+
+    .rail__photo {
       width: 140px;
       height: 140px;
-      border-radius: 50%;
+      border-radius: 16px;
       object-fit: cover;
-      border: 3px solid #f0f0f0;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-      margin-left: 5rem;
-      margin-right: 0rem;
+      border: 1px solid var(--hairline);
+      box-shadow: 0 8px 24px rgba(21, 23, 28, 0.09);
+    }
+
+    .rail__name {
+      font-family: var(--serif);
+      font-weight: 600;
+      font-size: 2.3rem;
+      line-height: 1.05;
+      letter-spacing: -0.012em;
+      margin: 22px 0 0;
+      color: var(--ink);
+    }
+
+    .rail__cjk {
+      font-family: var(--cjk);
+      font-weight: 500;
+      font-size: 1.22rem;
+      color: var(--muted);
+      margin: 6px 0 0;
+      letter-spacing: 0.1em;
+    }
+
+    .rail__rule {
+      height: 2px;
+      width: 52px;
+      background: var(--accent);
+      margin: 16px 0 14px;
+      border: 0;
+    }
+
+    .rail__tags {
+      list-style: none;
+      margin: 2px 0 14px;
+      padding: 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .rail__tags li {
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.01em;
+      color: var(--accent-strong);
+      background: var(--accent-wash);
+      border-radius: 7px;
+      padding: 6px 10px;
+      line-height: 1.25;
+    }
+
+    .rail__role {
+      font-size: 0.86rem;
+      color: var(--muted);
+      margin: 0;
+      line-height: 1.45;
+    }
+
+    .rail__loc {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.82rem;
+      color: var(--muted);
+      margin: 7px 0 0;
+    }
+
+    .rail__loc svg {
+      width: 13px;
+      height: 13px;
+      flex-shrink: 0;
+      color: var(--faint);
+    }
+
+    .rail__email {
+      font-family: var(--mono);
+      font-size: 0.78rem;
+      font-weight: 500;
+      word-break: break-all;
+      display: inline-block;
+      margin-top: 11px;
+    }
+
+    /* external link chips */
+    .rail__links {
+      list-style: none;
+      margin: 18px 0 0;
+      padding: 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .rail__links a {
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+      color: var(--ink);
+      background: var(--surface);
+      border: 1px solid var(--hairline);
+      border-radius: 8px;
+      padding: 7px 11px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      min-height: 34px;
+      transition: border-color 0.15s ease, color 0.15s ease, background 0.15s ease;
+    }
+
+    .rail__links svg {
+      width: 14px;
+      height: 14px;
       flex-shrink: 0;
     }
 
-    .header-text {
-      flex: 1;
-      min-width: 280px;
-      margin-left: 0rem;
+    .rail__links a:hover {
+      color: var(--accent-strong);
+      border-color: var(--accent);
+      background: var(--accent-wash);
+      text-decoration: none;
     }
 
-    header nav ul {
-      justify-content: center;
+    /* in-page nav / scroll-spy */
+    .rail__nav {
+      margin-top: 26px;
+      border-top: 1px solid var(--hairline);
+      padding-top: 18px;
     }
 
-    @media (max-width: 768px) {
-      header {
+    .rail__nav-label {
+      font-family: var(--mono);
+      font-size: 0.62rem;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--faint);
+      margin: 0 0 8px;
+    }
+
+    .rail__nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 1px;
+    }
+
+    .rail__nav a {
+      font-family: var(--mono);
+      font-size: 0.74rem;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--muted);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 7px 10px 7px 16px;
+      border-radius: 6px;
+      position: relative;
+      min-height: 34px;
+      transition: color 0.15s ease, background 0.15s ease;
+    }
+
+    .rail__nav a::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%) scaleY(0);
+      width: 3px;
+      height: 15px;
+      background: var(--accent);
+      border-radius: 2px;
+      transition: transform 0.18s ease;
+    }
+
+    .rail__nav a:hover {
+      color: var(--ink);
+      background: var(--hover-bg);
+      text-decoration: none;
+    }
+
+    .rail__nav a.is-current {
+      color: var(--accent-strong);
+      font-weight: 600;
+      background: var(--accent-wash);
+    }
+
+    .rail__nav a.is-current::before {
+      transform: translateY(-50%) scaleY(1);
+    }
+
+    /* ---------- Content stream ---------- */
+    .stream {
+      padding: 40px 0 0;
+      min-width: 0;
+    }
+
+    .section {
+      padding: 0 0 52px;
+      margin-bottom: 52px;
+      border-bottom: 1px solid var(--hairline);
+    }
+
+    .section:last-child {
+      border-bottom: 0;
+      margin-bottom: 0;
+    }
+
+    .section__head {
+      margin-bottom: 26px;
+    }
+
+    .section__title {
+      font-family: var(--serif);
+      font-weight: 600;
+      font-size: 1.5rem;
+      line-height: 1.15;
+      letter-spacing: -0.01em;
+      margin: 0;
+      color: var(--ink);
+    }
+
+    .section__title-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 8px 20px;
+    }
+
+    /* ---------- About ---------- */
+    .about p {
+      margin: 0 0 16px;
+      max-width: 64ch;
+    }
+
+    .about p:first-of-type {
+      font-size: 1.06rem;
+      color: var(--ink);
+    }
+
+    .research {
+      list-style: none;
+      margin: 24px 0 8px;
+      padding: 0;
+      display: grid;
+      gap: 18px;
+    }
+
+    .research li {
+      padding-left: 18px;
+      border-left: 2px solid var(--accent-wash);
+    }
+
+    .research__term {
+      font-family: var(--mono);
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--accent-strong);
+      display: block;
+      margin-bottom: 3px;
+    }
+
+    .research__desc {
+      font-size: 0.95rem;
+      color: var(--muted);
+      max-width: 60ch;
+    }
+
+    .callout {
+      margin-top: 28px;
+      background: var(--accent-wash);
+      border: 1px solid var(--accent-border);
+      border-radius: 12px;
+      padding: 18px 20px;
+    }
+
+    .callout__label {
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent-strong);
+      display: block;
+      margin-bottom: 6px;
+    }
+
+    .callout p {
+      margin: 0;
+      font-size: 0.92rem;
+      color: var(--ink);
+    }
+
+    /* ---------- News ---------- */
+    .news {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: grid;
+      gap: 4px;
+    }
+
+    .news li {
+      display: grid;
+      grid-template-columns: 96px 1fr;
+      gap: 16px;
+      padding: 11px 0;
+      border-top: 1px solid var(--hairline);
+      align-items: baseline;
+    }
+
+    .news li:first-child {
+      border-top: 0;
+    }
+
+    .news__date {
+      font-family: var(--mono);
+      font-size: 0.74rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      color: var(--accent);
+      white-space: nowrap;
+    }
+
+    .news__text {
+      font-size: 0.93rem;
+      color: var(--ink);
+    }
+
+    /* news toggle: hidden only when JS is on */
+    .js .news-extra {
+      display: none;
+    }
+
+    .js .news-extra.is-visible {
+      display: grid;
+    }
+
+    .news-toggle {
+      margin-top: 18px;
+      font-family: var(--mono);
+      font-size: 0.74rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--accent);
+      background: none;
+      border: 0;
+      border-bottom: 1.5px solid var(--accent-wash);
+      padding: 6px 2px;
+      cursor: pointer;
+      min-height: 40px;
+      transition: color 0.15s ease, border-color 0.15s ease;
+    }
+
+    .news-toggle:hover {
+      color: var(--accent-strong);
+      border-color: var(--accent);
+    }
+
+    .news-toggle::after {
+      content: " →";
+    }
+
+    .news-toggle[aria-expanded="true"]::after {
+      content: " ↑";
+    }
+
+    /* hide toggle entirely if JS off */
+    .news-toggle {
+      display: none;
+    }
+
+    .js .news-toggle {
+      display: inline-block;
+    }
+
+    /* ---------- Publications ---------- */
+    .pub-note {
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.02em;
+      color: var(--faint);
+    }
+
+    .pub-note a {
+      font-weight: 600;
+    }
+
+    .pub-group {
+      display: grid;
+      grid-template-columns: 64px 1fr;
+      gap: 0 20px;
+      margin-bottom: 8px;
+    }
+
+    .pub-group__year {
+      font-family: var(--mono);
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--faint);
+      padding-top: 22px;
+      position: sticky;
+      top: 2rem;
+      align-self: start;
+    }
+
+    .pub-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .pub {
+      padding: 20px 0;
+      border-top: 1px solid var(--hairline);
+    }
+
+    .pub-group:first-of-type .pub-list .pub:first-child {
+      border-top: 0;
+    }
+
+    .pub__top {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 6px 16px;
+    }
+
+    .pub__title {
+      font-family: var(--serif);
+      font-weight: 600;
+      font-size: 1.12rem;
+      line-height: 1.25;
+      letter-spacing: -0.008em;
+      margin: 0;
+      flex: 1 1 60%;
+      min-width: 0;
+    }
+
+    .pub__title a {
+      color: var(--ink);
+    }
+
+    .pub__title a:hover {
+      color: var(--accent-strong);
+    }
+
+    .venue {
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+      color: var(--accent-strong);
+      background: var(--accent-wash);
+      border-radius: 6px;
+      padding: 4px 9px;
+      white-space: nowrap;
+      flex: 0 0 auto;
+      align-self: flex-start;
+    }
+
+    .pub__authors {
+      font-size: 0.88rem;
+      color: var(--muted);
+      margin: 7px 0 0;
+    }
+
+    .pub__authors b {
+      color: var(--ink);
+      font-weight: 600;
+    }
+
+    .pub__links {
+      margin: 10px 0 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+    }
+
+    .chip {
+      font-family: var(--mono);
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+      color: var(--accent);
+      border: 1px solid var(--hairline);
+      border-radius: 6px;
+      padding: 4px 9px;
+      min-height: 28px;
+      display: inline-flex;
+      align-items: center;
+      transition: border-color 0.15s ease, background 0.15s ease, color 0.15s ease;
+    }
+
+    .chip:hover {
+      border-color: var(--accent);
+      background: var(--accent-wash);
+      color: var(--accent-strong);
+      text-decoration: none;
+    }
+
+    /* ---------- Timeline (experience / education) ---------- */
+    .timeline {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: grid;
+      gap: 22px;
+    }
+
+    .timeline li {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 4px 20px;
+      align-items: baseline;
+    }
+
+    .tl__role {
+      font-family: var(--serif);
+      font-weight: 600;
+      font-size: 1.05rem;
+      color: var(--ink);
+      line-height: 1.25;
+    }
+
+    .tl__period {
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      font-weight: 600;
+      color: var(--faint);
+      white-space: nowrap;
+      letter-spacing: 0.02em;
+    }
+
+    .tl__detail {
+      grid-column: 1 / -1;
+      font-size: 0.88rem;
+      color: var(--muted);
+      margin: 0;
+    }
+
+    /* ---------- Awards ---------- */
+    .awards-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 36px;
+    }
+
+    .awards-grid h3 {
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent-strong);
+      margin: 0 0 14px;
+    }
+
+    .awards-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: grid;
+      gap: 12px;
+    }
+
+    .awards-list li {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 4px 14px;
+      align-items: baseline;
+      padding-bottom: 11px;
+      border-bottom: 1px solid var(--hairline);
+    }
+
+    .awards-list li:last-child {
+      border-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .award__name {
+      font-size: 0.92rem;
+      color: var(--ink);
+      font-weight: 500;
+    }
+
+    .award__year {
+      font-family: var(--mono);
+      font-size: 0.74rem;
+      font-weight: 600;
+      color: var(--faint);
+    }
+
+    /* ---------- Talks ---------- */
+    .talks {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: grid;
+      gap: 24px;
+    }
+
+    .talk__title {
+      font-family: var(--serif);
+      font-weight: 600;
+      font-size: 1.05rem;
+      line-height: 1.3;
+      color: var(--ink);
+      margin: 0 0 6px;
+    }
+
+    .talk__meta {
+      font-size: 0.88rem;
+      color: var(--muted);
+      margin: 0 0 8px;
+    }
+
+    .talk__date {
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      font-weight: 600;
+      color: var(--faint);
+      letter-spacing: 0.02em;
+    }
+
+    /* ---------- Service ---------- */
+    .service {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: grid;
+      gap: 18px;
+    }
+
+    .service__cat {
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent-strong);
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    .service__items {
+      font-size: 0.93rem;
+      color: var(--ink);
+    }
+
+    /* ---------- Footer ---------- */
+    footer {
+      max-width: var(--maxw);
+      margin: 0 auto;
+      padding: 28px 28px 8px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      border-top: 1px solid var(--hairline);
+    }
+
+    .footer__text {
+      font-family: var(--mono);
+      font-size: 0.74rem;
+      color: var(--muted);
+      letter-spacing: 0.01em;
+    }
+
+    .footer__map img {
+      border-radius: 6px;
+      opacity: 0.92;
+    }
+
+    /* ---------- Responsive ---------- */
+    @media (max-width: 900px) {
+      .page {
+        grid-template-columns: 1fr;
+        gap: 8px;
+        padding: 0 22px;
+      }
+
+      .rail {
+        position: static;
+        max-height: none;
+        overflow: visible;
+        padding: 32px 0 8px;
+        border-bottom: 1px solid var(--hairline);
+        margin-bottom: 8px;
+      }
+
+      .rail__name {
+        font-size: 2.1rem;
+      }
+
+      .rail__nav {
+        margin-top: 22px;
+      }
+
+      .rail__nav ul {
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 6px;
+      }
+
+      .rail__nav a {
+        padding: 9px 12px;
+        border: 1px solid var(--hairline);
+        border-radius: 7px;
+        min-height: 40px;
+      }
+
+      .rail__nav a::before {
+        display: none;
+      }
+
+      .rail__nav a.is-current {
+        background: var(--accent-wash);
+        border-color: var(--accent);
+      }
+
+      .stream {
+        padding: 16px 0 0;
+      }
+
+      .awards-grid {
+        grid-template-columns: 1fr;
+        gap: 28px;
+      }
+
+      .pub-group {
+        grid-template-columns: 1fr;
+        gap: 0;
+      }
+
+      .pub-group__year {
+        position: static;
+        padding: 0 0 4px;
+        font-size: 0.82rem;
+        letter-spacing: 0.08em;
+      }
+    }
+
+    @media (max-width: 560px) {
+      body {
+        font-size: 15px;
+      }
+
+      .news li {
+        grid-template-columns: 1fr;
+        gap: 2px;
+      }
+
+      .pub__top {
         flex-direction: column;
-        text-align: center;
-        gap: 1.5rem;
-        padding: 1.25rem 1rem;
       }
 
-      .profile-photo {
-        width: 120px;
-        height: 120px;
-        margin-left: 0;
+      .venue {
+        align-self: flex-start;
       }
 
-      .container {
-        padding: 1rem 0.75rem 1.5rem;
+      .timeline li,
+      .awards-list li {
+        grid-template-columns: 1fr;
+      }
+
+      .tl__period,
+      .award__year {
+        order: -1;
+      }
+
+      footer {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        animation-duration: 0.001ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.001ms !important;
       }
     }
   </style>
 </head>
 
 <body>
-  <a class="visually-hidden" href="#main-content">Skip to main content</a>
-  <div class="container">
-    <header role="banner" aria-label="Site header with profile and navigation">
-      <!-- Use eager loading & high fetch priority for LCP hero image -->
-      <img src="data/XinLI_profile.webp" alt="Xin Li - PhD student at NTU Singapore researching LLMs and AI"
-        class="profile-photo" loading="eager" decoding="async" fetchpriority="high" width="140" height="140" />
-      <div class="header-text">
-        <h1>Xin Li (李鑫)</h1>
-        <p class="tagline">LLM evaluation, domain reasoning, and multi-agent systems</p>
-        <p>Ph.D. Student, <a href="https://www.ntu.edu.sg/" target="_blank" rel="noopener noreferrer me">Nanyang
-            Technological University</a></p>
-        <p class="email">Email: <a href="mailto:xin019@e.ntu.edu.sg">xin019@e.ntu.edu.sg</a></p>
-        <nav aria-label="Primary">
-          <ul
-            style="list-style: none; padding: 0; margin: 0; display:flex; gap:.75rem; flex-wrap: wrap; justify-content:center;">
-            <li><a href="#news">News</a></li>
-            <li><a href="#publications">Publications</a></li>
-            <li><a href="/data/Xin_Li_CV_2026.pdf" target="_blank" rel="noopener noreferrer"
-                aria-label="Open CV in a new tab">CV&nbsp;⤻</a></li>
-            <li><a href="https://scholar.google.com/citations?user=Hxf8sNkAAAAJ" target="_blank"
-                rel="noopener noreferrer">Google Scholar&nbsp;⤻</a></li>
-            <li><a href="https://github.com/LiXin97" target="_blank" rel="noopener noreferrer me">GitHub&nbsp;⤻</a></li>
-            <li><a href="https://www.linkedin.com/in/xin-li-1196331a0/" target="_blank"
-                rel="noopener noreferrer me">LinkedIn&nbsp;⤻</a></li>
-          </ul>
-        </nav>
-      </div>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <div class="theme-switch" role="group" aria-label="Color theme">
+    <button type="button" class="theme-switch__btn" data-mode="system" aria-pressed="true"
+      aria-label="Theme: match system" title="System">
+      <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"
+        aria-hidden="true">
+        <rect x="1.5" y="2.5" width="13" height="9" rx="1.3" />
+        <path d="M5.5 14h5M8 11.5V14" stroke-linecap="round" />
+      </svg>
+    </button>
+    <button type="button" class="theme-switch__btn" data-mode="light" aria-pressed="false" aria-label="Theme: light"
+      title="Light">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+        aria-hidden="true">
+        <circle cx="12" cy="12" r="4" />
+        <path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M19.1 4.9l-1.4 1.4M6.3 17.7l-1.4 1.4" />
+      </svg>
+    </button>
+    <button type="button" class="theme-switch__btn" data-mode="dark" aria-pressed="false" aria-label="Theme: dark"
+      title="Dark">
+      <svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
+        <path d="M6 1.6A6.4 6.4 0 1 0 14.4 10 5 5 0 0 1 6 1.6z" />
+      </svg>
+    </button>
+  </div>
+
+  <div class="page">
+    <!-- ============ IDENTITY RAIL ============ -->
+    <header class="rail">
+      <img class="rail__photo" src="/data/XinLI_profile.webp" alt="Portrait of Xin Li" width="140"
+        height="140" loading="eager" decoding="async" fetchpriority="high" />
+      <h1 class="rail__name">Xin Li</h1>
+      <p class="rail__cjk" lang="zh-Hans">李鑫</p>
+      <hr class="rail__rule" />
+      <ul class="rail__tags" aria-label="Research areas">
+        <li>LLM Evaluation</li>
+        <li>Post-training</li>
+        <li>Multi-Agent Systems</li>
+      </ul>
+      <p class="rail__role">Ph.D. Student, <a href="https://www.ntu.edu.sg/" target="_blank"
+          rel="noopener noreferrer">Nanyang Technological University (NTU)</a></p>
+      <p class="rail__loc">
+        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true">
+          <path d="M8 14.5s5-4.13 5-8a5 5 0 1 0-10 0c0 3.87 5 8 5 8z" />
+          <circle cx="8" cy="6.4" r="1.8" />
+        </svg>
+        Singapore
+      </p>
+      <a class="rail__email" href="mailto:xin019@e.ntu.edu.sg">xin019@e.ntu.edu.sg</a>
+
+      <ul class="rail__links">
+        <li><a href="/data/Xin_Li_CV_2026.pdf" target="_blank" rel="noopener noreferrer" aria-label="Curriculum Vitae (PDF)">
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"
+              stroke-linejoin="round" aria-hidden="true">
+              <path d="M9 1.75H4.5A1.5 1.5 0 0 0 3 3.25v9.5a1.5 1.5 0 0 0 1.5 1.5h7a1.5 1.5 0 0 0 1.5-1.5V5.75z" />
+              <path d="M9 1.75v4h4" />
+              <path d="M5.75 8.75h4.5M5.75 11h3" />
+            </svg>CV</a></li>
+        <li><a href="https://scholar.google.com/citations?user=Hxf8sNkAAAAJ" target="_blank"
+            rel="noopener noreferrer" aria-label="Google Scholar">
+            <svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
+              <path d="M8 1 0 5l8 4 8-4zM3.5 8.6V10.9c0 1.1 2 2 4.5 2s4.5-.9 4.5-2V8.6L8 10.85z" />
+            </svg>Scholar</a></li>
+        <li><a href="https://github.com/LiXin97" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+            <svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
+              <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82a7.65 7.65 0 0 1 4 0c1.53-1.03 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z" />
+            </svg>GitHub</a></li>
+        <li><a href="https://www.linkedin.com/in/xin-li-1196331a0/" target="_blank"
+            rel="noopener noreferrer" aria-label="LinkedIn">
+            <svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
+              <path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854zm4.943 12.248V6.169H2.542v7.225zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248S2.4 3.226 2.4 3.934c0 .694.521 1.248 1.327 1.248zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016l.016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225z" />
+            </svg>LinkedIn</a></li>
+      </ul>
+
+      <nav class="rail__nav" aria-label="Sections of this page">
+        <p class="rail__nav-label">On this page</p>
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#news">News</a></li>
+          <li><a href="#publications">Publications</a></li>
+          <li><a href="#experience">Experience</a></li>
+          <li><a href="#education">Education</a></li>
+          <li><a href="#awards">Awards</a></li>
+          <li><a href="#talks">Talks</a></li>
+          <li><a href="#service">Service</a></li>
+        </ul>
+      </nav>
     </header>
 
-    <main id="main-content" role="main">
-      <section id="bio" aria-labelledby="bio-heading">
-        <h2 id="bio-heading">About Me</h2>
-        <p>
-          I am a Ph.D. student at
-          <a href="https://www.ntu.edu.sg/" target="_blank" rel="noopener noreferrer">Nanyang Technological University
-            (NTU)</a>,
-          advised by Prof. <a href="https://blogs.ntu.edu.sg/chau-yuen/" target="_blank" rel="noopener noreferrer">Chau
-            Yuen</a>.
-          My research develops benchmarks, training methods, and agent systems for verifiable and domain-specific
-          reasoning in Large Language Models (LLMs).
-        </p>
+    <!-- ============ CONTENT STREAM ============ -->
+    <main id="main" class="stream">
 
-        <ul>
-          <li><strong>LLM Evaluation</strong> - Trustworthy benchmarks for reasoning and generalization, including
-            <a href="https://dafnycomp.github.io/" target="_blank" rel="noopener noreferrer">DafnyComp</a>,
-            <a href="https://lixin.ai/WirelessMathBench/" target="_blank" rel="noopener noreferrer">WirelessMathBench</a>,
-            <a href="https://WritingPreferenceBench.github.io/" target="_blank"
-              rel="noopener noreferrer">WritingPreferenceBench</a>,
-            and <a href="https://robustmad.github.io/" target="_blank" rel="noopener noreferrer">RobustMAD</a>.
+      <!-- ---- About ---- -->
+      <section id="about" class="section about" aria-labelledby="about-h">
+        <div class="section__head">
+          <span class="eyebrow">Profile</span>
+          <h2 id="about-h" class="section__title">About</h2>
+        </div>
+
+        <p>I am a Ph.D. student at <a href="https://www.ntu.edu.sg/" target="_blank"
+            rel="noopener noreferrer">Nanyang Technological University (NTU)</a>, advised by <a
+            href="https://blogs.ntu.edu.sg/chau-yuen/" target="_blank" rel="noopener noreferrer">Prof. Chau
+            Yuen</a>. My research develops benchmarks, post-training methods, and multi-agent systems that help
+          Large Language Models (LLMs) reason reliably&mdash;verifiably and in specialized domains.</p>
+
+        <ul class="research">
+          <li>
+            <span class="research__term">LLM Evaluation</span>
+            <span class="research__desc">Trustworthy benchmarks for reasoning and generalization, including <a
+                href="https://dafnycomp.github.io/" target="_blank" rel="noopener noreferrer">DafnyComp</a>, <a
+                href="https://lixin.ai/WirelessMathBench/" target="_blank"
+                rel="noopener noreferrer">WirelessMathBench</a>, <a href="https://WritingPreferenceBench.github.io/"
+                target="_blank" rel="noopener noreferrer">WritingPreferenceBench</a>, and <a
+                href="https://robustmad.github.io/" target="_blank" rel="noopener noreferrer">RobustMAD</a>.</span>
           </li>
-
-          <li><strong>Domain LLMs</strong> - Adapting foundation models to engineering domains such as wireless
-            communications and formal verification, including <a href="https://lixin.ai/WirelessMathLM/" target="_blank"
-              rel="noopener noreferrer">WirelessMathLM</a> and <a href="https://arxiv.org/pdf/2507.16331"
-              target="_blank" rel="noopener noreferrer">Re:Form</a>.
+          <li>
+            <span class="research__term">Post-training</span>
+            <span class="research__desc">Training methods, especially reinforcement learning, that teach LLMs to reason
+              in specialized domains such as wireless communications and formal verification, including <a
+                href="https://lixin.ai/WirelessMathLM/" target="_blank"
+                rel="noopener noreferrer">WirelessMathLM</a> and <a href="https://arxiv.org/pdf/2507.16331"
+                target="_blank" rel="noopener noreferrer">Re:Form</a>, with ongoing work on agentic RL and on-policy distillation (OPD).</span>
           </li>
-
-          <li><strong>Multi-Agent Systems</strong> - Agent communication protocols and memory mechanisms, including
-            <a href="https://lixin.ai/LACP/" target="_blank" rel="noopener noreferrer">LACP</a> and ongoing work on
-            shared-memory structures for autonomous agents.
+          <li>
+            <span class="research__term">Multi-Agent Systems</span>
+            <span class="research__desc">Agent communication protocols and memory mechanisms, including <a
+                href="https://lixin.ai/LACP/" target="_blank" rel="noopener noreferrer">LACP</a> and ongoing work on
+              shared-memory structures for autonomous agents.</span>
           </li>
         </ul>
 
-        <p>
-          Previously at <strong>MSRA</strong>, <strong>MEGVII</strong>, and <strong>Gausium Robotics</strong>, I led
-          perception projects from prototype to deployment across SLAM, VIO, and radio/vision stacks.
-        </p>
+        <p>Previously at MSRA, MEGVII, and Gausium Robotics, I led perception projects from prototype to deployment
+          across SLAM, VIO, and radio/vision stacks.</p>
+        <p>I received my M.E. from <a href="https://www.pku.edu.cn/" target="_blank"
+            rel="noopener noreferrer">Peking University</a> and my B.E. from <a href="https://www.neuq.edu.cn/"
+            target="_blank" rel="noopener noreferrer">Northeastern University, China</a>.</p>
 
-        <p>
-          I received my M.E. from <a href="https://www.pku.edu.cn/" target="_blank" rel="noopener noreferrer">Peking
-            University</a> and my B.E. from
-          <a href="https://www.neuq.edu.cn/" target="_blank" rel="noopener noreferrer">Northeastern University,
-            China</a>.
-        </p>
-
-        <p>
-          <strong>Open to Collaboration:</strong> If you are interested in academic collaboration on LLMs, agents, or
-          engineering applications, please email me at <a
-            href="mailto:xin019@e.ntu.edu.sg">xin019@e.ntu.edu.sg</a>.
-        </p>
-        <!-- <p>
-          I am actively looking for <strong>research internship opportunities</strong>. If you have any
-          openings, I'd love to hear from you!
-        </p> -->
-      </section>
-      <section id="news" aria-live="polite" aria-labelledby="news-heading">
-        <h2 id="news-heading">Recent News</h2>
-        <ul id="news-list">
-          <li><strong>Jun 2026:</strong> Our paper, <a href="https://robustmad.github.io/" target="_blank"
-              rel="noopener noreferrer"><strong>RobustMAD: Evaluating Real-World Robustness of Multimodal Small Language Models for Deployable Anomaly Detection Assistants</strong></a>, was accepted to <strong>TMLR</strong>.</li>
-          <li><strong>May 2026:</strong> Our paper, <a href="https://arxiv.org/pdf/2507.16331" target="_blank"
-              rel="noopener noreferrer"><strong>Re:Form: Reducing Human Priors in Scalable Formal Software Verification with RL in LLMs</strong></a>, was accepted to <strong>TMLR</strong>.</li>
-          <li><strong>Apr 2026:</strong> Our paper, <a href="https://lixin.ai/" target="_blank"
-              rel="noopener noreferrer"><strong>LiveCANNBench: Benchmark SWE AI Coding for Ascend CANN</strong></a>, was accepted to <strong>Findings of ACL 2026</strong>.</li>
-          <li><strong>Jan 2026:</strong> Our paper, <a href="https://dafnycomp.github.io/" target="_blank"
-              rel="noopener noreferrer"><strong>Local Success Does Not Compose (DafnyComp)</strong></a>, was accepted to <strong>ICLR 2026</strong>.</li>
-          <li><strong>Dec 2025:</strong> Received the <strong>Rohde & Schwarz Award</strong> at the IEEE 6G Summit Singapore.</li>
-          <li><strong>Sep 2025:</strong> Our paper, <a href="https://lixin.ai/LACP/" target="_blank"
-              rel="noopener noreferrer"><strong>LACP: LLM Agent Communication Protocol</strong></a>, was accepted to <a
-              href="https://ai4nextg.github.io/" target="_blank" rel="noopener noreferrer"><strong>AI4NextG @ NeurIPS
-                2025</strong></a>.</li>
-          <li class="news-extra"><strong>May 2025:</strong> Our paper, <a href="https://lixin.ai/WirelessMathBench/" target="_blank"
-              rel="noopener noreferrer"><strong>WirelessMathBench</strong></a>, was accepted to <strong>Findings of ACL
-              2025</strong>.</li>
-          <li class="news-extra"><strong>May 2025:</strong> Our workshop on <a href="https://4drobotics-iros2025.github.io/"
-              target="_blank" rel="noopener noreferrer"><strong>Advancements for Intelligent Robotics in 4D
-                Scenes</strong></a> at <strong>IROS 2025</strong> was accepted.</li>
-          <li class="news-extra"><strong>Mar 2025:</strong> Our paper, <a href="https://onboradsim.github.io/" target="_blank"
-              rel="noopener noreferrer"><strong>Onboard Terrain Classification via SIM-DNN</strong></a>, was accepted to
-            the <a href="https://ml-for-rs.github.io/iclr2025/" target="_blank" rel="noopener noreferrer"><strong>ML4RS
-                @ ICLR 2025</strong></a>.</li>
-          <li class="news-extra"><strong>Jan 2025:</strong> Our paper, <a href="https://lixin.ai/TransPathNet/" target="_blank"
-              rel="noopener noreferrer"><strong>TransPathNet</strong></a>, was accepted to <strong>ICASSP 2025</strong>
-            (ranked 4th in the Indoor Pathloss Challenge).</li>
-          <li class="news-extra"><strong>Jan 2025:</strong> Started my Ph.D. at NTU, supported by the NTU Research Scholarship.</li>
-        </ul>
-        <button class="news-toggle" type="button" aria-expanded="false" aria-controls="news-list">View older news</button>
-      </section>
-      <section id="publications" aria-labelledby="publications-heading">
-        <h2 id="publications-heading">Selected Publications</h2>
-        <p class="section-note">
-          (* indicates equal contribution. For a full list, please see my <a
-            href="https://scholar.google.com/citations?user=Hxf8sNkAAAAJ" target="_blank"
-            rel="noopener noreferrer">Google Scholar&nbsp;⤻</a>.)
-        </p>
-        <div class="publication-grid" role="list">
-
-          <article class="publication-item" role="listitem">
-            <p class="pub-title">Local Success Does Not Compose: Benchmarking Large Language Models for Compositional Formal Verification</p>
-            <p class="pub-authors">X. Xu*, <u><strong>Xin Li*</strong></u>, X. Qu, J. Fu, B. Yuan</p>
-            <p class="pub-venue"><span class="venue-highlight">ICLR</span>, 2026</p>
-            <div class="pub-links">
-              <a href="https://dafnycomp.github.io/" target="_blank" rel="noopener noreferrer">Homepage&nbsp;⤻</a>
-              <a href="https://arxiv.org/pdf/2509.23061" target="_blank" rel="noopener noreferrer">arXiv&nbsp;⤻</a>
-            </div>
-          </article>
-          <article class="publication-item" role="listitem">
-            <p class="pub-title">Re:Form: Reducing Human Priors in Scalable Formal Software Verification with RL in LLMs: A Preliminary Study on Dafny</p>
-            <p class="pub-authors">C. Yan*, F. Che*, X. Huang*, X. Xu*, <u><strong>Xin Li*</strong></u>, Y. Li*, X. Qu*, et al., J. Fu</p>
-            <p class="pub-venue"><span class="venue-highlight">TMLR</span>, 2026</p>
-            <div class="pub-links">
-              <a href="https://openreview.net/forum?id=cAQmIS4GOe" target="_blank" rel="noopener noreferrer">OpenReview&nbsp;⤻</a>
-              <a href="https://arxiv.org/pdf/2507.16331" target="_blank" rel="noopener noreferrer">arXiv&nbsp;⤻</a>
-              <a href="https://github.com/Veri-Code" target="_blank" rel="noopener noreferrer">Code&nbsp;⤻</a>
-            </div>
-          </article>
-          <article class="publication-item" role="listitem">
-            <p class="pub-title">WirelessMathLM: Teaching Mathematical Reasoning for LLMs in Wireless Communications with Reinforcement Learning</p>
-            <p class="pub-authors"><u><strong>Xin Li</strong></u>, M. Liu, Y. Zhu, W. Zhang, L. Wei, J. An, C. Yuen</p>
-            <p class="pub-venue"><span class="venue-highlight">arXiv</span>, 2025</p>
-            <div class="pub-links">
-              <a href="https://lixin.ai/WirelessMathLM/" target="_blank" rel="noopener noreferrer">Homepage&nbsp;⤻</a>
-              <a href="https://arxiv.org/pdf/2509.23219" target="_blank" rel="noopener noreferrer">arXiv&nbsp;⤻</a>
-            </div>
-          </article>
-          <article class="publication-item" role="listitem">
-            <p class="pub-title">Beyond Correctness: Evaluating Subjective Writing Preferences Across Cultures</p>
-            <p class="pub-authors">S. Ying, Y. Li, X. Qu, <u><strong>Xin Li</strong></u>, et al., G. Zhang, W. Huang, W. Che, C. Lin</p>
-            <p class="pub-venue"><span class="venue-highlight">arXiv</span>, 2025</p>
-            <div class="pub-links">
-              <a href="https://WritingPreferenceBench.github.io/" target="_blank" rel="noopener noreferrer">Homepage&nbsp;⤻</a>
-              <a href="https://arxiv.org/pdf/2510.14616" target="_blank" rel="noopener noreferrer">arXiv&nbsp;⤻</a>
-            </div>
-          </article>
-          <article class="publication-item" role="listitem">
-            <p class="pub-title">LACP: LLM Agent Communication Protocol Requires Urgent Standardization</p>
-            <p class="pub-authors"><u><strong>Xin Li</strong></u>, M. Liu, C. Yuen</p>
-            <p class="pub-venue"><span class="venue-highlight">AI4NextG @ NeurIPS</span>, 2025</p>
-            <div class="pub-links">
-              <a href="https://lixin.ai/LACP/" target="_blank" rel="noopener noreferrer">Homepage&nbsp;⤻</a>
-              <a href="https://arxiv.org/pdf/2510.13821" target="_blank" rel="noopener noreferrer">arXiv&nbsp;⤻</a>
-            </div>
-          </article>
-          <article class="publication-item" role="listitem">
-            <p class="pub-title">WirelessMathBench: A Mathematical Modeling Benchmark for LLMs in Wireless Communications</p>
-            <p class="pub-authors"><u><strong>Xin Li</strong></u>, M. Liu, L. Wei, J. An, M. Debbah, C. Yuen</p>
-            <p class="pub-venue"><span class="venue-highlight">Findings of ACL</span>, 2025</p>
-            <div class="pub-links">
-              <a href="https://lixin.ai/WirelessMathBench/" target="_blank" rel="noopener noreferrer">Homepage&nbsp;⤻</a>
-              <a href="https://arxiv.org/pdf/2505.14354" target="_blank" rel="noopener noreferrer">arXiv&nbsp;⤻</a>
-            </div>
-          </article>
-          <article class="publication-item" role="listitem">
-            <p class="pub-title">TransPathNet: A Two-Stage Framework for Indoor Radio Map Prediction</p>
-            <p class="pub-authors"><u><strong>Xin Li</strong></u>, Ran Liu, Saihua Xu, Sirajudeen Gulam Razul, Chau Yuen</p>
-            <p class="pub-venue"><span class="venue-highlight">ICASSP</span>, 2025</p>
-            <div class="pub-links">
-              <a href="https://lixin.ai/TransPathNet/" target="_blank" rel="noopener noreferrer">Homepage&nbsp;⤻</a>
-              <a href="https://github.com/LiXin97/TransPathNet" target="_blank" rel="noopener noreferrer">Code&nbsp;⤻</a>
-              <a href="https://arxiv.org/pdf/2501.16023" target="_blank" rel="noopener noreferrer">arXiv&nbsp;⤻</a>
-            </div>
-          </article>
-          <article class="publication-item" role="listitem">
-            <p class="pub-title">Co-Planar Parametrization for Stereo-SLAM and Visual-Inertial Odometry</p>
-            <p class="pub-authors"><u><strong>Xin Li*</strong></u>, Yanyan Li*, Evin Pinar Örnek, Jinlong Lin, Federico Tombari</p>
-            <p class="pub-venue"><span class="venue-highlight">IEEE Robotics and Automation Letters (RA-L)</span>, 2020</p>
-            <div class="pub-links">
-              <a href="https://arxiv.org/pdf/2009.12662" target="_blank" rel="noopener noreferrer">arXiv&nbsp;⤻</a>
-              <a href="https://github.com/LiXin97/Co-Planar-Parametrization-VIO" target="_blank" rel="noopener noreferrer">Code&nbsp;⤻</a>
-            </div>
-          </article>
-          <article class="publication-item" role="listitem">
-            <p class="pub-title">Leveraging Planar Regularities for Point-Line Visual-Inertial Odometry</p>
-            <p class="pub-authors"><u><strong>Xin Li*</strong></u>, Yijia He*, Jinlong Lin, Xiao Liu</p>
-            <p class="pub-venue"><span class="venue-highlight">IROS</span>, 2020</p>
-            <div class="pub-links">
-              <a href="https://arxiv.org/pdf/2004.11969" target="_blank" rel="noopener noreferrer">arXiv&nbsp;⤻</a>
-              <a href="https://github.com/LiXin97/Co-Planar-Parametrization-VIO" target="_blank" rel="noopener noreferrer">Code&nbsp;⤻</a>
-            </div>
-          </article>
+        <div class="callout">
+          <span class="callout__label">Open to Collaboration</span>
+          <p>I'm always glad to talk about research or collaborations in LLM evaluation, post-training, and
+            multi-agent systems&mdash;just email me at <a href="mailto:xin019@e.ntu.edu.sg">xin019@e.ntu.edu.sg</a>.</p>
         </div>
       </section>
 
-      <section id="experience" aria-labelledby="experience-heading">
-        <h2 id="experience-heading">Experience</h2>
-        <ul>
-          <li><strong>Research Assistant</strong> @ <strong>NTU Singapore</strong> (Apr 2024 - Jan 2025) - Supervised by
-            <a href="https://blogs.ntu.edu.sg/chau-yuen/" target="_blank" rel="noopener noreferrer">Prof. Chau Yuen</a>,
-            IEEE Fellow
-          </li>
-          <li><strong>SLAM Algorithm Engineer</strong> @ <strong>Gausium Robotics</strong>, Singapore (Mar 2022 - Feb
-            2024)</li>
-          <li><strong>Research Intern</strong> @ <strong>Microsoft Research Asia</strong>, Beijing (Sep 2020 - Mar 2021)
-            - Supervised by <a href="https://xueyuhanlang.github.io/" target="_blank" rel="noopener noreferrer">Dr. Yang
-              Liu</a> and <a href="https://yizhongzhang1989.github.io/" target="_blank" rel="noopener noreferrer">Dr.
-              Yizhong Zhang</a></li>
-          <li><strong>Research Intern</strong> @ <strong>MEGVII</strong>, Beijing (Feb 2019 - Mar 2020) - Supervised by
-            <a href="https://www.researchgate.net/profile/He-Yijia" target="_blank" rel="noopener noreferrer">Dr. Yijia
-              He</a>
-          </li>
-        </ul>
-      </section>
+      <!-- ---- News ---- -->
+      <section id="news" class="section" aria-labelledby="news-h">
+        <div class="section__head">
+          <span class="eyebrow">Recent</span>
+          <h2 id="news-h" class="section__title">News</h2>
+        </div>
 
-      <section id="education" aria-labelledby="education-heading">
-        <h2 id="education-heading">Education</h2>
-        <ul>
-          <li><strong>Ph.D.</strong> @ <a href="https://www.ntu.edu.sg/" target="_blank"
-              rel="noopener noreferrer"><strong>Nanyang Technological University</strong></a>, Singapore (2025 - 2029
-            expected) - Supervised by <a href="https://blogs.ntu.edu.sg/chau-yuen/" target="_blank"
-              rel="noopener noreferrer">Prof. Chau Yuen</a>, IEEE Fellow.</li>
-          <li><strong>M.E.</strong> @ <a href="https://www.pku.edu.cn/" target="_blank"
-              rel="noopener noreferrer"><strong>Peking University</strong></a>, China (2018 - 2021) - Supervised by <a
-              href="https://www.ss.pku.edu.cn/teacherteam/teacherlist/1652-%E6%9E%97%E9%87%91%E9%BE%99.html"
-              target="_blank" rel="noopener noreferrer">Prof. Jinlong Lin</a>.</li>
-          <li><strong>B.E.</strong> @ <a href="https://www.neuq.edu.cn/" target="_blank"
-              rel="noopener noreferrer"><strong>Northeastern University</strong></a>, China (2014 - 2018).</li>
-        </ul>
-      </section>
-
-      <section id="awards" aria-labelledby="awards-heading">
-        <h2 id="awards-heading">Grants & Awards</h2>
-        <ul>
+        <ul class="news">
           <li>
-            <strong>Research Grants</strong>
-            <ul style="margin-top: 0.5rem; margin-bottom: 1rem; list-style-type: circle;">
-              <li><strong>Google Gemini Academic Program Award</strong> ($10,000 USD) - 2026</li>
-              <li><strong>Modal Academics Compute Grant</strong> ($2,000) - 2025</li>
-              <li><strong>Cohere Labs Catalyst Grant</strong> ($1,500) - 2025</li>
-              <li><strong>OpenAI Researcher Access Program</strong> ($1,000) - 2025</li>
+            <span class="news__date">Jun 2026</span>
+            <span class="news__text">Our paper, <a href="https://robustmad.github.io/" target="_blank"
+                rel="noopener noreferrer">RobustMAD: Evaluating Real-World Robustness of Multimodal Small Language
+                Models for Deployable Anomaly Detection Assistants</a>, was accepted to TMLR.</span>
+          </li>
+          <li>
+            <span class="news__date">May 2026</span>
+            <span class="news__text">Our paper, <a href="https://arxiv.org/pdf/2507.16331" target="_blank"
+                rel="noopener noreferrer">Re:Form: Reducing Human Priors in Scalable Formal Software Verification with
+                RL in LLMs</a>, was accepted to TMLR.</span>
+          </li>
+          <li>
+            <span class="news__date">Apr 2026</span>
+            <span class="news__text">Our paper, <a href="https://lixin.ai/" target="_blank"
+                rel="noopener noreferrer">LiveCANNBench: Benchmark SWE AI Coding for Ascend CANN</a>, was accepted to
+              Findings of ACL 2026.</span>
+          </li>
+          <li>
+            <span class="news__date">Jan 2026</span>
+            <span class="news__text">Our paper, <a href="https://dafnycomp.github.io/" target="_blank"
+                rel="noopener noreferrer">Local Success Does Not Compose (DafnyComp)</a>, was accepted to ICLR
+              2026.</span>
+          </li>
+          <li>
+            <span class="news__date">Dec 2025</span>
+            <span class="news__text">Received the Rohde &amp; Schwarz Award at the IEEE 6G Summit Singapore.</span>
+          </li>
+          <li>
+            <span class="news__date">Sep 2025</span>
+            <span class="news__text">Our paper, <a href="https://lixin.ai/LACP/" target="_blank"
+                rel="noopener noreferrer">LACP: LLM Agent Communication Protocol</a>, was accepted to <a
+                href="https://ai4nextg.github.io/" target="_blank" rel="noopener noreferrer">AI4NextG @ NeurIPS
+                2025</a>.</span>
+          </li>
+          <li class="news-extra">
+            <span class="news__date">May 2025</span>
+            <span class="news__text">Our paper, <a href="https://lixin.ai/WirelessMathBench/" target="_blank"
+                rel="noopener noreferrer">WirelessMathBench</a>, was accepted to Findings of ACL 2025.</span>
+          </li>
+          <li class="news-extra">
+            <span class="news__date">May 2025</span>
+            <span class="news__text">Our workshop on <a href="https://4drobotics-iros2025.github.io/" target="_blank"
+                rel="noopener noreferrer">Advancements for Intelligent Robotics in 4D Scenes</a> at IROS 2025 was
+              accepted.</span>
+          </li>
+          <li class="news-extra">
+            <span class="news__date">Mar 2025</span>
+            <span class="news__text">Our paper, <a href="https://onboradsim.github.io/" target="_blank"
+                rel="noopener noreferrer">Onboard Terrain Classification via SIM-DNN</a>, was accepted to the <a
+                href="https://ml-for-rs.github.io/iclr2025/" target="_blank" rel="noopener noreferrer">ML4RS @ ICLR
+                2025</a>.</span>
+          </li>
+          <li class="news-extra">
+            <span class="news__date">Jan 2025</span>
+            <span class="news__text">Our paper, <a href="https://lixin.ai/TransPathNet/" target="_blank"
+                rel="noopener noreferrer">TransPathNet</a>, was accepted to ICASSP 2025 (ranked 4th in the Indoor
+              Pathloss Challenge).</span>
+          </li>
+          <li class="news-extra">
+            <span class="news__date">Jan 2025</span>
+            <span class="news__text">Started my Ph.D. at NTU, supported by the NTU Research Scholarship.</span>
+          </li>
+        </ul>
+
+        <button class="news-toggle" type="button" aria-expanded="false" aria-controls="news">View older news</button>
+      </section>
+
+      <!-- ---- Publications ---- -->
+      <section id="publications" class="section" aria-labelledby="pub-h">
+        <div class="section__head">
+          <div class="section__title-row">
+            <div>
+              <span class="eyebrow">Selected work</span>
+              <h2 id="pub-h" class="section__title">Publications</h2>
+            </div>
+            <p class="pub-note">* equal contribution &middot; <a
+                href="https://scholar.google.com/citations?user=Hxf8sNkAAAAJ" target="_blank"
+                rel="noopener noreferrer">full list → Google Scholar</a></p>
+          </div>
+        </div>
+
+        <!-- 2026 -->
+        <div class="pub-group">
+          <div class="pub-group__year">2026</div>
+          <ol class="pub-list">
+            <li class="pub">
+              <div class="pub__top">
+                <h3 class="pub__title"><a href="https://dafnycomp.github.io/" target="_blank"
+                    rel="noopener noreferrer">Local Success Does Not Compose: Benchmarking Large Language Models for
+                    Compositional Formal Verification</a></h3>
+                <span class="venue">ICLR · 2026</span>
+              </div>
+              <p class="pub__authors">X. Xu*, <b>Xin Li</b>*, X. Qu, J. Fu, B. Yuan</p>
+              <div class="pub__links">
+                <a class="chip" href="https://dafnycomp.github.io/" target="_blank"
+                  rel="noopener noreferrer">Homepage</a>
+                <a class="chip" href="https://arxiv.org/pdf/2509.23061" target="_blank"
+                  rel="noopener noreferrer">arXiv</a>
+              </div>
+            </li>
+            <li class="pub">
+              <div class="pub__top">
+                <h3 class="pub__title"><a href="https://openreview.net/forum?id=cAQmIS4GOe" target="_blank"
+                    rel="noopener noreferrer">Re:Form: Reducing Human Priors in Scalable Formal Software Verification
+                    with RL in LLMs: A Preliminary Study on Dafny</a></h3>
+                <span class="venue">TMLR · 2026</span>
+              </div>
+              <p class="pub__authors">C. Yan*, F. Che*, X. Huang*, X. Xu*, <b>Xin Li</b>*, Y. Li*, X. Qu*, et al., J.
+                Fu</p>
+              <div class="pub__links">
+                <a class="chip" href="https://openreview.net/forum?id=cAQmIS4GOe" target="_blank"
+                  rel="noopener noreferrer">OpenReview</a>
+                <a class="chip" href="https://arxiv.org/pdf/2507.16331" target="_blank"
+                  rel="noopener noreferrer">arXiv</a>
+                <a class="chip" href="https://github.com/Veri-Code" target="_blank"
+                  rel="noopener noreferrer">Code</a>
+              </div>
+            </li>
+            <li class="pub">
+              <div class="pub__top">
+                <h3 class="pub__title"><a href="https://robustmad.github.io/" target="_blank"
+                    rel="noopener noreferrer">RobustMAD: Evaluating Real-World Robustness of Multimodal Small Language
+                    Models for Deployable Anomaly Detection Assistants</a></h3>
+                <span class="venue">TMLR · 2026</span>
+              </div>
+              <p class="pub__authors">A. Arunan, <b>Xin Li</b>, Y. Qin, U-X. Tan, N. K. Vuong, X. Li, C. Yuen</p>
+              <div class="pub__links">
+                <a class="chip" href="https://robustmad.github.io/" target="_blank"
+                  rel="noopener noreferrer">Homepage</a>
+                <a class="chip" href="https://openreview.net/forum?id=skrA9UYNIZ" target="_blank"
+                  rel="noopener noreferrer">OpenReview</a>
+                <a class="chip" href="https://github.com/en-research/RobustMAD" target="_blank"
+                  rel="noopener noreferrer">Code</a>
+              </div>
+            </li>
+          </ol>
+        </div>
+
+        <!-- 2025 -->
+        <div class="pub-group">
+          <div class="pub-group__year">2025</div>
+          <ol class="pub-list">
+            <li class="pub">
+              <div class="pub__top">
+                <h3 class="pub__title"><a href="https://lixin.ai/WirelessMathLM/" target="_blank"
+                    rel="noopener noreferrer">WirelessMathLM: Teaching Mathematical Reasoning for LLMs in Wireless
+                    Communications with Reinforcement Learning</a></h3>
+                <span class="venue">arXiv · 2025</span>
+              </div>
+              <p class="pub__authors"><b>Xin Li</b>, M. Liu, Y. Zhu, W. Zhang, L. Wei, J. An, C. Yuen</p>
+              <div class="pub__links">
+                <a class="chip" href="https://lixin.ai/WirelessMathLM/" target="_blank"
+                  rel="noopener noreferrer">Homepage</a>
+                <a class="chip" href="https://arxiv.org/pdf/2509.23219" target="_blank"
+                  rel="noopener noreferrer">arXiv</a>
+              </div>
+            </li>
+            <li class="pub">
+              <div class="pub__top">
+                <h3 class="pub__title"><a href="https://lixin.ai/LACP/" target="_blank"
+                    rel="noopener noreferrer">LACP: LLM Agent Communication Protocol Requires Urgent
+                    Standardization</a></h3>
+                <span class="venue">AI4NextG @ NeurIPS · 2025</span>
+              </div>
+              <p class="pub__authors"><b>Xin Li</b>, M. Liu, C. Yuen</p>
+              <div class="pub__links">
+                <a class="chip" href="https://lixin.ai/LACP/" target="_blank"
+                  rel="noopener noreferrer">Homepage</a>
+                <a class="chip" href="https://arxiv.org/pdf/2510.13821" target="_blank"
+                  rel="noopener noreferrer">arXiv</a>
+              </div>
+            </li>
+            <li class="pub">
+              <div class="pub__top">
+                <h3 class="pub__title"><a href="https://lixin.ai/WirelessMathBench/" target="_blank"
+                    rel="noopener noreferrer">WirelessMathBench: A Mathematical Modeling Benchmark for LLMs in Wireless
+                    Communications</a></h3>
+                <span class="venue">Findings of ACL · 2025</span>
+              </div>
+              <p class="pub__authors"><b>Xin Li</b>, M. Liu, L. Wei, J. An, M. Debbah, C. Yuen</p>
+              <div class="pub__links">
+                <a class="chip" href="https://lixin.ai/WirelessMathBench/" target="_blank"
+                  rel="noopener noreferrer">Homepage</a>
+                <a class="chip" href="https://arxiv.org/pdf/2505.14354" target="_blank"
+                  rel="noopener noreferrer">arXiv</a>
+              </div>
+            </li>
+            <li class="pub">
+              <div class="pub__top">
+                <h3 class="pub__title"><a href="https://lixin.ai/TransPathNet/" target="_blank"
+                    rel="noopener noreferrer">TransPathNet: A Two-Stage Framework for Indoor Radio Map
+                    Prediction</a></h3>
+                <span class="venue">ICASSP · 2025</span>
+              </div>
+              <p class="pub__authors"><b>Xin Li</b>, Ran Liu, Saihua Xu, Sirajudeen Gulam Razul, Chau Yuen</p>
+              <div class="pub__links">
+                <a class="chip" href="https://lixin.ai/TransPathNet/" target="_blank"
+                  rel="noopener noreferrer">Homepage</a>
+                <a class="chip" href="https://github.com/LiXin97/TransPathNet" target="_blank"
+                  rel="noopener noreferrer">Code</a>
+                <a class="chip" href="https://arxiv.org/pdf/2501.16023" target="_blank"
+                  rel="noopener noreferrer">arXiv</a>
+              </div>
+            </li>
+          </ol>
+        </div>
+
+        <!-- 2020 -->
+        <div class="pub-group">
+          <div class="pub-group__year">2020</div>
+          <ol class="pub-list">
+            <li class="pub">
+              <div class="pub__top">
+                <h3 class="pub__title"><a href="https://arxiv.org/pdf/2009.12662" target="_blank"
+                    rel="noopener noreferrer">Co-Planar Parametrization for Stereo-SLAM and Visual-Inertial
+                    Odometry</a></h3>
+                <span class="venue">IEEE RA-L · 2020</span>
+              </div>
+              <p class="pub__authors"><b>Xin Li</b>*, Yanyan Li*, Evin Pinar Örnek, Jinlong Lin, Federico Tombari</p>
+              <div class="pub__links">
+                <a class="chip" href="https://arxiv.org/pdf/2009.12662" target="_blank"
+                  rel="noopener noreferrer">arXiv</a>
+                <a class="chip" href="https://github.com/LiXin97/Co-Planar-Parametrization-VIO" target="_blank"
+                  rel="noopener noreferrer">Code</a>
+              </div>
+            </li>
+            <li class="pub">
+              <div class="pub__top">
+                <h3 class="pub__title"><a href="https://arxiv.org/pdf/2004.11969" target="_blank"
+                    rel="noopener noreferrer">Leveraging Planar Regularities for Point-Line Visual-Inertial
+                    Odometry</a></h3>
+                <span class="venue">IROS · 2020</span>
+              </div>
+              <p class="pub__authors"><b>Xin Li</b>*, Yijia He*, Jinlong Lin, Xiao Liu</p>
+              <div class="pub__links">
+                <a class="chip" href="https://arxiv.org/pdf/2004.11969" target="_blank"
+                  rel="noopener noreferrer">arXiv</a>
+                <a class="chip" href="https://github.com/LiXin97/Co-Planar-Parametrization-VIO" target="_blank"
+                  rel="noopener noreferrer">Code</a>
+              </div>
+            </li>
+          </ol>
+        </div>
+      </section>
+
+      <!-- ---- Experience ---- -->
+      <section id="experience" class="section" aria-labelledby="exp-h">
+        <div class="section__head">
+          <span class="eyebrow">Industry &amp; research</span>
+          <h2 id="exp-h" class="section__title">Experience</h2>
+        </div>
+        <ul class="timeline">
+          <li>
+            <span class="tl__role">Research Assistant — NTU Singapore</span>
+            <span class="tl__period">Apr 2024 – Jan 2025</span>
+            <p class="tl__detail">Supervised by <a href="https://blogs.ntu.edu.sg/chau-yuen/" target="_blank"
+                rel="noopener noreferrer">Prof. Chau Yuen</a>, IEEE Fellow.</p>
+          </li>
+          <li>
+            <span class="tl__role">SLAM Algorithm Engineer — Gausium Robotics, Singapore</span>
+            <span class="tl__period">Mar 2022 – Feb 2024</span>
+          </li>
+          <li>
+            <span class="tl__role">Research Intern — Microsoft Research Asia, Beijing</span>
+            <span class="tl__period">Sep 2020 – Mar 2021</span>
+            <p class="tl__detail">Supervised by <a href="https://xueyuhanlang.github.io/" target="_blank"
+                rel="noopener noreferrer">Dr. Yang Liu</a> and <a href="https://yizhongzhang1989.github.io/"
+                target="_blank" rel="noopener noreferrer">Dr. Yizhong Zhang</a>.</p>
+          </li>
+          <li>
+            <span class="tl__role">Research Intern — MEGVII, Beijing</span>
+            <span class="tl__period">Feb 2019 – Mar 2020</span>
+            <p class="tl__detail">Supervised by <a href="https://www.researchgate.net/profile/He-Yijia"
+                target="_blank" rel="noopener noreferrer">Dr. Yijia He</a>.</p>
+          </li>
+        </ul>
+      </section>
+
+      <!-- ---- Education ---- -->
+      <section id="education" class="section" aria-labelledby="edu-h">
+        <div class="section__head">
+          <span class="eyebrow">Academic background</span>
+          <h2 id="edu-h" class="section__title">Education</h2>
+        </div>
+        <ul class="timeline">
+          <li>
+            <span class="tl__role">Ph.D. — <a href="https://www.ntu.edu.sg/" target="_blank"
+                rel="noopener noreferrer">Nanyang Technological University</a>, Singapore</span>
+            <span class="tl__period">2025 – 2029 (expected)</span>
+            <p class="tl__detail">Supervised by <a href="https://blogs.ntu.edu.sg/chau-yuen/" target="_blank"
+                rel="noopener noreferrer">Prof. Chau Yuen</a>, IEEE Fellow.</p>
+          </li>
+          <li>
+            <span class="tl__role">M.E. — <a href="https://www.pku.edu.cn/" target="_blank"
+                rel="noopener noreferrer">Peking University</a>, China</span>
+            <span class="tl__period">2018 – 2021</span>
+            <p class="tl__detail">Supervised by <a
+                href="https://www.ss.pku.edu.cn/teacherteam/teacherlist/1652-%E6%9E%97%E9%87%91%E9%BE%99.html"
+                target="_blank" rel="noopener noreferrer">Prof. Jinlong Lin</a>.</p>
+          </li>
+          <li>
+            <span class="tl__role">B.E. — <a href="https://www.neuq.edu.cn/" target="_blank"
+                rel="noopener noreferrer">Northeastern University</a>, China</span>
+            <span class="tl__period">2014 – 2018</span>
+          </li>
+        </ul>
+      </section>
+
+      <!-- ---- Awards ---- -->
+      <section id="awards" class="section" aria-labelledby="awards-h">
+        <div class="section__head">
+          <span class="eyebrow">Grants &amp; honors</span>
+          <h2 id="awards-h" class="section__title">Awards</h2>
+        </div>
+        <div class="awards-grid">
+          <div>
+            <h3>Research Grants</h3>
+            <ul class="awards-list">
+              <li><span class="award__name">Google Gemini Academic Program Award ($10,000 USD)</span><span
+                  class="award__year">2026</span></li>
+              <li><span class="award__name">Modal Academics Compute Grant ($2,000)</span><span
+                  class="award__year">2025</span></li>
+              <li><span class="award__name">Cohere Labs Catalyst Grant ($1,500)</span><span
+                  class="award__year">2025</span></li>
+              <li><span class="award__name">OpenAI Researcher Access Program ($1,000)</span><span
+                  class="award__year">2025</span></li>
             </ul>
-          </li>
-          <li>
-            <strong>Academic Honors</strong>
-            <ul style="margin-top: 0.5rem; list-style-type: circle;">
-              <li><strong>Rohde & Schwarz Award</strong> (IEEE 6G Summit Singapore) - 2025</li>
-              <li><strong>PREMIA Best Student Paper Award Finalist</strong> - 2025</li>
-              <li><strong>NTU Research Scholarship</strong> (Full Ph.D. Funding) - 2025</li>
+          </div>
+          <div>
+            <h3>Academic Honors</h3>
+            <ul class="awards-list">
+              <li><span class="award__name">Rohde &amp; Schwarz Award (IEEE 6G Summit Singapore)</span><span
+                  class="award__year">2025</span></li>
+              <li><span class="award__name">PREMIA Best Student Paper Award Finalist</span><span
+                  class="award__year">2025</span></li>
+              <li><span class="award__name">NTU Research Scholarship (Full Ph.D. Funding)</span><span
+                  class="award__year">2025</span></li>
             </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- ---- Talks ---- -->
+      <section id="talks" class="section" aria-labelledby="talks-h">
+        <div class="section__head">
+          <span class="eyebrow">Invited</span>
+          <h2 id="talks-h" class="section__title">Talks</h2>
+        </div>
+        <ul class="talks">
+          <li>
+            <h3 class="talk__title">Teaching Large Language Models Mathematical Reasoning in Wireless Communications:
+              From Benchmarking to Efficient Training</h3>
+            <p class="talk__meta">ISEE Youth Scholar Forum, School of Information and Electronic Engineering, Zhejiang
+              University &middot; <a href="/data/talk_slides/WirelessMath_Slides.pdf" target="_blank"
+                rel="noopener noreferrer">Slides</a></p>
+            <span class="talk__date">October 27, 2025</span>
+          </li>
+          <li>
+            <h3 class="talk__title">WirelessMathBench: A Mathematical Modeling Benchmark for LLMs in Wireless
+              Communications</h3>
+            <p class="talk__meta">NICE (NLP Academic Exchange Platform) Session 66: Evaluation Paper Sharing @ ICML
+              &amp; ACL 2025 &middot; <a href="/data/talk_slides/ACL_WirelessMathBench_Slides.pdf" target="_blank"
+                rel="noopener noreferrer">Slides</a></p>
+            <span class="talk__date">June 11, 2025</span>
           </li>
         </ul>
       </section>
 
-      <section id="talks" aria-labelledby="talks-heading">
-        <h2 id="talks-heading">Invited Talks</h2>
-        <ul>
+      <!-- ---- Service ---- -->
+      <section id="service" class="section" aria-labelledby="service-h">
+        <div class="section__head">
+          <span class="eyebrow">Community</span>
+          <h2 id="service-h" class="section__title">Professional Service</h2>
+        </div>
+        <ul class="service">
           <li>
-            <a href="/data/talk_slides/WirelessMath_Slides.pdf" target="_blank" rel="noopener noreferrer">Teaching Large
-              Language Models Mathematical Reasoning in Wireless Communications: From Benchmarking to Efficient
-              Training&nbsp;⤻</a>
-            <br />
-            ISEE Youth Scholar Forum, School of Information and Electronic Engineering, Zhejiang University - October
-            27, 2025
+            <span class="service__cat">Conference Reviewer</span>
+            <span class="service__items">NeurIPS, ICLR, ICML, AAAI, CVPR, ECCV, AISTATS, SIGGRAPH, IROS, ICRA.</span>
           </li>
           <li>
-            <a href="/data/talk_slides/ACL_WirelessMathBench_Slides.pdf" target="_blank"
-              rel="noopener noreferrer">WirelessMathBench: A Mathematical Modeling Benchmark for LLMs in Wireless
-              Communications&nbsp;⤻</a>
-            <br />
-            NICE (NLP Academic Exchange Platform) Session 66: Evaluation Paper Sharing @ ICML & ACL 2025 - June 11, 2025
+            <span class="service__cat">Journal Reviewer</span>
+            <span class="service__items">IEEE RA-L, ACM TOG, IEEE TNNLS.</span>
+          </li>
+          <li>
+            <span class="service__cat">Workshop Organizer</span>
+            <span class="service__items"><a href="https://4drobotics-iros2025.github.io/" target="_blank"
+                rel="noopener noreferrer">AIR4D@IROS 2025</a>.</span>
           </li>
         </ul>
       </section>
 
-      <section id="service" aria-labelledby="service-heading">
-        <!-- <h2>Professional Activities &amp; Awards</h2> -->
-        <h2 id="service-heading">Professional Activities</h2>
-        <ul>
-          <li><strong>Conference Reviewer</strong> - NeurIPS, ICLR, ICML, AAAI, CVPR, ECCV, AISTATS, SIGGRAPH, IROS, ICRA.</li>
-          <li><strong>Journal Reviewer</strong> - IEEE RA-L, ACM TOG, IEEE TNNLS.</li>
-          <li><strong>Workshop Organizer</strong> - <a href="https://4drobotics-iros2025.github.io/" target="_blank"
-              rel="noopener noreferrer">AIR4D@IROS 2025</a>.</li>
-          <!-- <li><strong>Grants</strong> - Cohere Labs Catalyst Grant; OpenAI Researcher Access Program.</li> -->
-          <!-- <li><strong>Awards</strong> - NTU Research Scholarship.</li> -->
-        </ul>
-      </section>
     </main>
-
-    <footer role="contentinfo" aria-label="Site footer with copyright and visitor statistics">
-      <p>&copy; <span id="copyright-year">2026</span> Xin Li. Last updated: May 9, 2026.</p>
-      <a href="https://clustrmaps.com/site/1c54q" title="Visit tracker" target="_blank" rel="noopener noreferrer">
-        <img
-          src="//clustrmaps.com/map_v2.png?cl=ffffff&w=120&t=n&d=B5NomgZ8KZlp6qqDI50mXbSXYjWqdeneexojuozJ7pQ&co=2d79c7&ct=000000"
-          alt="Visitor map showing geographic distribution of site visitors" loading="lazy" decoding="async" width="120"
-          height="60" referrerpolicy="no-referrer-when-downgrade" />
-      </a>
-    </footer>
   </div>
 
-  <noscript>
-    <div style="padding:1rem; background:#fff3cd; color:#92400e;">This site works best with JavaScript enabled (for
-      minor UX). All content is still accessible without it.</div>
-  </noscript>
+  <footer>
+    <p class="footer__text">© <span id="copyright-year">2026</span> Xin Li. Last updated: June 18, 2026.</p>
+  </footer>
+
+  <script>
+    document.documentElement.classList.add('js');
+
+    document.addEventListener('DOMContentLoaded', function () {
+      // Footer year
+      var yearSpan = document.getElementById('copyright-year');
+      if (yearSpan) {
+        yearSpan.textContent = new Date().getFullYear();
+      }
+
+      // Theme switch (system / light / dark)
+      var mq = window.matchMedia('(prefers-color-scheme: dark)');
+      var themeMeta = document.querySelector('meta[name="theme-color"]');
+      var themeButtons = Array.prototype.slice.call(document.querySelectorAll('.theme-switch [data-mode]'));
+      function currentMode() {
+        try { return localStorage.getItem('theme') || 'system'; } catch (e) { return 'system'; }
+      }
+      function applyTheme() {
+        var mode = currentMode();
+        var dark = mode === 'dark' || (mode === 'system' && mq.matches);
+        document.documentElement.setAttribute('data-theme', dark ? 'dark' : 'light');
+        if (themeMeta) themeMeta.setAttribute('content', dark ? '#0F1217' : '#F4F6F8');
+        themeButtons.forEach(function (b) {
+          var on = b.getAttribute('data-mode') === mode;
+          b.classList.toggle('is-active', on);
+          b.setAttribute('aria-pressed', String(on));
+        });
+      }
+      themeButtons.forEach(function (b) {
+        b.addEventListener('click', function () {
+          try { localStorage.setItem('theme', b.getAttribute('data-mode')); } catch (e) {}
+          applyTheme();
+        });
+      });
+      if (mq.addEventListener) {
+        mq.addEventListener('change', applyTheme);
+      } else if (mq.addListener) {
+        mq.addListener(applyTheme);
+      }
+      applyTheme();
+
+      // News toggle
+      var newsToggle = document.querySelector('.news-toggle');
+      var extraNewsItems = document.querySelectorAll('.news-extra');
+      if (newsToggle && extraNewsItems.length > 0) {
+        newsToggle.addEventListener('click', function () {
+          var isExpanded = this.getAttribute('aria-expanded') === 'true';
+          extraNewsItems.forEach(function (item) {
+            item.classList.toggle('is-visible', !isExpanded);
+          });
+          this.setAttribute('aria-expanded', String(!isExpanded));
+          this.textContent = isExpanded ? 'View older news' : 'Show fewer news';
+        });
+      }
+
+      // Scroll-spy nav (signature element)
+      var navLinks = Array.prototype.slice.call(
+        document.querySelectorAll('.rail__nav a')
+      );
+      var linkById = {};
+      navLinks.forEach(function (a) {
+        var id = a.getAttribute('href').slice(1);
+        linkById[id] = a;
+      });
+      var sections = navLinks
+        .map(function (a) { return document.getElementById(a.getAttribute('href').slice(1)); })
+        .filter(Boolean);
+
+      function setCurrent(id) {
+        navLinks.forEach(function (a) { a.classList.remove('is-current'); a.removeAttribute('aria-current'); });
+        if (linkById[id]) {
+          linkById[id].classList.add('is-current');
+          linkById[id].setAttribute('aria-current', 'true');
+        }
+      }
+
+      if ('IntersectionObserver' in window && sections.length) {
+        var visible = {};
+        var observer = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            visible[entry.target.id] = entry.isIntersecting ? entry.intersectionRatio : 0;
+          });
+          var best = null, bestRatio = 0;
+          sections.forEach(function (s) {
+            var r = visible[s.id] || 0;
+            if (r > bestRatio) { bestRatio = r; best = s.id; }
+          });
+          if (best) setCurrent(best);
+        }, {
+          rootMargin: '-20% 0px -65% 0px',
+          threshold: [0, 0.25, 0.5, 1]
+        });
+        sections.forEach(function (s) { observer.observe(s); });
+      }
+    });
+  </script>
 </body>
 
 </html>
