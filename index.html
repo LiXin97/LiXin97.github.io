@@ -330,21 +330,52 @@
     }
 
     /* ---------- Identity rail ---------- */
-    /* The rail must fill the grid row, otherwise a sticky child stops sticking
-       at the bottom of the rail's own content box rather than at the end of the
-       article. No overflow here: it would cancel sticky on the nav below. */
+    /* The whole rail is pinned. It is a flex column capped at the viewport, so
+       the identity block always keeps its full height and the section nav takes
+       whatever is left over -- scrolling inside itself when that is not enough.
+       Identity is 428px + 72px padding, so the nav gets ~117px on a 1366x768
+       laptop and its full 357px from roughly 1080p upwards. */
     .rail {
-      align-self: stretch;
-      padding: 40px 0 32px;
-    }
-
-    /* Stick the section nav, not the whole rail. The identity block is ~700px,
-       so sticking all of it left only one of nine nav links on screen on a
-       1366x768 laptop. The nav alone is ~300px and fits any viewport. */
-    .rail__nav {
       position: sticky;
       top: 2rem;
       max-height: calc(100vh - 4rem);
+      display: flex;
+      flex-direction: column;
+      padding: 40px 0 32px;
+      /* Backstop only. The identity block is ~640px with its margins, so on a
+         short viewport it plus a usable nav cannot both fit; rather than crush
+         the nav to nothing, let the pinned rail scroll as a whole. On 1080p and
+         up this never engages. */
+      overflow-y: auto;
+      overscroll-behavior: contain;
+      scrollbar-width: thin;
+      scrollbar-color: var(--hairline) transparent;
+    }
+
+    .rail::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    .rail::-webkit-scrollbar-track {
+      background: transparent;
+    }
+
+    .rail::-webkit-scrollbar-thumb {
+      background: var(--hairline);
+      border-radius: 3px;
+    }
+
+    .rail > *:not(.rail__nav) {
+      flex: 0 0 auto;
+    }
+
+    /* min-height: 0 is what actually lets a flex child shrink below its content
+       and scroll; without it the nav would push the rail past the viewport. */
+    .rail__nav {
+      flex: 1 1 auto;
+      /* Floor so the nav is never crushed to a sliver; below this the rail's own
+         scroll takes over. */
+      min-height: 190px;
       overflow-y: auto;
       overscroll-behavior: contain;
       scrollbar-width: thin;
@@ -564,6 +595,26 @@
 
     .rail__nav a.is-current::before {
       transform: translateY(-50%) scaleY(1);
+    }
+
+    /* On a short viewport the identity block plus a usable nav cannot both fit,
+       so buy the nav ~90px back by tightening the identity block rather than
+       letting the nav fall entirely below the fold. */
+    @media (max-height: 900px) {
+      .rail {
+        padding-top: 24px;
+        padding-bottom: 20px;
+      }
+
+      .rail__photo {
+        width: 96px;
+        height: 96px;
+      }
+
+      .rail__nav {
+        margin-top: 16px;
+        padding-top: 12px;
+      }
     }
 
     /* ---------- Content stream ---------- */
