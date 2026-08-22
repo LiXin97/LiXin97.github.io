@@ -330,19 +330,38 @@
     }
 
     /* ---------- Identity rail ---------- */
+    /* The rail must fill the grid row, otherwise a sticky child stops sticking
+       at the bottom of the rail's own content box rather than at the end of the
+       article. No overflow here: it would cancel sticky on the nav below. */
     .rail {
-      position: static;
+      align-self: stretch;
       padding: 40px 0 32px;
     }
 
-    /* Sticky only when the viewport is tall enough to show the whole rail. The
-       previous max-height plus hidden scrollbar clipped the entire "on this page"
-       nav out of sight on a 1366x768 laptop, with no cue that it was scrollable. */
-    @media (min-width: 901px) and (min-height: 1060px) {
-      .rail {
-        position: sticky;
-        top: 2rem;
-      }
+    /* Stick the section nav, not the whole rail. The identity block is ~700px,
+       so sticking all of it left only one of nine nav links on screen on a
+       1366x768 laptop. The nav alone is ~300px and fits any viewport. */
+    .rail__nav {
+      position: sticky;
+      top: 2rem;
+      max-height: calc(100vh - 4rem);
+      overflow-y: auto;
+      overscroll-behavior: contain;
+      scrollbar-width: thin;
+      scrollbar-color: var(--hairline) transparent;
+    }
+
+    .rail__nav::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    .rail__nav::-webkit-scrollbar-track {
+      background: transparent;
+    }
+
+    .rail__nav::-webkit-scrollbar-thumb {
+      background: var(--hairline);
+      border-radius: 3px;
     }
 
 
@@ -1861,11 +1880,26 @@
         .map(function (a) { return document.getElementById(a.getAttribute('href').slice(1)); })
         .filter(Boolean);
 
+      var rail = document.querySelector('.rail__nav');
+
+
       function setCurrent(id) {
         navLinks.forEach(function (a) { a.classList.remove('is-current'); a.removeAttribute('aria-current'); });
-        if (linkById[id]) {
-          linkById[id].classList.add('is-current');
-          linkById[id].setAttribute('aria-current', 'true');
+        var link = linkById[id];
+        if (!link) return;
+        link.classList.add('is-current');
+        link.setAttribute('aria-current', 'true');
+
+        // When the rail is taller than the viewport it scrolls internally, so the
+        // highlighted link can sit outside its visible box. Bring it back into view
+        // rather than letting the highlight point at something clipped.
+        if (!rail || rail.scrollHeight <= rail.clientHeight) return;
+        var r = rail.getBoundingClientRect();
+        var b = link.getBoundingClientRect();
+        if (b.top < r.top + 8) {
+          rail.scrollTop -= (r.top + 8 - b.top);
+        } else if (b.bottom > r.bottom - 8) {
+          rail.scrollTop += (b.bottom - (r.bottom - 8));
         }
       }
 
