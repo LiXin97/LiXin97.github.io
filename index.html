@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Xin Li @ NTU — LLM Evaluation, Post-training &amp; Agents</title>
+  <title>Xin Li @ NTU — LLM Evaluation, Post-training &amp; Agentic Systems</title>
 
   <!-- Set theme before paint to avoid a flash of the wrong theme -->
   <script>
@@ -14,13 +14,16 @@
         var dark = mode === 'dark' || (mode === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches);
         document.documentElement.setAttribute('data-theme', dark ? 'dark' : 'light');
       } catch (e) {}
+      // Set here, not at the end of <body>: the older-news items are hidden by
+      // `.js .news-extra`, so a late class means they paint and then collapse.
+      document.documentElement.classList.add('js');
     })();
   </script>
 
   <!-- Canonical & basic SEO -->
   <link rel="canonical" href="https://lixin.ai/" />
   <meta name="description"
-    content="Xin Li — PhD student at NTU Singapore (advised by Chau Yuen) researching LLM evaluation, post-training (RL), and multi-agent systems for verifiable, domain-specific reasoning in large language models (LLMs). Published at NeurIPS, ICLR, TMLR, ACL, and EMNLP." />
+    content="Xin Li — PhD student at NTU Singapore (advised by Chau Yuen) researching LLM evaluation, post-training (RL), and agentic systems for verifiable, domain-specific reasoning in large language models (LLMs). Published at NeurIPS, ICLR, TMLR, ACL, and EMNLP." />
   <meta name="keywords"
     content="Xin Li, 李鑫, NTU Singapore, PhD, large language models, LLM, LLM evaluation, LLM benchmarks, post-training, reinforcement learning, agentic RL, on-policy distillation, multi-agent systems, AI researcher, Chau Yuen, wireless communications, formal verification" />
   <meta name="author" content="Xin Li" />
@@ -28,24 +31,24 @@
   <meta name="theme-color" content="#F4F6F8" />
 
   <!-- Open Graph / Twitter -->
-  <meta property="og:title" content="Xin Li @ NTU — LLM Evaluation, Post-training &amp; Multi-Agent Systems" />
+  <meta property="og:title" content="Xin Li @ NTU — LLM Evaluation, Post-training &amp; Agentic Systems" />
   <meta property="og:site_name" content="lixin.ai" />
   <meta property="og:description"
-    content="PhD student at NTU Singapore building benchmarks, post-training methods (RL), and multi-agent systems for verifiable, domain-specific reasoning in LLMs. Published at NeurIPS, ICLR, TMLR, ACL, and EMNLP." />
-  <meta property="og:image" content="https://lixin.ai/data/share-card.jpg" />
+    content="PhD student at NTU Singapore building benchmarks, post-training methods (RL), and agentic systems for verifiable, domain-specific reasoning in LLMs. Published at NeurIPS, ICLR, TMLR, ACL, and EMNLP." />
+  <meta property="og:image" content="https://lixin.ai/data/share-card-v2.jpg" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
-  <meta property="og:image:alt" content="Xin Li — PhD student, Nanyang Technological University. LLM evaluation, post-training, multi-agent systems." />
+  <meta property="og:image:alt" content="Xin Li — PhD student, Nanyang Technological University. LLM evaluation, post-training, agentic systems." />
   <meta property="og:url" content="https://lixin.ai/" />
   <meta property="og:type" content="website" />
   <meta property="og:locale" content="en_SG" />
   <meta property="og:locale:alternate" content="en_US" />
 
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Xin Li @ NTU — LLM Evaluation, Post-training &amp; Agents" />
+  <meta name="twitter:title" content="Xin Li @ NTU — LLM Evaluation, Post-training &amp; Agentic Systems" />
   <meta name="twitter:description"
-    content="PhD student at NTU Singapore. LLM evaluation, post-training (RL), and multi-agent systems for verifiable, domain-specific reasoning. NeurIPS, ICLR, TMLR, ACL, EMNLP." />
-  <meta name="twitter:image" content="https://lixin.ai/data/share-card.jpg" />
+    content="PhD student at NTU Singapore. LLM evaluation, post-training (RL), and agentic systems for verifiable, domain-specific reasoning. NeurIPS, ICLR, TMLR, ACL, EMNLP." />
+  <meta name="twitter:image" content="https://lixin.ai/data/share-card-v2.jpg" />
 
   <!-- Icons -->
   <link rel="icon" type="image/png" sizes="32x32" href="/images/icon-32.png" />
@@ -77,7 +80,7 @@
       "@type": "ProfilePage",
       "@id": "https://lixin.ai/#profile",
       "dateCreated": "2024-04-05T14:53:00+08:00",
-      "dateModified": "2026-08-22T10:00:00+08:00",
+      "dateModified": "2026-09-30T10:00:00+08:00",
       "url": "https://lixin.ai/",
       "mainEntity": {
         "@type": "Person",
@@ -92,7 +95,7 @@
           "name": "Nanyang Technological University",
           "url": "https://www.ntu.edu.sg/"
         },
-        "description": "PhD student at Nanyang Technological University (NTU), Singapore, researching LLM evaluation, post-training, and multi-agent systems for verifiable and domain-specific reasoning in large language models.",
+        "description": "PhD student at Nanyang Technological University (NTU), Singapore, researching LLM evaluation, post-training, and agentic systems for verifiable and domain-specific reasoning in large language models.",
         "address": {
           "@type": "PostalAddress",
           "addressLocality": "Singapore",
@@ -105,9 +108,8 @@
           "https://lixin.ai/",
           "https://github.com/LiXin97",
           "https://lixin97.github.io/",
-          "https://twitter.com/XinLi72542893",
-          "https://www.linkedin.com/in/xin-li-1196331a0",
-          "https://scholar.google.com/citations?hl=en&user=Hxf8sNkAAAAJ"
+          "https://www.linkedin.com/in/xin-li-1196331a0/",
+          "https://scholar.google.com/citations?user=Hxf8sNkAAAAJ"
         ]
       }
     }
@@ -130,6 +132,7 @@
 
   <style>
     :root {
+      color-scheme: light;
       --bg: #F4F6F8;
       --surface: #FFFFFF;
       --ink: #15171C;
@@ -154,6 +157,7 @@
     }
 
     [data-theme="dark"] {
+      color-scheme: dark;
       --bg: #0F1217;
       --surface: #161A21;
       --ink: #E8EBF1;
@@ -348,6 +352,10 @@
          up this never engages. */
       overflow-y: auto;
       overscroll-behavior: contain;
+      /* Room for the 5.5px focus ring inside the scroll box, which would
+         otherwise be clipped on the left edge. */
+      padding-inline: 6px;
+      margin-inline: -6px;
       scrollbar-width: thin;
       scrollbar-color: var(--hairline) transparent;
     }
@@ -378,6 +386,8 @@
       min-height: 190px;
       overflow-y: auto;
       overscroll-behavior: contain;
+      padding-inline: 6px;
+      margin-inline: -6px;
       scrollbar-width: thin;
       scrollbar-color: var(--hairline) transparent;
     }
@@ -614,6 +624,64 @@
       .rail__nav {
         margin-top: 16px;
         padding-top: 12px;
+      }
+    }
+
+    /* A single column of nine links does not fit beside the identity block on a
+       laptop: at 768px tall five of them sat behind a hairline scrollbar. Two
+       columns cost ~155px less and keep every link on screen. Width-scoped so
+       the phone layout further down keeps its horizontal chip row. */
+    @media (min-width: 901px) and (max-height: 900px) {
+      /* Buy the nav the rest of the room it needs out of the identity block. */
+      .rail__photo {
+        width: 76px;
+        height: 76px;
+      }
+
+      /* The same three terms are the three research bullets at the top of
+         About, a few centimetres to the right; on a short viewport the nav
+         links are worth more than the repetition. */
+      .rail__tags {
+        display: none;
+      }
+
+      .rail__name {
+        font-size: 1.95rem;
+        margin-top: 14px;
+      }
+
+      .rail__cjk {
+        font-size: 1.1rem;
+        margin-top: 4px;
+      }
+
+      .rail__rule {
+        margin: 10px 0 9px;
+      }
+
+      .rail__links {
+        margin-top: 10px;
+      }
+
+      .rail__nav {
+        flex: 0 0 auto;
+        min-height: 0;
+        /* Both axes: `overflow-y: visible` alone computes back to auto while
+           overflow-x is auto, which is what kept clipping the last rows. */
+        overflow: visible;
+        margin-top: 14px;
+        padding-top: 10px;
+      }
+
+      .rail__nav ul {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2px 4px;
+      }
+
+      .rail__nav a {
+        min-height: 30px;
+        padding: 5px 8px 5px 14px;
       }
     }
 
@@ -1264,7 +1332,7 @@
       <ul role="list" class="rail__tags" aria-label="Research areas">
         <li>LLM Evaluation</li>
         <li>Post-training</li>
-        <li>Multi-Agent Systems</li>
+        <li>Agentic Systems</li>
       </ul>
       <p class="rail__role">Ph.D. Student, <a href="https://www.ntu.edu.sg/" target="_blank"
           rel="noopener noreferrer">Nanyang Technological University (NTU)</a></p>
@@ -1318,7 +1386,7 @@
     </header>
 
     <!-- ============ CONTENT STREAM ============ -->
-    <main id="main" class="stream">
+    <main id="main" tabindex="-1" class="stream">
 
       <!-- ---- About ---- -->
       <section id="about" class="section about" aria-labelledby="about-h">
@@ -1330,38 +1398,44 @@
         <p>I am a Ph.D. student at <a href="https://www.ntu.edu.sg/" target="_blank"
             rel="noopener noreferrer">Nanyang Technological University (NTU)</a>, advised by <a
             href="https://blogs.ntu.edu.sg/chau-yuen/" target="_blank" rel="noopener noreferrer">Prof. Chau
-            Yuen</a>. My research develops benchmarks, post-training methods, and multi-agent systems that help
-          Large Language Models (LLMs) reason reliably&mdash;verifiably and in specialized domains.</p>
+            Yuen</a>. I build benchmarks, post-training methods, and agentic systems that help large language models
+          (LLMs) reason reliably in specialized domains, with answers that can be checked rather than taken on
+          trust.</p>
 
         <ul role="list" class="research">
           <li>
             <span class="research__term">LLM Evaluation</span>
-            <span class="research__desc">Trustworthy benchmarks for reasoning and generalization, including <a
-                href="https://dafnycomp.github.io/" target="_blank" rel="noopener noreferrer">DafnyComp</a>, <a
-                href="https://lixin.ai/WirelessMathBench/" target="_blank"
-                rel="noopener noreferrer">WirelessMathBench</a>, <a href="https://WritingPreferenceBench.github.io/"
-                target="_blank" rel="noopener noreferrer">WritingPreferenceBench</a>, and <a
-                href="https://robustmad.github.io/" target="_blank" rel="noopener noreferrer">RobustMAD</a>.</span>
+            <span class="research__desc">Benchmarks and evaluation protocols that make clear what a score does and
+              does not support, including <a href="https://lixin.ai/WirelessMathBench-XL/" target="_blank"
+                rel="noopener noreferrer">WirelessMathBench-XL</a>, <a href="https://dafnycomp.github.io/"
+                target="_blank" rel="noopener noreferrer">DafnyComp</a>, <a
+                href="https://WritingPreferenceBench.github.io/" target="_blank"
+                rel="noopener noreferrer">WritingPreferenceBench</a>, and <a href="https://robustmad.github.io/"
+                target="_blank" rel="noopener noreferrer">RobustMAD</a>.</span>
           </li>
           <li>
             <span class="research__term">Post-training</span>
-            <span class="research__desc">Training methods, especially reinforcement learning, that teach LLMs to reason
-              in specialized domains such as wireless communications and formal verification, including <a
-                href="https://lixin.ai/WirelessMathLM/" target="_blank"
-                rel="noopener noreferrer">WirelessMathLM</a> and <a href="https://arxiv.org/pdf/2507.16331"
-                target="_blank" rel="noopener noreferrer">Re:Form</a>, with ongoing work on agentic RL and on-policy distillation (OPD).</span>
+            <span class="research__desc">Training methods&mdash;reinforcement learning and on-policy
+              distillation&mdash;that teach LLMs to reason in specialized domains such as wireless communications and
+              formal verification, including <a href="https://lixin.ai/WirelessMathLM/" target="_blank"
+                rel="noopener noreferrer">WirelessMathLM</a>, <a href="https://arxiv.org/pdf/2507.16331"
+                target="_blank" rel="noopener noreferrer">Re:Form</a>, <a href="https://lixin.ai/DN-MOPD/"
+                target="_blank" rel="noopener noreferrer">DN-MOPD</a>, and <a href="https://lixin.ai/ListOPD/"
+                target="_blank" rel="noopener noreferrer">ListOPD</a>, with ongoing work on agentic RL.</span>
           </li>
           <li>
-            <span class="research__term">Multi-Agent Systems</span>
-            <span class="research__desc">Agent communication protocols and memory mechanisms, including <a
-                href="https://lixin.ai/LACP/" target="_blank" rel="noopener noreferrer">LACP</a> and ongoing work on
-              shared-memory structures for autonomous agents.</span>
+            <span class="research__term">Agentic Systems</span>
+            <span class="research__desc">Communication protocols, memory mechanisms, and audits for systems where
+              several LLM agents interact, including <a href="https://lixin.ai/LACP/" target="_blank"
+                rel="noopener noreferrer">LACP</a> and <a href="https://lixin.ai/DebateLedger/" target="_blank"
+                rel="noopener noreferrer">DebateLedger</a>, with ongoing work on shared-memory structures for
+              autonomous agents.</span>
           </li>
         </ul>
 
-        <p>Before my Ph.D. I worked on robot perception: real-time visual-inertial odometry at MEGVII,
-          multi-sensor (RGB-D + IMU) indoor mapping at Microsoft Research Asia, and at Gausium Robotics I led a
-          five-engineer team building multimodal localization &mdash; vision, LiDAR and WiFi &mdash; now running on a
+        <p>Before my Ph.D., I worked on robot perception: real-time visual-inertial odometry at MEGVII,
+          multi-sensor (RGB-D + IMU) indoor mapping at Microsoft Research Asia, and multimodal localization
+          (vision, LiDAR, and Wi-Fi) at Gausium Robotics. There I led a five-engineer team; the system runs on a
           global fleet of 1,000+ commercial cleaning robots.</p>
         <p>I received my M.E. from <a href="https://www.pku.edu.cn/" target="_blank"
             rel="noopener noreferrer">Peking University</a> and my B.E. from <a href="https://www.neuq.edu.cn/"
@@ -1370,7 +1444,7 @@
         <div class="callout">
           <span class="callout__label">Open to Collaboration</span>
           <p>I'm always glad to talk about research or collaborations in LLM evaluation, post-training, and
-            multi-agent systems&mdash;just email me at <a href="mailto:xin019@e.ntu.edu.sg">xin019@e.ntu.edu.sg</a>.</p>
+            agentic systems&mdash;just email me at <a href="mailto:xin019@e.ntu.edu.sg">xin019@e.ntu.edu.sg</a>.</p>
         </div>
       </section>
 
@@ -1381,7 +1455,7 @@
           <h2 id="news-h" class="section__title">News</h2>
         </div>
 
-        <ul role="list" class="news">
+        <ul role="list" class="news" id="news-list">
           <li>
             <span class="news__date">Sep 2026</span>
             <span class="news__text">Our paper <a href="https://onboradsim.github.io/" target="_blank"
@@ -1420,7 +1494,7 @@
           </li>
           <li>
             <span class="news__date">Apr 2026</span>
-            <span class="news__text">Our paper <a href="https://lixin.ai/" target="_blank"
+            <span class="news__text">Our paper <a href="https://livecannbench.github.io/" target="_blank"
                 rel="noopener noreferrer">LiveCANNBench</a> (a benchmark for AI coding on Ascend CANN) was
               accepted to Findings of ACL 2026.</span>
           </li>
@@ -1460,7 +1534,8 @@
           <li class="news-extra">
             <span class="news__date">Mar 2025</span>
             <span class="news__text">Our paper <a href="https://onboradsim.github.io/" target="_blank"
-                rel="noopener noreferrer">SIM-DNN</a> (on onboard terrain classification for remote sensing) was
+                rel="noopener noreferrer">SIM-D<sup>2</sup>NN</a> (on onboard terrain classification for remote
+              sensing) was
               accepted to the <a
                 href="https://ml-for-rs.github.io/iclr2025/" target="_blank" rel="noopener noreferrer">ML4RS @ ICLR
                 2025</a>.</span>
@@ -1477,7 +1552,7 @@
           </li>
         </ul>
 
-        <button class="news-toggle" type="button" aria-expanded="false" aria-controls="news">View older news</button>
+        <button class="news-toggle" type="button" aria-expanded="false" aria-controls="news-list">View older news</button>
       </section>
 
       <!-- ---- Publications ---- -->
@@ -1498,6 +1573,26 @@
         <div class="pub-group">
           <div class="pub-group__year">2026</div>
           <ol role="list" class="pub-list">
+            <li class="pub">
+              <div class="pub__top">
+                <h3 class="pub__title"><a href="https://lixin.ai/DN-MOPD/" target="_blank"
+                    rel="noopener noreferrer">Beyond Teacher Assignment: Domain-Normalized Multi-Teacher On-Policy
+                    Distillation</a></h3>
+                <span class="venue">arXiv · 2026</span>
+              </div>
+              <p class="pub__authors"><b>Xin Li</b>, Hao Jiang, Xin Gao, Annan Wang, Yuchen Xie, Jinghao Guo, Xingwei
+                Qu, Yichi Zhang, Chau Yuen</p>
+              <div class="pub__links">
+                <a class="chip" href="https://lixin.ai/DN-MOPD/" target="_blank"
+                  rel="noopener noreferrer">Homepage</a>
+                <a class="chip" href="https://arxiv.org/abs/2609.35347" target="_blank"
+                  rel="noopener noreferrer">arXiv</a>
+                <a class="chip" href="https://github.com/LiXin97/DN-MOPD" target="_blank"
+                  rel="noopener noreferrer">Code</a>
+                <a class="chip" href="https://huggingface.co/datasets/XINLI1997/DN-MOPD-Data" target="_blank"
+                  rel="noopener noreferrer">Data</a>
+              </div>
+            </li>
             <li class="pub">
               <div class="pub__top">
                 <h3 class="pub__title"><a href="https://lixin.ai/WirelessMathBench-XL/" target="_blank"
@@ -1555,19 +1650,19 @@
             </li>
             <li class="pub">
               <div class="pub__top">
-                <h3 class="pub__title"><a href="https://dafnycomp.github.io/" target="_blank"
-                    rel="noopener noreferrer">Local Success Does Not Compose: Benchmarking Large Language Models for
-                    Compositional Formal Verification</a></h3>
-                <span class="venue">ICLR · 2026</span>
+                <h3 class="pub__title"><a href="https://robustmad.github.io/" target="_blank"
+                    rel="noopener noreferrer">RobustMAD: Evaluating Real-World Robustness of Multimodal Small Language
+                    Models for Deployable Anomaly Detection Assistants</a></h3>
+                <span class="venue">TMLR · 2026</span>
               </div>
-              <p class="pub__authors">Xu Xu*, <b>Xin Li</b>*, Xingwei Qu, Jie Fu, Binhang Yuan</p>
+              <p class="pub__authors">Anushiya Arunan, <b>Xin Li</b>, Yan Qin, U-Xuan Tan, Nhu Khue Vuong, Xiaoli Li, Chau Yuen</p>
               <div class="pub__links">
-                <a class="chip" href="https://dafnycomp.github.io/" target="_blank"
+                <a class="chip" href="https://robustmad.github.io/" target="_blank"
                   rel="noopener noreferrer">Homepage</a>
-                <a class="chip" href="https://openreview.net/forum?id=y4kAMUBqLq" target="_blank"
+                <a class="chip" href="https://openreview.net/forum?id=skrA9UYNIZ" target="_blank"
                   rel="noopener noreferrer">OpenReview</a>
-                <a class="chip" href="https://arxiv.org/pdf/2509.23061" target="_blank"
-                  rel="noopener noreferrer">arXiv</a>
+                <a class="chip" href="https://github.com/en-research/RobustMAD" target="_blank"
+                  rel="noopener noreferrer">Code</a>
               </div>
             </li>
             <li class="pub">
@@ -1589,19 +1684,19 @@
             </li>
             <li class="pub">
               <div class="pub__top">
-                <h3 class="pub__title"><a href="https://robustmad.github.io/" target="_blank"
-                    rel="noopener noreferrer">RobustMAD: Evaluating Real-World Robustness of Multimodal Small Language
-                    Models for Deployable Anomaly Detection Assistants</a></h3>
-                <span class="venue">TMLR · 2026</span>
+                <h3 class="pub__title"><a href="https://dafnycomp.github.io/" target="_blank"
+                    rel="noopener noreferrer">Local Success Does Not Compose: Benchmarking Large Language Models for
+                    Compositional Formal Verification</a></h3>
+                <span class="venue">ICLR · 2026</span>
               </div>
-              <p class="pub__authors">Anushiya Arunan, <b>Xin Li</b>, Yan Qin, U-Xuan Tan, Nhu Khue Vuong, Xiaoli Li, Chau Yuen</p>
+              <p class="pub__authors">Xu Xu*, <b>Xin Li</b>*, Xingwei Qu, Jie Fu, Binhang Yuan</p>
               <div class="pub__links">
-                <a class="chip" href="https://robustmad.github.io/" target="_blank"
+                <a class="chip" href="https://dafnycomp.github.io/" target="_blank"
                   rel="noopener noreferrer">Homepage</a>
-                <a class="chip" href="https://openreview.net/forum?id=skrA9UYNIZ" target="_blank"
+                <a class="chip" href="https://openreview.net/forum?id=y4kAMUBqLq" target="_blank"
                   rel="noopener noreferrer">OpenReview</a>
-                <a class="chip" href="https://github.com/en-research/RobustMAD" target="_blank"
-                  rel="noopener noreferrer">Code</a>
+                <a class="chip" href="https://arxiv.org/pdf/2509.23061" target="_blank"
+                  rel="noopener noreferrer">arXiv</a>
               </div>
             </li>
           </ol>
@@ -1719,9 +1814,9 @@
           <li>
             <span class="tl__role">SLAM Algorithm Engineer (Project Lead) — Gausium Robotics, Singapore</span>
             <span class="tl__period">Mar 2022 – Feb 2024</span>
-            <p class="tl__detail">Led a team of five engineers building hierarchical multimodal localization (vision, LiDAR and WiFi) for commercial
-              cleaning robots: 95% localization accuracy across 100,000+ m&sup2; of complex environments, deployed to a
-              global fleet of 1,000+ active robots.</p>
+            <p class="tl__detail">Led a team of five engineers building hierarchical multimodal localization
+              (vision, LiDAR, and Wi-Fi) for commercial cleaning robots: 95% localization accuracy across 100,000+
+              m&sup2; of complex environments; the system is deployed on a global fleet of 1,000+ active robots.</p>
           </li>
           <li>
             <span class="tl__role">Research Intern — Microsoft Research Asia, Beijing</span>
@@ -1738,7 +1833,7 @@
             <p class="tl__detail">Supervised by <a href="https://www.researchgate.net/profile/He-Yijia"
                 target="_blank" rel="noopener noreferrer">Dr. Yijia He</a>. Developed real-time monocular
               visual-inertial odometry from heterogeneous features, reaching semi-dense 3D mesh reconstruction at 30+
-              FPS and a first-author paper at IROS 2020.</p>
+              FPS; the work led to a co-first-author paper at IROS 2020.</p>
           </li>
         </ul>
       </section>
@@ -1816,13 +1911,13 @@
           <div>
             <h3>Research Grants</h3>
             <ul role="list" class="awards-list">
-              <li><span class="award__name">Google Gemini Academic Program Award ($10,000 USD)</span><span
+              <li><span class="award__name">Google Gemini Academic Program Award (US$10,000)</span><span
                   class="award__year">2026</span></li>
-              <li><span class="award__name">Modal Academics Compute Grant ($2,000)</span><span
+              <li><span class="award__name">Modal Academics Compute Grant (US$2,000)</span><span
                   class="award__year">2025</span></li>
-              <li><span class="award__name">Cohere Labs Catalyst Grant ($1,500)</span><span
+              <li><span class="award__name">Cohere Labs Catalyst Grant (US$1,500)</span><span
                   class="award__year">2025</span></li>
-              <li><span class="award__name">OpenAI Researcher Access Program ($1,000)</span><span
+              <li><span class="award__name">OpenAI Researcher Access Program (US$1,000)</span><span
                   class="award__year">2025</span></li>
             </ul>
           </div>
@@ -1893,12 +1988,10 @@
   </div>
 
   <footer>
-    <p class="footer__text">© <span id="copyright-year">2026</span> Xin Li. Last updated: August 22, 2026.</p>
+    <p class="footer__text">© <span id="copyright-year">2026</span> Xin Li. Last updated: September 30, 2026.</p>
   </footer>
 
   <script>
-    document.documentElement.classList.add('js');
-
     document.addEventListener('DOMContentLoaded', function () {
       // Footer year
       var yearSpan = document.getElementById('copyright-year');
@@ -1948,6 +2041,14 @@
           });
           this.setAttribute('aria-expanded', String(!isExpanded));
           this.textContent = isExpanded ? 'View older news' : 'Show fewer news';
+          // The revealed items sit above the button in DOM order, so without
+          // this a keyboard or screen-reader user is left below the new content.
+          if (!isExpanded) {
+            var first = extraNewsItems[0];
+            first.setAttribute('tabindex', '-1');
+            first.focus({ preventScroll: true });
+            first.scrollIntoView({ block: 'nearest' });
+          }
         });
       }
 
@@ -1998,6 +2099,11 @@
             var r = visible[s.id] || 0;
             if (r > bestRatio) { bestRatio = r; best = s.id; }
           });
+          // At the bottom of the page the last section can never enter the
+          // detection band, so nothing would otherwise highlight it.
+          var atBottom = window.scrollY + window.innerHeight >=
+            document.documentElement.scrollHeight - 2;
+          if (atBottom) best = sections[sections.length - 1].id;
           if (best) setCurrent(best);
         }, {
           rootMargin: '-20% 0px -65% 0px',
