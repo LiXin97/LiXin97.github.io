@@ -542,6 +542,10 @@ html[data-theme="paper"][data-mode="dark"] {
 .panel__works a::after { content: "→"; font-family: var(--f-mono); font-size: .8em; color: var(--accent); opacity: 0; transform: translateX(-4px); transition: opacity .15s, transform .15s; }
 .panel__works a:hover, .panel__works a:focus-visible { color: var(--accent); }
 .panel__works a:hover::after, .panel__works a:focus-visible::after { opacity: 1; transform: none; }
+.panel__lead { padding-bottom: 12px; }
+.panel__lead a { padding-bottom: 4px; }
+.panel__blurb { font-family: var(--f-q); font-size: .9rem; line-height: 1.45; color: var(--muted); }
+.panel__venue { margin-top: 6px; font-family: var(--f-mono); font-size: .66rem; letter-spacing: .06em; color: var(--accent); }
 /* forward links between panels, with a pulse that travels along them */
 .track__link { position: relative; align-self: start; margin-top: 50px; height: 0; }
 .track__link i { position: absolute; left: 6px; right: 10px; top: -1px; height: 2px; background: var(--ink); overflow: hidden; }

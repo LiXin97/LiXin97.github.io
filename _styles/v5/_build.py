@@ -21,26 +21,32 @@ ME = "Xin Li"
 # ---------------------------------------------------------------- papers
 # thread: evaluate | train | orchestrate | wireless | robotics
 P = [
-  dict(id="debateledger", thread="orchestrate", year=2026, lead=True,
+  dict(id="debateledger", blurb="Separates harmful collapse from useful correction in multi-agent debate; a freeze that prevents collapse gives up more corrections.",
+       thread="orchestrate", year=2026, lead=True,
        title="Measuring Collapse and Correction in Homogeneous-Panel LLM Debate", short="DebateLedger",
        authors="Xin Li*, Mengbing Liu*, Chau Yuen",
        venue="NeurIPS 2026", venue_long="NeurIPS 2026 · Evaluations and Datasets Track", pos="joint first of 3",
        links=[("Project", "https://lixin.ai/DebateLedger/")],
        fig=("−79", "net, under equal weights", True),
-       claim="Across 6,925 logged MMLU-Pro debates, 253 collapses turned a correct majority wrong. "
-             "A probe-gated freeze prevents 29 of them and gives up 108 corrections — net −79 under equal weights. "
+       claim="Debate can turn a wrong answer right, and it can also talk a correct majority into a wrong one. "
+             "DebateLedger counts the two apart, and finds that stopping collapse also stops correction: "
+             "across 6,925 logged MMLU-Pro debates, 253 collapses turned a correct majority wrong, and a probe-gated freeze "
+             "prevents 29 of them but gives up 108 corrections — net −79 under equal weights. "
              "58.9% of collapses begin in the first debate round.",
        scope=None),
-  dict(id="wmbxl", thread="evaluate", year=2026, lead=True,
+  dict(id="wmbxl", blurb="A wireless-math benchmark where every problem carries its own contamination evidence.",
+       thread="evaluate", year=2026, lead=True,
        title="WirelessMathBench-XL: An Auditable Benchmark for Wireless Mathematical Reasoning", short="WirelessMathBench-XL",
        authors="Xin Li, Mengbing Liu, Yiyang Zhu, Wenhe Zhang, Li Wei, Jiancheng An, Chau Yuen",
        venue="NeurIPS 2026", venue_long="NeurIPS 2026 · Evaluations and Datasets Track", pos="first of 7",
        links=[("Project", "https://lixin.ai/WirelessMathBench-XL/"), ("arXiv", "https://arxiv.org/abs/2509.23219")],
        fig=("4,027", "problems", False),
-       claim="4,027 problems drawn from 836 arXiv papers across 20 wireless subfields. Every problem ships 13-gram "
-             "contamination-overlap evidence against public pretraining text. Frontier models cluster at 86.5–91.3%.",
+       claim="A benchmark that ships its own audit: every problem carries 13-gram contamination-overlap evidence "
+             "against public pretraining text. 4,027 problems drawn from 836 arXiv papers across 20 wireless subfields; "
+             "frontier models cluster at 86.5–91.3%.",
        scope="A rerunnable audit producing per-problem evidence for one lexical channel — not a proof that the benchmark is clean."),
-  dict(id="dnmopd", thread="train", year=2026, lead=True,
+  dict(id="dnmopd", blurb="In multi-teacher distillation, normalizing each teacher's feedback scale per domain beats label routing alone.",
+       thread="train", year=2026, lead=True,
        title="Beyond Teacher Assignment: Domain-Normalized Multi-Teacher On-Policy Distillation", short="DN-MOPD",
        authors="Xin Li, Hao Jiang, Xin Gao, Annan Wang, Yuchen Xie, Jinghao Guo, Xingwei Qu, Yichi Zhang, Chau Yuen",
        venue="Preprint 2026", venue_long="arXiv preprint, 2026", pos="first of 9",
@@ -52,7 +58,8 @@ P = [
        claim="Label routing decides which teacher supervises a prompt, but not how strongly that teacher's "
              "feedback counts. Normalizing the feedback scale per domain adds 1.2–3.1 points over label routing, across 2B, 4B and 9B students.",
        scope=None),
-  dict(id="tlvc", thread="orchestrate", year=2026, lead=True,
+  dict(id="tlvc", blurb="No single verifier is best for every generator in best-of-K selection; label-free statistics predict which kind wins.",
+       thread="orchestrate", year=2026, lead=True,
        title="Target-Local Verifier Choice in Best-of-K Reasoning Selection", short="TLVC",
        authors="Xin Li, Hao Jiang, Weisi Lin",
        venue="EMNLP 2026", venue_long="Findings of EMNLP 2026", pos="first of 3",
@@ -61,7 +68,8 @@ P = [
        claim="On a 34-generator, 7-verifier Best-of-K math panel, one strong process reward model is the best fixed verifier overall — "
              "and still not the best verifier for every generator. Label-free candidate statistics predict which verifier class wins.",
        scope=None),
-  dict(id="dafnycomp", thread="evaluate", year=2026, lead=True,
+  dict(id="dafnycomp", blurb="Models that verify functions one at a time fail once the specifications have to compose.",
+       thread="evaluate", year=2026, lead=True,
        title="Local Success Does Not Compose: Benchmarking Large Language Models for Compositional Formal Verification", short="DafnyComp",
        authors="Xu Xu*, Xin Li*, Xingwei Qu, Jie Fu, Binhang Yuan",
        venue="ICLR 2026", venue_long="ICLR 2026", pos="joint first of 5",
@@ -71,7 +79,8 @@ P = [
        claim="A model can verify a function on its own and still fail once the specifications have to compose. "
              "The benchmark measures the distance between those two results.",
        scope=None),
-  dict(id="reform", thread="train", year=2026, lead=True,
+  dict(id="reform", blurb="Reinforcement learning for formal software verification in Dafny, with fewer human priors.",
+       thread="train", year=2026, lead=True,
        title="Re:Form: Reducing Human Priors in Scalable Formal Software Verification with RL in LLMs: A Preliminary Study on Dafny", short="Re:Form",
        authors="Chuanhao Yan*, Fengdi Che*, Xuhan Huang*, Xu Xu*, Xin Li*, Yizhi Li*, Xingwei Qu*, …, Jie Fu",
        venue="TMLR 2026", venue_long="TMLR 2026", pos="joint first",
@@ -929,8 +938,12 @@ def build_ring():
 def build_track():
     panels = []
     for k, t in enumerate(THREADS):
-        names = "".join(f'<li><a href="{e(BY[w]["links"][0][1])}" title="{e(BY[w]["title"])}">{e(BY[w]["short"])}</a></li>'
-                        for w in t["works"])
+        names = "".join(
+            f'<li class="panel__lead"><a href="{e(BY[w]["links"][0][1])}">{e(BY[w]["short"])}</a>'
+            f'<p class="panel__blurb">{e(BY[w]["blurb"])}</p><p class="panel__venue">{e(vshort(BY[w]))}</p></li>'
+            if BY[w].get("blurb") else
+            f'<li><a href="{e(BY[w]["links"][0][1])}" title="{e(BY[w]["title"])}">{e(BY[w]["short"])}</a></li>'
+            for w in t["works"])
         panels.append(f"""
       <article class="panel panel--{t['id']}">
         <p class="panel__n">{t['n']}</p>
