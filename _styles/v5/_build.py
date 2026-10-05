@@ -734,10 +734,32 @@ def pub(p):
       </li>"""
 
 
+ORDINAL = {w: i for i, w in enumerate(("first", "second", "third", "fourth", "fifth", "sixth", "seventh", "eighth", "ninth", "tenth"), 1)}
+MAIN_TRACK = ("NeurIPS", "ICLR", "ICML", "ACL", "EMNLP", "NAACL")
+
+
+def pub_rank(p):
+    """Order within a year: papers Xin leads (first or joint first) before co-authored ones; then main-track
+    NeurIPS/ICLR/ICML/ACL/EMNLP/NAACL, other conferences, Findings and journals, workshops, preprints; then
+    sole first author before joint first, earlier author position first. Ties keep their order in P."""
+    v, pos = p["venue_long"], p["pos"]
+    if v.startswith("arXiv"):
+        tier = 3
+    elif "workshop" in v.lower():
+        tier = 2
+    elif v.startswith(MAIN_TRACK) and "Industry" not in v:
+        tier = 0
+    else:
+        tier = 1
+    joint = pos.startswith("joint")
+    n = ORDINAL.get(pos.removeprefix("joint ").split()[0], 99)
+    return (n != 1, tier, n, joint)
+
+
 def build_pubs():
     groups = []
     for y in (2026, 2025, 2020):
-        items = "".join(pub(p) for p in P if p["year"] == y)
+        items = "".join(pub(p) for p in sorted((p for p in P if p["year"] == y), key=pub_rank))
         groups.append(f'<section class="year"><h2 class="year__h">{y}</h2><ol class="pubs">{items}</ol></section>')
     filters = "".join(f'<button type="button" data-f="{k}" aria-pressed="{"true" if k == "all" else "false"}">{v}</button>'
                       for k, v in [("all", "All"), ("measure", "Measure"), ("train", "Train"), ("coordinate", "Coordinate"),

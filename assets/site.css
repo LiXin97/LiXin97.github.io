@@ -345,6 +345,7 @@ a.label__aside:hover { color: var(--ink); }
   .hero { grid-template-columns: minmax(0, 1fr); }
   .hero__photo { order: -1; width: 92px; }
   .hero__photo.portrait3d { width: min(78vw, 320px); justify-self: center; margin-bottom: 44px; }
+  .site-foot .wrap { padding-block: 22px 32px; }
   .portrait3d__slogan { right: 0; bottom: -40px; }
   .loop__fig { text-align: left; flex-direction: row; align-items: baseline; flex-wrap: wrap; gap: 4px 10px; }
   .loop__ground { padding-left: 0; }
