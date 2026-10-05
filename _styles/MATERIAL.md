@@ -22,15 +22,15 @@ Three threads, which he describes as one loop rather than three separate areas:
 1. **Evaluate** (named Measure until 2026-10-06) — benchmarks, robustness tests and
    evaluation protocols built to be audited rather than trusted: per-problem
    provenance, verifier-checkable answers, and an explicit limit on what a score
-   supports. Question: what can a model really do, and where does it fail — and does
-   the score mean what it appears to mean?
-2. **Train** — reinforcement learning and on-policy distillation. Question: can we
-   reward the reasoning we are able to check, rather than the answer we hope for?
+   supports. Question: what can models do, where do they fail, and how reliably can we
+   tell?
+2. **Train** — reinforcement learning and on-policy distillation. Question: how can
+   models learn from verifiers, rewards, and other models?
 3. **Orchestrate** (renamed from Coordinate on 2026-10-06, to take in single-agent work)
    — the system around a model at inference time: harnesses and tools, verifier choice,
-   and protocols for several agents working together. Question: what should a trained
-   model be wrapped in — tools, checks, retries, other agents — for the task to actually
-   get done, without breaking what already worked?
+   and protocols for several agents working together, including when that system breaks
+   answers that were already right. Question: how should models, tools, and verifiers
+   work together to complete tasks reliably?
 
 The return leg: every new way of orchestrating models creates new failure modes, which
 need to be evaluated in turn.

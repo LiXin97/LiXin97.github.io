@@ -156,14 +156,14 @@ BY = {p["id"]: p for p in P}
 
 THREADS = [
   dict(id="evaluate", n="01", verb="Evaluate",
-       q="What can a model really do, and where does it fail — and does the score mean what it appears to mean?",
+       q="What can models do, where do they fail, and how reliably can we tell?",
        desc="Benchmarks, robustness tests and evaluation protocols built to be audited rather than trusted: per-problem provenance, "
             "verifier-checkable answers, and an explicit limit on what a score supports.",
        hero="wmbxl", hero_fig=("4,027", "problems, each carrying its own contamination evidence"),
        works=["wmbxl", "dafnycomp", "livecann", "robustmad", "wmb"],
        also=[("WritingPreferenceBench", "https://WritingPreferenceBench.github.io/", "Project page; no venue yet.")]),
   dict(id="train", n="02", verb="Train",
-       q="What should a model be rewarded for — especially when there is no answer key?",
+       q="How can models learn from verifiers, rewards, and other models?",
        desc="What the training signal should be — which reward, and how much each teacher's feedback should count.",
        hero="dnmopd", hero_fig=("+1.2–3.1", "points from normalizing each teacher's feedback scale"),
        works=["dnmopd", "reform", "graphreduce"],
@@ -172,9 +172,9 @@ THREADS = [
              ("WirelessMathLM", "https://lixin.ai/WirelessMathLM/",
               "The earlier arXiv version of WirelessMathBench-XL, which also trains models on the benchmark with reinforcement learning.")]),
   dict(id="orchestrate", n="03", verb="Orchestrate",
-       q="What should a trained model be wrapped in — tools, checks, retries, other agents — for the task to actually get done, "
-         "without breaking what already worked?",
-       desc="The system around a model at inference time: harnesses and tools, verifier choice, and protocols for several agents working together.",
+       q="How should models, tools, and verifiers work together to complete tasks reliably?",
+       desc="The system around a model at inference time: harnesses and tools, verifier choice, and protocols for several agents "
+            "working together — including when that system breaks answers that were already right.",
        hero="debateledger", hero_fig=("29 / 108", "collapses a freeze prevents / corrections it gives up"),
        works=["debateledger", "tlvc", "lacp"], also=[]),
 ]
@@ -527,6 +527,10 @@ def thread_label(t, cls):
       </div>"""
 
 
+HERO_LINKS = [("Google Scholar", "https://scholar.google.com/citations?user=Hxf8sNkAAAAJ"), ("GitHub", "https://github.com/LiXin97"),
+              ("CV", "/data/Xin_Li_CV_2026.pdf"), ("Email", "mailto:xin019@e.ntu.edu.sg")]
+
+
 def hero_block(variant=""):
     return f"""
   <header class="hero wrap {variant}">
@@ -534,6 +538,7 @@ def hero_block(variant=""):
       <p class="kicker">Ph.D. student · Nanyang Technological University · advised by <a href="https://blogs.ntu.edu.sg/chau-yuen/">Prof. Chau Yuen</a></p>
       <h1 class="name">Xin Li<span class="name__cjk" lang="zh-Hans">李鑫</span></h1>
       <p class="lede">{e(LEDE)}</p>
+      {links_html(HERO_LINKS, "links links--plain hero__links")}
     </div>
     {hero_photo()}
   </header>"""
@@ -816,7 +821,7 @@ def build_about():
                                 "odometry; semi-dense 3D mesh reconstruction at 30+ FPS."),
     ])
     edu = rows([
-        ("2025 – 2029", "<b>Ph.D.</b>, Nanyang Technological University, Singapore. Advised by Prof. Chau Yuen."),
+        ("2025 – 2029 (expected)", "<b>Ph.D.</b>, Nanyang Technological University, Singapore. Advised by Prof. Chau Yuen."),
         ("2018 – 2021", "<b>M.E.</b>, Peking University. Advised by Prof. Jinlong Lin."),
         ("2014 – 2018", "<b>B.E.</b>, Northeastern University, China."),
     ])
@@ -862,7 +867,7 @@ def build_about():
   <div class="wrap about-body">
     <section id="experience"><h2 class="label"><span>Experience</span></h2>{exp}</section>
     <section id="education"><h2 class="label"><span>Education</span></h2>{edu}</section>
-    <section id="awards"><h2 class="label"><span>Grants &amp; awards</span><span class="label__aside">compute grants won directly, not advisor funding</span></h2>{grants}</section>
+    <section id="awards"><h2 class="label"><span>Grants &amp; awards</span></h2>{grants}</section>
     <section id="mentoring"><h2 class="label"><span>Mentoring</span></h2>{mentoring}</section>
     <section id="service"><h2 class="label"><span>Service and talks</span></h2>{service}</section>
   </div>"""
