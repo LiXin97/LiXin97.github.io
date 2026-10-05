@@ -30,6 +30,8 @@ news.html           every news item; home shows the latest five
 about.html          experience, education, grants, mentoring, service and talks
 assets/site.css     generated: base.css + paper.css + present.css
 assets/mode.js      footer Auto / Light / Dark switch (dark follows the system by default)
+assets/portrait3d.js  the home page's 3D portrait (three.js bundle; built elsewhere, see below)
+assets/portrait/    its colour, cut-out mask and depth map
 _styles/v5/         the generator, its CSS sources, and the preview
 _styles/share/      card.html, the source of data/share-card.jpg
 CNAME               lixin.ai
@@ -46,7 +48,8 @@ images/             favicons
 | --- | --- |
 | `data/Xin_Li_CV_2026.pdf` | the CV link in the nav and contact line |
 | `data/XinLI_profile.webp` | the JSON-LD `Person.image` (full resolution source) |
-| `data/avatar-560.webp` | the home-page portrait |
+| `data/avatar-560.webp` | the home-page portrait; shown until the 3D one loads, and in its place without WebGL or with reduced motion |
+| `assets/portrait3d.js`, `assets/portrait/*` | the 3D portrait on the home page. Both are build outputs: the bundle is esbuild of `avatar/portrait/embed.js`, the images come from `tools/depth/make_portrait.py`, both in the separate lixin.ai workspace; copy them in, don't edit here |
 | `data/share-card.jpg` | `og:image` / `twitter:image`, 1200x630; rendered from `_styles/share/card.html` (how is in its header comment) |
 | `images/icon-32.png`, `images/icon-180.png` | favicon and apple-touch-icon |
 | `data/talk_slides/*.pdf` | the talks on the About page |

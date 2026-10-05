@@ -113,6 +113,14 @@ a.label__aside:hover { color: var(--ink); }
 /* ---------- hero ---------- */
 .hero { padding-top: clamp(48px, 8vw, 96px); display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 28px clamp(32px, 5vw, 72px); align-items: end; }
 .hero__photo { width: clamp(150px, 16vw, 216px); aspect-ratio: 1; object-fit: cover; border-radius: var(--photo-radius, 2px); filter: var(--photo-filter, none); }
+/* the 3D depth portrait (assets/portrait3d.js): a cut-out canvas over the photo, which shows until it is ready */
+.hero__photo.portrait3d { position: relative; width: clamp(240px, 27vw, 380px); border-radius: 0; filter: none; }
+.portrait3d img { display: block; width: 100%; height: 100%; object-fit: cover; border-radius: var(--photo-radius, 2px); filter: var(--photo-filter, none); transition: opacity .6s; }
+.portrait3d__canvas { position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0; transition: opacity .9s; }
+.portrait3d.is-3d img { opacity: 0; }
+.portrait3d.is-3d .portrait3d__canvas { opacity: 1; }
+.portrait3d__slogan { position: absolute; right: 2%; bottom: -15%; margin: 0; white-space: nowrap; pointer-events: none; font-family: "Caveat", cursive; font-weight: 700; font-size: clamp(26px, 2.6vw, 40px); line-height: 1; color: var(--ink); transform: rotate(-4deg); opacity: 0; transition: opacity 1s .5s; }
+.portrait3d.is-3d .portrait3d__slogan { opacity: 1; }
 .kicker { font-family: var(--f-mono); font-size: .72rem; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); margin-bottom: 22px; }
 .kicker a { color: var(--ink); }
 .name { font-family: var(--f-display); font-weight: var(--w-name); font-size: var(--name-size); line-height: .9; letter-spacing: var(--track-name); }
@@ -336,6 +344,8 @@ a.label__aside:hover { color: var(--ink); }
   .loop__item:first-child::after { left: calc(var(--bracket-w) - 9px); }
   .hero { grid-template-columns: minmax(0, 1fr); }
   .hero__photo { order: -1; width: 92px; }
+  .hero__photo.portrait3d { width: min(78vw, 320px); justify-self: center; margin-bottom: 44px; }
+  .portrait3d__slogan { right: 0; bottom: -40px; }
   .loop__fig { text-align: left; flex-direction: row; align-items: baseline; flex-wrap: wrap; gap: 4px 10px; }
   .loop__ground { padding-left: 0; }
   .cards { grid-template-columns: minmax(0, 1fr); }
