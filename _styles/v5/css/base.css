@@ -184,6 +184,8 @@ a.label__aside:hover { color: var(--ink); }
 .card__title { margin-top: 20px; font-family: var(--f-title); font-weight: var(--w-title); font-size: 1.3rem; line-height: 1.2; letter-spacing: -.01em; }
 .card__title a { text-decoration: none; }
 .card__title a:hover { color: var(--accent); }
+.card__authors { margin-top: 8px; font-size: .86rem; line-height: 1.5; color: var(--muted); }
+.card__authors .me { color: var(--ink); font-weight: 600; }
 .card__meta { display: flex; flex-wrap: wrap; gap: 2px 12px; margin-top: 6px; font-family: var(--f-mono); font-size: .7rem; letter-spacing: .04em; color: var(--muted); }
 .card__meta span:not(:last-child)::after { content: " ·"; color: var(--faint); }
 .card__claim { margin-top: 14px; font-size: .98rem; line-height: 1.6; color: var(--ink); max-width: 52ch; }
@@ -191,14 +193,13 @@ a.label__aside:hover { color: var(--ink); }
 /* ---------- also ---------- */
 .also__list { list-style: none; padding: 0; border-top: var(--rule-w) solid var(--rule); }
 .also__list li {
-  display: grid; grid-template-columns: minmax(0, 11rem) minmax(0, 1fr) minmax(0, 15rem) minmax(0, 9rem);
+  display: grid; grid-template-columns: minmax(0, 11rem) minmax(0, 1fr) minmax(0, 13rem);
   gap: 4px 24px; align-items: baseline; padding: 14px 0; border-bottom: var(--rule-w) solid var(--rule);
 }
 .also__name { font-family: var(--f-title); font-weight: var(--w-title); font-size: 1.04rem; text-decoration: none; }
 .also__name:hover { color: var(--accent); }
 .also__t { color: var(--muted); font-size: .92rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-.also__v, .also__p { font-family: var(--f-mono); font-size: .7rem; letter-spacing: .03em; color: var(--muted); }
-.also__p { text-align: right; color: var(--faint); }
+.also__v { font-family: var(--f-mono); font-size: .7rem; letter-spacing: .03em; color: var(--muted); text-align: right; }
 
 /* ---------- recent ---------- */
 .recent__list { list-style: none; padding: 0; border-top: var(--rule-w) solid var(--rule); }
@@ -228,8 +229,6 @@ a.label__aside:hover { color: var(--ink); }
 .works { border-top: var(--rule-strong-w) solid var(--rule-strong); }
 .work { display: grid; grid-template-columns: minmax(0, 15rem) minmax(0, 1fr); gap: 14px clamp(24px, 4vw, 56px); padding: 30px 0; border-bottom: var(--rule-w) solid var(--rule); }
 .work__venue { font-family: var(--f-mono); font-size: .74rem; font-weight: 600; letter-spacing: .04em; line-height: 1.5; }
-.work__pos { margin-top: 4px; font-family: var(--f-mono); font-size: .72rem; letter-spacing: .04em; color: var(--faint); }
-.work__pos.is-lead { color: var(--accent); }
 .work__fig { margin-top: 18px; display: flex; flex-direction: column; gap: 4px; }
 .work__fig b { font-family: var(--f-fig); font-weight: var(--w-fig); font-size: 2.1rem; line-height: 1; letter-spacing: -.02em; font-variant-numeric: tabular-nums lining-nums; }
 .work__fig b { color: var(--fig-color); }
@@ -279,8 +278,6 @@ a.label__aside:hover { color: var(--ink); }
 .pub__title a:hover { color: var(--accent); }
 .pub__authors { margin-top: 6px; font-size: .86rem; color: var(--muted); }
 .pub__meta { display: flex; flex-wrap: wrap; gap: 4px 14px; margin-top: 8px; font-family: var(--f-mono); font-size: .7rem; letter-spacing: .04em; color: var(--muted); }
-.pub__pos { color: var(--faint); }
-.pub__pos.is-lead { color: var(--accent); }
 .pub__thread { color: var(--faint); }
 .pub .links { margin-top: 8px; }
 .pubs-note { margin-top: 30px; font-size: .9rem; color: var(--muted); }
@@ -318,8 +315,7 @@ a.label__aside:hover { color: var(--ink); }
   .loop__q { max-width: none; }
   .also__list li { grid-template-columns: minmax(0, 10rem) minmax(0, 1fr); }
   .also__t { grid-column: 2; }
-  .also__v { grid-column: 1; grid-row: 2; }
-  .also__p { grid-column: 2; grid-row: 2; text-align: left; }
+  .also__v { grid-column: 2; text-align: left; }
 }
 @media (max-width: 720px) {
   :root { --bracket-w: 30px; --item-pad: 20px; }
@@ -332,7 +328,7 @@ a.label__aside:hover { color: var(--ink); }
   .loop__ground { padding-left: 0; }
   .cards { grid-template-columns: minmax(0, 1fr); }
   .also__list li { grid-template-columns: minmax(0, 1fr); gap: 2px; }
-  .also__t, .also__v, .also__p { grid-column: 1; grid-row: auto; text-align: left; white-space: normal; }
+  .also__t, .also__v { grid-column: 1; grid-row: auto; text-align: left; white-space: normal; }
   .recent__list li { grid-template-columns: minmax(0, 1fr); gap: 2px; }
   .coda { grid-template-columns: minmax(0, 1fr); }
   .work { grid-template-columns: minmax(0, 1fr); gap: 10px; }

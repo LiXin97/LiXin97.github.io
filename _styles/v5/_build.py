@@ -227,6 +227,14 @@ def vshort(p):
              .replace("arXiv preprint, 2026", "Preprint 2026"))
 
 
+def abbrev(a, keep=3):
+    """First `keep` names, an ellipsis, and the last name, once a list runs past five."""
+    names = a.split(", ")
+    if len(names) <= 5 or "…" in names:
+        return a
+    return ", ".join(names[:keep] + ["…", names[-1]])
+
+
 def short_pos(pos):
     if pos.startswith("first"):
         return "first author"
@@ -317,7 +325,8 @@ def card(p):
         <p class="card__tag"><a href="{p['thread']}.html">{e(tag)}</a></p>
         <p class="card__fig{' is-neg' if neg else ''}"><b>{e(n)}</b><span>{e(lbl)}</span></p>
         <h3 class="card__title"><a href="{e(p['links'][0][1])}">{e(p['short'])}</a></h3>
-        <p class="card__meta"><span>{e(p['venue_long'])}</span><span>{e(short_pos(p['pos']))}</span></p>
+        <p class="card__authors">{authors_html(abbrev(p['authors']))}</p>
+        <p class="card__meta"><span>{e(p['venue_long'])}</span></p>
         <p class="card__claim">{e(p['claim'])}</p>
         {scope}
         {links_html(p['links'][1:], 'links links--quiet') if len(p['links']) > 1 else ''}
@@ -328,7 +337,7 @@ def build_index():
     cards = "".join(card(BY[i]) for i in ["debateledger", "wmbxl", "dnmopd", "tlvc"])
     also_ids = ["dafnycomp", "reform", "simd2nn", "robustmad", "graphreduce", "livecann"]
     also = "".join(f"""
-        <li><a class="also__name" href="{e(BY[i]['links'][0][1])}">{e(BY[i]['short'])}</a><span class="also__t">{e(subtitle(BY[i]))}</span><span class="also__v">{e(vshort(BY[i]))}</span><span class="also__p">{e(BY[i]['pos'])}</span></li>"""
+        <li><a class="also__name" href="{e(BY[i]['links'][0][1])}">{e(BY[i]['short'])}</a><span class="also__t">{e(subtitle(BY[i]))}</span><span class="also__v">{e(vshort(BY[i]))}</span></li>"""
                    for i in also_ids)
     recent = "".join(f'<li><time>{e(d)}</time><span>{e(t)}</span></li>' for d, t in RECENT)
     body = f"""
@@ -342,7 +351,7 @@ def build_index():
   </header>
 {loop_html()}
   <section class="results wrap" aria-labelledby="res-h">
-    <h2 id="res-h" class="label"><span>Selected results</span><span class="label__aside">first or joint-first author · 2026</span></h2>
+    <h2 id="res-h" class="label"><span>Selected results</span><span class="label__aside">2026</span></h2>
     <div class="cards">{cards}
     </div>
   </section>
@@ -389,7 +398,6 @@ def work(p, open_fig=True):
       <article class="work" id="{p['id']}">
         <div class="work__side">
           <p class="work__venue">{e(p['venue_long'])}</p>
-          <p class="work__pos{lead}">{e(p['pos'])}</p>
           {fig}
         </div>
         <div class="work__main">
@@ -447,7 +455,7 @@ def pub(p):
       <li class="pub" data-thread="{p['thread']}">
         <h3 class="pub__title"><a href="{e(p['links'][0][1])}">{e(p['title'])}</a></h3>
         <p class="pub__authors">{authors_html(p['authors'])}</p>
-        <p class="pub__meta"><span class="pub__venue">{e(p['venue_long'])}</span><span class="pub__pos{lead}">{e(p['pos'])}</span><span class="pub__thread">{e(LABEL[p['thread']])}</span></p>
+        <p class="pub__meta"><span class="pub__venue">{e(p['venue_long'])}</span><span class="pub__thread">{e(LABEL[p['thread']])}</span></p>
         {links_html(p['links'], 'links links--quiet')}
       </li>"""
 
@@ -463,8 +471,8 @@ def build_pubs():
     body = f"""
   <header class="plain-head wrap">
     <h1 class="plain-h1">Publications</h1>
-    <p class="plain-sub"><sup>*</sup> equal contribution. Position in the author list is given for every paper.
-      Also on <a href="https://scholar.google.com/citations?user=Hxf8sNkAAAAJ">Google Scholar</a>.</p>
+    <p class="plain-sub"><sup>*</sup> equal contribution. Also on
+      <a href="https://scholar.google.com/citations?user=Hxf8sNkAAAAJ">Google Scholar</a>.</p>
     <div class="filter" role="group" aria-label="Filter by thread">{filters}</div>
   </header>
   <div class="wrap pubs-wrap">{"".join(groups)}
