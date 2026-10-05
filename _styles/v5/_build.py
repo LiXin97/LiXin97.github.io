@@ -89,12 +89,16 @@ P = [
        links=[("Project", "https://robustmad.github.io/"), ("OpenReview", "https://openreview.net/forum?id=skrA9UYNIZ"),
               ("Code", "https://github.com/en-research/RobustMAD")],
        fig=None, claim=None, scope=None),
-  dict(id="graphreduce", thread="compose", year=2026, lead=False,
+  dict(id="graphreduce", thread="train", year=2026, lead=False,
        title="GraphReduce: Coverage-Preserving LLM Aggregation for E-commerce Review Insights", short="GraphReduce",
        authors="Hao Jiang, Xin Li, Yichi Zhang, Weisi Lin",
        venue="EMNLP 2026", venue_long="EMNLP 2026 · Industry Track", pos="second of 4",
        links=[("Project", "https://graphreduce.github.io/")],
-       fig=None, claim=None, scope=None),
+       fig=("59.3 → 93.1%", "extractor quality, with an anti-copy RL objective", False),
+       claim="Turns thousands of review tuples into a ranked list of product insights while every tuple stays attached to "
+             "the insight it supports: membership is computed outside the LLM, so coverage is 100% with no duplicates. "
+             "An anti-copy reinforcement objective lifts the upstream extractor from 59.3% to 93.1% production quality.",
+       scope=None),
   dict(id="livecann", thread="measure", year=2026, lead=False,
        title="LiveCANNBench: Benchmark SWE AI Coding for Ascend CANN", short="LiveCANNBench",
        authors="Sijie Wang, Kai Zhao, Wee Peng Tay, Shuo Zhang, Chengwen Liu, Quanjiang Guo, Ren Junhao, Xin Li, "
@@ -155,7 +159,7 @@ THREADS = [
        q="What should a model be rewarded for — especially when there is no answer key?",
        desc="Reinforcement learning, on-policy distillation and verifier-guided selection.",
        hero="dnmopd", hero_fig=("+1.2–3.1", "points from normalizing each teacher's feedback scale"),
-       works=["dnmopd", "tlvc", "reform"],
+       works=["dnmopd", "tlvc", "reform", "graphreduce"],
        also=[("ListOPD", "https://lixin.ai/ListOPD/",
               "A computable extrapolation cliff in on-policy distillation of near-deterministic structured outputs. Project page; no venue yet."),
              ("WirelessMathLM", "https://lixin.ai/WirelessMathLM/",
@@ -164,7 +168,7 @@ THREADS = [
        q="When several models work together, does the interaction help — or quietly destroy answers that were already right?",
        desc="Protocols, memory and measurement for systems where several models interact.",
        hero="debateledger", hero_fig=("29 / 108", "collapses a freeze prevents / corrections it gives up"),
-       works=["debateledger", "lacp", "graphreduce"], also=[]),
+       works=["debateledger", "lacp"], also=[]),
 ]
 TH = {t["id"]: t for t in THREADS}
 
@@ -754,11 +758,6 @@ def build_track():
     <div class="track__return"><span class="track__rail" aria-hidden="true"></span>
       <p><b>03 → 01.</b> {e(RETURN)}</p></div>
     <p class="track__ground"><span class="track__ground-k">{e(GROUND_K)}</span>{ground}<span class="track__now">{e(GROUND_NOW)}</span></p>
-  </section>
-  <section class="readings wrap" aria-labelledby="rd-h">
-    <h2 id="rd-h" class="label"><span>Selected results</span><span class="label__aside">2026</span></h2>
-    <div class="readings__row">{readings()}
-    </div>
   </section>""" + tail_sections(also_list=False)
     return page("track", "Xin Li — the loop", body, DESC, home="track.html")
 
