@@ -21,16 +21,16 @@ P = [
        links=[("Project", "https://lixin.ai/DebateLedger/")],
        fig=("−79", "net, under equal weights", True),
        claim="Across 6,925 logged MMLU-Pro debates, 253 collapses turned a correct majority wrong. "
-             "A probe-gated freeze prevents 29 of them and gives up 108 corrections. "
+             "A probe-gated freeze prevents 29 of them and gives up 108 corrections — net −79 under equal weights. "
              "58.9% of collapses begin in the first debate round.",
-       scope="The net weighs a prevented collapse and a lost correction equally."),
+       scope=None),
   dict(id="wmbxl", thread="measure", year=2026, lead=True,
        title="WirelessMathBench-XL: An Auditable Benchmark for Wireless Mathematical Reasoning", short="WirelessMathBench-XL",
        authors="Xin Li, Mengbing Liu, Yiyang Zhu, Wenhe Zhang, Li Wei, Jiancheng An, Chau Yuen",
        venue="NeurIPS 2026", venue_long="NeurIPS 2026 · Evaluations and Datasets Track", pos="first of 7",
        links=[("Project", "https://lixin.ai/WirelessMathBench-XL/"), ("arXiv", "https://arxiv.org/abs/2509.23219")],
        fig=("4,027", "problems", False),
-       claim="Drawn from 836 arXiv papers across 20 wireless subfields. Every problem ships 13-gram "
+       claim="4,027 problems drawn from 836 arXiv papers across 20 wireless subfields. Every problem ships 13-gram "
              "contamination-overlap evidence against public pretraining text. Frontier models cluster at 86.5–91.3%.",
        scope="A rerunnable audit producing per-problem evidence for one lexical channel — not a proof that the benchmark is clean."),
   dict(id="dnmopd", thread="train", year=2026, lead=True,
@@ -43,7 +43,7 @@ P = [
               ("Models", "https://huggingface.co/collections/XINLI1997/dn-mopd-6aba5f0df7bd8732d7205ed4")],
        fig=("+1.2–3.1", "points over label routing", False),
        claim="Label routing decides which teacher supervises a prompt, but not how strongly that teacher's "
-             "feedback counts. Normalizing the feedback scale per domain recovers the difference, across 2B, 4B and 9B students.",
+             "feedback counts. Normalizing the feedback scale per domain adds 1.2–3.1 points over label routing, across 2B, 4B and 9B students.",
        scope=None),
   dict(id="tlvc", thread="train", year=2026, lead=True,
        title="Target-Local Verifier Choice in Best-of-K Reasoning Selection", short="TLVC",
@@ -51,7 +51,7 @@ P = [
        venue="EMNLP 2026", venue_long="Findings of EMNLP 2026", pos="first of 3",
        links=[("Project", "https://lixin.ai/TLVC/"), ("Code", "https://github.com/LiXin97/TLVC")],
        fig=("34 × 7", "generators × verifiers", False),
-       claim="On a Best-of-K math panel, one strong process reward model is the best fixed verifier overall — "
+       claim="On a 34-generator, 7-verifier Best-of-K math panel, one strong process reward model is the best fixed verifier overall — "
              "and still not the best verifier for every generator. Label-free candidate statistics predict which verifier class wins.",
        scope=None),
   dict(id="dafnycomp", thread="measure", year=2026, lead=True,
@@ -78,7 +78,7 @@ P = [
        venue="IEEE TSP 2026", venue_long="IEEE Transactions on Signal Processing, 2026", pos="second of 4",
        links=[("Project", "https://onboradsim.github.io/")],
        fig=("~90%", "accuracy from raw SAR", False),
-       claim="Classifies terrain directly from Level-0 raw SAR, with a stacked metasurface performing the inference "
+       claim="Classifies terrain directly from Level-0 raw SAR at roughly 90% accuracy, with a stacked metasurface performing the inference "
              "in-wave, before digitisation or downlink. Extended from a workshop paper at ML4RS @ ICLR 2025.",
        scope=None),
   dict(id="robustmad", thread="measure", year=2026, lead=False,
@@ -107,7 +107,7 @@ P = [
        links=[("Anthology", "https://aclanthology.org/2026.findings-acl.1143/"),
               ("PDF", "https://aclanthology.org/2026.findings-acl.1143.pdf")],
        fig=("400+", "SWE-level tasks", False),
-       claim="Task instances built from real Ascend CANN repositories — multi-file, multi-language and execution-aware — "
+       claim="400+ SWE-level task instances built from real Ascend CANN repositories — multi-file, multi-language and execution-aware — "
              "on a live benchmarking paradigm that mitigates leakage.",
        scope=None),
   dict(id="lacp", thread="coordinate", year=2025, lead=True,
@@ -535,10 +535,6 @@ def build_index():
 # ---------------------------------------------------------------- thread pages
 def work(p, open_fig=True):
     t = TH.get(p["thread"])
-    fig = ""
-    if p["fig"] and open_fig:
-        n, lbl, neg = p["fig"]
-        fig = f'<p class="work__fig{" is-neg" if neg else ""}"><b>{e(n)}</b><span>{e(lbl)}</span></p>'
     claim = f'<p class="work__claim">{e(p["claim"])}</p>' if p["claim"] else ""
     scope = f'<p class="scope"><b>Scope</b> {e(p["scope"])}</p>' if p["scope"] else ""
     lead = " is-lead" if p["pos"].startswith(("first", "joint first")) else ""
@@ -546,7 +542,6 @@ def work(p, open_fig=True):
       <article class="work" id="{p['id']}">
         <div class="work__side">
           <p class="work__venue">{venue_pill(p)}</p>
-          {fig}
         </div>
         <div class="work__main">
           <h3 class="work__title"><a href="{e(p['links'][0][1])}">{e(p['title'])}</a></h3>
