@@ -26,11 +26,11 @@ Three threads, which he describes as one loop rather than three separate areas:
 2. **Train** — reinforcement learning, on-policy distillation and verifier-guided
    selection. Question: can we reward the reasoning we are able to check, rather than
    the answer we hope for?
-3. **Compose** — protocols, memory and measurement for systems where several models
+3. **Coordinate** — protocols, memory and measurement for systems where several models
    interact. Question: when several models work together, does the interaction help,
    or quietly destroy answers that were already right?
 
-The return leg: composition creates new failure modes, which have to be measured too.
+The return leg: coordination creates new failure modes, which have to be measured too.
 The common ground: domains where an answer can be checked — formal verification,
 mathematics, code, wireless systems.
 

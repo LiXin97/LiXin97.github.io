@@ -34,3 +34,5 @@ html[data-theme="paper"] .card__fig b { font-feature-settings: "lnum" 1, "tnum" 
 html[data-theme="paper"] .scope { font-style: italic; }
 html[data-theme="paper"] .scope b { font-style: normal; }
 html[data-theme="paper"] .site-head { border-bottom-color: var(--rule-strong); }
+/* Newsreader's capitals rise above a tight line box; give the label above room to clear them */
+html[data-theme="paper"] .thread-verb { margin-top: .17em; }

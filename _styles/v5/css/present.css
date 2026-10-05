@@ -41,9 +41,9 @@
 .tl--measure { text-align: center; max-width: 28rem; margin-bottom: 26px; }
 .tl--measure .tl__q { margin-inline: auto; max-width: 24rem; }
 .ring__orbit { position: relative; width: min(420px, 100%); margin-bottom: 96px; }
-.tl--train, .tl--compose { position: absolute; top: 60%; width: min(290px, calc((100vw - 420px) / 2 - 120px)); }
+.tl--train, .tl--coordinate { position: absolute; top: 60%; width: min(290px, calc((100vw - 420px) / 2 - 120px)); }
 .tl--train { left: calc(100% + 34px); }
-.tl--compose { right: calc(100% + 34px); text-align: right; }
+.tl--coordinate { right: calc(100% + 34px); text-align: right; }
 .ring__return { margin: 30px auto 0; max-width: 46rem; text-align: center; font-size: .98rem; color: var(--muted); }
 .ring__return b { color: var(--loop-ink); font-weight: 600; }
 .ring__return span { color: var(--loop-ink); margin-right: 4px; }
@@ -142,15 +142,15 @@
 .js .scrolly .ring__dot { opacity: 0; }
 .scrolly[data-step="measure"] .ring__node--measure,
 .scrolly[data-step="train"] .ring__node--train, .scrolly[data-step="train"] .ring__leg--measure,
-.scrolly[data-step="compose"] .ring__node--compose, .scrolly[data-step="compose"] .ring__leg--train,
-.scrolly[data-step="return"] .ring__leg--ret, .scrolly[data-step="return"] .ring__node--compose, .scrolly[data-step="return"] .ring__node--measure,
+.scrolly[data-step="coordinate"] .ring__node--coordinate, .scrolly[data-step="coordinate"] .ring__leg--train,
+.scrolly[data-step="return"] .ring__leg--ret, .scrolly[data-step="return"] .ring__node--coordinate, .scrolly[data-step="return"] .ring__node--measure,
 .scrolly[data-step="now"] .ring__leg, .scrolly[data-step="now"] .ring__node, .scrolly[data-step="now"] .ring__dot { opacity: 1 !important; }
 .scrolly[data-step="measure"] .ring__node--measure circle,
 .scrolly[data-step="train"] .ring__node--train circle,
-.scrolly[data-step="compose"] .ring__node--compose circle { fill: var(--accent); stroke: var(--accent); }
+.scrolly[data-step="coordinate"] .ring__node--coordinate circle { fill: var(--accent); stroke: var(--accent); }
 .scrolly[data-step="measure"] .ring__node--measure text,
 .scrolly[data-step="train"] .ring__node--train text,
-.scrolly[data-step="compose"] .ring__node--compose text { fill: var(--on-accent); }
+.scrolly[data-step="coordinate"] .ring__node--coordinate text { fill: var(--on-accent); }
 .scrolly[data-step="now"] .ring__v--now { color: var(--accent); }
 
 /* ---------- palette accents for the new pieces ---------- */
@@ -174,7 +174,7 @@ html[data-theme="swiss"] .panel { border-width: 0; border-top-width: 4px; paddin
   .ring__stage > .tl, .ring__orbit > .tl { position: static; width: auto; max-width: 30rem; text-align: left; justify-self: stretch; margin: 0; padding: 22px 0; border-top: var(--rule-w) solid var(--rule); }
   .ring__stage .ring__fig { order: 0; margin-bottom: 18px; max-width: 360px; }
   .ring__orbit { margin-bottom: 0; }
-  .tl--measure { order: 1; } .tl--train { order: 2; } .tl--compose { order: 3; }
+  .tl--measure { order: 1; } .tl--train { order: 2; } .tl--coordinate { order: 3; }
   .tl--measure .tl__q { margin-inline: 0; }
   .ring__return { text-align: left; margin-left: 0; }
 }

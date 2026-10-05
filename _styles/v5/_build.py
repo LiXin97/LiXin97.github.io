@@ -14,7 +14,7 @@ ME = "Xin Li"
 # ---------------------------------------------------------------- papers
 # thread: measure | train | compose | wireless | robotics
 P = [
-  dict(id="debateledger", thread="compose", year=2026, lead=True,
+  dict(id="debateledger", thread="coordinate", year=2026, lead=True,
        title="Measuring Collapse and Correction in Homogeneous-Panel LLM Debate", short="DebateLedger",
        authors="Xin Li*, Mengbing Liu*, Chau Yuen",
        venue="NeurIPS 2026", venue_long="NeurIPS 2026 · Evaluations and Datasets Track", pos="joint first of 3",
@@ -110,7 +110,7 @@ P = [
        claim="Task instances built from real Ascend CANN repositories — multi-file, multi-language and execution-aware — "
              "on a live benchmarking paradigm that mitigates leakage.",
        scope=None),
-  dict(id="lacp", thread="compose", year=2025, lead=True,
+  dict(id="lacp", thread="coordinate", year=2025, lead=True,
        title="LACP: LLM Agent Communication Protocol Requires Urgent Standardization", short="LACP",
        authors="Xin Li, Mengbing Liu, Chau Yuen",
        venue="NeurIPS 2025 workshop", venue_long="AI4NextG workshop @ NeurIPS 2025", pos="first of 3",
@@ -157,14 +157,14 @@ THREADS = [
        also=[("WritingPreferenceBench", "https://WritingPreferenceBench.github.io/", "Project page; no venue yet.")]),
   dict(id="train", n="02", verb="Train",
        q="What should a model be rewarded for — especially when there is no answer key?",
-       desc="Reinforcement learning, on-policy distillation and verifier-guided selection.",
+       desc="What the training signal should be — which reward, which verifier, and how much each teacher's feedback should count.",
        hero="dnmopd", hero_fig=("+1.2–3.1", "points from normalizing each teacher's feedback scale"),
        works=["dnmopd", "tlvc", "reform", "graphreduce"],
        also=[("ListOPD", "https://lixin.ai/ListOPD/",
               "A computable extrapolation cliff in on-policy distillation of near-deterministic structured outputs. Project page; no venue yet."),
              ("WirelessMathLM", "https://lixin.ai/WirelessMathLM/",
               "The earlier arXiv version of WirelessMathBench-XL, which also trains models on the benchmark with reinforcement learning.")]),
-  dict(id="compose", n="03", verb="Compose",
+  dict(id="coordinate", n="03", verb="Coordinate",
        q="When several models work together, does the interaction help — or quietly destroy answers that were already right?",
        desc="Protocols, memory and measurement for systems where several models interact.",
        hero="debateledger", hero_fig=("29 / 108", "collapses a freeze prevents / corrections it gives up"),
@@ -172,8 +172,8 @@ THREADS = [
 ]
 TH = {t["id"]: t for t in THREADS}
 
-RETURN = "Composition creates new failure modes, which have to be measured too."
-DESC = ("Xin Li, Ph.D. student at NTU Singapore, working on LLM agents: measuring, training and composing them, "
+RETURN = "Coordination creates new failure modes, which have to be measured too."
+DESC = ("Xin Li, Ph.D. student at NTU Singapore, working on LLM agents: measuring, training and coordinating them, "
         "and agents that improve themselves.")
 LEDE = ("I work on LLM agents — measuring what they can do, training them, and finding out what happens when "
         "several work together. Lately, on agents that improve themselves.")
@@ -194,7 +194,7 @@ FONTS = ("https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6
          "&family=Inter+Tight:wght@500;600;700;800;900&family=Inter:wght@400;500;600&display=swap")
 CJK = "https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@500&family=Noto+Sans+SC:wght@500&display=swap&text=%E6%9D%8E%E9%91%AB"
 
-NAV = [("measure", "Measure", "measure.html"), ("train", "Train", "train.html"), ("compose", "Compose", "compose.html"),
+NAV = [("measure", "Measure", "measure.html"), ("train", "Train", "train.html"), ("coordinate", "Coordinate", "coordinate.html"),
        None, ("pubs", "Publications", "publications.html"), ("about", "About", "about.html")]
 
 
@@ -349,13 +349,13 @@ def _arc(cx, cy, r, a1, a2):
 
 
 RING = dict(size=440, c=220, r=160, nr=25, gap=14)
-NODE_ANG = {"measure": -90, "train": 30, "compose": 150}
+NODE_ANG = {"measure": -90, "train": 30, "coordinate": 150}
 
 
 def ring_svg():
     """The loop as a ring: 01 at the top, clockwise. The leg from 03 back to 01 is the return."""
     c, r, nr, g = RING["c"], RING["r"], RING["nr"], RING["gap"]
-    legs = [("measure", "train", "fwd"), ("train", "compose", "fwd"), ("compose", "measure", "ret")]
+    legs = [("measure", "train", "fwd"), ("train", "coordinate", "fwd"), ("coordinate", "measure", "ret")]
     paths = []
     for a, b, kind in legs:
         a1 = NODE_ANG[a] + g
@@ -369,10 +369,10 @@ def ring_svg():
         x, y = _pt(c, c, r, NODE_ANG[t["id"]])
         nodes.append(f'<g class="ring__node ring__node--{t["id"]}"><circle cx="{x:.2f}" cy="{y:.2f}" r="{nr}"/>'
                      f'<text x="{x:.2f}" y="{y:.2f}" dy=".35em">{t["n"]}</text></g>')
-    label_path = _arc(c, c, r + 21, NODE_ANG["compose"] + 18, NODE_ANG["measure"] + 360 - 18)
+    label_path = _arc(c, c, r + 21, NODE_ANG["coordinate"] + 18, NODE_ANG["measure"] + 360 - 18)
     orbit = f"M {c} {c - r} A {r} {r} 0 0 1 {c} {c + r} A {r} {r} 0 0 1 {c} {c - r}"
     return f"""<svg class="ring__svg" viewBox="0 0 {RING['size']} {RING['size']}" role="img"
-      aria-label="The research loop: 01 Measure, then 02 Train, then 03 Compose, and back to 01 Measure.">
+      aria-label="The research loop: 01 Measure, then 02 Train, then 03 Coordinate, and back to 01 Measure.">
       <defs>
         <marker id="ah" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="9" markerHeight="9" markerUnits="userSpaceOnUse" orient="auto"><path class="ring__ah" d="M0,1 L9,5 L0,9 z"/></marker>
         <marker id="ah-ret" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="11" markerHeight="11" markerUnits="userSpaceOnUse" orient="auto"><path class="ring__ah ring__ah--ret" d="M0,1 L9,5 L0,9 z"/></marker>
@@ -528,8 +528,8 @@ def build_index():
       <p class="links links--plain"><a href="mailto:xin019@e.ntu.edu.sg">xin019@e.ntu.edu.sg</a><a href="https://scholar.google.com/citations?user=Hxf8sNkAAAAJ">Scholar</a><a href="https://github.com/LiXin97">GitHub</a><a href="https://www.linkedin.com/in/xin-li-1196331a0/">LinkedIn</a><a href="/data/Xin_Li_CV_2026.pdf">CV</a></p>
     </div>
   </section>"""
-    return page("home", "Xin Li — Measure, Train, Compose",
-                body, "Xin Li, Ph.D. student at NTU Singapore, working on LLM agents: measuring, training and composing them, and agents that improve themselves.")
+    return page("home", "Xin Li — Measure, Train, Coordinate",
+                body, DESC)
 
 
 # ---------------------------------------------------------------- thread pages
@@ -562,7 +562,7 @@ def build_thread(t):
     i = [x["id"] for x in THREADS].index(t["id"])
     prev_t, next_t = THREADS[i - 1], THREADS[(i + 1) % 3]
     prev_note = "the return leg arrives here" if t["id"] == "measure" else "previous"
-    next_note = "back to 01 — the return leg" if t["id"] == "compose" else "next"
+    next_note = "back to 01 — the return leg" if t["id"] == "coordinate" else "next"
     works = "".join(work(BY[w]) for w in t["works"])
     also = ""
     if t["also"]:
@@ -593,7 +593,7 @@ def build_thread(t):
 
 
 # ---------------------------------------------------------------- publications
-LABEL = {"measure": "01 Measure", "train": "02 Train", "compose": "03 Compose",
+LABEL = {"measure": "01 Measure", "train": "02 Train", "coordinate": "03 Coordinate",
          "wireless": "Wireless systems", "robotics": "Robot perception"}
 
 
@@ -614,7 +614,7 @@ def build_pubs():
         items = "".join(pub(p) for p in P if p["year"] == y)
         groups.append(f'<section class="year"><h2 class="year__h">{y}</h2><ol class="pubs">{items}</ol></section>')
     filters = "".join(f'<button type="button" data-f="{k}" aria-pressed="{"true" if k == "all" else "false"}">{v}</button>'
-                      for k, v in [("all", "All"), ("measure", "Measure"), ("train", "Train"), ("compose", "Compose"),
+                      for k, v in [("all", "All"), ("measure", "Measure"), ("train", "Train"), ("coordinate", "Coordinate"),
                                    ("wireless", "Wireless"), ("robotics", "Robotics")])
     body = f"""
   <header class="plain-head wrap">
@@ -697,7 +697,7 @@ def build_about():
   </div>"""
     return page("about", "About — Xin Li", body, "About Xin Li: experience, education, grants and service.")
 
-FEATURED = {"measure": ["wmbxl"], "train": ["dnmopd", "tlvc"], "compose": ["debateledger"]}
+FEATURED = {"measure": ["wmbxl"], "train": ["dnmopd", "tlvc"], "coordinate": ["debateledger"]}
 
 
 def also_names(t):
@@ -736,7 +736,7 @@ def build_ring():
       <div class="ring__orbit">
         <div class="ring__fig">{ring_svg()}{ring_center()}</div>
         {thread_label(T['train'], 'tl')}
-        {thread_label(T['compose'], 'tl')}
+        {thread_label(T['coordinate'], 'tl')}
       </div>
     </div>
     <p class="ring__return"><span aria-hidden="true">↺</span> <b>03 → 01.</b> {e(RETURN)}</p>
