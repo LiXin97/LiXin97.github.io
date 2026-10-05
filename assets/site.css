@@ -362,6 +362,14 @@ a.label__aside:hover { color: var(--ink); }
   .loop__go { transition: none; }
 }
 
+/* light / dark switch in the footer (production only) */
+.mode-switch { display: none; gap: 2px; align-items: center; font-family: var(--f-mono); font-size: .68rem; letter-spacing: .06em; text-transform: uppercase; }
+.js .mode-switch { display: inline-flex; }
+.mode-switch span { color: var(--faint); margin-right: 6px; }
+.mode-switch button { font: inherit; letter-spacing: inherit; text-transform: inherit; color: var(--muted); background: none; border: var(--rule-w) solid transparent; border-radius: var(--radius); padding: 3px 7px; cursor: pointer; }
+.mode-switch button:hover { color: var(--ink); }
+.mode-switch button[aria-pressed="true"] { color: var(--ink); border-color: var(--rule); background: var(--surface); }
+
 /* Paper — a scholarly page. Warm stock, one serif for argument, a mono for the record,
    oxide red rationed to the loop and to what a claim does not cover. */
 html[data-theme="paper"] {
@@ -400,6 +408,29 @@ html[data-theme="paper"] .scope b { font-style: normal; }
 html[data-theme="paper"] .site-head { border-bottom-color: var(--rule-strong); }
 /* Newsreader's capitals rise above a tight line box; give the label above room to clear them */
 html[data-theme="paper"] .thread-verb { margin-top: .17em; }
+
+/* Dark Paper. Follows the system unless the reader picked one: the footer switch sets
+   data-mode="light" or "dark" on <html>, and without it the media query decides. */
+html[data-theme="paper"][data-mode="dark"] {
+  color-scheme: dark;
+  --photo-filter: saturate(.88) brightness(.9);
+  --bg: #16140F; --bg-band: #1C1A14; --surface: #1F1C16;
+  --ink: #ECE6D9; --muted: #BDB4A3; --faint: #A39A88;
+  --rule: #38342B; --rule-strong: #ECE6D9;
+  --accent: #E38A69; --accent-soft: rgba(227, 138, 105, .1); --focus: #E38A69;
+  --loop-color: #E38A69; --fig-color: #ECE6D9; --neg: #E38A69;
+}
+@media (prefers-color-scheme: dark) {
+  html[data-theme="paper"]:not([data-mode="light"]) {
+    color-scheme: dark;
+    --photo-filter: saturate(.88) brightness(.9);
+    --bg: #16140F; --bg-band: #1C1A14; --surface: #1F1C16;
+    --ink: #ECE6D9; --muted: #BDB4A3; --faint: #A39A88;
+    --rule: #38342B; --rule-strong: #ECE6D9;
+    --accent: #E38A69; --accent-soft: rgba(227, 138, 105, .1); --focus: #E38A69;
+    --loop-color: #E38A69; --fig-color: #ECE6D9; --neg: #E38A69;
+  }
+}
 
 /* ==========================================================================
    present.css — three home-page presentations of the loop: ring, track, scroll.

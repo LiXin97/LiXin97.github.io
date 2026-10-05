@@ -36,3 +36,26 @@ html[data-theme="paper"] .scope b { font-style: normal; }
 html[data-theme="paper"] .site-head { border-bottom-color: var(--rule-strong); }
 /* Newsreader's capitals rise above a tight line box; give the label above room to clear them */
 html[data-theme="paper"] .thread-verb { margin-top: .17em; }
+
+/* Dark Paper. Follows the system unless the reader picked one: the footer switch sets
+   data-mode="light" or "dark" on <html>, and without it the media query decides. */
+html[data-theme="paper"][data-mode="dark"] {
+  color-scheme: dark;
+  --photo-filter: saturate(.88) brightness(.9);
+  --bg: #16140F; --bg-band: #1C1A14; --surface: #1F1C16;
+  --ink: #ECE6D9; --muted: #BDB4A3; --faint: #A39A88;
+  --rule: #38342B; --rule-strong: #ECE6D9;
+  --accent: #E38A69; --accent-soft: rgba(227, 138, 105, .1); --focus: #E38A69;
+  --loop-color: #E38A69; --fig-color: #ECE6D9; --neg: #E38A69;
+}
+@media (prefers-color-scheme: dark) {
+  html[data-theme="paper"]:not([data-mode="light"]) {
+    color-scheme: dark;
+    --photo-filter: saturate(.88) brightness(.9);
+    --bg: #16140F; --bg-band: #1C1A14; --surface: #1F1C16;
+    --ink: #ECE6D9; --muted: #BDB4A3; --faint: #A39A88;
+    --rule: #38342B; --rule-strong: #ECE6D9;
+    --accent: #E38A69; --accent-soft: rgba(227, 138, 105, .1); --focus: #E38A69;
+    --loop-color: #E38A69; --fig-color: #ECE6D9; --neg: #E38A69;
+  }
+}

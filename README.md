@@ -29,7 +29,9 @@ publications.html   full list, filterable by thread (assets/filter.js)
 news.html           every news item; home shows the latest five
 about.html          experience, education, grants, mentoring, service and talks
 assets/site.css     generated: base.css + paper.css + present.css
+assets/mode.js      footer Auto / Light / Dark switch (dark follows the system by default)
 _styles/v5/         the generator, its CSS sources, and the preview
+_styles/share/      card.html, the source of data/share-card.jpg
 CNAME               lixin.ai
 robots.txt
 sitemap.xml         update lastmod, and add an entry, when pages change
@@ -45,13 +47,19 @@ images/             favicons
 | `data/Xin_Li_CV_2026.pdf` | the CV link in the nav and contact line |
 | `data/XinLI_profile.webp` | the JSON-LD `Person.image` (full resolution source) |
 | `data/avatar-560.webp` | the home-page portrait |
-| `data/share-card.jpg` | `og:image` / `twitter:image`, 1200x630 |
+| `data/share-card.jpg` | `og:image` / `twitter:image`, 1200x630; rendered from `_styles/share/card.html` (how is in its header comment) |
 | `images/icon-32.png`, `images/icon-180.png` | favicon and apple-touch-icon |
 | `data/talk_slides/*.pdf` | the talks on the About page |
 
 Two superseded CVs (`data/XinLi_CV.pdf`, `data/Xin_Li_s_CV.pdf`) are kept
 deliberately: their URLs were public for months and may still be linked from
 application portals and email.
+
+## Old links
+
+The old site was a single page, so links such as `lixin.ai/#publications` or
+`#talks` are still out there. A short script on the home page sends each old anchor
+to where that section now lives (`OLD_ANCHORS` in `_build.py`).
 
 ## When updating
 

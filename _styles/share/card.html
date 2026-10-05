@@ -1,0 +1,40 @@
+<!doctype html>
+<!-- Source of data/share-card.jpg (1200x630). Re-render from the repo root with the local server running:
+     google-chrome --headless=new --hide-scrollbars --window-size=1200,630 --virtual-time-budget=8000 \
+       --screenshot=card.png http://127.0.0.1:8000/_styles/share/card.html
+     then convert card.png to data/share-card.jpg and bump SHARE_CARD's ?v= in _styles/v5/_build.py. -->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,500;1,6..72,400&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@500&display=swap&text=%E6%9D%8E%E9%91%AB">
+<style>
+  * { margin: 0; box-sizing: border-box; }
+  html, body { width: 1200px; height: 630px; overflow: hidden; }
+  body { background: #F5F1E8; color: #17150F; font-family: "Newsreader", Georgia, serif;
+         display: grid; grid-template-columns: 1fr 330px; gap: 64px; align-items: center; padding: 0 84px; position: relative; }
+  body::before { content: ""; position: absolute; left: 84px; right: 84px; top: 58px; border-top: 1.5px solid #17150F; }
+  .mono { font-family: "IBM Plex Mono", monospace; font-weight: 500; text-transform: uppercase; letter-spacing: .12em; }
+  .top { position: absolute; left: 84px; right: 84px; top: 30px; display: flex; justify-content: space-between; font-size: 13px; color: #55514A; }
+  .kicker { font-size: 14px; color: #55514A; margin-bottom: 30px; }
+  h1 { font-weight: 500; font-size: 112px; line-height: .95; letter-spacing: -.04em; }
+  h1 span { font-family: "Noto Serif SC", serif; font-size: 46px; letter-spacing: .04em; margin-left: 18px; color: #55514A; vertical-align: 14px; }
+  .lede { font-size: 31px; line-height: 1.28; margin-top: 26px; max-width: 640px; }
+  .loop { margin-top: 34px; display: flex; align-items: center; gap: 14px; font-size: 15px; font-weight: 600; }
+  .loop b { font-weight: 600; color: #A3361B; margin-right: 6px; }
+  .loop i { font-style: normal; color: #17150F; }
+  .loop .ret { color: #A3361B; font-size: 19px; letter-spacing: 0; }
+  img { width: 330px; height: 330px; object-fit: cover; border-radius: 2px; filter: saturate(.92) contrast(1.02); }
+</style>
+</head>
+<body>
+  <div class="top mono"><span>lixin.ai</span><span>Nanyang Technological University · Singapore</span></div>
+  <div>
+    <p class="kicker mono">Ph.D. student · LLM agents</p>
+    <h1>Xin Li<span>李鑫</span></h1>
+    <p class="lede">Measuring what LLM agents can do, training them, and what happens when several work together.</p>
+    <p class="loop mono"><span><b>01</b>Measure</span><i>→</i><span><b>02</b>Train</span><i>→</i><span><b>03</b>Coordinate</span><span class="ret">↺</span></p>
+  </div>
+  <img src="/data/avatar-560.webp" alt="">
+</body>
+</html>
