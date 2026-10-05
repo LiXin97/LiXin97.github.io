@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>C · Lab — Xin Li</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#FFFFFF;--soft:#F5F7FA;--ink:#0D1117;--dim:#4B5565;--faint:#8792A2;--line:#E3E8EF;--acc:#2540D0;--wash:#EEF1FD}
+*{box-sizing:border-box;margin:0}
+body{background:var(--bg);color:var(--ink);font:400 16px/1.65 Inter,system-ui,sans-serif}
+a{color:var(--acc);text-decoration:none}a:hover{text-decoration:underline}
+.bar{position:sticky;top:0;z-index:9;background:rgba(255,255,255,.88);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.bar .in{max-width:1080px;margin:0 auto;padding:13px 28px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.bar .nm{font-weight:700;letter-spacing:-.01em}
+.bar nav{display:flex;gap:20px;font-size:.86rem}
+.bar nav a{color:var(--dim)}
+.hero{max-width:1080px;margin:0 auto;padding:76px 28px 60px;display:grid;grid-template-columns:1fr 240px;gap:48px;align-items:start}
+.tag{display:inline-flex;align-items:center;gap:7px;font:600 .72rem/1 "JetBrains Mono",monospace;letter-spacing:.06em;
+     color:var(--acc);background:var(--wash);padding:7px 11px;border-radius:999px;margin-bottom:22px}
+.dot{width:6px;height:6px;border-radius:50%;background:#1DB954}
+h1{font-size:2.9rem;font-weight:600;line-height:1.14;letter-spacing:-.028em;margin-bottom:20px}
+h1 em{font-style:normal;color:var(--acc)}
+.sub{font-size:1.06rem;color:var(--dim);max-width:60ch}
+.ava{width:240px;height:240px;border-radius:18px;object-fit:cover;border:1px solid var(--line)}
+.who{font-size:.9rem;color:var(--faint);margin-top:14px;line-height:1.55}
+.cta{display:flex;gap:9px;flex-wrap:wrap;margin-top:28px}
+.btn{font:600 .84rem/1 Inter,sans-serif;padding:11px 16px;border-radius:9px;border:1px solid var(--line);color:var(--ink)}
+.btn.p{background:var(--acc);color:#fff;border-color:var(--acc)}
+.btn:hover{text-decoration:none;border-color:var(--acc)}
+section{max-width:1080px;margin:0 auto;padding:54px 28px}
+.band{background:var(--soft);max-width:none;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.band .in{max-width:1080px;margin:0 auto;padding:54px 28px}
+h2{font-size:1.5rem;font-weight:600;letter-spacing:-.018em;margin-bottom:6px}
+.h2sub{color:var(--faint);font-size:.95rem;margin-bottom:30px}
+.areas{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.card{background:#fff;border:1px solid var(--line);border-radius:13px;padding:22px}
+.card .k{font:600 .7rem/1 "JetBrains Mono",monospace;letter-spacing:.1em;text-transform:uppercase;color:var(--acc);margin-bottom:11px}
+.card p{font-size:.93rem;color:var(--dim);line-height:1.62}
+.works{display:grid;gap:26px}
+.w{border:1px solid var(--line);border-radius:14px;overflow:hidden;background:#fff}
+.w .fig{background:#fff;border-bottom:1px solid var(--line);padding:14px}
+.w .fig img{display:block;width:100%;height:auto;border-radius:5px}
+.w .bd{padding:22px 24px 24px}
+.w .vn{font:600 .68rem/1 "JetBrains Mono",monospace;letter-spacing:.08em;color:var(--acc);background:var(--wash);padding:5px 9px;border-radius:6px}
+.w h3{font-size:1.14rem;font-weight:600;line-height:1.3;letter-spacing:-.012em;margin:12px 0 7px}
+.w .au{font-size:.86rem;color:var(--faint)}.w .au b{color:var(--dim);font-weight:600}
+.w .cl{font-size:.95rem;color:var(--dim);margin-top:12px;line-height:1.62}
+.w .ch{margin-top:14px;display:flex;flex-wrap:wrap;gap:7px}
+.w .ch a{font:600 .72rem/1 "JetBrains Mono",monospace;border:1px solid var(--line);border-radius:7px;padding:7px 10px;color:var(--dim)}
+.w .ch a:hover{border-color:var(--acc);color:var(--acc);text-decoration:none}
+.news{display:grid;gap:0}
+.news div{display:grid;grid-template-columns:110px 1fr;gap:0 18px;padding:15px 0;border-bottom:1px solid var(--line)}
+.news .d{font:600 .74rem/1.8 "JetBrains Mono",monospace;color:var(--faint)}
+.news .t{color:var(--dim);font-size:.96rem}.news .t b{color:var(--ink);font-weight:600}
+footer{max-width:1080px;margin:0 auto;padding:40px 28px 70px;color:var(--faint);font-size:.88rem;display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between}
+@media(max-width:860px){.hero{grid-template-columns:1fr;gap:28px}.ava{width:150px;height:150px}.areas{grid-template-columns:1fr}h1{font-size:2.1rem}.bar nav{display:none}}
+</style></head><body>
+
+<div class="bar"><div class="in"><span class="nm">Xin Li 李鑫</span>
+<nav><a href="#r">Research</a><a href="#w">Work</a><a href="#n">News</a><a href="#">CV</a><a href="#">Scholar</a></nav></div></div>
+
+<div class="hero">
+  <div>
+    <span class="tag"><span class="dot"></span>Looking for research internships · 2027</span>
+    <h1>Making large language models reason <em>reliably</em> — and proving it.</h1>
+    <p class="sub">Benchmarks that measure whether they do, post-training that teaches them to, and agentic systems
+      that test whether coordination actually helps. Most of it lands in domains where an answer can be checked:
+      formal verification, mathematics, and code.</p>
+    <div class="cta"><a class="btn p" href="#w">Selected work</a><a class="btn" href="#">Curriculum vitae</a><a class="btn" href="mailto:xin019@e.ntu.edu.sg">Email</a></div>
+  </div>
+  <div><img class="ava" src="/data/avatar-280.webp" alt="Xin Li">
+    <p class="who">Ph.D. student<br>Nanyang Technological University<br>Advised by Prof. Chau Yuen</p></div>
+</div>
+
+<div class="band" id="r"><div class="in">
+  <h2>Research</h2><p class="h2sub">Three threads, one requirement: the answer has to be checkable.</p>
+  <div class="areas">
+    <div class="card"><div class="k">LLM Evaluation</div><p>Benchmarks built to be audited rather than trusted: per-problem provenance, verifier-checkable answers, and explicit limits on what a score supports.</p></div>
+    <div class="card"><div class="k">Post-training</div><p>RL, on-policy distillation and verifier-guided selection, aimed at reasoning where the reward can be checked rather than guessed.</p></div>
+    <div class="card"><div class="k">LLM Agents</div><p>Protocols, memory and measurement for systems where several models interact — and whether interacting helps at all.</p></div>
+  </div>
+</div></div>
+
+<section id="w">
+  <h2>Selected work</h2><p class="h2sub">Full list on Google Scholar.</p>
+  <div class="works">
+    <article class="w">
+      <div class="fig"><img src="/data/figs/debateledger.webp" width="1500" height="543" alt=""></div>
+      <div class="bd"><span class="vn">NeurIPS 2026</span>
+        <h3>Measuring Collapse and Correction in Homogeneous-Panel LLM Debate</h3>
+        <p class="au"><b>Xin Li</b>*, Mengbing Liu*, Chau Yuen</p>
+        <p class="cl">A freeze that prevents 29 collapses gives up 108 corrections: judged on collapse prevention it looks like a win, judged on signed utility it is net negative.</p>
+        <div class="ch"><a href="#">Homepage</a></div></div>
+    </article>
+    <article class="w">
+      <div class="fig"><img src="/data/figs/dn-mopd.webp" width="1500" height="546" alt=""></div>
+      <div class="bd"><span class="vn">arXiv 2026</span>
+        <h3>Beyond Teacher Assignment: Domain-Normalized Multi-Teacher On-Policy Distillation</h3>
+        <p class="au"><b>Xin Li</b>, Hao Jiang, Xin Gao, …, Chau Yuen</p>
+        <p class="cl">Routing decides which teacher supervises a prompt, but not how much its feedback counts. Normalizing that scale adds 1.2–3.1 points over label routing.</p>
+        <div class="ch"><a href="#">Homepage</a><a href="#">arXiv</a><a href="#">Code</a><a href="#">Data</a><a href="#">Models</a></div></div>
+    </article>
+  </div>
+</section>
+
+<div class="band" id="n"><div class="in">
+  <h2>News</h2><p class="h2sub">Recent acceptances and awards.</p>
+  <div class="news">
+    <div><span class="d">Sep 2026</span><span class="t">Two papers accepted to the <b>NeurIPS 2026</b> Evaluations and Datasets Track.</span></div>
+    <div><span class="d">Sep 2026</span><span class="t"><b>SIM-D²NN</b> accepted to IEEE Transactions on Signal Processing.</span></div>
+    <div><span class="d">Aug 2026</span><span class="t">Two papers accepted to <b>EMNLP 2026</b>, Findings and Industry Track.</span></div>
+    <div><span class="d">Jan 2026</span><span class="t">Google Gemini Academic Program Award (US$10,000).</span></div>
+  </div>
+</div></div>
+
+<footer><span>© 2026 Xin Li</span><span>xin019@e.ntu.edu.sg</span></footer>
+</body></html>

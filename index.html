@@ -887,6 +887,68 @@
       font-weight: 600;
     }
 
+    /* ---------- Featured work ---------- */
+    /* Same 64px + 20px grid as .pub-group so the figures line up with the
+       titles in the list below. */
+    .featured {
+      display: grid;
+      grid-template-columns: 64px 1fr;
+      gap: 0 20px;
+      margin-bottom: 14px;
+    }
+
+    .featured__label {
+      font-family: var(--mono);
+      font-size: 0.62rem;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--faint);
+      padding-top: 6px;
+    }
+
+    .feature {
+      margin: 0 0 34px;
+    }
+
+    .feature + .feature {
+      padding-top: 30px;
+      border-top: 1px solid var(--hairline);
+    }
+
+    /* The figures are paper figures: white plate in both themes, so a light
+       figure on the dark theme reads as deliberate rather than as a hole. */
+    .feature__media {
+      display: block;
+      background: #FFFFFF;
+      border: 1px solid var(--hairline);
+      border-radius: 10px;
+      padding: 10px;
+      overflow: hidden;
+    }
+
+    .feature__media img {
+      display: block;
+      width: 100%;
+      height: auto;
+      border-radius: 4px;
+    }
+
+    .feature__media:hover {
+      border-color: var(--accent-border);
+    }
+
+    .feature__body {
+      margin-top: 14px;
+    }
+
+    .feature__claim {
+      font-size: 0.92rem;
+      line-height: 1.6;
+      color: var(--ink);
+      margin: 9px 0 0;
+    }
+
     .pub-group {
       display: grid;
       grid-template-columns: 64px 1fr;
@@ -1231,6 +1293,15 @@
         gap: 28px;
       }
 
+      .featured {
+        grid-template-columns: 1fr;
+      }
+
+      .featured__label {
+        padding-top: 0;
+        margin-bottom: 10px;
+      }
+
       .pub-group {
         grid-template-columns: 1fr;
         gap: 0;
@@ -1448,7 +1519,8 @@
 
         <div class="callout">
           <span class="callout__label">Open to Collaboration</span>
-          <p>I'm always glad to talk about research or collaboration&mdash;just email me at <a
+          <p>I'm looking for research internships for 2027, and I'm always glad to talk about research or
+            collaboration&mdash;just email me at <a
               href="mailto:xin019@e.ntu.edu.sg">xin019@e.ntu.edu.sg</a>.</p>
         </div>
       </section>
@@ -1571,6 +1643,74 @@
             <p class="pub-note">* equal contribution &middot; <a
                 href="https://scholar.google.com/citations?user=Hxf8sNkAAAAJ" target="_blank"
                 rel="noopener noreferrer">full list → Google Scholar</a></p>
+          </div>
+        </div>
+
+        <div class="featured">
+          <p class="featured__label">Featured</p>
+          <div>
+            <article class="feature">
+              <a class="feature__media" href="https://lixin.ai/DebateLedger/" target="_blank"
+                rel="noopener noreferrer">
+                <img src="/data/figs/debateledger.webp" width="1500" height="543" loading="lazy" decoding="async"
+                  alt="Three panels. Left: a debate turns an initially correct majority wrong (collapse) or an
+                    initially wrong majority correct (correction). Middle: a pre-debate eight-probe screen and a
+                    round-by-round trace. Right: signed utility weighs the collapses an intervention prevents
+                    against the corrections it loses, netting minus 79." />
+              </a>
+              <div class="feature__body">
+                <div class="pub__top">
+                  <h3 class="pub__title"><a href="https://lixin.ai/DebateLedger/" target="_blank"
+                      rel="noopener noreferrer">Measuring Collapse and Correction in Homogeneous-Panel LLM
+                      Debate</a></h3>
+                  <span class="venue">NeurIPS · 2026</span>
+                </div>
+                <p class="pub__authors"><b>Xin Li</b>*, Mengbing Liu*, Chau Yuen</p>
+                <p class="feature__claim">Debate moves answers in both directions. A freeze that prevents 29
+                  collapses gives up 108 corrections: judged on collapse prevention it looks like a win, judged on
+                  signed utility it is net negative.</p>
+                <div class="pub__links">
+                  <a class="chip" href="https://lixin.ai/DebateLedger/" target="_blank"
+                    rel="noopener noreferrer">Homepage</a>
+                </div>
+              </div>
+            </article>
+
+            <article class="feature">
+              <a class="feature__media" href="https://lixin.ai/DN-MOPD/" target="_blank"
+                rel="noopener noreferrer">
+                <img src="/data/figs/dn-mopd.webp" width="1500" height="546" loading="lazy" decoding="async"
+                  alt="Three panels. Left: teacher-student log-ratios differ in scale across math, code and
+                    instruction-following. Middle: DN-MOPD amplifies, rescales or attenuates each domain's feedback
+                    with bounded weights and preserved signs. Right: six-task average gains over label routing for
+                    2B, 4B and 9B students." />
+              </a>
+              <div class="feature__body">
+                <div class="pub__top">
+                  <h3 class="pub__title"><a href="https://lixin.ai/DN-MOPD/" target="_blank"
+                      rel="noopener noreferrer">Beyond Teacher Assignment: Domain-Normalized Multi-Teacher On-Policy
+                      Distillation</a></h3>
+                  <span class="venue">arXiv · 2026</span>
+                </div>
+                <p class="pub__authors"><b>Xin Li</b>, Hao Jiang, Xin Gao, Annan Wang, Yuchen Xie, Jinghao Guo,
+                  Xingwei Qu, Yichi Zhang, Chau Yuen</p>
+                <p class="feature__claim">Routing decides which teacher supervises a prompt, but not how much its
+                  feedback counts. Normalizing that scale per domain adds 1.2&ndash;3.1 points over label routing
+                  across 2B, 4B and 9B students.</p>
+                <div class="pub__links">
+                  <a class="chip" href="https://lixin.ai/DN-MOPD/" target="_blank"
+                    rel="noopener noreferrer">Homepage</a>
+                  <a class="chip" href="https://arxiv.org/abs/2609.35347" target="_blank"
+                    rel="noopener noreferrer">arXiv</a>
+                  <a class="chip" href="https://github.com/LiXin97/DN-MOPD" target="_blank"
+                    rel="noopener noreferrer">Code</a>
+                  <a class="chip" href="https://huggingface.co/datasets/XINLI1997/DN-MOPD-Data" target="_blank"
+                    rel="noopener noreferrer">Data</a>
+                  <a class="chip" href="https://huggingface.co/collections/XINLI1997/dn-mopd-6aba5f0df7bd8732d7205ed4"
+                    target="_blank" rel="noopener noreferrer">Models</a>
+                </div>
+              </div>
+            </article>
           </div>
         </div>
 

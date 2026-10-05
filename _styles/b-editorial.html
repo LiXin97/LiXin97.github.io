@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>B · Editorial — Xin Li</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#FBFAF7;--ink:#16160F;--dim:#55564C;--faint:#8A8B80;--line:#E4E2D9;--acc:#7A2E1E}
+*{box-sizing:border-box;margin:0}
+body{background:var(--bg);color:var(--ink);font:400 17px/1.75 Newsreader,Georgia,serif;padding:0 24px}
+.wrap{max-width:680px;margin:0 auto;padding:92px 0 110px}
+a{color:var(--acc);text-decoration:none;background-image:linear-gradient(currentColor,currentColor);
+  background-size:100% 1px;background-repeat:no-repeat;background-position:0 94%}
+a:hover{background-size:100% 2px}
+.eyebrow{font:500 .7rem/1 Inter,sans-serif;letter-spacing:.2em;text-transform:uppercase;color:var(--faint)}
+h1{font-size:4.1rem;font-weight:500;line-height:.98;letter-spacing:-.025em;margin:14px 0 0}
+.cjk{font-size:1.5rem;color:var(--faint);letter-spacing:.18em;margin-top:14px;font-weight:400}
+.role{font-size:1.06rem;color:var(--dim);font-style:italic;margin-top:20px}
+.rule{height:1px;background:var(--line);margin:40px 0}
+.lede{font-size:1.42rem;line-height:1.52;letter-spacing:-.011em;margin:0 0 6px}
+.lede b{font-weight:600}
+.sec{margin-top:62px}
+h2{font:600 .72rem/1 Inter,sans-serif;letter-spacing:.2em;text-transform:uppercase;color:var(--faint);margin-bottom:26px}
+.area{margin-bottom:26px}
+.area h3{font-size:1.16rem;font-weight:600;margin-bottom:3px}
+.area p{color:var(--dim);font-size:1.02rem;line-height:1.66}
+.work{margin-bottom:46px}
+.work h3{font-size:1.4rem;font-weight:500;line-height:1.26;letter-spacing:-.012em}
+.work .au{font:400 .92rem/1.6 Inter,sans-serif;color:var(--faint);margin-top:8px}
+.work .au b{color:var(--dim);font-weight:600}
+.work .vn{font:600 .68rem/1 Inter,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:var(--acc);margin-top:10px;display:block}
+figure{margin:20px 0 0;background:#fff;border:1px solid var(--line);padding:9px}
+figure img{display:block;width:100%;height:auto}
+.claim{font-size:1.04rem;color:var(--dim);margin-top:14px;line-height:1.68}
+.chips{margin-top:12px;display:flex;flex-wrap:wrap;gap:0 16px;font:500 .78rem/1.8 Inter,sans-serif}
+.news{list-style:none;padding:0}
+.news li{display:grid;grid-template-columns:92px 1fr;gap:0 14px;padding:13px 0;border-bottom:1px solid var(--line)}
+.news li:first-child{border-top:1px solid var(--line)}
+.news .d{font:500 .74rem/1.9 Inter,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:var(--faint)}
+.news .t{font-size:1.02rem;line-height:1.6;color:var(--dim)}
+.news .t b{color:var(--ink);font-weight:600}
+.end{margin-top:70px;padding-top:26px;border-top:1px solid var(--line);font-size:1.04rem;color:var(--dim)}
+@media(max-width:560px){h1{font-size:2.9rem}.lede{font-size:1.2rem}.news li{grid-template-columns:1fr;gap:3px}}
+</style></head><body><div class="wrap">
+
+<p class="eyebrow">Nanyang Technological University</p>
+<h1>Xin Li</h1>
+<p class="cjk">李 鑫</p>
+<p class="role">Ph.D. student, advised by Prof. Chau Yuen</p>
+
+<div class="rule"></div>
+
+<p class="lede">I work on making large language models reason <b>reliably</b>: benchmarks that measure whether they
+do, post-training that teaches them to, and agentic systems that test whether coordination actually helps. Most of
+it lands in domains where an answer can be checked — formal verification, mathematics, and code.</p>
+
+<div class="sec">
+  <h2>Research</h2>
+  <div class="area"><h3>LLM Evaluation</h3><p>Benchmarks and evaluation protocols built to be audited rather than trusted: per-problem provenance, verifier-checkable answers, and explicit limits on what a score supports.</p></div>
+  <div class="area"><h3>Post-training</h3><p>Reinforcement learning, on-policy distillation and verifier-guided selection, all aimed at reasoning where the reward can be checked rather than guessed.</p></div>
+  <div class="area"><h3>LLM Agents</h3><p>Protocols, memory and measurement for systems where several models interact: what they send each other, what they keep, and whether the interaction helps or hurts.</p></div>
+</div>
+
+<div class="sec">
+  <h2>Selected work</h2>
+
+  <div class="work">
+    <h3><a href="#">Measuring Collapse and Correction in Homogeneous-Panel LLM Debate</a></h3>
+    <p class="au"><b>Xin Li</b>*, Mengbing Liu*, Chau Yuen</p>
+    <span class="vn">NeurIPS 2026</span>
+    <figure><img src="/data/figs/debateledger.webp" width="1500" height="543" alt=""></figure>
+    <p class="claim">Debate moves answers in both directions. A freeze that prevents 29 collapses gives up 108 corrections: judged on collapse prevention it looks like a win, judged on signed utility it is net negative.</p>
+    <div class="chips"><a href="#">Homepage</a></div>
+  </div>
+
+  <div class="work">
+    <h3><a href="#">Beyond Teacher Assignment: Domain-Normalized Multi-Teacher On-Policy Distillation</a></h3>
+    <p class="au"><b>Xin Li</b>, Hao Jiang, Xin Gao, …, Chau Yuen</p>
+    <span class="vn">arXiv 2026</span>
+    <figure><img src="/data/figs/dn-mopd.webp" width="1500" height="546" alt=""></figure>
+    <p class="claim">Routing decides which teacher supervises a prompt, but not how much its feedback counts. Normalizing that scale per domain adds 1.2–3.1 points over label routing.</p>
+    <div class="chips"><a href="#">Homepage</a><a href="#">arXiv</a><a href="#">Code</a><a href="#">Models</a></div>
+  </div>
+
+  <div class="work">
+    <h3><a href="#">WirelessMathBench-XL: An Auditable Benchmark for Wireless Mathematical Reasoning</a></h3>
+    <p class="au"><b>Xin Li</b>, Mengbing Liu, Yiyang Zhu, Wenhe Zhang, Li Wei, Jiancheng An, Chau Yuen</p>
+    <span class="vn">NeurIPS 2026</span>
+    <div class="chips"><a href="#">Homepage</a><a href="#">arXiv</a></div>
+  </div>
+</div>
+
+<div class="sec">
+  <h2>News</h2>
+  <ul class="news">
+    <li><span class="d">Sep 2026</span><span class="t">Two papers accepted to the <b>NeurIPS 2026</b> Evaluations and Datasets Track.</span></li>
+    <li><span class="d">Sep 2026</span><span class="t"><b>SIM-D²NN</b> accepted to IEEE Transactions on Signal Processing.</span></li>
+    <li><span class="d">Aug 2026</span><span class="t">Two papers accepted to <b>EMNLP 2026</b>, Findings and Industry Track.</span></li>
+    <li><span class="d">Jan 2026</span><span class="t">Google Gemini Academic Program Award (US$10,000).</span></li>
+  </ul>
+</div>
+
+<p class="end">I'm looking for research internships for 2027, and I'm always glad to talk about research or collaboration — <a href="mailto:xin019@e.ntu.edu.sg">xin019@e.ntu.edu.sg</a>.</p>
+</div></body></html>

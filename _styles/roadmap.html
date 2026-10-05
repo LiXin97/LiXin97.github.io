@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Research roadmap — draft</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#F4F6F8;--surface:#fff;--ink:#15171C;--dim:#5B636E;--faint:#8891A0;--line:#E2E6EC;
+      --acc:#2540D0;--acc-s:#1B33A8;--wash:#E9ECFB;--serif:Newsreader,Georgia,serif;--mono:"JetBrains Mono",monospace}
+[data-theme=dark]{--bg:#0F1217;--surface:#161A21;--ink:#E8EBF1;--dim:#A3ABB9;--faint:#79828F;--line:#242A33;
+      --acc:#7E97FF;--acc-s:#AAB9FF;--wash:rgba(126,151,255,.13)}
+*{box-sizing:border-box;margin:0}
+body{background:var(--bg);color:var(--ink);font:16px/1.6 Inter,system-ui,sans-serif;padding:56px 24px 90px}
+.page{max-width:900px;margin:0 auto}
+.toggle{position:fixed;top:16px;right:18px;font:600 .72rem/1 var(--mono);color:var(--dim);
+        background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:9px 12px;cursor:pointer}
+h1{font:600 1.55rem/1.2 var(--serif);letter-spacing:-.015em;margin-bottom:6px}
+.sub{color:var(--dim);font-size:.95rem;margin-bottom:38px}
+
+/* ---------- roadmap ---------- */
+.rm__head{display:flex;align-items:baseline;justify-content:space-between;gap:16px;
+  padding-bottom:12px;border-bottom:1px solid var(--line);margin-bottom:24px}
+.rm__head h2{font:600 .66rem/1 var(--mono);letter-spacing:.2em;text-transform:uppercase;color:var(--faint)}
+.rm__head p{font-size:.82rem;color:var(--faint)}
+
+.rm__lanes{display:grid;grid-template-columns:repeat(3,1fr);gap:0}
+.rm__lane{position:relative;padding:0 28px}
+.rm__lane:first-child{padding-left:0}
+.rm__lane:last-child{padding-right:0}
+.rm__lane+.rm__lane{border-left:1px solid var(--line)}
+.rm__n{font:600 .64rem/1 var(--mono);letter-spacing:.2em;color:var(--acc);opacity:.75}
+.rm__verb{font:600 1.5rem/1.15 var(--serif);letter-spacing:-.018em;margin:10px 0 11px}
+.rm__q{font-size:.93rem;line-height:1.58;color:var(--dim)}
+.rm__works{list-style:none;padding:0;margin:18px 0 6px;display:flex;flex-direction:column;gap:7px}
+.rm__works a{font:500 .78rem/1.3 var(--mono);color:var(--dim);text-decoration:none;
+  display:inline-flex;align-items:center;gap:8px;width:fit-content}
+.rm__works a::before{content:"";width:5px;height:5px;border-radius:50%;background:var(--acc);opacity:.45;flex:0 0 auto}
+.rm__works a:hover{color:var(--acc-s)}
+.rm__works a:hover::before{opacity:1}
+/* arrow sitting on each divider */
+.rm__arrow{position:absolute;top:-1px;left:-8px;width:16px;height:16px;color:var(--acc);opacity:.5}
+
+/* the return leg: its own row, so it sits between the lanes and the ground */
+.rm__return{position:relative;height:54px;margin-top:18px}
+.rm__return svg{position:absolute;inset:0;width:100%;height:100%;color:var(--line)}
+.rm__return span{position:absolute;left:50%;top:30px;transform:translate(-50%,-50%);
+  background:var(--bg);padding:0 14px;white-space:nowrap;
+  font:500 .7rem/1 var(--mono);letter-spacing:.05em;color:var(--faint)}
+
+.rm__ground{padding-top:15px;border-top:1px solid var(--line);
+  font:500 .75rem/1.65 var(--mono);letter-spacing:.03em;color:var(--faint)}
+.rm__ground b{color:var(--dim);font-weight:600}
+
+@media(max-width:700px){
+  .rm__lanes{grid-template-columns:1fr;gap:28px}
+  .rm__lane{padding:0 0 0 22px;border-left:1px solid var(--line)}
+  .rm__lane:first-child{padding-left:22px}
+  .rm__arrow{display:none}
+  .rm__return{height:auto;margin:22px 0}
+  .rm__return svg{display:none}
+  .rm__return span{position:static;transform:none;display:block;padding:0;white-space:normal;line-height:1.5}
+}
+</style></head><body>
+<button class="toggle" onclick="document.documentElement.dataset.theme=document.documentElement.dataset.theme==='dark'?'':'dark'">theme</button>
+<div class="page">
+  <h1>Research roadmap — draft</h1>
+  <p class="sub">The three threads are a loop, not three boxes. Toggle the theme to check both.</p>
+
+  <div class="rm">
+    <div class="rm__head">
+      <h2>How the threads fit</h2>
+      <p>a loop, not three boxes</p>
+    </div>
+
+    <div class="rm__lanes">
+      <div class="rm__lane">
+        <p class="rm__n">01</p>
+        <h3 class="rm__verb">Measure</h3>
+        <p class="rm__q">Does a score mean what it appears to mean &mdash; and would we notice if it didn't?</p>
+        <ul class="rm__works">
+          <li><a href="#">WirelessMathBench-XL</a></li>
+          <li><a href="#">DafnyComp</a></li>
+          <li><a href="#">RobustMAD</a></li>
+        </ul>
+      </div>
+      <div class="rm__lane">
+        <svg class="rm__arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"
+          stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h9M9 5l3 3-3 3"/></svg>
+        <p class="rm__n">02</p>
+        <h3 class="rm__verb">Train</h3>
+        <p class="rm__q">Can we reward the reasoning we are able to check, rather than the answer we hope for?</p>
+        <ul class="rm__works">
+          <li><a href="#">Re:Form</a></li>
+          <li><a href="#">DN-MOPD</a></li>
+          <li><a href="#">TLVC</a></li>
+        </ul>
+      </div>
+      <div class="rm__lane">
+        <svg class="rm__arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"
+          stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h9M9 5l3 3-3 3"/></svg>
+        <p class="rm__n">03</p>
+        <h3 class="rm__verb">Compose</h3>
+        <p class="rm__q">When several models work together, does the interaction help &mdash; or quietly destroy
+          answers that were already right?</p>
+        <ul class="rm__works">
+          <li><a href="#">DebateLedger</a></li>
+          <li><a href="#">LACP</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="rm__return">
+      <svg viewBox="0 0 900 58" preserveAspectRatio="none" fill="none" aria-hidden="true">
+        <path d="M884 0 L884 34 Q884 46 872 46 L28 46 Q16 46 16 34 L16 12"
+              stroke="currentColor" stroke-width="1.25" />
+        <path d="M11 18 L16 9 L21 18" stroke="currentColor" stroke-width="1.25"
+              stroke-linecap="round" stroke-linejoin="round" />
+      </svg>
+      <span>composition creates new failure modes &rarr; measure those too</span>
+    </div>
+
+    <p class="rm__ground">all of it on ground where an answer can be checked &mdash;
+      <b>formal verification</b> &middot; <b>mathematics</b> &middot; <b>code</b> &middot; <b>wireless systems</b></p>
+  </div>
+</div><script>if(location.hash==='#dark')document.documentElement.dataset.theme='dark';</script>
+</body></html>
