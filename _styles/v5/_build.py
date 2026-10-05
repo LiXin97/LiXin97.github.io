@@ -187,7 +187,7 @@ LEDE = ("I work on LLM agents — evaluating what they can do, training them, an
         "verifiers and each other to get real tasks done. Lately, on agents that improve themselves.")
 GROUND = ["formal verification", "mathematics", "code"]
 GROUND_K = "So far, mostly where an answer can be checked:"
-GROUND_NOW = "Now, self-improvement where it can't."
+GROUND_NOW = "Now, self-improvement beyond checkable answers."
 
 # Every news item, newest first. Home shows the first five; news.html shows them all.
 NEWS = [
@@ -513,7 +513,7 @@ def ring_center():
         <p class="ring__v">where an answer can be checked</p>
         <span class="ring__rule" aria-hidden="true"></span>
         <p class="ring__k ring__k--now">Now</p>
-        <p class="ring__v ring__v--now">self-improvement where it can't</p>
+        <p class="ring__v ring__v--now">self-improvement beyond checkable answers</p>
       </div>"""
 
 
@@ -852,7 +852,7 @@ def build_about():
         they can do, training that improves them, and orchestration that gets real tasks done with tools, verifiers
         and other agents — and, lately,
         agents that improve themselves. So far most of the work has been in domains where an answer can be checked:
-        formal verification, mathematics, and code. The current work is on self-improvement where it can't.</p>
+        formal verification, mathematics, and code. The current work is on self-improvement beyond checkable answers.</p>
       <p class="about-bio">Before my Ph.D. I worked on robot perception — visual-inertial odometry at MEGVII, RGB-D + IMU
         indoor mapping at Microsoft Research Asia, and multimodal localization at Gausium Robotics, where I led a
         five-engineer team and shipped to a fleet of 1,000+ commercial cleaning robots.</p>
