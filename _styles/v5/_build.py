@@ -408,19 +408,20 @@ def hero_block(variant=""):
   </header>"""
 
 
-def tail_sections():
-    """Also-in-2026, recent and coda: identical on every home page."""
+def tail_sections(also_list=True):
+    """Also-in-2026, recent and coda. Track leaves the 2026 list out: its panels already name every paper."""
     also_ids = ["dafnycomp", "reform", "simd2nn", "robustmad", "graphreduce", "livecann"]
     also = "".join(f"""
         <li><a class="also__name" href="{e(BY[i]['links'][0][1])}">{e(BY[i]['short'])}</a><span class="also__t">{e(subtitle(BY[i]))}</span><span class="also__v">{e(vshort(BY[i]))}</span></li>"""
                    for i in also_ids)
     recent = "".join(f'<li><time>{e(d)}</time><span>{e(t)}</span></li>' for d, t in RECENT)
-    return f"""
+    also_sec = f"""
   <section class="also wrap" aria-labelledby="also-h">
     <h2 id="also-h" class="label"><span>Also in 2026</span><a class="label__aside" href="publications.html">All publications →</a></h2>
     <ul class="also__list">{also}
     </ul>
-  </section>
+  </section>""" if also_list else ""
+    return also_sec + f"""
   <section class="recent wrap" aria-labelledby="recent-h">
     <h2 id="recent-h" class="label"><span>Recent</span></h2>
     <ol class="recent__list">{recent}</ol>
@@ -733,27 +734,32 @@ def build_ring():
 def build_track():
     panels = []
     for k, t in enumerate(THREADS):
-        ev = "".join(evidence(BY[i]) for i in FEATURED[t["id"]])
+        names = "".join(f'<li><a href="{e(BY[w]["links"][0][1])}" title="{e(BY[w]["title"])}">{e(BY[w]["short"])}</a></li>'
+                        for w in t["works"])
         panels.append(f"""
       <article class="panel panel--{t['id']}">
         <p class="panel__n">{t['n']}</p>
         <h3 class="panel__verb"><a href="{t['id']}.html">{t['verb']}</a></h3>
         <p class="panel__q">{e(t['q'])}</p>
-        <div class="panel__ev">{ev}</div>
-        {also_names(t)}
+        <ul class="panel__works" aria-label="Papers on this thread">{names}</ul>
       </article>""")
         if k < 2:
             panels.append('<span class="track__link" aria-hidden="true"><i></i></span>')
     ground = "".join(f"<span>{e(g)}</span>" for g in GROUND)
     body = hero_block() + f"""
   <section class="track wrap" aria-labelledby="loop-h">
-    <h2 id="loop-h" class="label"><span>The research, as one loop</span><span class="label__aside">evidence sits on the leg it came from</span></h2>
+    <h2 id="loop-h" class="label"><span>The research, as one loop</span><span class="label__aside">clockwise from 01</span></h2>
     <div class="track__row">{"".join(panels)}
     </div>
     <div class="track__return"><span class="track__rail" aria-hidden="true"></span>
       <p><b>03 → 01.</b> {e(RETURN)}</p></div>
     <p class="track__ground"><span class="track__ground-k">{e(GROUND_K)}</span>{ground}<span class="track__now">{e(GROUND_NOW)}</span></p>
-  </section>""" + tail_sections()
+  </section>
+  <section class="readings wrap" aria-labelledby="rd-h">
+    <h2 id="rd-h" class="label"><span>Selected results</span><span class="label__aside">2026</span></h2>
+    <div class="readings__row">{readings()}
+    </div>
+  </section>""" + tail_sections(also_list=False)
     return page("track", "Xin Li — the loop", body, DESC, home="track.html")
 
 
