@@ -1,0 +1,36 @@
+/* Paper — a scholarly page. Warm stock, one serif for argument, a mono for the record,
+   oxide red rationed to the loop and to what a claim does not cover. */
+html[data-theme="paper"] {
+  color-scheme: light;
+  --photo-radius: 2px; --photo-filter: saturate(.92) contrast(1.02);
+  --bg: #F5F1E8; --bg-band: #EEE9DD; --surface: #FBF9F4;
+  --ink: #17150F; --muted: #55514A; --faint: #6B675E;
+  --rule: #D8D1C2; --rule-strong: #17150F;
+  --accent: #A3361B; --accent-soft: rgba(163, 54, 27, .075); --focus: #A3361B;
+  --loop-color: #A3361B; --fig-color: #17150F; --neg: #A3361B;
+
+  --f-display: "Newsreader", Georgia, serif; --f-body: "Newsreader", Georgia, serif;
+  --f-q: "Newsreader", Georgia, serif; --f-title: "Newsreader", Georgia, serif;
+  --f-fig: "Newsreader", Georgia, serif; --f-mono: "IBM Plex Mono", ui-monospace, monospace;
+  --f-cjk: "Noto Serif SC", "Songti SC", serif;
+  --w-name: 500; --w-verb: 500; --w-title: 500; --w-fig: 500;
+  --track-name: -.04em; --track-verb: -.03em;
+  --style-q: italic;
+  --body-size: 1.125rem;
+  --name-size: clamp(3.6rem, 9.4vw, 7.6rem);
+  --lede-size: clamp(1.3rem, 2.3vw, 1.7rem);
+  --verb-size: clamp(2.6rem, 5.6vw, 4.7rem);
+  --q-size: 1.2rem; --fig-size: 1.9rem;
+  --card-fig-size: clamp(3.2rem, 6vw, 4.8rem);
+  --thread-verb-size: clamp(4.4rem, 14vw, 11rem);
+  --title-size: 1.24rem;
+  --verb-w-k: 4.25; --arm-k: .55;
+}
+html[data-theme="paper"] .lede { color: var(--ink); }
+html[data-theme="paper"] .card__claim,
+html[data-theme="paper"] .work__claim { font-size: 1.06rem; }
+html[data-theme="paper"] .loop__fig b,
+html[data-theme="paper"] .card__fig b { font-feature-settings: "lnum" 1, "tnum" 1; }
+html[data-theme="paper"] .scope { font-style: italic; }
+html[data-theme="paper"] .scope b { font-style: normal; }
+html[data-theme="paper"] .site-head { border-bottom-color: var(--rule-strong); }

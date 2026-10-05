@@ -1,0 +1,61 @@
+/* Night — an instrument panel. Near-black, one geometric sans, a mono for readings,
+   and amber for every quantity, so the numbers are what glows. */
+html[data-theme="night"] {
+  color-scheme: dark;
+  --photo-radius: 18px; --photo-filter: saturate(.85) brightness(.95);
+  --bg: #0A0C10; --bg-band: #0F1218; --surface: #11151D;
+  --ink: #ECEEF3; --muted: #A6ADBB; --faint: #8A92A1;
+  --rule: #1D222C; --rule-strong: #343B49;
+  --accent: #F2B544; --accent-soft: rgba(242, 181, 68, .1); --on-accent: #0A0C10; --focus: #F2B544;
+  --loop-color: #F2B544; --fig-color: #F2B544; --neg: #FF8B72;
+
+  --f-display: "Geist", system-ui, sans-serif; --f-body: "Geist", system-ui, sans-serif;
+  --f-q: "Geist", system-ui, sans-serif; --f-title: "Geist", system-ui, sans-serif;
+  --f-fig: "Geist Mono", ui-monospace, monospace; --f-mono: "Geist Mono", ui-monospace, monospace;
+  --f-cjk: "Noto Sans SC", "PingFang SC", sans-serif;
+  --w-name: 600; --w-verb: 600; --w-title: 500; --w-fig: 500; --w-label: 500;
+  --track-name: -.05em; --track-verb: -.05em; --track-label: .14em;
+  --body-size: 1rem; --lh-body: 1.65;
+  --name-size: clamp(3.2rem, 8vw, 6.4rem);
+  --lede-size: clamp(1.2rem, 2vw, 1.5rem);
+  --verb-size: clamp(2.4rem, 5vw, 4.2rem);
+  --q-size: 1.02rem; --fig-size: 1.55rem;
+  --card-fig-size: clamp(2.6rem, 4.8vw, 3.6rem);
+  --thread-verb-size: clamp(4rem, 13vw, 10rem);
+  --card-bg: linear-gradient(180deg, #121722 0%, #0E121A 100%);
+  --card-border: 1px solid #1F2531; --card-top: 1px solid #1F2531;
+  --card-radius: 16px; --card-pad: 26px 28px 30px; --cards-gap: 16px;
+  --radius: 6px; --verb-w-k: 4.3; --arm-k: .5;
+}
+html[data-theme="night"] body {
+  background-color: var(--bg);
+  background-image:
+    radial-gradient(1100px 520px at 12% -8%, rgba(242, 181, 68, .075), transparent 62%),
+    radial-gradient(900px 620px at 104% 2%, rgba(110, 140, 255, .07), transparent 60%),
+    radial-gradient(rgba(255, 255, 255, .045) 1px, transparent 1.2px);
+  background-size: auto, auto, 24px 24px;
+  background-repeat: no-repeat, no-repeat, repeat;
+  min-height: 100vh;
+}
+html[data-theme="night"] { background-color: var(--bg); }
+html[data-theme="night"] .site-head { background: rgba(10, 12, 16, .6); backdrop-filter: blur(8px); }
+html[data-theme="night"] .lede { color: var(--muted); }
+html[data-theme="night"] .lede::first-line { color: var(--ink); }
+html[data-theme="night"] .loop__list { border-top-width: 1px; }
+html[data-theme="night"] .loop__verb { background: linear-gradient(180deg, #FFFFFF 10%, #B9C0CD 100%); -webkit-background-clip: text; background-clip: text; color: transparent; }
+html[data-theme="night"] .loop__verb:hover { background: none; color: var(--accent); }
+html[data-theme="night"] .loop__fig b,
+html[data-theme="night"] .card__fig b { text-shadow: 0 0 22px rgba(242, 181, 68, .28); }
+html[data-theme="night"] .card__fig.is-neg b { text-shadow: 0 0 22px rgba(255, 139, 114, .3); }
+html[data-theme="night"] .card { transition: border-color .2s, transform .2s; }
+html[data-theme="night"] .card:hover { border-color: rgba(242, 181, 68, .35); transform: translateY(-2px); }
+html[data-theme="night"] .scope { background: rgba(242, 181, 68, .05); border-left-color: rgba(242, 181, 68, .6); border-radius: 0 6px 6px 0; padding-right: 12px; }
+html[data-theme="night"] .loop__ground span:not(.loop__ground-k) { border: 1px solid #262D3A; background: #11151D; }
+html[data-theme="night"] .filter button[aria-pressed="true"] { background: var(--accent); color: var(--on-accent); border-color: var(--accent); }
+html[data-theme="night"] .portrait { filter: saturate(.9) contrast(1.02); border: 1px solid #222937; }
+html[data-theme="night"] .preview { background: #ECEEF3; }
+html[data-theme="night"] .preview__k { color: #5a6070; }
+html[data-theme="night"] .preview button { color: #3a3f4a; }
+html[data-theme="night"] .preview button[aria-pressed="true"] { background: #0A0C10; color: #F2B544; }
+@media (prefers-reduced-motion: reduce) { html[data-theme="night"] .card { transition: none; } }
+html[data-theme="night"] .hero__photo { border: 1px solid #262D3A; box-shadow: 0 30px 80px -30px rgba(242, 181, 68, .25); }

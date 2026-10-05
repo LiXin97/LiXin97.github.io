@@ -1,0 +1,61 @@
+/* Swiss — a poster. White, one grotesk at every size, thick black bars, and the verbs
+   set big enough to be the page. International orange only where something is loud. */
+html[data-theme="swiss"] {
+  color-scheme: light;
+  --photo-radius: 0; --photo-filter: grayscale(1) contrast(1.08);
+  --bg: #FFFFFF; --bg-band: #F3F3F1; --surface: #FFFFFF;
+  --ink: #0A0A0A; --muted: #3B3B3B; --faint: #5C5C5C;
+  --rule: #D4D4D0; --rule-strong: #0A0A0A;
+  --accent: #C42E00; --accent-loud: #FF3B00; --accent-soft: #FFEEE6; --focus: #C42E00;
+  --loop-color: #FF3B00; --fig-color: #0A0A0A; --neg: #FF3B00;
+
+  --f-display: "Inter Tight", "Inter", system-ui, sans-serif; --f-body: "Inter", system-ui, sans-serif;
+  --f-q: "Inter", system-ui, sans-serif; --f-title: "Inter Tight", "Inter", system-ui, sans-serif;
+  --f-fig: "Inter Tight", "Inter", system-ui, sans-serif; --f-mono: "Inter", system-ui, sans-serif;
+  --f-cjk: "Noto Sans SC", "PingFang SC", sans-serif;
+  --w-name: 800; --w-verb: 900; --w-title: 700; --w-fig: 800; --w-label: 700;
+  --track-name: -.045em; --track-verb: -.055em; --track-label: .08em;
+  --case-verb: uppercase;
+  --body-size: 1.0625rem; --lh-body: 1.55;
+  --name-size: clamp(2.8rem, 6.4vw, 5rem);
+  --lede-size: clamp(1.25rem, 2.3vw, 1.75rem);
+  --verb-size: clamp(3.1rem, 10.6vw, 9.6rem);
+  --q-size: 1.04rem; --fig-size: 2.2rem;
+  --card-fig-size: clamp(3.6rem, 8vw, 6.4rem);
+  --thread-verb-size: clamp(3.6rem, 15vw, 13rem);
+  --title-size: 1.18rem;
+  --radius: 0; --rule-strong-w: 4px; --loop-w: 4px; --loop-r: 0;
+  --card-top: 4px solid #0A0A0A; --card-pad: 18px 0 0; --cards-gap: 64px 48px;
+  --arm-k: .4;
+}
+html[data-theme="swiss"] .name { line-height: .92; }
+html[data-theme="swiss"] .lede { font-weight: 500; letter-spacing: -.015em; max-width: 26ch; }
+html[data-theme="swiss"] .kicker,
+html[data-theme="swiss"] .label,
+html[data-theme="swiss"] .nav,
+html[data-theme="swiss"] .brand { letter-spacing: .06em; }
+html[data-theme="swiss"] .loop__verb { line-height: .84; }
+html[data-theme="swiss"] .loop__verb:hover { color: var(--accent-loud); }
+html[data-theme="swiss"] .loop__n { font-size: .82rem; font-weight: 800; color: var(--accent); }
+html[data-theme="swiss"] .loop__fig b { letter-spacing: -.04em; }
+html[data-theme="swiss"] .loop__q { color: var(--ink); max-width: 46ch; }
+html[data-theme="swiss"] .card__fig b { letter-spacing: -.06em; line-height: .85; }
+html[data-theme="swiss"] .card__tag a { color: var(--ink); }
+html[data-theme="swiss"] .card__tag a::before { content: ""; display: inline-block; width: .7em; height: .7em; background: var(--accent-loud); margin-right: .55em; vertical-align: -.05em; }
+html[data-theme="swiss"] .scope { border-left: 0; padding: 12px 14px; background: var(--accent-soft); color: var(--ink); }
+html[data-theme="swiss"] .loop__ground span:not(.loop__ground-k) { background: #0A0A0A; color: #fff; font-weight: 600; }
+html[data-theme="swiss"] .thread-verb { line-height: .8; }
+html[data-theme="swiss"] .thread-n { color: var(--accent); font-weight: 800; }
+html[data-theme="swiss"] .filter button[aria-pressed="true"] { background: var(--accent-loud); border-color: var(--accent-loud); color: #0A0A0A; font-weight: 700; }
+html[data-theme="swiss"] .site-head { border-bottom: 4px solid #0A0A0A; }
+html[data-theme="swiss"] .nav a[aria-current="page"] { border-bottom-color: var(--accent-loud); }
+html[data-theme="swiss"] .portrait { filter: grayscale(1) contrast(1.06); }
+/* the verbs get a row to themselves; the question and the reading sit beneath */
+@media (min-width: 721px) {
+  html[data-theme="swiss"] .loop__item {
+    grid-template-columns: 2.6rem minmax(0, 1fr) minmax(0, 17rem);
+    grid-template-areas: "n verb verb" ". q fig";
+    row-gap: 18px; align-items: end;
+  }
+  html[data-theme="swiss"] .loop__n { align-self: start; padding-top: .4em; }
+}
