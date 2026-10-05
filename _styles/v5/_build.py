@@ -306,7 +306,7 @@ def page(slug, title, body, desc, home="index.html", extra_js="", canon=None):
 <link rel="stylesheet" href="css/night.css">
 <link rel="stylesheet" href="css/swiss.css">
 <link rel="stylesheet" href="css/present.css">
-<link rel="icon" href="/images/icon-32.png?v=3">
+<link rel="icon" href="/images/icon-32.png?v=4">
 </head>
 <body class="page--{slug}">
 <a class="skip" href="#main">Skip to content</a>
@@ -398,9 +398,9 @@ def prod_page(slug, title, body, desc, nav, canon):
 <link rel="stylesheet" href="{PROD_FONTS}">
 <link rel="stylesheet" href="{PROD_CJK}">
 <link rel="stylesheet" href="/assets/site.css">
-<link rel="icon" type="image/png" sizes="16x16" href="/images/icon-16.png?v=3">
-<link rel="icon" type="image/png" sizes="32x32" href="/images/icon-32.png?v=3">
-<link rel="apple-touch-icon" sizes="180x180" href="/images/icon-180.png?v=3">{json_ld() if path == "" else ""}
+<link rel="icon" type="image/png" sizes="16x16" href="/images/icon-16.png?v=4">
+<link rel="icon" type="image/png" sizes="32x32" href="/images/icon-32.png?v=4">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/icon-180.png?v=4">{json_ld() if path == "" else ""}
 </head>
 <body class="page--{slug}">
 <a class="skip" href="#main">Skip to content</a>
