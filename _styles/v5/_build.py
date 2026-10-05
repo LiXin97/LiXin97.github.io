@@ -21,7 +21,7 @@ ME = "Xin Li"
 # ---------------------------------------------------------------- papers
 # thread: evaluate | train | orchestrate | wireless | robotics
 P = [
-  dict(id="debateledger", blurb="Separates harmful collapse from useful correction in multi-agent debate; a freeze that prevents collapse gives up more corrections.",
+  dict(id="debateledger", blurb="Distinguishes harmful collapse from useful correction in multi-agent debate.",
        thread="orchestrate", year=2026, lead=True,
        title="Measuring Collapse and Correction in Homogeneous-Panel LLM Debate", short="DebateLedger",
        authors="Xin Li*, Mengbing Liu*, Chau Yuen",
@@ -34,7 +34,7 @@ P = [
              "prevents 29 of them but gives up 108 corrections — net −79 under equal weights. "
              "58.9% of collapses begin in the first debate round.",
        scope=None),
-  dict(id="wmbxl", blurb="A wireless-math benchmark where every problem carries its own contamination evidence.",
+  dict(id="wmbxl", blurb="A wireless-math benchmark with per-problem provenance and reproducible text-overlap audits.",
        thread="evaluate", year=2026, lead=True,
        title="WirelessMathBench-XL: An Auditable Benchmark for Wireless Mathematical Reasoning", short="WirelessMathBench-XL",
        authors="Xin Li, Mengbing Liu, Yiyang Zhu, Wenhe Zhang, Li Wei, Jiancheng An, Chau Yuen",
@@ -68,7 +68,7 @@ P = [
        claim="On a 34-generator, 7-verifier Best-of-K math panel, one strong process reward model is the best fixed verifier overall — "
              "and still not the best verifier for every generator. Label-free candidate statistics predict which verifier class wins.",
        scope=None),
-  dict(id="dafnycomp", blurb="Models that verify functions one at a time fail once the specifications have to compose.",
+  dict(id="dafnycomp", blurb="Models that verify functions one at a time can still fail once the specifications have to compose.",
        thread="evaluate", year=2026, lead=True,
        title="Local Success Does Not Compose: Benchmarking Large Language Models for Compositional Formal Verification", short="DafnyComp",
        authors="Xu Xu*, Xin Li*, Xingwei Qu, Jie Fu, Binhang Yuan",
