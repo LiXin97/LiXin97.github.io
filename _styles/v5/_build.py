@@ -169,6 +169,10 @@ THREADS = [
 TH = {t["id"]: t for t in THREADS}
 
 RETURN = "Composition creates new failure modes, which have to be measured too."
+DESC = ("Xin Li, Ph.D. student at NTU Singapore, working on LLM agents: measuring, training and composing them, "
+        "and agents that improve themselves.")
+LEDE = ("I work on LLM agents — measuring what they can do, training them, and finding out what happens when "
+        "several work together. Lately, on agents that improve themselves.")
 GROUND = ["formal verification", "mathematics", "code"]
 GROUND_K = "So far, mostly where an answer can be checked:"
 GROUND_NOW = "Now, self-improvement where it can't."
@@ -245,7 +249,7 @@ def short_pos(pos):
     return pos
 
 
-def page(slug, title, body, desc):
+def page(slug, title, body, desc, home="index.html", extra_js=""):
     nav = []
     for item in NAV:
         if item is None:
@@ -271,12 +275,13 @@ def page(slug, title, body, desc):
 <link rel="stylesheet" href="css/paper.css">
 <link rel="stylesheet" href="css/night.css">
 <link rel="stylesheet" href="css/swiss.css">
+<link rel="stylesheet" href="css/present.css">
 <link rel="icon" href="/images/icon-32.png?v=3">
 </head>
 <body class="page--{slug}">
 <a class="skip" href="#main">Skip to content</a>
 <header class="site-head"><div class="wrap">
-  <a class="brand" href="index.html">Xin Li<span lang="zh-Hans">李鑫</span></a>
+  <a class="brand" href="{home}">Xin Li<span lang="zh-Hans">李鑫</span></a>
   <nav class="nav" aria-label="Site">{"".join(nav)}</nav>
 </div></header>
 <main id="main" tabindex="-1">
@@ -287,7 +292,7 @@ def page(slug, title, body, desc):
   <p><a href="mailto:xin019@e.ntu.edu.sg">xin019@e.ntu.edu.sg</a> · Updated October 2026</p>
 </div></footer>
 <script src="js/preview.js" defer></script>
-{'<script src="js/filter.js" defer></script>' if slug == "pubs" else ""}
+{'<script src="js/filter.js" defer></script>' if slug == "pubs" else ""}{extra_js}
 </body>
 </html>
 """
@@ -314,6 +319,136 @@ def loop_html(heading_level="h2"):
     <p class="loop__return"><span class="loop__return-mark" aria-hidden="true">↺</span><span><b>Back to 01.</b> {e(RETURN)}</span></p>
     <p class="loop__ground"><span class="loop__ground-k">{e(GROUND_K)}</span>{ground}<span class="loop__ground-now">{e(GROUND_NOW)}</span></p>
   </section>"""
+
+
+# ---------------------------------------------------------------- loop drawings
+import math
+
+
+def _pt(cx, cy, r, deg):
+    a = math.radians(deg)
+    return cx + r * math.cos(a), cy + r * math.sin(a)
+
+
+def _arc(cx, cy, r, a1, a2):
+    """Clockwise arc from a1 to a2 degrees (0 = east, 90 = south, as SVG draws)."""
+    x1, y1 = _pt(cx, cy, r, a1)
+    x2, y2 = _pt(cx, cy, r, a2)
+    large = 1 if (a2 - a1) % 360 > 180 else 0
+    return f"M {x1:.2f} {y1:.2f} A {r} {r} 0 {large} 1 {x2:.2f} {y2:.2f}"
+
+
+RING = dict(size=440, c=220, r=160, nr=25, gap=14)
+NODE_ANG = {"measure": -90, "train": 30, "compose": 150}
+
+
+def ring_svg():
+    """The loop as a ring: 01 at the top, clockwise. The leg from 03 back to 01 is the return."""
+    c, r, nr, g = RING["c"], RING["r"], RING["nr"], RING["gap"]
+    legs = [("measure", "train", "fwd"), ("train", "compose", "fwd"), ("compose", "measure", "ret")]
+    paths = []
+    for a, b, kind in legs:
+        a1 = NODE_ANG[a] + g
+        a2 = NODE_ANG[b] - g
+        if a2 <= a1:
+            a2 += 360
+        mk = "url(#ah-ret)" if kind == "ret" else "url(#ah)"
+        paths.append(f'<path class="ring__leg ring__leg--{kind} ring__leg--{a}" d="{_arc(c, c, r, a1, a2)}" marker-end="{mk}"/>')
+    nodes = []
+    for t in THREADS:
+        x, y = _pt(c, c, r, NODE_ANG[t["id"]])
+        nodes.append(f'<g class="ring__node ring__node--{t["id"]}"><circle cx="{x:.2f}" cy="{y:.2f}" r="{nr}"/>'
+                     f'<text x="{x:.2f}" y="{y:.2f}" dy=".35em">{t["n"]}</text></g>')
+    label_path = _arc(c, c, r + 21, NODE_ANG["compose"] + 18, NODE_ANG["measure"] + 360 - 18)
+    orbit = f"M {c} {c - r} A {r} {r} 0 0 1 {c} {c + r} A {r} {r} 0 0 1 {c} {c - r}"
+    return f"""<svg class="ring__svg" viewBox="0 0 {RING['size']} {RING['size']}" role="img"
+      aria-label="The research loop: 01 Measure, then 02 Train, then 03 Compose, and back to 01 Measure.">
+      <defs>
+        <marker id="ah" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="9" markerHeight="9" markerUnits="userSpaceOnUse" orient="auto"><path class="ring__ah" d="M0,1 L9,5 L0,9 z"/></marker>
+        <marker id="ah-ret" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="11" markerHeight="11" markerUnits="userSpaceOnUse" orient="auto"><path class="ring__ah ring__ah--ret" d="M0,1 L9,5 L0,9 z"/></marker>
+        <path id="ring-label-path" d="{label_path}"/>
+      </defs>
+      <circle class="ring__track" cx="{c}" cy="{c}" r="{r}"/>
+      {''.join(paths)}
+      <text class="ring__arclabel"><textPath href="#ring-label-path" startOffset="50%" text-anchor="middle">new failure modes</textPath></text>
+      <circle class="ring__dot" r="5"><animateMotion dur="9s" repeatCount="indefinite" path="{orbit}"/></circle>
+      {''.join(nodes)}
+    </svg>"""
+
+
+def ring_center():
+    return f"""<div class="ring__center">
+        <p class="ring__k">So far</p>
+        <p class="ring__v">where an answer can be checked</p>
+        <span class="ring__rule" aria-hidden="true"></span>
+        <p class="ring__k ring__k--now">Now</p>
+        <p class="ring__v ring__v--now">self-improvement where it can't</p>
+      </div>"""
+
+
+def thread_label(t, cls):
+    n, lbl = t["hero_fig"]
+    return f"""<div class="{cls} {cls}--{t['id']}">
+        <p class="tl__n">{t['n']}</p>
+        <a class="tl__verb" href="{t['id']}.html">{t['verb']}</a>
+        <p class="tl__q">{e(t['q'])}</p>
+        <p class="tl__fig"><b>{e(n)}</b> <span>{e(lbl)}</span></p>
+      </div>"""
+
+
+def hero_block(variant=""):
+    return f"""
+  <header class="hero wrap {variant}">
+    <div class="hero__text">
+      <p class="kicker">Ph.D. student · Nanyang Technological University · advised by <a href="https://blogs.ntu.edu.sg/chau-yuen/">Prof. Chau Yuen</a></p>
+      <h1 class="name">Xin Li<span class="name__cjk" lang="zh-Hans">李鑫</span></h1>
+      <p class="lede">{e(LEDE)}</p>
+    </div>
+    <img class="hero__photo" src="/data/avatar-560.webp" width="560" height="560" alt="Portrait of Xin Li" fetchpriority="high">
+  </header>"""
+
+
+def tail_sections():
+    """Also-in-2026, recent and coda: identical on every home page."""
+    also_ids = ["dafnycomp", "reform", "simd2nn", "robustmad", "graphreduce", "livecann"]
+    also = "".join(f"""
+        <li><a class="also__name" href="{e(BY[i]['links'][0][1])}">{e(BY[i]['short'])}</a><span class="also__t">{e(subtitle(BY[i]))}</span><span class="also__v">{e(vshort(BY[i]))}</span></li>"""
+                   for i in also_ids)
+    recent = "".join(f'<li><time>{e(d)}</time><span>{e(t)}</span></li>' for d, t in RECENT)
+    return f"""
+  <section class="also wrap" aria-labelledby="also-h">
+    <h2 id="also-h" class="label"><span>Also in 2026</span><a class="label__aside" href="publications.html">All publications →</a></h2>
+    <ul class="also__list">{also}
+    </ul>
+  </section>
+  <section class="recent wrap" aria-labelledby="recent-h">
+    <h2 id="recent-h" class="label"><span>Recent</span></h2>
+    <ol class="recent__list">{recent}</ol>
+  </section>
+  <section class="coda wrap">
+    <div>
+      <h2 class="label"><span>Before the Ph.D.</span></h2>
+      <p>Robot perception — visual-inertial odometry at MEGVII, RGB-D + IMU indoor mapping at Microsoft Research Asia,
+        and multimodal localization at Gausium Robotics, where I led a five-engineer team and shipped to a fleet of
+        <b>1,000+</b> commercial cleaning robots. <a href="about.html">More →</a></p>
+    </div>
+    <div>
+      <h2 class="label"><span>Contact</span></h2>
+      <p>Always glad to talk about research or collaboration.</p>
+      <p class="links links--plain"><a href="mailto:xin019@e.ntu.edu.sg">xin019@e.ntu.edu.sg</a><a href="https://scholar.google.com/citations?user=Hxf8sNkAAAAJ">Scholar</a><a href="https://github.com/LiXin97">GitHub</a><a href="https://www.linkedin.com/in/xin-li-1196331a0/">LinkedIn</a><a href="/data/Xin_Li_CV_2026.pdf">CV</a></p>
+    </div>
+  </section>"""
+
+
+def evidence(p):
+    """One result, small: the reading, then what it is from."""
+    n, lbl, neg = p["fig"]
+    return f"""<a class="ev" href="{e(p['links'][0][1])}">
+          <span class="ev__fig{' is-neg' if neg else ''}">{e(n)}</span>
+          <span class="ev__lbl">{e(lbl)}</span>
+          <span class="ev__name">{e(p['short'])}</span>
+          <span class="ev__v">{e(vshort(p))}</span>
+        </a>"""
 
 
 # ---------------------------------------------------------------- index
@@ -542,9 +677,134 @@ def build_about():
   </div>"""
     return page("about", "About — Xin Li", body, "About Xin Li: experience, education, grants and service.")
 
+FEATURED = {"measure": ["wmbxl"], "train": ["dnmopd", "tlvc"], "compose": ["debateledger"]}
+
+
+def also_names(t):
+    """The rest of a thread's work, by name, pointing at its page."""
+    rest = [w for w in t["works"] if w not in FEATURED[t["id"]]]
+    if not rest:
+        return ""
+    names = " · ".join(e(BY[w]["short"]) for w in rest)
+    return f'<p class="also-names"><a href="{t["id"]}.html">Also: {names} →</a></p>'
+
+
+def readings():
+    out = []
+    for i in ["debateledger", "wmbxl", "dnmopd", "tlvc"]:
+        p = BY[i]; t = TH[p["thread"]]; n, lbl, neg = p["fig"]
+        out.append(f"""
+        <a class="reading" href="{e(p['links'][0][1])}">
+          <span class="reading__tag">{t['n']} · {t['verb']}</span>
+          <span class="reading__fig{' is-neg' if neg else ''}">{e(n)}</span>
+          <span class="reading__lbl">{e(lbl)}</span>
+          <span class="reading__name">{e(p['short'])}</span>
+          <span class="reading__v">{e(vshort(p))}</span>
+        </a>""")
+    return "".join(out)
+
+
+# ---------------------------------------------------------------- ring
+def build_ring():
+    T = TH
+    ground = "".join(f"<span>{e(g)}</span>" for g in GROUND)
+    body = hero_block() + f"""
+  <section class="ring wrap" aria-labelledby="loop-h">
+    <h2 id="loop-h" class="label"><span>The research, as one loop</span><span class="label__aside">clockwise from 01</span></h2>
+    <div class="ring__stage">
+      {thread_label(T['measure'], 'tl')}
+      <div class="ring__orbit">
+        <div class="ring__fig">{ring_svg()}{ring_center()}</div>
+        {thread_label(T['train'], 'tl')}
+        {thread_label(T['compose'], 'tl')}
+      </div>
+    </div>
+    <p class="ring__return"><span aria-hidden="true">↺</span> <b>03 → 01.</b> {e(RETURN)}</p>
+  </section>
+  <section class="readings wrap" aria-labelledby="rd-h">
+    <h2 id="rd-h" class="label"><span>Selected results</span><span class="label__aside">2026</span></h2>
+    <div class="readings__row">{readings()}
+    </div>
+  </section>""" + tail_sections()
+    return page("ring", "Xin Li — the loop", body, DESC, home="ring.html")
+
+
+# ---------------------------------------------------------------- track
+def build_track():
+    panels = []
+    for k, t in enumerate(THREADS):
+        ev = "".join(evidence(BY[i]) for i in FEATURED[t["id"]])
+        panels.append(f"""
+      <article class="panel panel--{t['id']}">
+        <p class="panel__n">{t['n']}</p>
+        <h3 class="panel__verb"><a href="{t['id']}.html">{t['verb']}</a></h3>
+        <p class="panel__q">{e(t['q'])}</p>
+        <div class="panel__ev">{ev}</div>
+        {also_names(t)}
+      </article>""")
+        if k < 2:
+            panels.append('<span class="track__link" aria-hidden="true"><i></i></span>')
+    ground = "".join(f"<span>{e(g)}</span>" for g in GROUND)
+    body = hero_block() + f"""
+  <section class="track wrap" aria-labelledby="loop-h">
+    <h2 id="loop-h" class="label"><span>The research, as one loop</span><span class="label__aside">evidence sits on the leg it came from</span></h2>
+    <div class="track__row">{"".join(panels)}
+    </div>
+    <div class="track__return"><span class="track__rail" aria-hidden="true"></span>
+      <p><b>03 → 01.</b> {e(RETURN)}</p></div>
+    <p class="track__ground"><span class="track__ground-k">{e(GROUND_K)}</span>{ground}<span class="track__now">{e(GROUND_NOW)}</span></p>
+  </section>""" + tail_sections()
+    return page("track", "Xin Li — the loop", body, DESC, home="track.html")
+
+
+# ---------------------------------------------------------------- scroll
+def build_scroll():
+    steps = []
+    for t in THREADS:
+        ev = "".join(evidence(BY[i]) for i in FEATURED[t["id"]])
+        steps.append(f"""
+      <section class="step" data-step="{t['id']}" aria-labelledby="st-{t['id']}">
+        <p class="step__n">{t['n']} / 03</p>
+        <h3 class="step__verb" id="st-{t['id']}"><a href="{t['id']}.html">{t['verb']}</a></h3>
+        <p class="step__q">{e(t['q'])}</p>
+        <p class="step__d">{e(t['desc'])}</p>
+        <div class="step__ev">{ev}</div>
+        {also_names(t)}
+      </section>""")
+    steps.append(f"""
+      <section class="step step--return" data-step="return" aria-labelledby="st-return">
+        <p class="step__n">03 → 01</p>
+        <h3 class="step__verb" id="st-return">Back to Measure</h3>
+        <p class="step__q">{e(RETURN)}</p>
+      </section>
+      <section class="step step--now" data-step="now" aria-labelledby="st-now">
+        <p class="step__n">So far → now</p>
+        <h3 class="step__verb" id="st-now">The loop, run by the agent</h3>
+        <p class="step__q">{e(GROUND_K)} {e(", ".join(GROUND))}. {e(GROUND_NOW)}</p>
+      </section>""")
+    body = f"""
+  <header class="hero hero--tall wrap">
+    <div class="hero__text">
+      <p class="kicker">Ph.D. student · Nanyang Technological University · advised by <a href="https://blogs.ntu.edu.sg/chau-yuen/">Prof. Chau Yuen</a></p>
+      <h1 class="name">Xin Li<span class="name__cjk" lang="zh-Hans">李鑫</span></h1>
+      <p class="lede">{e(LEDE)}</p>
+      <p class="hero__cue" aria-hidden="true">The loop ↓</p>
+    </div>
+    <img class="hero__photo" src="/data/avatar-560.webp" width="560" height="560" alt="Portrait of Xin Li" fetchpriority="high">
+  </header>
+  <div class="scrolly wrap" data-step="all">
+    <h2 class="sr-only">The research, as one loop</h2>
+    <div class="scrolly__fig"><div class="ring__fig">{ring_svg()}{ring_center()}</div></div>
+    <div class="scrolly__steps">{"".join(steps)}
+    </div>
+  </div>""" + tail_sections()
+    return page("scroll", "Xin Li — the loop", body, DESC, home="scroll.html",
+                extra_js='<script src="js/scrolly.js" defer></script>')
+
 
 # ---------------------------------------------------------------- write
-pages = {"index.html": build_index(), "publications.html": build_pubs(), "about.html": build_about()}
+pages = {"index.html": build_index(), "publications.html": build_pubs(), "about.html": build_about(),
+         "ring.html": build_ring(), "track.html": build_track(), "scroll.html": build_scroll()}
 for t in THREADS:
     pages[f"{t['id']}.html"] = build_thread(t)
 for name, html in pages.items():

@@ -1,0 +1,216 @@
+/* ==========================================================================
+   present.css — three home-page presentations of the loop: ring, track, scroll.
+   Colour and type come only from palette tokens, so any palette fits any layout.
+   ========================================================================== */
+
+/* ---------- the ring drawing (ring + scroll) ---------- */
+.ring__fig { position: relative; width: 100%; max-width: 420px; aspect-ratio: 1; margin-inline: auto; }
+.ring__svg { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
+.ring__track { fill: none; stroke: var(--rule); stroke-width: 1px; vector-effect: non-scaling-stroke; }
+.ring__leg { fill: none; stroke: var(--ink); stroke-width: var(--ring-w, 1.5px); vector-effect: non-scaling-stroke; transition: opacity .45s, stroke .45s; }
+.ring__leg--ret { stroke: var(--loop-color); stroke-width: calc(var(--loop-w) + 1px); }
+.ring__ah { fill: var(--ink); }
+.ring__ah--ret { fill: var(--loop-color); }
+.ring__node { transition: opacity .45s; }
+.ring__node circle { fill: var(--node-bg, var(--bg)); stroke: var(--ink); stroke-width: var(--ring-w, 1.5px); vector-effect: non-scaling-stroke; transition: fill .35s, stroke .35s; }
+.ring__node text { font-family: var(--f-mono); font-size: 13px; font-weight: 700; text-anchor: middle; fill: var(--ink); transition: fill .35s; }
+.ring__arclabel { font-family: var(--f-mono); font-size: 11.5px; font-weight: 500; letter-spacing: .06em; fill: var(--loop-ink); }
+.ring__dot { fill: var(--loop-color); transition: opacity .45s; }
+.ring__center { position: absolute; inset: 24%; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; }
+.ring__k { font-family: var(--f-mono); font-size: .62rem; font-weight: 600; letter-spacing: .18em; text-transform: uppercase; color: var(--faint); }
+.ring__k--now { color: var(--accent); }
+.ring__v { margin-top: 4px; font-family: var(--f-q); font-size: .96rem; line-height: 1.3; color: var(--muted); text-wrap: balance; }
+.ring__v--now { color: var(--ink); font-weight: 600; }
+.ring__rule { width: 34px; height: var(--rule-w); background: var(--rule-strong); opacity: .5; margin: 12px 0 10px; }
+
+/* ---------- thread labels around the ring ---------- */
+.tl__n { font-family: var(--f-mono); font-size: .72rem; font-weight: 700; letter-spacing: .1em; color: var(--accent); }
+.tl__verb {
+  display: inline-block; margin-top: 4px; font-family: var(--f-display); font-weight: var(--w-verb);
+  font-size: var(--tl-verb, clamp(2.1rem, 3.4vw, 3.1rem)); line-height: 1; letter-spacing: var(--track-verb);
+  text-transform: var(--case-verb); text-decoration: none;
+}
+.tl__verb:hover { color: var(--accent); }
+.tl__q { text-wrap: pretty; margin-top: 12px; font-family: var(--f-q); font-style: var(--style-q); font-size: 1.02rem; line-height: 1.45; color: var(--muted); }
+.tl__fig { margin-top: 12px; font-family: var(--f-mono); font-size: .7rem; line-height: 1.4; color: var(--faint); }
+.tl__fig b { display: block; font-family: var(--f-fig); font-size: 1.5rem; font-weight: var(--w-fig); line-height: 1.05; color: var(--fig-color); letter-spacing: -.01em; margin-bottom: 3px; font-variant-numeric: tabular-nums lining-nums; }
+
+/* ---------- RING layout ---------- */
+.ring { margin-top: var(--section-gap); }
+.ring__stage { display: flex; flex-direction: column; align-items: center; }
+.tl--measure { text-align: center; max-width: 28rem; margin-bottom: 26px; }
+.tl--measure .tl__q { margin-inline: auto; max-width: 24rem; }
+.ring__orbit { position: relative; width: min(420px, 100%); margin-bottom: 96px; }
+.tl--train, .tl--compose { position: absolute; top: 60%; width: min(290px, calc((100vw - 420px) / 2 - 120px)); }
+.tl--train { left: calc(100% + 34px); }
+.tl--compose { right: calc(100% + 34px); text-align: right; }
+.ring__return { margin: 30px auto 0; max-width: 46rem; text-align: center; font-size: .98rem; color: var(--muted); }
+.ring__return b { color: var(--loop-ink); font-weight: 600; }
+.ring__return span { color: var(--loop-ink); margin-right: 4px; }
+
+/* ---------- readings (ring) ---------- */
+.readings { margin-top: var(--section-gap); }
+.readings__row { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); border-top: var(--rule-strong-w) solid var(--rule-strong); }
+.reading { display: flex; flex-direction: column; gap: 4px; padding: 24px 24px 26px; text-decoration: none; border-left: var(--rule-w) solid var(--rule); }
+.reading:first-child { border-left: 0; padding-left: 0; }
+.reading__tag { font-family: var(--f-mono); font-size: .64rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--accent); }
+.reading__fig { margin-top: 14px; font-family: var(--f-fig); font-size: clamp(2.2rem, 3.5vw, 3.3rem); font-weight: var(--w-fig); line-height: .95; letter-spacing: -.035em; color: var(--fig-color); font-variant-numeric: tabular-nums lining-nums; }
+.reading__fig.is-neg { color: var(--neg); }
+.reading__lbl { font-family: var(--f-mono); font-size: .68rem; color: var(--faint); }
+.reading__name { margin-top: 16px; font-family: var(--f-title); font-weight: var(--w-title); font-size: 1.1rem; }
+.reading__v { font-family: var(--f-mono); font-size: .68rem; color: var(--muted); letter-spacing: .03em; }
+.reading:hover .reading__name { color: var(--accent); }
+
+/* ---------- evidence (track + scroll) ---------- */
+.ev { display: grid; grid-template-columns: auto minmax(0, 1fr); grid-template-areas: "fig lbl" "name name" "v v"; column-gap: 12px; row-gap: 3px; align-items: baseline; text-decoration: none; padding-top: 14px; border-top: var(--rule-w) solid var(--rule); }
+.ev__fig { grid-area: fig; font-family: var(--f-fig); font-size: 2rem; font-weight: var(--w-fig); line-height: 1; letter-spacing: -.03em; color: var(--fig-color); font-variant-numeric: tabular-nums lining-nums; }
+.ev__fig.is-neg { color: var(--neg); }
+.ev__lbl { grid-area: lbl; font-family: var(--f-mono); font-size: .66rem; color: var(--faint); line-height: 1.35; }
+.ev__name { grid-area: name; margin-top: 8px; font-family: var(--f-title); font-weight: var(--w-title); font-size: 1.02rem; overflow-wrap: anywhere; hyphens: manual; }
+.ev__v { grid-area: v; font-family: var(--f-mono); font-size: .66rem; color: var(--muted); }
+.ev:hover .ev__name { color: var(--accent); }
+.also-names { margin-top: 14px; font-family: var(--f-mono); font-size: .68rem; letter-spacing: .02em; }
+.also-names a { color: var(--muted); text-decoration: none; border-bottom: var(--rule-w) solid var(--rule); }
+.also-names a:hover { color: var(--accent); border-bottom-color: var(--accent); }
+
+/* ---------- TRACK layout ---------- */
+.track { margin-top: var(--section-gap); }
+.track__row { display: grid; grid-template-columns: minmax(0, 1fr) 54px minmax(0, 1fr) 54px minmax(0, 1fr); align-items: stretch; }
+.panel {
+  position: relative; display: flex; flex-direction: column; padding: 24px 24px 24px;
+  background: var(--panel-bg, transparent); border: var(--rule-w) solid var(--rule);
+  border-top: var(--rule-strong-w) solid var(--rule-strong); border-radius: var(--card-radius);
+}
+.panel__n { font-family: var(--f-mono); font-size: .72rem; font-weight: 700; letter-spacing: .1em; color: var(--accent); }
+.panel__verb { margin-top: 6px; font-family: var(--f-display); font-weight: var(--w-verb); font-size: var(--panel-verb, clamp(2.1rem, 3.3vw, 3.2rem)); line-height: 1; letter-spacing: var(--track-verb); text-transform: var(--case-verb); }
+.panel__verb a { text-decoration: none; }
+.panel__verb a:hover { color: var(--accent); }
+.panel__q { margin-top: 14px; font-family: var(--f-q); font-style: var(--style-q); font-size: 1rem; line-height: 1.45; color: var(--muted); }
+.panel__ev { margin-top: auto; padding-top: 22px; display: grid; gap: 14px; }
+/* forward links between panels, with a pulse that travels along them */
+.track__link { position: relative; align-self: start; margin-top: 50px; height: 0; }
+.track__link i { position: absolute; left: 6px; right: 10px; top: -1px; height: 2px; background: var(--ink); overflow: hidden; }
+.track__link i::before { content: ""; position: absolute; inset: 0; width: 40%; background: linear-gradient(90deg, transparent, var(--loop-color), transparent); animation: pulse-x 2.4s linear infinite; }
+.track__link::after { content: ""; position: absolute; right: 2px; top: -6px; border-left: 10px solid var(--ink); border-top: 6px solid transparent; border-bottom: 6px solid transparent; }
+.track__row > .track__link:nth-of-type(2) i::before { animation-delay: 1.2s; }
+@keyframes pulse-x { from { transform: translateX(-100%); } to { transform: translateX(260%); } }
+/* the return: under the row, from Compose back to Measure */
+.track__return { position: relative; padding-top: 60px; }
+.track__rail {
+  position: absolute; top: 0; height: 40px;
+  left: calc((100% - 108px) / 6); right: calc((100% - 108px) / 6);
+  border: calc(var(--loop-w) + .5px) solid var(--loop-color); border-top: 0; border-radius: 0 0 var(--loop-r) var(--loop-r);
+}
+.track__rail::before { content: ""; position: absolute; left: calc(var(--loop-w) * -1 - 6px); top: -11px; border-bottom: 12px solid var(--loop-color); border-left: 7px solid transparent; border-right: 7px solid transparent; }
+.track__return p { text-align: center; font-size: .98rem; color: var(--muted); }
+.track__return b { color: var(--loop-ink); }
+.track__ground { display: flex; flex-wrap: wrap; justify-content: center; align-items: baseline; gap: 8px 10px; margin-top: 18px; font-family: var(--f-mono); font-size: .72rem; color: var(--faint); }
+.track__ground span:not(.track__ground-k):not(.track__now) { color: var(--ink); background: var(--accent-soft); padding: 4px 8px; border-radius: var(--radius); }
+.track__now { margin-left: 8px; color: var(--ink); font-weight: 600; }
+
+/* ---------- SCROLL layout ---------- */
+.hero--tall { min-height: calc(100svh - 64px); align-items: center; padding-top: 0; }
+.hero__cue { margin-top: 44px; font-family: var(--f-mono); font-size: .72rem; letter-spacing: .16em; text-transform: uppercase; color: var(--faint); }
+.scrolly { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); column-gap: clamp(32px, 6vw, 96px); margin-top: clamp(24px, 4vw, 48px); }
+.scrolly__steps { grid-column: 1; grid-row: 1; }
+.scrolly__fig { grid-column: 2; grid-row: 1; position: sticky; top: 10vh; height: 80vh; display: flex; align-items: center; justify-content: center; align-self: start; }
+.scrolly__fig .ring__fig { max-width: min(420px, 72vh); }
+.scrolly__steps { padding-block: 0 28vh; }
+.step { min-height: 70vh; display: flex; flex-direction: column; justify-content: center; transition: opacity .4s; }
+.step__n { font-family: var(--f-mono); font-size: .74rem; font-weight: 700; letter-spacing: .12em; color: var(--accent); }
+.step__verb { margin-top: 6px; font-family: var(--f-display); font-weight: var(--w-verb); font-size: var(--step-verb, clamp(2.6rem, 5vw, 4.4rem)); line-height: 1; letter-spacing: var(--track-verb); text-transform: var(--case-verb); }
+.step__verb a { text-decoration: none; }
+.step__verb a:hover { color: var(--accent); }
+.step__q { margin-top: 18px; font-family: var(--f-q); font-style: var(--style-q); font-size: 1.22rem; line-height: 1.42; max-width: 30ch; }
+.step__d { margin-top: 12px; color: var(--muted); max-width: 46ch; font-size: .98rem; }
+.step__ev { margin-top: 24px; display: grid; gap: 14px; max-width: 30rem; }
+.step--return .step__verb, .step--now .step__verb { font-size: clamp(2rem, 3.6vw, 3.2rem); }
+.step--return .step__n, .step--return .step__verb { color: var(--loop-ink); }
+/* which part of the ring is lit, by step; without JS the whole ring stays lit */
+.js .step { opacity: .3; }
+.js .step.is-on { opacity: 1; }
+.js .scrolly .ring__leg, .js .scrolly .ring__node { opacity: .22; }
+.js .scrolly .ring__dot { opacity: 0; }
+.scrolly[data-step="measure"] .ring__node--measure,
+.scrolly[data-step="train"] .ring__node--train, .scrolly[data-step="train"] .ring__leg--measure,
+.scrolly[data-step="compose"] .ring__node--compose, .scrolly[data-step="compose"] .ring__leg--train,
+.scrolly[data-step="return"] .ring__leg--ret, .scrolly[data-step="return"] .ring__node--compose, .scrolly[data-step="return"] .ring__node--measure,
+.scrolly[data-step="now"] .ring__leg, .scrolly[data-step="now"] .ring__node, .scrolly[data-step="now"] .ring__dot { opacity: 1 !important; }
+.scrolly[data-step="measure"] .ring__node--measure circle,
+.scrolly[data-step="train"] .ring__node--train circle,
+.scrolly[data-step="compose"] .ring__node--compose circle { fill: var(--accent); stroke: var(--accent); }
+.scrolly[data-step="measure"] .ring__node--measure text,
+.scrolly[data-step="train"] .ring__node--train text,
+.scrolly[data-step="compose"] .ring__node--compose text { fill: var(--on-accent); }
+.scrolly[data-step="now"] .ring__v--now { color: var(--accent); }
+
+/* ---------- palette accents for the new pieces ---------- */
+html[data-theme="night"] { --node-bg: #10141C; --panel-bg: linear-gradient(180deg, #121722 0%, #0E121A 100%); }
+html[data-theme="night"] .ring__dot { filter: drop-shadow(0 0 6px rgba(242, 181, 68, .9)); }
+html[data-theme="night"] .ring__leg--fwd, html[data-theme="night"] .ring__node circle { stroke: #9AA3B2; }
+html[data-theme="night"] .ring__ah { fill: #9AA3B2; }
+html[data-theme="night"] .reading__fig, html[data-theme="night"] .ev__fig, html[data-theme="night"] .tl__fig b { text-shadow: 0 0 20px rgba(242, 181, 68, .28); }
+html[data-theme="night"] .panel { border-color: #1F2531; border-top-color: #343B49; }
+html[data-theme="night"] .track__link i { background: #6B7383; }
+html[data-theme="night"] .track__link::after { border-left-color: #6B7383; }
+html[data-theme="swiss"] { --ring-w: 2.5px; --tl-verb: clamp(2rem, 3.2vw, 2.9rem); --panel-verb: clamp(1.9rem, 3vw, 2.9rem); --step-verb: clamp(2.6rem, 5.4vw, 4.8rem); }
+html[data-theme="swiss"] .reading__tag, html[data-theme="swiss"] .tl__n, html[data-theme="swiss"] .panel__n, html[data-theme="swiss"] .step__n { color: var(--accent); }
+html[data-theme="swiss"] .reading__fig { letter-spacing: -.06em; font-size: clamp(2.6rem, 4.4vw, 4.2rem); }
+html[data-theme="swiss"] .panel { border-width: 0; border-top-width: 4px; padding-inline: 0; }
+
+/* ---------- responsive ---------- */
+@media (max-width: 1100px) {
+  .ring__stage { display: grid; grid-template-columns: minmax(0, 1fr); justify-items: center; }
+  .ring__orbit { display: contents; }
+  .ring__stage > .tl, .ring__orbit > .tl { position: static; width: auto; max-width: 30rem; text-align: left; justify-self: stretch; margin: 0; padding: 22px 0; border-top: var(--rule-w) solid var(--rule); }
+  .ring__stage .ring__fig { order: 0; margin-bottom: 18px; max-width: 360px; }
+  .ring__orbit { margin-bottom: 0; }
+  .tl--measure { order: 1; } .tl--train { order: 2; } .tl--compose { order: 3; }
+  .tl--measure .tl__q { margin-inline: 0; }
+  .ring__return { text-align: left; margin-left: 0; }
+}
+@media (max-width: 900px) {
+  .readings__row { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .reading:nth-child(3) { border-left: 0; padding-left: 0; }
+  .reading:nth-child(n+3) { border-top: var(--rule-w) solid var(--rule); }
+
+  .track__row { grid-template-columns: minmax(0, 1fr); padding-left: 30px; position: relative; }
+  .track__link { margin: 0; height: 34px; }
+  .track__link i { left: 50%; right: auto; top: 4px; bottom: 12px; width: 2px; height: auto; }
+  .track__link i::before { width: 100%; height: 40%; background: linear-gradient(180deg, transparent, var(--loop-color), transparent); animation-name: pulse-y; }
+  .track__link::after { right: auto; left: calc(50% - 5px); top: auto; bottom: 2px; border-left: 6px solid transparent; border-right: 6px solid transparent; border-top: 10px solid var(--ink); border-bottom: 0; }
+  html[data-theme="night"] .track__link::after { border-top-color: #6B7383; border-left-color: transparent; }
+  .track__rail { display: none; }
+  /* the return becomes a rail down the left edge, drawn in segments so it survives any panel height */
+  .track__row > *::before { content: ""; position: absolute; left: -24px; border: 0 solid var(--loop-color); border-left-width: calc(var(--loop-w) + .5px); }
+  .track__row > .panel:first-child::before { top: 44px; bottom: calc(var(--rule-w) * -1); border-top-width: calc(var(--loop-w) + .5px); border-top-left-radius: var(--loop-r); width: 18px; }
+  .track__row > .track__link::before { top: 0; bottom: 0; }
+  .track__row > .panel--train::before { top: -1px; bottom: -1px; }
+  .track__row > .panel:last-child::before { top: -1px; height: 45px; border-bottom-width: calc(var(--loop-w) + .5px); border-bottom-left-radius: var(--loop-r); width: 18px; }
+  .track__row > .panel:first-child::after { content: ""; position: absolute; left: -9px; top: calc(44px - 6px + var(--loop-w) / 2); border-left: 9px solid var(--loop-color); border-top: 6px solid transparent; border-bottom: 6px solid transparent; }
+  .track__return { padding-top: 20px; }
+  .track__return p, .track__ground { text-align: left; justify-content: flex-start; }
+
+  .hero--tall { min-height: 0; padding-top: clamp(48px, 8vw, 96px); }
+  .scrolly { grid-template-columns: minmax(0, 1fr); }
+  .scrolly__fig { grid-column: 1; grid-row: 1; }
+  .scrolly__steps { grid-column: 1; grid-row: 2; }
+  .scrolly__fig { position: sticky; top: 0; z-index: 3; height: auto; padding: 12px 0; background: var(--bg); border-bottom: var(--rule-w) solid var(--rule); }
+  .scrolly__fig .ring__fig { max-width: 190px; }
+  .scrolly .ring__center, .scrolly .ring__arclabel { display: none; }
+  .scrolly__steps { padding-block: 8vh 30vh; }
+  .step { min-height: 62vh; }
+}
+@keyframes pulse-y { from { transform: translateY(-100%); } to { transform: translateY(260%); } }
+@media (max-width: 720px) {
+  .readings__row { grid-template-columns: minmax(0, 1fr); }
+  .reading { border-left: 0 !important; padding-left: 0 !important; padding-right: 0; border-top: var(--rule-w) solid var(--rule); }
+  .reading:first-child { border-top: 0; }
+  .ring .ring__arclabel { display: none; }
+  .ring__v { font-size: .84rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .ring__dot { display: none; }
+  .track__link i::before { animation: none; display: none; }
+  .ring__leg, .ring__node, .ring__node circle, .step { transition: none; }
+}
