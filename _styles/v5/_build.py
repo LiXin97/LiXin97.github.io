@@ -755,7 +755,8 @@ MAIN_TRACK = ("NeurIPS", "ICLR", "ICML", "ACL", "EMNLP", "NAACL")
 
 def pub_rank(p):
     """Order within a year: papers Xin leads (first or joint first) before co-authored ones; then main-track
-    NeurIPS/ICLR/ICML/ACL/EMNLP/NAACL, other conferences, Findings and journals, workshops, preprints; then
+    NeurIPS/ICLR/ICML/ACL/EMNLP/NAACL, other conferences, Findings and journals, workshops (preprints have their
+    own group, see build_pubs); then
     sole first author before joint first, earlier author position first. Ties keep their order in P."""
     v, pos = p["venue_long"], p["pos"]
     if v.startswith("arXiv"):
@@ -771,11 +772,19 @@ def pub_rank(p):
     return (n != 1, tier, n, joint)
 
 
+def is_preprint(p):
+    return p["venue_long"].startswith("arXiv")
+
+
 def build_pubs():
+    """Preprints first, in their own group (newest work, kept apart from what has been reviewed); then each year.
+    A preprint moves into its year by itself once its venue is filled in."""
     groups = []
-    for y in (2026, 2025, 2020):
-        items = "".join(pub(p) for p in sorted((p for p in P if p["year"] == y), key=pub_rank))
-        groups.append(f'<section class="year"><h2 class="year__h">{y}</h2><ol class="pubs">{items}</ol></section>')
+    sections = [("Preprints", sorted((p for p in P if is_preprint(p)), key=lambda p: (-p["year"], pub_rank(p))))]
+    sections += [(y, sorted((p for p in P if p["year"] == y and not is_preprint(p)), key=pub_rank)) for y in (2026, 2025, 2020)]
+    for head, papers in sections:
+        if papers:
+            groups.append(f'<section class="year"><h2 class="year__h">{head}</h2><ol class="pubs">{"".join(pub(p) for p in papers)}</ol></section>')
     filters = "".join(f'<button type="button" data-f="{k}" aria-pressed="{"true" if k == "all" else "false"}">{v}</button>'
                       for k, v in [("all", "All"), ("evaluate", "Evaluate"), ("train", "Train"), ("orchestrate", "Orchestrate"),
                                    ("wireless", "Wireless"), ("robotics", "Robotics")])
