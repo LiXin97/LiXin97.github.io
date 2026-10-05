@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Coordinate — Xin Li</title>
-<meta name="description" content="When several models work together, does the interaction help — or quietly destroy answers that were already right?">
+<title>Orchestrate — Xin Li</title>
+<meta name="description" content="What should a trained model be wrapped in — tools, checks, retries, other agents — for the task to actually get done, without breaking what already worked?">
 <script>(function(){try{var q=new URLSearchParams(location.search).get('theme');var t=q||localStorage.getItem('v5-theme')||'paper';if(q)localStorage.setItem('v5-theme',q);document.documentElement.dataset.theme=t;}catch(_){document.documentElement.dataset.theme='paper';}document.documentElement.classList.add('js');})();</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -17,23 +17,23 @@
 <link rel="stylesheet" href="css/present.css">
 <link rel="icon" href="/images/icon-32.png?v=4">
 </head>
-<body class="page--coordinate">
+<body class="page--orchestrate">
 <a class="skip" href="#main">Skip to content</a>
 <header class="site-head"><div class="wrap">
   <a class="brand" href="index.html">Xin Li<span lang="zh-Hans">李鑫</span></a>
-  <nav class="nav" aria-label="Site"><a href="measure.html">Measure</a><a href="train.html">Train</a><a href="coordinate.html" aria-current="page">Coordinate</a><span class="nav__sep" aria-hidden="true"></span><a href="publications.html">Publications</a><a href="news.html">News</a><a href="about.html">About</a><a href="/data/Xin_Li_CV_2026.pdf">CV</a></nav>
+  <nav class="nav" aria-label="Site"><a href="measure.html">Measure</a><a href="train.html">Train</a><a href="orchestrate.html" aria-current="page">Orchestrate</a><span class="nav__sep" aria-hidden="true"></span><a href="publications.html">Publications</a><a href="news.html">News</a><a href="about.html">About</a><a href="/data/Xin_Li_CV_2026.pdf">CV</a></nav>
 </div></header>
 <main id="main" tabindex="-1">
 
   <header class="thread-head wrap">
-    <nav class="steps" aria-label="The loop"><a href="measure.html"><span>01</span>Measure</a><a href="train.html"><span>02</span>Train</a><a href="coordinate.html" aria-current="step"><span>03</span>Coordinate</a><span class="steps__ret" aria-hidden="true">↺</span></nav>
+    <nav class="steps" aria-label="The loop"><a href="measure.html"><span>01</span>Measure</a><a href="train.html"><span>02</span>Train</a><a href="orchestrate.html" aria-current="step"><span>03</span>Orchestrate</a><span class="steps__ret" aria-hidden="true">↺</span></nav>
     <p class="thread-n">03 / 03</p>
-    <h1 class="thread-verb">Coordinate</h1>
-    <p class="thread-q">When several models work together, does the interaction help — or quietly destroy answers that were already right?</p>
-    <p class="thread-desc">Protocols, memory and measurement for systems where several models interact.</p>
+    <h1 class="thread-verb">Orchestrate</h1>
+    <p class="thread-q">What should a trained model be wrapped in — tools, checks, retries, other agents — for the task to actually get done, without breaking what already worked?</p>
+    <p class="thread-desc">The system around a model at inference time: harnesses and tools, verifier choice, and protocols for several agents working together.</p>
   </header>
   <section class="works-sec wrap" aria-labelledby="works-h">
-    <h2 id="works-h" class="label"><span>Work on this thread</span><span class="label__aside">2 papers</span></h2>
+    <h2 id="works-h" class="label"><span>Work on this thread</span><span class="label__aside">3 papers</span></h2>
     <div class="works">
       <article class="work" id="debateledger">
         <div class="work__side">
@@ -45,6 +45,18 @@
           <p class="work__claim">Across 6,925 logged MMLU-Pro debates, 253 collapses turned a correct majority wrong. A probe-gated freeze prevents 29 of them and gives up 108 corrections — net −79 under equal weights. 58.9% of collapses begin in the first debate round.</p>
           
           <p class="links"><a href="https://lixin.ai/DebateLedger/">Project</a></p>
+        </div>
+      </article>
+      <article class="work" id="tlvc">
+        <div class="work__side">
+          <p class="work__venue"><span class="venue">Findings of EMNLP 2026</span></p>
+        </div>
+        <div class="work__main">
+          <h3 class="work__title"><a href="https://lixin.ai/TLVC/">Target-Local Verifier Choice in Best-of-K Reasoning Selection</a></h3>
+          <p class="work__authors"><b class="me">Xin Li</b>, Hao Jiang, Weisi Lin</p>
+          <p class="work__claim">On a 34-generator, 7-verifier Best-of-K math panel, one strong process reward model is the best fixed verifier overall — and still not the best verifier for every generator. Label-free candidate statistics predict which verifier class wins.</p>
+          
+          <p class="links"><a href="https://lixin.ai/TLVC/">Project</a><a href="https://github.com/LiXin97/TLVC">Code</a></p>
         </div>
       </article>
       <article class="work" id="lacp">

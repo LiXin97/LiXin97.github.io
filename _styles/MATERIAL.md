@@ -23,14 +23,16 @@ Three threads, which he describes as one loop rather than three separate areas:
    trusted: per-problem provenance, verifier-checkable answers, and an explicit limit
    on what a score supports. Question: does a score mean what it appears to mean, and
    would we notice if it didn't?
-2. **Train** — reinforcement learning, on-policy distillation and verifier-guided
-   selection. Question: can we reward the reasoning we are able to check, rather than
-   the answer we hope for?
-3. **Coordinate** — protocols, memory and measurement for systems where several models
-   interact. Question: when several models work together, does the interaction help,
-   or quietly destroy answers that were already right?
+2. **Train** — reinforcement learning and on-policy distillation. Question: can we
+   reward the reasoning we are able to check, rather than the answer we hope for?
+3. **Orchestrate** (renamed from Coordinate on 2026-10-06, to take in single-agent work)
+   — the system around a model at inference time: harnesses and tools, verifier choice,
+   and protocols for several agents working together. Question: what should a trained
+   model be wrapped in — tools, checks, retries, other agents — for the task to actually
+   get done, without breaking what already worked?
 
-The return leg: coordination creates new failure modes, which have to be measured too.
+The return leg: every new way of orchestrating models creates new failure modes, which
+have to be measured too.
 The common ground: domains where an answer can be checked — formal verification,
 mathematics, code, wireless systems.
 

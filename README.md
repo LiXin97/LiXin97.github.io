@@ -24,7 +24,7 @@ off the live site.
 index.html          home: the research loop (Track layout, Paper palette)
 measure.html        one page per research thread
 train.html
-coordinate.html
+orchestrate.html    (was coordinate.html, which now redirects here)
 publications.html   full list, filterable by thread (assets/filter.js)
 news.html           every news item; home shows the latest five
 about.html          experience, education, grants, mentoring, service and talks

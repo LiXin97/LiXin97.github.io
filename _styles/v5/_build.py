@@ -19,9 +19,9 @@ PROD = False      # flipped at the bottom for the production pass
 ME = "Xin Li"
 
 # ---------------------------------------------------------------- papers
-# thread: measure | train | compose | wireless | robotics
+# thread: measure | train | orchestrate | wireless | robotics
 P = [
-  dict(id="debateledger", thread="coordinate", year=2026, lead=True,
+  dict(id="debateledger", thread="orchestrate", year=2026, lead=True,
        title="Measuring Collapse and Correction in Homogeneous-Panel LLM Debate", short="DebateLedger",
        authors="Xin Li*, Mengbing Liu*, Chau Yuen",
        venue="NeurIPS 2026", venue_long="NeurIPS 2026 · Evaluations and Datasets Track", pos="joint first of 3",
@@ -52,7 +52,7 @@ P = [
        claim="Label routing decides which teacher supervises a prompt, but not how strongly that teacher's "
              "feedback counts. Normalizing the feedback scale per domain adds 1.2–3.1 points over label routing, across 2B, 4B and 9B students.",
        scope=None),
-  dict(id="tlvc", thread="train", year=2026, lead=True,
+  dict(id="tlvc", thread="orchestrate", year=2026, lead=True,
        title="Target-Local Verifier Choice in Best-of-K Reasoning Selection", short="TLVC",
        authors="Xin Li, Hao Jiang, Weisi Lin",
        venue="EMNLP 2026", venue_long="Findings of EMNLP 2026", pos="first of 3",
@@ -117,7 +117,7 @@ P = [
        claim="400+ SWE-level task instances built from real Ascend CANN repositories — multi-file, multi-language and execution-aware — "
              "on a live benchmarking paradigm that mitigates leakage.",
        scope=None),
-  dict(id="lacp", thread="coordinate", year=2025, lead=True,
+  dict(id="lacp", thread="orchestrate", year=2025, lead=True,
        title="LACP: LLM Agent Communication Protocol Requires Urgent Standardization", short="LACP",
        authors="Xin Li, Mengbing Liu, Chau Yuen",
        venue="NeurIPS 2025 workshop", venue_long="AI4NextG workshop @ NeurIPS 2025", pos="first of 3",
@@ -164,26 +164,27 @@ THREADS = [
        also=[("WritingPreferenceBench", "https://WritingPreferenceBench.github.io/", "Project page; no venue yet.")]),
   dict(id="train", n="02", verb="Train",
        q="What should a model be rewarded for — especially when there is no answer key?",
-       desc="What the training signal should be — which reward, which verifier, and how much each teacher's feedback should count.",
+       desc="What the training signal should be — which reward, and how much each teacher's feedback should count.",
        hero="dnmopd", hero_fig=("+1.2–3.1", "points from normalizing each teacher's feedback scale"),
-       works=["dnmopd", "tlvc", "reform", "graphreduce"],
+       works=["dnmopd", "reform", "graphreduce"],
        also=[("ListOPD", "https://lixin.ai/ListOPD/",
               "A computable extrapolation cliff in on-policy distillation of near-deterministic structured outputs. Project page; no venue yet."),
              ("WirelessMathLM", "https://lixin.ai/WirelessMathLM/",
               "The earlier arXiv version of WirelessMathBench-XL, which also trains models on the benchmark with reinforcement learning.")]),
-  dict(id="coordinate", n="03", verb="Coordinate",
-       q="When several models work together, does the interaction help — or quietly destroy answers that were already right?",
-       desc="Protocols, memory and measurement for systems where several models interact.",
+  dict(id="orchestrate", n="03", verb="Orchestrate",
+       q="What should a trained model be wrapped in — tools, checks, retries, other agents — for the task to actually get done, "
+         "without breaking what already worked?",
+       desc="The system around a model at inference time: harnesses and tools, verifier choice, and protocols for several agents working together.",
        hero="debateledger", hero_fig=("29 / 108", "collapses a freeze prevents / corrections it gives up"),
-       works=["debateledger", "lacp"], also=[]),
+       works=["debateledger", "tlvc", "lacp"], also=[]),
 ]
 TH = {t["id"]: t for t in THREADS}
 
-RETURN = "Coordination creates new failure modes, which have to be measured too."
-DESC = ("Xin Li, Ph.D. student at NTU Singapore, working on LLM agents: measuring, training and coordinating them, "
+RETURN = "Every new way of orchestrating models creates new failure modes, which have to be measured too."
+DESC = ("Xin Li, Ph.D. student at NTU Singapore, working on LLM agents: measuring, training and orchestrating them, "
         "and agents that improve themselves.")
-LEDE = ("I work on LLM agents — measuring what they can do, training them, and finding out what happens when "
-        "several work together. Lately, on agents that improve themselves.")
+LEDE = ("I work on LLM agents — measuring what they can do, training them, and orchestrating them with tools, "
+        "verifiers and each other to get real tasks done. Lately, on agents that improve themselves.")
 GROUND = ["formal verification", "mathematics", "code"]
 GROUND_K = "So far, mostly where an answer can be checked:"
 GROUND_NOW = "Now, self-improvement where it can't."
@@ -212,7 +213,7 @@ FONTS = ("https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6
          "&family=Inter+Tight:wght@500;600;700;800;900&family=Inter:wght@400;500;600&display=swap")
 CJK = "https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@500&family=Noto+Sans+SC:wght@500&display=swap&text=%E6%9D%8E%E9%91%AB"
 
-NAV = [("measure", "Measure", "measure.html"), ("train", "Train", "train.html"), ("coordinate", "Coordinate", "coordinate.html"),
+NAV = [("measure", "Measure", "measure.html"), ("train", "Train", "train.html"), ("orchestrate", "Orchestrate", "orchestrate.html"),
        None, ("pubs", "Publications", "publications.html"), ("news", "News", "news.html"), ("about", "About", "about.html")]
 
 
@@ -338,7 +339,7 @@ PORTRAIT_JS = """<script type="module">if (!matchMedia('(prefers-reduced-motion:
   import('/assets/portrait3d.js').then((m) => m.mountPortrait(document.querySelector('.portrait3d'))).catch(() => {});</script>
 """
 HOME_TITLE = "Xin Li @ NTU — LLM Agents"
-SHARE_CARD = "https://lixin.ai/data/share-card.jpg?v=4"
+SHARE_CARD = "https://lixin.ai/data/share-card.jpg?v=5"
 
 # The old site was one page with section anchors; links to them (CVs, emails, other
 # pages) land on the new home, so send each to where that section now lives.
@@ -353,7 +354,7 @@ def json_ld():
     return """
 <script type="application/ld+json">
 {"@context": "https://schema.org", "@type": "ProfilePage", "@id": "https://lixin.ai/#profile",
- "dateCreated": "2024-04-05T14:53:00+08:00", "dateModified": "2026-10-05T10:00:00+08:00", "url": "https://lixin.ai/",
+ "dateCreated": "2024-04-05T14:53:00+08:00", "dateModified": "2026-10-06T10:00:00+08:00", "url": "https://lixin.ai/",
  "mainEntity": {"@type": "Person", "@id": "https://lixin.ai/#person", "name": "Xin Li", "alternateName": "李鑫",
   "url": "https://lixin.ai/", "image": "https://lixin.ai/data/XinLI_profile.webp", "jobTitle": "PhD Student",
   "affiliation": {"@type": "Organization", "name": "Nanyang Technological University", "url": "https://www.ntu.edu.sg/"},
@@ -469,13 +470,13 @@ def _arc(cx, cy, r, a1, a2):
 
 
 RING = dict(size=440, c=220, r=160, nr=25, gap=14)
-NODE_ANG = {"measure": -90, "train": 30, "coordinate": 150}
+NODE_ANG = {"measure": -90, "train": 30, "orchestrate": 150}
 
 
 def ring_svg():
     """The loop as a ring: 01 at the top, clockwise. The leg from 03 back to 01 is the return."""
     c, r, nr, g = RING["c"], RING["r"], RING["nr"], RING["gap"]
-    legs = [("measure", "train", "fwd"), ("train", "coordinate", "fwd"), ("coordinate", "measure", "ret")]
+    legs = [("measure", "train", "fwd"), ("train", "orchestrate", "fwd"), ("orchestrate", "measure", "ret")]
     paths = []
     for a, b, kind in legs:
         a1 = NODE_ANG[a] + g
@@ -489,10 +490,10 @@ def ring_svg():
         x, y = _pt(c, c, r, NODE_ANG[t["id"]])
         nodes.append(f'<g class="ring__node ring__node--{t["id"]}"><circle cx="{x:.2f}" cy="{y:.2f}" r="{nr}"/>'
                      f'<text x="{x:.2f}" y="{y:.2f}" dy=".35em">{t["n"]}</text></g>')
-    label_path = _arc(c, c, r + 21, NODE_ANG["coordinate"] + 18, NODE_ANG["measure"] + 360 - 18)
+    label_path = _arc(c, c, r + 21, NODE_ANG["orchestrate"] + 18, NODE_ANG["measure"] + 360 - 18)
     orbit = f"M {c} {c - r} A {r} {r} 0 0 1 {c} {c + r} A {r} {r} 0 0 1 {c} {c - r}"
     return f"""<svg class="ring__svg" viewBox="0 0 {RING['size']} {RING['size']}" role="img"
-      aria-label="The research loop: 01 Measure, then 02 Train, then 03 Coordinate, and back to 01 Measure.">
+      aria-label="The research loop: 01 Measure, then 02 Train, then 03 Orchestrate, and back to 01 Measure.">
       <defs>
         <marker id="ah" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="9" markerHeight="9" markerUnits="userSpaceOnUse" orient="auto"><path class="ring__ah" d="M0,1 L9,5 L0,9 z"/></marker>
         <marker id="ah-ret" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="11" markerHeight="11" markerUnits="userSpaceOnUse" orient="auto"><path class="ring__ah ring__ah--ret" d="M0,1 L9,5 L0,9 z"/></marker>
@@ -624,7 +625,7 @@ def build_index():
     <div class="hero__text">
       <p class="kicker">Ph.D. student · Nanyang Technological University · advised by <a href="https://blogs.ntu.edu.sg/chau-yuen/">Prof. Chau Yuen</a></p>
       <h1 class="name">Xin Li<span class="name__cjk" lang="zh-Hans">李鑫</span></h1>
-      <p class="lede">I work on LLM agents — measuring what they can do, training them, and finding out what happens when several work together. Lately, on agents that improve themselves.</p>
+      <p class="lede">{e(LEDE)}</p>
     </div>
     <img class="hero__photo" src="/data/avatar-560.webp" width="560" height="560" alt="Portrait of Xin Li" fetchpriority="high">
   </header>
@@ -659,7 +660,7 @@ def build_index():
       <p class="links links--plain"><a href="mailto:xin019@e.ntu.edu.sg">xin019@e.ntu.edu.sg</a><a href="https://scholar.google.com/citations?user=Hxf8sNkAAAAJ">Scholar</a><a href="https://github.com/LiXin97">GitHub</a><a href="https://www.linkedin.com/in/xin-li-1196331a0/">LinkedIn</a><a href="/data/Xin_Li_CV_2026.pdf">CV</a></p>
     </div>
   </section>"""
-    return page("home", "Xin Li — Measure, Train, Coordinate",
+    return page("home", "Xin Li — Measure, Train, Orchestrate",
                 body, DESC)
 
 
@@ -688,7 +689,7 @@ def build_thread(t):
     i = [x["id"] for x in THREADS].index(t["id"])
     prev_t, next_t = THREADS[i - 1], THREADS[(i + 1) % 3]
     prev_note = "the return leg arrives here" if t["id"] == "measure" else "previous"
-    next_note = "back to 01 — the return leg" if t["id"] == "coordinate" else "next"
+    next_note = "back to 01 — the return leg" if t["id"] == "orchestrate" else "next"
     works = "".join(work(BY[w]) for w in t["works"])
     also = ""
     if t["also"]:
@@ -719,7 +720,7 @@ def build_thread(t):
 
 
 # ---------------------------------------------------------------- publications
-LABEL = {"measure": "01 Measure", "train": "02 Train", "coordinate": "03 Coordinate",
+LABEL = {"measure": "01 Measure", "train": "02 Train", "orchestrate": "03 Orchestrate",
          "wireless": "Wireless systems", "robotics": "Robot perception"}
 
 
@@ -762,7 +763,7 @@ def build_pubs():
         items = "".join(pub(p) for p in sorted((p for p in P if p["year"] == y), key=pub_rank))
         groups.append(f'<section class="year"><h2 class="year__h">{y}</h2><ol class="pubs">{items}</ol></section>')
     filters = "".join(f'<button type="button" data-f="{k}" aria-pressed="{"true" if k == "all" else "false"}">{v}</button>'
-                      for k, v in [("all", "All"), ("measure", "Measure"), ("train", "Train"), ("coordinate", "Coordinate"),
+                      for k, v in [("all", "All"), ("measure", "Measure"), ("train", "Train"), ("orchestrate", "Orchestrate"),
                                    ("wireless", "Wireless"), ("robotics", "Robotics")])
     body = f"""
   <header class="plain-head wrap">
@@ -848,7 +849,8 @@ def build_about():
       <h1 class="plain-h1">About</h1>
       <p class="about-bio">I am a Ph.D. student at Nanyang Technological University (NTU), advised by
         <a href="https://blogs.ntu.edu.sg/chau-yuen/">Prof. Chau Yuen</a>. I work on LLM agents: benchmarks that measure what
-        they can do, training that improves them, and systems where several of them work together — and, lately,
+        they can do, training that improves them, and orchestration that gets real tasks done with tools, verifiers
+        and other agents — and, lately,
         agents that improve themselves. So far most of the work has been in domains where an answer can be checked:
         formal verification, mathematics, and code. The current work is on self-improvement where it can't.</p>
       <p class="about-bio">Before my Ph.D. I worked on robot perception — visual-inertial odometry at MEGVII, RGB-D + IMU
@@ -866,7 +868,7 @@ def build_about():
   </div>"""
     return page("about", "About — Xin Li", body, "About Xin Li: experience, education, grants and service.")
 
-FEATURED = {"measure": ["wmbxl"], "train": ["dnmopd", "tlvc"], "coordinate": ["debateledger"]}
+FEATURED = {"measure": ["wmbxl"], "train": ["dnmopd"], "orchestrate": ["debateledger", "tlvc"]}
 
 
 def also_names(t):
@@ -905,7 +907,7 @@ def build_ring():
       <div class="ring__orbit">
         <div class="ring__fig">{ring_svg()}{ring_center()}</div>
         {thread_label(T['train'], 'tl')}
-        {thread_label(T['coordinate'], 'tl')}
+        {thread_label(T['orchestrate'], 'tl')}
       </div>
     </div>
     <p class="ring__return"><span aria-hidden="true">↺</span> <b>03 → 01.</b> {e(RETURN)}</p>
@@ -1014,3 +1016,21 @@ for f in ("filter.js", "mode.js"):
 for name, html in prod.items():
     (ROOT / name).write_text(html, encoding="utf-8")
     print(f"wrote /{name}  {len(html):,} bytes")
+
+# Pages renamed since they went public; GitHub Pages has no server redirects, so each old URL is a stub.
+MOVED = {"coordinate.html": ("orchestrate.html", "Orchestrate")}
+for old, (new, title) in MOVED.items():
+    (ROOT / old).write_text(f"""<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>{title} — Xin Li</title>
+<link rel="canonical" href="{SITE}{new}">
+<meta name="robots" content="noindex">
+<meta http-equiv="refresh" content="0; url=/{new}">
+<script>location.replace('/{new}' + location.hash);</script>
+</head>
+<body><p>This page is now <a href="/{new}">{title}</a>.</p></body>
+</html>
+""", encoding="utf-8")
+    print(f"wrote /{old} -> /{new}")
