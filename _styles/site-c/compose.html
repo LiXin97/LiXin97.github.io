@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Compose — Xin Li</title>
+<meta name="description" content="Leg three of the loop: protocols, memory and measurement for systems where several models interact — and the collapses that only a ledger can see.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..700;1,6..72,200..700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="site.css">
+<link rel="icon" href="/data/avatar-280.webp">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="masthead">
+  <div class="wrap masthead-in">
+    <a class="brand" href="index.html">Xin Li <span class="han">李鑫</span></a>
+    <nav class="loopnav" aria-label="Sections">
+      <ol>
+        <li><a href="index.html">The loop</a></li>
+        <li class="apart"><a href="measure.html">Measure</a></li>
+        <li><a href="train.html">Train</a></li>
+        <li><a href="compose.html" aria-current="page">Compose</a></li>
+        <li class="apart"><a href="record.html">Record</a></li>
+      </ol>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+<div class="wrap">
+
+  <div class="hero">
+    <div class="grid">
+      <p class="rail"><span class="n">03</span>Leg three of three<br>Protocols<br>Memory<br>Measurement</p>
+      <div>
+        <h1 class="verb-h1">Compose</h1>
+        <p class="standfirst">Interaction is a variable, not a feature</p>
+      </div>
+    </div>
+  </div>
+
+  <section>
+    <div class="grid">
+      <p class="rail">The question</p>
+      <div class="prose">
+        <p class="question">When several models work together, does the interaction help, or quietly destroy answers that were already right?</p>
+        <p>Several models arguing is not a bigger model. It is a system with a new free variable &mdash; who speaks, what they remember, what counts as agreement &mdash; and that variable has its own failure modes, none of which show up in a component test. The aggregate win rate hides both directions at once: corrections and collapses cancel in the average, so a method can look neutral while doing a great deal of damage and a great deal of good.</p>
+        <p>The only way I have found to see it is to keep the ledger: log every round, attribute every majority flip, and then report the <em>trade</em> rather than the net. Measurement is not a postscript to composition. It is the part that makes composition a claim instead of a vibe.</p>
+        <p class="hint">Ordered by what each one shows, not by date. Dates, venues and full author lists are on the <a href="record.html">Record</a>.</p>
+      </div>
+    </div>
+  </section>
+
+  <section aria-labelledby="w-h">
+    <div class="grid">
+      <p class="rail">The systems</p>
+      <div class="prose"><h2 id="w-h">What has been built</h2></div>
+    </div>
+
+    <ol class="works">
+
+      <li class="work work-first" id="debateledger">
+        <div class="grid">
+          <div class="rail">
+            <b>NeurIPS 2026</b><br>Evaluations &amp; Datasets<br>(poster)
+            <span class="pos">Joint 1st of 3</span>
+          </div>
+          <div>
+            <p class="finding">Across <span class="num">6,925</span> logged MMLU&#8209;Pro debates there are <span class="num">253</span> collapses &mdash; cases where a correct majority turned wrong. A probe&#8209;gated freeze prevents <span class="num">29</span> of them, but gives up <span class="num">108</span> corrections: net <span class="num neg">&minus;79</span> under equal weights. And <span class="num">58.9%</span> of collapses begin in the first debate round, so most of the damage is done before a guard has much to look at.</p>
+            <h3><a href="https://lixin.ai/DebateLedger/">Measuring Collapse and Correction in Homogeneous&#8209;Panel LLM Debate</a></h3>
+            <p class="authors"><b>Xin Li<span class="eq">*</span></b>, Mengbing Liu<span class="eq">*</span>, Chau Yuen &nbsp;<span class="eq">*</span>&#8239;equal contribution</p>
+            <ul class="links">
+              <li><a href="https://lixin.ai/DebateLedger/">Project</a></li>
+            </ul>
+            <div class="limit">
+              <p class="lbl">Read the trade, not the net</p>
+              <p>The &minus;79 is the answer under equal weights, and equal weights are an assumption, not a finding. If a wrong answer that survives review costs more than a right answer that is never reached, the same ledger supports the opposite decision. Publishing the two numbers separately is the point: <b>29</b> and <b>108</b> are measurements, the net is a policy.</p>
+            </div>
+          </div>
+        </div>
+      </li>
+
+      <li class="work" id="lacp">
+        <div class="grid">
+          <div class="rail">
+            <b>AI4NextG workshop</b><br>@ NeurIPS 2025
+            <span class="pos">1st of 3</span>
+          </div>
+          <div>
+            <p class="finding">A position paper rather than a measurement: the case that a communication protocol for LLM agents needs standardising, and that it is urgent.</p>
+            <h3><a href="https://lixin.ai/LACP/">LACP: LLM Agent Communication Protocol Requires Urgent Standardization</a></h3>
+            <p class="authors"><b>Xin Li</b>, Mengbing Liu, Chau Yuen</p>
+            <ul class="links">
+              <li><a href="https://lixin.ai/LACP/">Project</a></li>
+              <li><a href="https://arxiv.org/abs/2510.13821">arXiv:2510.13821</a></li>
+            </ul>
+          </div>
+        </div>
+      </li>
+
+      <li class="work" id="graphreduce">
+        <div class="grid">
+          <div class="rail">
+            <b>EMNLP 2026</b><br>Industry Track
+            <span class="pos">2nd of 4</span>
+          </div>
+          <div>
+            <p class="finding">Aggregation across many model outputs where the thing being protected is <em>coverage</em> &mdash; the failure mode of any summarising pipeline is that it loses the minority observation that mattered.</p>
+            <h3><a href="https://graphreduce.github.io/">GraphReduce: Coverage&#8209;Preserving LLM Aggregation for E&#8209;commerce Review Insights</a></h3>
+            <p class="authors">Hao Jiang, <b>Xin Li</b>, Yichi Zhang, Weisi Lin</p>
+            <ul class="links">
+              <li><a href="https://graphreduce.github.io/">Project</a></li>
+            </ul>
+          </div>
+        </div>
+      </li>
+    </ol>
+  </section>
+
+  <section id="closes">
+    <div class="grid">
+      <p class="rail"><span class="n">&crarr;</span>The return leg</p>
+      <div class="prose ruled-accent">
+        <h2>The loop closes here</h2>
+        <p>None of the numbers on this page were available from the outside. An aggregate accuracy figure can be reported long before anyone can say how many correct answers were destroyed along the way, because the quantity that matters &mdash; a correct majority going wrong &mdash; has no instrument until somebody builds one. Composition produced the failure mode; the measurement had to be built afterwards to see it.</p>
+        <p>That is the return leg, and it is not a tidy metaphor. It is the reason <a href="measure.html#dafnycomp">DafnyComp</a> exists: a model verifying one function at a time looks fine, and only a benchmark built specifically for composition can show the distance between local success and compositional failure. Every system I compose hands the first leg a new thing to measure.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="grid">
+      <p class="rail tight">Back to one</p>
+      <div class="nextleg">
+        <p class="lbl">Leg one, again</p>
+        <a class="big" href="measure.html">Measure</a>
+        <p>Three legs, and then the same question with a harder subject. <em>Does a score mean what it appears to mean, and would we notice if it didn&rsquo;t?</em></p>
+      </div>
+    </div>
+  </section>
+</div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="footcols">
+      <div>
+        <h2>Contact</h2>
+        <ul>
+          <li><a href="mailto:xin019@e.ntu.edu.sg">xin019@e.ntu.edu.sg</a></li>
+          <li><a href="/data/Xin_Li_CV_2026.pdf">CV (PDF)</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>Elsewhere</h2>
+        <ul>
+          <li><a href="https://scholar.google.com/citations?user=Hxf8sNkAAAAJ">Google Scholar</a></li>
+          <li><a href="https://github.com/LiXin97">GitHub</a></li>
+          <li><a href="https://www.linkedin.com/in/xin-li-1196331a0/">LinkedIn</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>The loop</h2>
+        <ul>
+          <li><a href="index.html">The argument</a></li>
+          <li><a href="measure.html">Measure</a> &middot; <a href="train.html">Train</a></li>
+          <li><a href="record.html">The full record</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,324 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Work — Xin Li</title>
+<meta name="description" content="The full publication record of Xin Li, grouped by the question each paper was answering: Measure, Train, Compose, and the wireless and robot-perception work it stands on.">
+<meta name="theme-color" content="#f6f3ec" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#121211" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="/images/icon-32.png" sizes="32x32">
+<link rel="apple-touch-icon" href="/images/icon-180.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,300..700;1,6..72,300..600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="topbar">
+  <div class="topbar-in">
+    <a class="brand" href="index.html">Xin&nbsp;Li</a>
+    <nav class="topnav" aria-label="Primary">
+      <a href="index.html">Loop</a>
+      <a href="work.html" aria-current="page">Work</a>
+      <a href="positions.html">Positions</a>
+      <a href="/data/Xin_Li_CV_2026.pdf">CV&nbsp;↓</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main" class="sheet">
+
+  <h1 class="page tap">The record</h1>
+  <div class="prose">
+    <p>Sixteen papers, grouped by the question each one was answering rather than by year. The margin carries the provenance: the year, and where this name sits in the author list — stated plainly, because a reader should not have to go and count.</p>
+    <p class="legend">* equal contribution &nbsp;·&nbsp; “joint first” = shared first authorship &nbsp;·&nbsp; venues as accepted, not as submitted</p>
+  </div>
+
+  <!-- ─────────── MEASURE ─────────── -->
+  <header class="group-head tap">
+    <h2 id="measure"><span class="n">01</span>Measure</h2>
+    <p>Benchmarks and evaluation protocols built to be audited rather than trusted — per-problem provenance, verifier-checkable answers, and an explicit limit on what a score supports.</p>
+  </header>
+
+  <ol class="ledger">
+
+    <li class="entry">
+      <div class="entry-meta"><span class="yr">2026</span> <span class="pos lead">first of 7</span></div>
+      <div class="entry-body">
+        <p class="venue">NeurIPS 2026 · Evaluations and Datasets Track · poster</p>
+        <h3><a href="https://lixin.ai/WirelessMathBench-XL/">WirelessMathBench-XL: An Auditable Benchmark for Wireless Mathematical Reasoning</a></h3>
+        <p class="authors"><span class="me">Xin Li</span>, Mengbing Liu, Yiyang Zhu, Wenhe Zhang, Li Wei, Jiancheng An, Chau Yuen</p>
+        <p class="result"><b>4,027</b> problems drawn from <b>836</b> arXiv papers across <b>20</b> wireless subfields. Every problem ships 13-gram contamination-overlap evidence against public pretraining text. Frontier models cluster at <b>86.5–91.3%</b>.</p>
+        <p class="limit-inline"><span class="tag">The limit, stated</span>The contamination check is a rerunnable audit producing per-problem evidence for <em>one lexical channel</em>. It is not proof that the benchmark is clean. The claim is deliberately narrow, and it stays narrow here.</p>
+        <ul class="links">
+          <li><a href="https://lixin.ai/WirelessMathBench-XL/">Project page</a></li>
+          <li><a href="https://arxiv.org/abs/2509.23219">arXiv</a></li>
+        </ul>
+      </div>
+    </li>
+
+    <li class="entry">
+      <div class="entry-meta"><span class="yr">2026</span> <span class="pos lead">joint first of 5</span></div>
+      <div class="entry-body">
+        <p class="venue">ICLR 2026</p>
+        <h3><a href="https://dafnycomp.github.io/">Local Success Does Not Compose: Benchmarking Large Language Models for Compositional Formal Verification</a> <span class="alias">DafnyComp</span></h3>
+        <p class="authors">Xu Xu*, <span class="me">Xin Li</span>*, Xingwei Qu, Jie Fu, Binhang Yuan</p>
+        <p class="result">A model can verify a function on its own and still fail once the specifications have to compose. The benchmark measures the distance between those two results.</p>
+        <ul class="links">
+          <li><a href="https://dafnycomp.github.io/">Project page</a></li>
+          <li><a href="https://openreview.net/forum?id=y4kAMUBqLq">OpenReview</a></li>
+          <li><a href="https://arxiv.org/abs/2509.23061">arXiv</a></li>
+        </ul>
+      </div>
+    </li>
+
+    <li class="entry">
+      <div class="entry-meta"><span class="yr">2026</span> <span class="pos">eighth of 13</span></div>
+      <div class="entry-body">
+        <p class="venue">Findings of ACL 2026 · pp. 22788–22803</p>
+        <h3><a href="https://aclanthology.org/2026.findings-acl.1143/">LiveCANNBench: Benchmark SWE AI Coding for Ascend CANN</a></h3>
+        <p class="authors">Sijie Wang, Kai Zhao, Wee Peng Tay, Shuo Zhang, Chengwen Liu, Quanjiang Guo, Ren Junhao, <span class="me">Xin Li</span>, Heng Lian, Jingdi Lei, Rui She, Huacan Wang, Ronghao Chen</p>
+        <p class="result"><b>400+</b> SWE-level task instances from real Ascend CANN repositories — multi-file, multi-language and execution-aware, on a live benchmarking paradigm that mitigates leakage.</p>
+        <ul class="links">
+          <li><a href="https://livecannbench.github.io/">Project page</a></li>
+          <li><a href="https://aclanthology.org/2026.findings-acl.1143/">ACL Anthology</a></li>
+          <li><a href="https://aclanthology.org/2026.findings-acl.1143.pdf">PDF</a></li>
+        </ul>
+      </div>
+    </li>
+
+    <li class="entry">
+      <div class="entry-meta"><span class="yr">2026</span> <span class="pos">second of 7</span></div>
+      <div class="entry-body">
+        <p class="venue">TMLR 2026</p>
+        <h3><a href="https://robustmad.github.io/">RobustMAD: Evaluating Real-World Robustness of Multimodal Small Language Models for Deployable Anomaly Detection Assistants</a></h3>
+        <p class="authors">Anushiya Arunan, <span class="me">Xin Li</span>, Yan Qin, U-Xuan Tan, Nhu Khue Vuong, Xiaoli Li, Chau Yuen</p>
+        <ul class="links">
+          <li><a href="https://robustmad.github.io/">Project page</a></li>
+          <li><a href="https://openreview.net/forum?id=skrA9UYNIZ">OpenReview</a></li>
+          <li><a href="https://github.com/en-research/RobustMAD">Code</a></li>
+        </ul>
+      </div>
+    </li>
+
+    <li class="entry">
+      <div class="entry-meta"><span class="yr">2025</span> <span class="pos lead">first of 6</span></div>
+      <div class="entry-body">
+        <p class="venue">Findings of ACL 2025</p>
+        <h3><a href="https://lixin.ai/WirelessMathBench/">WirelessMathBench: A Mathematical Modeling Benchmark for LLMs in Wireless Communications</a></h3>
+        <p class="authors"><span class="me">Xin Li</span>, Mengbing Liu, Li Wei, Jiancheng An, Mérouane Debbah, Chau Yuen</p>
+        <p class="result note">The first benchmark for LLM mathematical reasoning in wireless communications, and the work WirelessMathBench-XL extends.</p>
+        <ul class="links">
+          <li><a href="https://lixin.ai/WirelessMathBench/">Project page</a></li>
+          <li><a href="https://arxiv.org/abs/2505.14354">arXiv</a></li>
+        </ul>
+      </div>
+    </li>
+
+  </ol>
+
+  <!-- ─────────── TRAIN ─────────── -->
+  <header class="group-head tap">
+    <h2 id="train"><span class="n">02</span>Train</h2>
+    <p>Reinforcement learning, on-policy distillation and verifier-guided selection — rewarding the reasoning that can be checked, rather than the answer that is hoped for.</p>
+  </header>
+
+  <ol class="ledger">
+
+    <li class="entry">
+      <div class="entry-meta"><span class="yr">2026</span> <span class="pos lead">first of 9</span></div>
+      <div class="entry-body">
+        <p class="venue">arXiv preprint</p>
+        <h3><a href="https://lixin.ai/DN-MOPD/">Beyond Teacher Assignment: Domain-Normalized Multi-Teacher On-Policy Distillation</a> <span class="alias">DN-MOPD</span></h3>
+        <p class="authors"><span class="me">Xin Li</span>, Hao Jiang, Xin Gao, Annan Wang, Yuchen Xie, Jinghao Guo, Xingwei Qu, Yichi Zhang, Chau Yuen</p>
+        <p class="result">Label routing decides which teacher supervises a prompt but not how strongly that teacher's feedback counts. Normalising the feedback scale per domain adds <b>1.2–3.1 points</b> over label routing, across <b>2B</b>, <b>4B</b> and <b>9B</b> students.</p>
+        <ul class="links">
+          <li><a href="https://lixin.ai/DN-MOPD/">Project page</a></li>
+          <li><a href="https://arxiv.org/abs/2609.35347">arXiv</a></li>
+          <li><a href="https://github.com/LiXin97/DN-MOPD">Code</a></li>
+          <li><a href="https://huggingface.co/datasets/XINLI1997/DN-MOPD-Data">Data</a></li>
+          <li><a href="https://huggingface.co/collections/XINLI1997/dn-mopd-6aba5f0df7bd8732d7205ed4">Models</a></li>
+        </ul>
+      </div>
+    </li>
+
+    <li class="entry">
+      <div class="entry-meta"><span class="yr">2026</span> <span class="pos lead">first of 3</span></div>
+      <div class="entry-body">
+        <p class="venue">Findings of EMNLP 2026</p>
+        <h3>Target-Local Verifier Choice in Best-of-K Reasoning Selection <span class="alias">TLVC</span></h3>
+        <p class="authors"><span class="me">Xin Li</span>, Hao Jiang, Weisi Lin</p>
+        <p class="result">On a <b>34</b>-generator, <b>7</b>-verifier Best-of-K math panel, one strong process reward model is the best fixed verifier overall — and still not the best verifier for every generator. Label-free candidate statistics predict which verifier class wins.</p>
+        <ul class="links">
+          <li><a href="https://github.com/LiXin97/TLVC">Code</a></li>
+        </ul>
+      </div>
+    </li>
+
+    <li class="entry">
+      <div class="entry-meta"><span class="yr">2026</span> <span class="pos lead">joint first</span></div>
+      <div class="entry-body">
+        <p class="venue">TMLR 2026</p>
+        <h3><a href="https://openreview.net/forum?id=cAQmIS4GOe">Re:Form: Reducing Human Priors in Scalable Formal Software Verification with RL in LLMs: A Preliminary Study on Dafny</a></h3>
+        <p class="authors">Chuanhao Yan*, Fengdi Che*, Xuhan Huang*, Xu Xu*, <span class="me">Xin Li</span>*, Yizhi Li*, Xingwei Qu*, …, Jie Fu</p>
+        <p class="result note">Fifth name in a long equal-contribution block.</p>
+        <ul class="links">
+          <li><a href="https://openreview.net/forum?id=cAQmIS4GOe">OpenReview</a></li>
+          <li><a href="https://arxiv.org/abs/2507.16331">arXiv</a></li>
+          <li><a href="https://github.com/Veri-Code/ReForm">Code</a></li>
+        </ul>
+      </div>
+    </li>
+
+  </ol>
+
+  <!-- ─────────── COMPOSE ─────────── -->
+  <header class="group-head tap">
+    <h2 id="compose"><span class="n">03</span>Compose</h2>
+    <p>Protocols, memory and measurement for systems where several models interact — and for the failure modes that only appear once they do.</p>
+  </header>
+
+  <ol class="ledger">
+
+    <li class="entry">
+      <div class="entry-meta"><span class="yr">2026</span> <span class="pos lead">joint first of 3</span></div>
+      <div class="entry-body">
+        <p class="venue">NeurIPS 2026 · Evaluations and Datasets Track · poster</p>
+        <h3><a href="https://lixin.ai/DebateLedger/">Measuring Collapse and Correction in Homogeneous-Panel LLM Debate</a> <span class="alias">DebateLedger</span></h3>
+        <p class="authors"><span class="me">Xin Li</span>*, Mengbing Liu*, Chau Yuen</p>
+        <p class="result">Across <b>6,925</b> logged MMLU-Pro debates, <b>253</b> collapses — a correct majority turned wrong. A probe-gated freeze prevents <b>29</b> collapses but gives up <b>108</b> corrections: net <b>−79</b> under equal weights. <b>58.9%</b> of collapses begin in the first debate round.</p>
+        <ul class="links">
+          <li><a href="https://lixin.ai/DebateLedger/">Project page</a></li>
+        </ul>
+      </div>
+    </li>
+
+    <li class="entry">
+      <div class="entry-meta"><span class="yr">2026</span> <span class="pos">second of 4</span></div>
+      <div class="entry-body">
+        <p class="venue">EMNLP 2026 · Industry Track</p>
+        <h3><a href="https://graphreduce.github.io/">GraphReduce: Coverage-Preserving LLM Aggregation for E-commerce Review Insights</a></h3>
+        <p class="authors">Hao Jiang, <span class="me">Xin Li</span>, Yichi Zhang, Weisi Lin</p>
+        <ul class="links">
+          <li><a href="https://graphreduce.github.io/">Project page</a></li>
+        </ul>
+      </div>
+    </li>
+
+    <li class="entry">
+      <div class="entry-meta"><span class="yr">2025</span> <span class="pos lead">first of 3</span></div>
+      <div class="entry-body">
+        <p class="venue">AI4NextG workshop @ NeurIPS 2025</p>
+        <h3><a href="https://lixin.ai/LACP/">LACP: LLM Agent Communication Protocol Requires Urgent Standardization</a></h3>
+        <p class="authors"><span class="me">Xin Li</span>, Mengbing Liu, Chau Yuen</p>
+        <ul class="links">
+          <li><a href="https://lixin.ai/LACP/">Project page</a></li>
+          <li><a href="https://arxiv.org/abs/2510.13821">arXiv</a></li>
+        </ul>
+      </div>
+    </li>
+
+  </ol>
+
+  <!-- ─────────── GROUND ─────────── -->
+  <header class="group-head tap">
+    <h2 id="ground"><span class="n">04</span>Ground</h2>
+    <p>The loop needs domains where an answer can be checked. Wireless systems are one of them, and this is where the hands-on knowledge of them came from — together with the robot-perception work that came before the Ph.D. Not hidden; just not the headline any more.</p>
+  </header>
+
+  <ol class="ledger">
+
+    <li class="entry">
+      <div class="entry-meta"><span class="yr">2026</span> <span class="pos">second of 4</span></div>
+      <div class="entry-body">
+        <p class="venue">IEEE Transactions on Signal Processing</p>
+        <h3><a href="https://onboradsim.github.io/">Stacked Intelligent Metasurface-Diffractive Deep Neural Networks for Onboard Terrain Classification from SAR Level-0 Raw Data</a></h3>
+        <p class="authors">Mengbing Liu, <span class="me">Xin Li</span>, Jiancheng An, Chau Yuen</p>
+        <p class="result">Roughly <b>90%</b> accuracy classifying terrain directly from Level-0 raw SAR, with a stacked metasurface performing the inference in-wave — before digitisation or downlink. Extended from a workshop paper at ML4RS @ ICLR 2025.</p>
+        <ul class="links">
+          <li><a href="https://onboradsim.github.io/">Project page</a></li>
+        </ul>
+      </div>
+    </li>
+
+    <li class="entry">
+      <div class="entry-meta"><span class="yr">2025</span> <span class="pos lead">first of 5</span></div>
+      <div class="entry-body">
+        <p class="venue">ICASSP 2025</p>
+        <h3><a href="https://lixin.ai/TransPathNet/">TransPathNet: A Novel Two-Stage Framework for Indoor Radio Map Prediction</a></h3>
+        <p class="authors"><span class="me">Xin Li</span>, Ran Liu, Saihua Xu, Sirajudeen Gulam Razul, Chau Yuen</p>
+        <p class="result">Placed <b>4th</b> in the Indoor Pathloss Prediction Challenge, at <b>9.73 dB</b> RMSE.</p>
+        <ul class="links">
+          <li><a href="https://lixin.ai/TransPathNet/">Project page</a></li>
+          <li><a href="https://arxiv.org/abs/2501.16023">arXiv</a></li>
+          <li><a href="https://github.com/LiXin97/TransPathNet">Code</a></li>
+        </ul>
+      </div>
+    </li>
+
+    <li class="entry">
+      <div class="entry-meta"><span class="yr">2025</span></div>
+      <div class="entry-body">
+        <p class="venue">ML4RS workshop @ ICLR 2025</p>
+        <h3><a href="https://onboradsim.github.io/">Onboard Terrain Classification via SIM-DNN</a></h3>
+        <p class="result note">Later extended into the IEEE TSP 2026 paper above.</p>
+        <ul class="links">
+          <li><a href="https://onboradsim.github.io/">Project page</a></li>
+        </ul>
+      </div>
+    </li>
+
+    <li class="entry">
+      <div class="entry-meta"><span class="yr">2020</span> <span class="pos lead">joint first of 5</span></div>
+      <div class="entry-body">
+        <p class="venue">IEEE Robotics and Automation Letters · before the Ph.D.</p>
+        <h3><a href="https://arxiv.org/abs/2009.12662">Co-Planar Parametrization for Stereo-SLAM and Visual-Inertial Odometry</a></h3>
+        <p class="authors"><span class="me">Xin Li</span>*, Yanyan Li*, Evin Pinar Örnek, Jinlong Lin, Federico Tombari</p>
+        <ul class="links">
+          <li><a href="https://arxiv.org/abs/2009.12662">arXiv</a></li>
+          <li><a href="https://github.com/LiXin97/Co-Planar-Parametrization-VIO">Code</a></li>
+        </ul>
+      </div>
+    </li>
+
+    <li class="entry">
+      <div class="entry-meta"><span class="yr">2020</span> <span class="pos lead">joint first of 4</span></div>
+      <div class="entry-body">
+        <p class="venue">IROS 2020 · before the Ph.D.</p>
+        <h3><a href="https://arxiv.org/abs/2004.11969">Leveraging Planar Regularities for Point-Line Visual-Inertial Odometry</a></h3>
+        <p class="authors"><span class="me">Xin Li</span>*, Yijia He*, Jinlong Lin, Xiao Liu</p>
+        <ul class="links">
+          <li><a href="https://arxiv.org/abs/2004.11969">arXiv</a></li>
+          <li><a href="https://github.com/LiXin97/Co-Planar-Parametrization-VIO">Code</a></li>
+        </ul>
+      </div>
+    </li>
+
+  </ol>
+
+  <h2 class="sec tap" id="open">Open, no venue yet</h2>
+  <div class="prose">
+    <p style="margin-top:-0.4rem">Live project pages for work with no venue yet. Listed because the pages are public, not because the results are settled.</p>
+    <ul class="links" style="font-size:.7rem; gap:.4rem .5rem;">
+      <li><a href="https://WritingPreferenceBench.github.io/">WritingPreferenceBench</a></li>
+      <li><a href="https://lixin.ai/WirelessMathLM/">WirelessMathLM</a></li>
+      <li><a href="https://lixin.ai/ListOPD/">ListOPD</a></li>
+    </ul>
+    <a class="next" href="positions.html">Positions, grants and service <span aria-hidden="true">→</span></a>
+  </div>
+
+  <div class="tail"></div>
+</main>
+
+<footer class="foot">
+  <div class="foot-in">
+    <span>Xin Li · 李鑫 · Nanyang Technological University, Singapore</span>
+    <span><a href="mailto:xin019@e.ntu.edu.sg">xin019@e.ntu.edu.sg</a> · <a href="https://scholar.google.com/citations?user=Hxf8sNkAAAAJ">Scholar</a> · <a href="https://github.com/LiXin97">GitHub</a></span>
+  </div>
+</footer>
+
+</body>
+</html>

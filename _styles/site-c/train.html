@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Train — Xin Li</title>
+<meta name="description" content="Leg two of the loop: reinforcement learning, on-policy distillation and verifier-guided selection — rewarding the reasoning that can be checked rather than the answer we hope for.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..700;1,6..72,200..700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="site.css">
+<link rel="icon" href="/data/avatar-280.webp">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="masthead">
+  <div class="wrap masthead-in">
+    <a class="brand" href="index.html">Xin Li <span class="han">李鑫</span></a>
+    <nav class="loopnav" aria-label="Sections">
+      <ol>
+        <li><a href="index.html">The loop</a></li>
+        <li class="apart"><a href="measure.html">Measure</a></li>
+        <li><a href="train.html" aria-current="page">Train</a></li>
+        <li><a href="compose.html">Compose</a></li>
+        <li class="apart"><a href="record.html">Record</a></li>
+      </ol>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+<div class="wrap">
+
+  <div class="hero">
+    <div class="grid">
+      <p class="rail"><span class="n">02</span>Leg two of three<br>Reinforcement learning<br>On&#8209;policy distillation<br>Verifier&#8209;guided selection</p>
+      <div>
+        <h1 class="verb-h1">Train</h1>
+        <p class="standfirst">The reward is the specification</p>
+      </div>
+    </div>
+  </div>
+
+  <section>
+    <div class="grid">
+      <p class="rail">The question</p>
+      <div class="prose">
+        <p class="question">Can we reward the reasoning we are able to check, rather than the answer we hope for?</p>
+        <p>A reward is a specification, whether or not it was written as one. Reward the final answer and the specification reads <em>produce the string that matches</em> &mdash; which a model can satisfy by becoming an excellent guesser. Reward a verifier&rsquo;s verdict and it reads <em>produce reasoning that survives checking</em>, which is much harder to satisfy by accident. That is the whole reason the first leg of the loop cares so much about whether an answer is checkable: a benchmark that can be audited is also a reward that can be trusted.</p>
+        <p>Three places where this turns out to bite harder than expected:</p>
+        <ol class="crit">
+          <li><b>Who teaches, and how loudly.</b> <span class="d">Choosing a teacher per domain is not the same as deciding how much that teacher&rsquo;s feedback should count.</span></li>
+          <li><b>Which verifier picks the winner.</b> <span class="d">Best&#8209;of&#8209;K is only as good as the thing doing the selecting, and the best selector is not the same for every generator.</span></li>
+          <li><b>How much human prior is actually needed.</b> <span class="d">In formal verification the hand&#8209;written scaffolding is substantial; RL lets you ask which of it was load&#8209;bearing.</span></li>
+        </ol>
+        <p class="hint">Ordered by what each one shows, not by date. Dates, venues and full author lists are on the <a href="record.html">Record</a>.</p>
+      </div>
+    </div>
+  </section>
+
+  <section aria-labelledby="w-h">
+    <div class="grid">
+      <p class="rail">The experiments</p>
+      <div class="prose"><h2 id="w-h">What has been run</h2></div>
+    </div>
+
+    <ol class="works">
+
+      <li class="work work-first" id="dn-mopd">
+        <div class="grid">
+          <div class="rail">
+            <b>arXiv preprint</b><br>2026
+            <span class="pos">1st of 9</span>
+          </div>
+          <div>
+            <p class="finding">Label routing decides <em>which</em> teacher supervises a prompt, but not <em>how strongly</em> that teacher&rsquo;s feedback counts. Normalising the feedback scale per domain adds <span class="num">1.2&ndash;3.1 points</span> over label routing, and it does so consistently across <span class="num">2B</span>, <span class="num">4B</span> and <span class="num">9B</span> students.</p>
+            <h3><a href="https://lixin.ai/DN-MOPD/">Beyond Teacher Assignment: Domain&#8209;Normalized Multi&#8209;Teacher On&#8209;Policy Distillation</a></h3>
+            <p class="authors"><b>Xin Li</b>, Hao Jiang, Xin Gao, Annan Wang, Yuchen Xie, Jinghao Guo, Xingwei Qu, Yichi Zhang, Chau Yuen</p>
+            <ul class="links">
+              <li><a href="https://lixin.ai/DN-MOPD/">Project</a></li>
+              <li><a href="https://arxiv.org/abs/2609.35347">arXiv:2609.35347</a></li>
+              <li><a href="https://github.com/LiXin97/DN-MOPD">Code</a></li>
+              <li><a href="https://huggingface.co/datasets/XINLI1997/DN-MOPD-Data">Data</a></li>
+              <li><a href="https://huggingface.co/collections/XINLI1997/dn-mopd-6aba5f0df7bd8732d7205ed4">Models</a></li>
+            </ul>
+          </div>
+        </div>
+      </li>
+
+      <li class="work" id="tlvc">
+        <div class="grid">
+          <div class="rail">
+            <b>Findings of EMNLP 2026</b>
+            <span class="pos">1st of 3</span>
+          </div>
+          <div>
+            <p class="finding">On a <span class="num">34</span>&#8209;generator, <span class="num">7</span>&#8209;verifier Best&#8209;of&#8209;K math panel, one strong process reward model is the best fixed verifier overall &mdash; and still not the best verifier for every generator. Label&#8209;free candidate statistics predict which verifier class wins, so the choice can be made per target without labels.</p>
+            <h3>Target&#8209;Local Verifier Choice in Best&#8209;of&#8209;K Reasoning Selection</h3>
+            <p class="authors"><b>Xin Li</b>, Hao Jiang, Weisi Lin</p>
+            <ul class="links">
+              <li><a href="https://github.com/LiXin97/TLVC">Code</a></li>
+            </ul>
+            <p class="hint" style="margin-top:.7rem">No preprint link; the project page is not live yet.</p>
+          </div>
+        </div>
+      </li>
+
+      <li class="work" id="reform">
+        <div class="grid">
+          <div class="rail">
+            <b>TMLR 2026</b>
+            <span class="pos">Joint 1st &middot; 5th in the equal block</span>
+          </div>
+          <div>
+            <p class="finding">A preliminary study of how far reinforcement learning can take formal software verification in Dafny once the hand&#8209;written human priors are pulled out of the pipeline.</p>
+            <h3><a href="https://openreview.net/forum?id=cAQmIS4GOe">Re:Form &mdash; Reducing Human Priors in Scalable Formal Software Verification with RL in LLMs: A Preliminary Study on Dafny</a></h3>
+            <p class="authors">Chuanhao Yan<span class="eq">*</span>, Fengdi Che<span class="eq">*</span>, Xuhan Huang<span class="eq">*</span>, Xu Xu<span class="eq">*</span>, <b>Xin Li<span class="eq">*</span></b>, Yizhi Li<span class="eq">*</span>, Xingwei Qu<span class="eq">*</span>, &hellip;, Jie Fu &nbsp;<span class="eq">*</span>&#8239;equal contribution</p>
+            <ul class="links">
+              <li><a href="https://openreview.net/forum?id=cAQmIS4GOe">OpenReview</a></li>
+              <li><a href="https://arxiv.org/abs/2507.16331">arXiv:2507.16331</a></li>
+              <li><a href="https://github.com/Veri-Code/ReForm">Code</a></li>
+            </ul>
+          </div>
+        </div>
+      </li>
+    </ol>
+
+    <div class="grid" style="margin-top:2.25rem">
+      <p class="rail">In progress</p>
+      <div class="prose">
+        <ul class="compact">
+          <li>
+            <span class="t"><b><a href="https://lixin.ai/WirelessMathLM/">WirelessMathLM</a></b></span>
+            <span class="side">No venue yet</span>
+          </li>
+          <li>
+            <span class="t"><b><a href="https://lixin.ai/ListOPD/">ListOPD</a></b></span>
+            <span class="side">No venue yet</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="grid">
+      <p class="rail tight">Next</p>
+      <div class="nextleg">
+        <p class="lbl">Leg three of the loop</p>
+        <a class="big" href="compose.html">Compose</a>
+        <p>A verifier that picks well for one model is a component. Several models talking to each other is a system, and systems have behaviours their parts do not. <em>When several models work together, does the interaction help, or quietly destroy answers that were already right?</em></p>
+      </div>
+    </div>
+  </section>
+</div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="footcols">
+      <div>
+        <h2>Contact</h2>
+        <ul>
+          <li><a href="mailto:xin019@e.ntu.edu.sg">xin019@e.ntu.edu.sg</a></li>
+          <li><a href="/data/Xin_Li_CV_2026.pdf">CV (PDF)</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>Elsewhere</h2>
+        <ul>
+          <li><a href="https://scholar.google.com/citations?user=Hxf8sNkAAAAJ">Google Scholar</a></li>
+          <li><a href="https://github.com/LiXin97">GitHub</a></li>
+          <li><a href="https://www.linkedin.com/in/xin-li-1196331a0/">LinkedIn</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>The loop</h2>
+        <ul>
+          <li><a href="index.html">The argument</a></li>
+          <li><a href="measure.html">Measure</a> &middot; <a href="compose.html">Compose</a></li>
+          <li><a href="record.html">The full record</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

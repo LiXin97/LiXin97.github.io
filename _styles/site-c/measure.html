@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Measure — Xin Li</title>
+<meta name="description" content="Leg one of the loop: benchmarks and evaluation protocols built to be audited rather than trusted — provenance, verifier-checkable answers, and a stated limit on what a score supports.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..700;1,6..72,200..700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="site.css">
+<link rel="icon" href="/data/avatar-280.webp">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="masthead">
+  <div class="wrap masthead-in">
+    <a class="brand" href="index.html">Xin Li <span class="han">李鑫</span></a>
+    <nav class="loopnav" aria-label="Sections">
+      <ol>
+        <li><a href="index.html">The loop</a></li>
+        <li class="apart"><a href="measure.html" aria-current="page">Measure</a></li>
+        <li><a href="train.html">Train</a></li>
+        <li><a href="compose.html">Compose</a></li>
+        <li class="apart"><a href="record.html">Record</a></li>
+      </ol>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+<div class="wrap">
+
+  <div class="hero">
+    <div class="grid">
+      <p class="rail"><span class="n">01</span>Leg one of three<br>Benchmarks<br>Evaluation protocols</p>
+      <div>
+        <h1 class="verb-h1">Measure</h1>
+        <p class="standfirst">Built to be audited, not trusted</p>
+      </div>
+    </div>
+  </div>
+
+  <section>
+    <div class="grid">
+      <p class="rail">The question</p>
+      <div class="prose">
+        <p class="question">Does a score mean what it appears to mean, and would we notice if it didn&rsquo;t?</p>
+        <p>A benchmark is an instrument. An instrument you cannot open is a rumour with a decimal point. Three things make one auditable, and none of them is a number.</p>
+
+        <ol class="crit">
+          <li><b>Provenance, per problem.</b> <span class="d">Not &ldquo;sourced from the literature&rdquo; &mdash; this problem, from this paper.</span></li>
+          <li><b>Answers a verifier can check.</b> <span class="d">Grading that does not depend on a judge&rsquo;s taste, which is why the domains are proofs, mathematics, code and wireless modelling.</span></li>
+          <li><b>A stated limit.</b> <span class="d">One sentence on what the score does <em>not</em> support.</span></li>
+        </ol>
+
+        <p>The first two are work. The third is a decision, and it is the one that gets dropped, because it is the only one that costs you a claim. Below, the limit is printed next to the result it belongs to &mdash; including the one that was deliberately narrowed during review.</p>
+        <p class="hint">Ordered by what each one shows, not by date. Dates, venues and full author lists are on the <a href="record.html">Record</a>.</p>
+      </div>
+    </div>
+  </section>
+
+  <section aria-labelledby="instr-h">
+    <div class="grid">
+      <p class="rail">The instruments</p>
+      <div class="prose"><h2 id="instr-h">What has been built</h2></div>
+    </div>
+
+    <ol class="works">
+
+      <li class="work work-first" id="wirelessmathbench-xl">
+        <div class="grid">
+          <div class="rail">
+            <b>NeurIPS 2026</b><br>Evaluations &amp; Datasets<br>(poster)
+            <span class="pos">1st of 7</span>
+          </div>
+          <div>
+            <p class="finding"><span class="num">4,027</span> problems drawn from <span class="num">836</span> arXiv papers across <span class="num">20</span> wireless subfields. Every problem ships 13&#8209;gram contamination&#8209;overlap evidence against public pretraining text, so the audit can be rerun by someone who does not trust me. Frontier models cluster at <span class="num">86.5&ndash;91.3%</span>.</p>
+            <h3><a href="https://lixin.ai/WirelessMathBench-XL/">WirelessMathBench&#8209;XL: An Auditable Benchmark for Wireless Mathematical Reasoning</a></h3>
+            <p class="authors"><b>Xin Li</b>, Mengbing Liu, Yiyang Zhu, Wenhe Zhang, Li Wei, Jiancheng An, Chau Yuen</p>
+            <ul class="links">
+              <li><a href="https://lixin.ai/WirelessMathBench-XL/">Project</a></li>
+              <li><a href="https://arxiv.org/abs/2509.23219">arXiv:2509.23219</a></li>
+            </ul>
+            <div class="limit">
+              <p class="lbl">What this does not show</p>
+              <p>During review the contamination claim was deliberately narrowed, and the narrow version is the true one. What ships is <b>a rerunnable audit producing per&#8209;problem evidence for one lexical channel</b>. It is not proof that the benchmark is clean.</p>
+              <p>A 13&#8209;gram overlap test sees verbatim lexical reuse. It does not see paraphrase, translation, or a model that learned the physics from somewhere else. The honest reading of the audit is &ldquo;no evidence of lexical leakage on this one channel&rdquo;, and nothing wider than that.</p>
+            </div>
+          </div>
+        </div>
+      </li>
+
+      <li class="work" id="dafnycomp">
+        <div class="grid">
+          <div class="rail">
+            <b>ICLR 2026</b>
+            <span class="pos">Joint 1st of 5</span>
+          </div>
+          <div>
+            <p class="finding">A model can verify a function on its own and still fail once the specifications have to compose. The benchmark measures the distance between those two results &mdash; which is the same seam the third leg of the loop keeps producing.</p>
+            <h3><a href="https://dafnycomp.github.io/">Local Success Does Not Compose: Benchmarking Large Language Models for Compositional Formal Verification</a></h3>
+            <p class="authors">Xu Xu<span class="eq">*</span>, <b>Xin Li<span class="eq">*</span></b>, Xingwei Qu, Jie Fu, Binhang Yuan &nbsp;<span class="eq">*</span>&#8239;equal contribution</p>
+            <ul class="links">
+              <li><a href="https://dafnycomp.github.io/">Project</a></li>
+              <li><a href="https://openreview.net/forum?id=y4kAMUBqLq">OpenReview</a></li>
+              <li><a href="https://arxiv.org/abs/2509.23061">arXiv:2509.23061</a></li>
+            </ul>
+          </div>
+        </div>
+      </li>
+
+      <li class="work" id="wirelessmathbench">
+        <div class="grid">
+          <div class="rail">
+            <b>Findings of ACL 2025</b>
+            <span class="pos">1st of 6</span>
+          </div>
+          <div>
+            <p class="finding">The first benchmark for LLM mathematical reasoning in wireless communications, and the work that WirelessMathBench&#8209;XL extends.</p>
+            <h3><a href="https://lixin.ai/WirelessMathBench/">WirelessMathBench: A Mathematical Modeling Benchmark for LLMs in Wireless Communications</a></h3>
+            <p class="authors"><b>Xin Li</b>, Mengbing Liu, Li Wei, Jiancheng An, M&eacute;rouane Debbah, Chau Yuen</p>
+            <ul class="links">
+              <li><a href="https://lixin.ai/WirelessMathBench/">Project</a></li>
+              <li><a href="https://arxiv.org/abs/2505.14354">arXiv:2505.14354</a></li>
+            </ul>
+            <p class="hint" style="margin-top:.7rem">Presented at ACL 2025, and at NICE (NLP Academic Exchange Platform) Session 66, October 2025.</p>
+          </div>
+        </div>
+      </li>
+
+      <li class="work" id="livecannbench">
+        <div class="grid">
+          <div class="rail">
+            <b>Findings of ACL 2026</b><br>pp. 22788&ndash;22803
+            <span class="pos">8th of 13</span>
+          </div>
+          <div>
+            <p class="finding"><span class="num">400+</span> software&#8209;engineering task instances taken from real Ascend CANN repositories &mdash; multi&#8209;file, multi&#8209;language, execution&#8209;aware &mdash; on a live benchmarking paradigm that mitigates leakage by moving rather than by promising.</p>
+            <h3><a href="https://aclanthology.org/2026.findings-acl.1143/">LiveCANNBench: Benchmark SWE AI Coding for Ascend CANN</a></h3>
+            <p class="authors">Sijie Wang, Kai Zhao, Wee Peng Tay, Shuo Zhang, Chengwen Liu, Quanjiang Guo, Ren Junhao, <b>Xin Li</b>, Heng Lian, Jingdi Lei, Rui She, Huacan Wang, Ronghao Chen</p>
+            <ul class="links">
+              <li><a href="https://livecannbench.github.io/">Project</a></li>
+              <li><a href="https://aclanthology.org/2026.findings-acl.1143/">ACL Anthology</a></li>
+              <li><a href="https://aclanthology.org/2026.findings-acl.1143.pdf">PDF</a></li>
+            </ul>
+          </div>
+        </div>
+      </li>
+
+      <li class="work" id="robustmad">
+        <div class="grid">
+          <div class="rail">
+            <b>TMLR 2026</b>
+            <span class="pos">2nd of 7</span>
+          </div>
+          <div>
+            <p class="finding">An evaluation of how multimodal small language models hold up as deployable anomaly&#8209;detection assistants &mdash; that is, under the real&#8209;world conditions that a clean test split quietly removes.</p>
+            <h3><a href="https://robustmad.github.io/">RobustMAD: Evaluating Real&#8209;World Robustness of Multimodal Small Language Models for Deployable Anomaly Detection Assistants</a></h3>
+            <p class="authors">Anushiya Arunan, <b>Xin Li</b>, Yan Qin, U&#8209;Xuan Tan, Nhu Khue Vuong, Xiaoli Li, Chau Yuen</p>
+            <ul class="links">
+              <li><a href="https://robustmad.github.io/">Project</a></li>
+              <li><a href="https://openreview.net/forum?id=skrA9UYNIZ">OpenReview</a></li>
+              <li><a href="https://github.com/en-research/RobustMAD">Code</a></li>
+            </ul>
+          </div>
+        </div>
+      </li>
+    </ol>
+
+    <div class="grid" style="margin-top:2.25rem">
+      <p class="rail">In progress</p>
+      <div class="prose">
+        <ul class="compact">
+          <li>
+            <span class="t"><b><a href="https://WritingPreferenceBench.github.io/">WritingPreferenceBench</a></b></span>
+            <span class="side">No venue yet</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="grid">
+      <p class="rail tight">Next</p>
+      <div class="nextleg">
+        <p class="lbl">Leg two of the loop</p>
+        <a class="big" href="train.html">Train</a>
+        <p>Once you have an answer a verifier can check, the obvious next question is whether you can reward it. <em>Can we reward the reasoning we are able to check, rather than the answer we hope for?</em></p>
+      </div>
+    </div>
+  </section>
+</div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="footcols">
+      <div>
+        <h2>Contact</h2>
+        <ul>
+          <li><a href="mailto:xin019@e.ntu.edu.sg">xin019@e.ntu.edu.sg</a></li>
+          <li><a href="/data/Xin_Li_CV_2026.pdf">CV (PDF)</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>Elsewhere</h2>
+        <ul>
+          <li><a href="https://scholar.google.com/citations?user=Hxf8sNkAAAAJ">Google Scholar</a></li>
+          <li><a href="https://github.com/LiXin97">GitHub</a></li>
+          <li><a href="https://www.linkedin.com/in/xin-li-1196331a0/">LinkedIn</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>The loop</h2>
+        <ul>
+          <li><a href="index.html">The argument</a></li>
+          <li><a href="train.html">Train</a> &middot; <a href="compose.html">Compose</a></li>
+          <li><a href="record.html">The full record</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,214 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Xin Li — Measure, Train, Compose</title>
+<meta name="description" content="Xin Li, Ph.D. student at NTU Singapore. Benchmarks built to be audited, training on what can be checked, and measurement for systems where several models interact.">
+<meta name="theme-color" content="#f7f3ec" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#141210" media="(prefers-color-scheme: dark)">
+<meta property="og:type" content="profile">
+<meta property="og:title" content="Xin Li — Measure, Train, Compose">
+<meta property="og:description" content="Benchmarks built to be audited rather than trusted, training on what can be checked, and measurement for systems where several models interact.">
+<meta property="og:image" content="https://lixin.ai/data/avatar-280.webp">
+<meta property="og:site_name" content="Xin Li">
+<meta name="twitter:card" content="summary">
+<link rel="icon" href="/images/icon-32.png" sizes="32x32">
+<link rel="apple-touch-icon" href="/images/icon-180.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..700;1,6..72,200..700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="site.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="masthead">
+  <div class="wrap">
+    <a class="brand" href="index.html" aria-current="page">
+      <img src="/data/avatar-280.webp" alt="Portrait of Xin Li" width="32" height="32">
+      <span>Xin Li <span class="zh" lang="zh-Hans">李鑫</span></span>
+    </a>
+    <nav class="nav" aria-label="Main">
+      <a href="index.html" aria-current="page">Home</a>
+      <a href="research.html">Research</a>
+      <a href="papers.html">Papers</a>
+      <a href="about.html">About</a>
+      <a class="out" href="/data/Xin_Li_CV_2026.pdf">CV</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- ---------------- hero ---------------- -->
+  <div class="wrap hero row">
+    <div class="side">
+      <p class="idcard">
+        <b>Ph.D. student</b><br>
+        Nanyang Technological<br>
+        University, Singapore<br>
+        2025&ndash;2029<br>
+        <br>
+        Advised by<br>
+        <a href="https://blogs.ntu.edu.sg/chau-yuen/">Prof. Chau Yuen</a><br>
+        IEEE Fellow
+      </p>
+    </div>
+    <div class="main">
+      <h1>Xin&nbsp;Li <span class="zh" lang="zh-Hans">李鑫</span></h1>
+      <p class="lede">I build measurements for language models that are meant to be <b>audited rather than trusted</b> — then train on the part that can be checked, and measure again once several models have to work together.</p>
+      <p class="standfirst">Three threads, which are really one loop: <strong>measure</strong>, <strong>train</strong>, <strong>compose</strong>. Each carries a question, and each returns to the first.</p>
+      <p class="handles">
+        <a href="mailto:xin019@e.ntu.edu.sg">Email</a>
+        <a href="https://scholar.google.com/citations?user=Hxf8sNkAAAAJ">Scholar</a>
+        <a href="https://github.com/LiXin97">GitHub</a>
+        <a href="https://www.linkedin.com/in/xin-li-1196331a0/">LinkedIn</a>
+        <a href="/data/Xin_Li_CV_2026.pdf">CV (PDF)</a>
+      </p>
+    </div>
+  </div>
+
+  <!-- ---------------- the loop ---------------- -->
+  <section class="wrap band row" aria-labelledby="loop-h">
+    <div class="side">
+      <h2 class="sect-title" id="loop-h"><span class="sn">&sect;&nbsp;01</span>The loop</h2>
+      <p class="sect-note">Not three areas. One circuit, walked repeatedly.</p>
+    </div>
+    <div class="main">
+      <ol class="threads">
+        <li>
+          <span class="num">01</span>
+          <h3 class="thread-name">Measure</h3>
+          <p class="thread-q">Does a score mean what it appears to mean, and would we notice if it didn&rsquo;t?</p>
+          <p class="thread-body">Benchmarks and evaluation protocols built to be audited rather than trusted: per-problem provenance, verifier-checkable answers, and an explicit limit on what a score supports.</p>
+        </li>
+        <li>
+          <span class="num">02</span>
+          <h3 class="thread-name">Train</h3>
+          <p class="thread-q">Can we reward the reasoning we are able to check, rather than the answer we hope for?</p>
+          <p class="thread-body">Reinforcement learning, on-policy distillation and verifier-guided selection.</p>
+        </li>
+        <li>
+          <span class="num">03</span>
+          <h3 class="thread-name">Compose</h3>
+          <p class="thread-q">When several models work together, does the interaction help, or quietly destroy answers that were already right?</p>
+          <p class="thread-body">Protocols, memory and measurement for systems where several models interact.</p>
+        </li>
+      </ol>
+      <p class="loop-return"><span class="mono">The return leg &nbsp;·&nbsp;</span> Composition creates new failure modes, which have to be measured too — so the third thread hands back to the first.</p>
+      <p class="runon" style="margin-top:1.3rem"><b>Common ground:</b> domains where an answer can be checked — formal verification, mathematics, code, wireless systems. <a href="research.html">How the loop is actually walked →</a></p>
+    </div>
+  </section>
+
+  <!-- ---------------- findings ---------------- -->
+  <section class="wrap band" aria-labelledby="find-h">
+    <div class="row" style="margin-bottom:1.6rem">
+      <div class="side">
+        <h2 class="sect-title" id="find-h"><span class="sn">&sect;&nbsp;02</span>Findings</h2>
+      </div>
+      <div class="main">
+        <p class="sect-note" style="font-style:normal">Four results from 2026, each with the thing it is a result <em>over</em>. Where a claim was narrowed during review, the narrowing is on the page.</p>
+      </div>
+    </div>
+
+    <!-- 01 -->
+    <article class="finding row">
+      <div class="side">
+        <p class="stat"><b>4,027</b><span>problems, from 836 arXiv papers</span></p>
+        <p class="venue"><b>NeurIPS 2026</b>Evaluations &amp; Datasets, poster<br>First of 7 authors</p>
+      </div>
+      <div class="main">
+        <p class="eyebrow tag-thread">Thread 01 &nbsp;Measure</p>
+        <h3><a href="https://lixin.ai/WirelessMathBench-XL/">WirelessMathBench-XL</a><span class="sub">An Auditable Benchmark for Wireless Mathematical Reasoning</span></h3>
+        <p class="claim">4,027 problems drawn from 836 arXiv papers across 20 wireless subfields. Every problem ships 13-gram contamination-overlap evidence against public pretraining text. Frontier models cluster at <strong>86.5&ndash;91.3%</strong>.</p>
+        <p class="caution"><b>Narrowed during review</b>The contamination evidence is a rerunnable audit producing per-problem evidence for one lexical channel. It is not proof that the benchmark is clean.</p>
+        <p class="links"><a href="https://lixin.ai/WirelessMathBench-XL/">Project page</a> <span class="sep">·</span> <a href="https://arxiv.org/abs/2509.23219">arXiv 2509.23219</a></p>
+      </div>
+    </article>
+
+    <!-- 02 -->
+    <article class="finding row">
+      <div class="side">
+        <p class="stat long"><b>+1.2&ndash;3.1</b><span>points over label routing</span></p>
+        <p class="venue"><b>arXiv preprint</b>2026<br>First of 9 authors</p>
+      </div>
+      <div class="main">
+        <p class="eyebrow tag-thread">Thread 02 &nbsp;Train</p>
+        <h3><a href="https://lixin.ai/DN-MOPD/">Beyond Teacher Assignment</a><span class="sub">Domain-Normalized Multi-Teacher On-Policy Distillation</span></h3>
+        <p class="claim">Label routing decides <em>which</em> teacher supervises a prompt, but not <em>how strongly</em> that teacher&rsquo;s feedback counts. Normalising the feedback scale per domain adds <strong>1.2&ndash;3.1 points</strong> over label routing.</p>
+        <p class="scope"><b>Scope</b> &nbsp;2B, 4B and 9B students.</p>
+        <p class="links"><a href="https://lixin.ai/DN-MOPD/">Project page</a> <span class="sep">·</span> <a href="https://arxiv.org/abs/2609.35347">arXiv</a> <span class="sep">·</span> <a href="https://github.com/LiXin97/DN-MOPD">Code</a> <span class="sep">·</span> <a href="https://huggingface.co/datasets/XINLI1997/DN-MOPD-Data">Data</a> <span class="sep">·</span> <a href="https://huggingface.co/collections/XINLI1997/dn-mopd-6aba5f0df7bd8732d7205ed4">Models</a></p>
+      </div>
+    </article>
+
+    <!-- 03 -->
+    <article class="finding row">
+      <div class="side">
+        <p class="stat"><b>34 × 7</b><span>generators × verifiers</span></p>
+        <p class="venue"><b>Findings of EMNLP 2026</b><br>First of 3 authors</p>
+      </div>
+      <div class="main">
+        <p class="eyebrow tag-thread">Thread 02 &nbsp;Train</p>
+        <h3><a href="https://github.com/LiXin97/TLVC">Target-Local Verifier Choice</a><span class="sub">in Best-of-K Reasoning Selection</span></h3>
+        <p class="claim">On a 34-generator, 7-verifier Best-of-K math panel, one strong process reward model is the best <em>fixed</em> verifier overall — and still not the best verifier for every generator. Label-free candidate statistics predict which verifier class wins.</p>
+        <p class="scope"><b>Scope</b> &nbsp;Best-of-K selection, mathematics.</p>
+        <p class="links"><a href="https://github.com/LiXin97/TLVC">Code</a> <span class="sep">·</span> <span class="none">no preprint yet</span></p>
+      </div>
+    </article>
+
+    <!-- 04 -->
+    <article class="finding row">
+      <div class="side">
+        <p class="stat"><b>&minus;79</b><span>net, prevented minus lost</span></p>
+        <p class="venue"><b>NeurIPS 2026</b>Evaluations &amp; Datasets, poster<br>Joint first of 3 authors</p>
+      </div>
+      <div class="main">
+        <p class="eyebrow tag-thread">Thread 03 &nbsp;Compose</p>
+        <h3><a href="https://lixin.ai/DebateLedger/">Measuring Collapse and Correction in Homogeneous-Panel LLM Debate</a><span class="sub">DebateLedger</span></h3>
+        <p class="claim">Across 6,925 logged MMLU-Pro debates, <strong>253 collapses</strong> — a correct majority talked into a wrong one. A probe-gated freeze prevents 29 of those collapses but gives up 108 corrections: net <strong>&minus;79</strong>. And 58.9% of collapses begin in the first debate round.</p>
+        <p class="scope"><b>Scope</b> &nbsp;The net figure is under equal weights for collapses and corrections.</p>
+        <p class="links"><a href="https://lixin.ai/DebateLedger/">Project page</a></p>
+      </div>
+    </article>
+
+    <p class="pager" style="border-top-color:var(--ink)">
+      <a href="papers.html">The full record — 16 papers, 2020 to 2026 →</a>
+      <a href="research.html">The loop, at length →</a>
+    </p>
+  </section>
+
+  <!-- ---------------- also ---------------- -->
+  <section class="wrap band row" aria-labelledby="also-h">
+    <div class="side">
+      <h2 class="sect-title" id="also-h"><span class="sn">&sect;&nbsp;03</span>Also on the record</h2>
+    </div>
+    <div class="main">
+      <p class="claim"><strong>Formal verification</strong> is the other place where answers are checkable, and the same composition problem shows up there. <a href="https://dafnycomp.github.io/">DafnyComp</a> (ICLR 2026, joint first author) finds that a model can verify a function on its own and still fail once the specifications have to compose; the benchmark measures the distance between those two results. <a href="https://openreview.net/forum?id=cAQmIS4GOe">Re:Form</a> (TMLR 2026, joint first author) studies how far RL can push Dafny verification with fewer human priors.</p>
+      <p class="runon"><b>Before the LLM work:</b> wireless systems, radio maps and robot perception — including a localisation stack that runs on a fleet of 1,000+ cleaning robots. It is not the headline, but it is where the habit of working only in checkable domains comes from. <a href="research.html#before">Read that part →</a></p>
+    </div>
+  </section>
+
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="colophon">
+      <p>Singapore<br>
+      Set in Newsreader &amp; IBM&nbsp;Plex&nbsp;Mono<br>
+      Static HTML · no analytics</p>
+    </div>
+    <div>
+      <p class="big"><a class="mailto" href="mailto:xin019@e.ntu.edu.sg">xin019@e.ntu.edu.sg</a></p>
+      <p class="handles" style="margin-top:.2rem">
+        <a href="/data/Xin_Li_CV_2026.pdf">CV (PDF)</a>
+        <a href="https://scholar.google.com/citations?user=Hxf8sNkAAAAJ">Google Scholar</a>
+        <a href="https://github.com/LiXin97">GitHub</a>
+        <a href="https://www.linkedin.com/in/xin-li-1196331a0/">LinkedIn</a>
+      </p>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,349 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Xin Li — ledger</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  color-scheme:light;
+  --paper:#FBFAF7; --ink:#14161A; --dim:#5E5A52; --faint:#8C877D;
+  --rule:#DFDACF; --rule-hard:#14161A; --red:#A8301A; --wash:#F3F0E8;
+  --ui:"Inter Tight",system-ui,sans-serif;
+  --prose:Newsreader,Georgia,serif;
+  --num:"JetBrains Mono",ui-monospace,monospace;
+}
+*{box-sizing:border-box;margin:0}
+html{-webkit-text-size-adjust:100%}
+body{background:var(--paper);color:var(--ink);font:400 16px/1.55 var(--ui);
+  font-feature-settings:"tnum" 1;padding:0 clamp(20px,5vw,56px)}
+.sheet{max-width:1180px;margin:0 auto;padding:40px 0 100px}
+a{color:inherit;text-decoration:none}
+a:focus-visible{outline:2px solid var(--red);outline-offset:3px;border-radius:2px}
+
+/* ---------- ledger header strip ---------- */
+.strip{display:flex;align-items:baseline;justify-content:space-between;gap:20px;
+  padding-bottom:9px;border-bottom:1.5px solid var(--rule-hard);
+  font:600 .66rem/1 var(--num);letter-spacing:.17em;text-transform:uppercase}
+.strip .r{color:var(--faint);font-weight:500;letter-spacing:.13em}
+
+/* ---------- masthead ---------- */
+.mast{display:grid;grid-template-columns:1fr auto;gap:28px 40px;align-items:end;
+  padding:46px 0 26px;border-bottom:1px solid var(--rule)}
+.mast h1{font:700 clamp(3.4rem,10vw,6.6rem)/.86 var(--ui);letter-spacing:-.045em}
+.mast h1 .cjk{display:block;font:400 clamp(1rem,2.4vw,1.5rem)/1 var(--prose);
+  letter-spacing:.3em;color:var(--faint);margin-top:16px}
+.mast .side{text-align:right;font:500 .8rem/1.7 var(--num);color:var(--dim);letter-spacing:.01em}
+.mast .side a{border-bottom:1px solid var(--rule)}
+.mast .side a:hover{border-bottom-color:var(--red);color:var(--red)}
+.mast .side .who{color:var(--ink);font-weight:600}
+
+/* ---------- statement ---------- */
+.stmt{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,310px);gap:20px 56px;
+  padding:30px 0 34px;border-bottom:1px solid var(--rule)}
+.stmt p{font:400 clamp(1.18rem,2vw,1.52rem)/1.44 var(--prose);letter-spacing:-.006em;max-width:34ch}
+.stmt p em{font-style:italic;color:var(--red)}
+.stmt .note{font:400 .83rem/1.65 var(--ui);color:var(--dim);align-self:end}
+.stmt .note b{color:var(--ink);font-weight:600}
+
+/* ---------- the loop, as three ruled rows ---------- */
+.loop{padding:26px 0 8px}
+.loop__h{display:flex;justify-content:space-between;align-items:baseline;gap:16px;
+  font:600 .62rem/1 var(--num);letter-spacing:.2em;text-transform:uppercase;color:var(--faint);
+  padding-bottom:12px}
+.row{display:grid;grid-template-columns:34px 112px minmax(0,1fr) minmax(0,300px);
+  gap:0 22px;padding:15px 0;border-top:1px solid var(--rule);align-items:baseline}
+.row .n{font:700 .74rem/1.5 var(--num);color:var(--red)}
+.row .v{font:600 1.04rem/1.4 var(--ui);letter-spacing:-.012em}
+.row .q{font:400 1.02rem/1.5 var(--prose);color:var(--dim)}
+.row .w{display:flex;flex-wrap:wrap;gap:5px;justify-content:flex-end}
+.row .w a{font:500 .69rem/1 var(--num);letter-spacing:.02em;color:var(--dim);
+  border:1px solid var(--rule);border-radius:3px;padding:5px 7px;background:#fff}
+.row .w a:hover{border-color:var(--red);color:var(--red)}
+.loop__back{display:grid;grid-template-columns:34px 1fr;gap:0 22px;padding:13px 0 0;
+  border-top:1px solid var(--rule);font:500 .78rem/1.5 var(--num);color:var(--faint)}
+.loop__back .n{color:var(--faint);font-weight:700;font-size:.72rem}
+.loop__back b{color:var(--dim);font-weight:500}
+.ground{display:flex;flex-wrap:wrap;gap:6px 8px;align-items:baseline;padding:14px 0 0;
+  font:500 .7rem/1.6 var(--num);letter-spacing:.06em;color:var(--faint)}
+.ground b{color:var(--ink);font-weight:600;background:var(--wash);padding:4px 7px;border-radius:3px}
+
+/* ---------- the record ---------- */
+.rec{padding-top:40px}
+.rec__h{display:grid;grid-template-columns:112px minmax(0,1fr) minmax(0,210px);gap:0 22px;
+  padding-bottom:9px;border-bottom:1.5px solid var(--rule-hard);
+  font:600 .62rem/1 var(--num);letter-spacing:.19em;text-transform:uppercase;color:var(--faint)}
+.rec__h .fig{text-align:right}
+.e{display:grid;grid-template-columns:112px minmax(0,1fr) minmax(0,210px);gap:4px 22px;
+  padding:19px 0;border-bottom:1px solid var(--rule);align-items:start}
+.e:hover{background:rgba(168,48,26,.025)}
+.e .yr{font:500 .73rem/1.7 var(--num);color:var(--faint);letter-spacing:.02em}
+.e .yr b{display:block;color:var(--ink);font-weight:700;letter-spacing:.03em}
+.e h3{font:500 1.11rem/1.32 var(--ui);letter-spacing:-.016em}
+.e h3 a{border-bottom:1px solid transparent}
+.e h3 a:hover{border-bottom-color:var(--red);color:var(--red)}
+.e .au{font:400 .82rem/1.55 var(--ui);color:var(--faint);margin-top:5px}
+.e .au b{color:var(--dim);font-weight:600}
+.e .au .me{color:var(--ink);font-weight:700}
+.e .cl{font:400 1.005rem/1.52 var(--prose);color:var(--dim);margin-top:8px;max-width:58ch}
+.e .lk{display:flex;flex-wrap:wrap;gap:0 11px;margin-top:9px;
+  font:500 .69rem/1.6 var(--num);letter-spacing:.03em;color:var(--faint)}
+.e .lk a{border-bottom:1px solid var(--rule)}
+.e .lk a:hover{color:var(--red);border-bottom-color:var(--red)}
+.e .fig{text-align:right;font:500 .78rem/1.62 var(--num);color:var(--dim);letter-spacing:-.01em}
+.e .fig b{color:var(--ink);font-weight:700}
+.e .fig .neg{color:var(--red);font-weight:700}
+.e .fig .none{color:var(--rule);font-weight:400}
+
+/* ---------- closing block ---------- */
+.foot{display:grid;grid-template-columns:112px minmax(0,1fr);gap:0 22px;padding:34px 0 0}
+.foot h2{font:600 .62rem/1 var(--num);letter-spacing:.19em;text-transform:uppercase;color:var(--faint)}
+.foot p{font:400 1.02rem/1.62 var(--prose);color:var(--dim);max-width:62ch;margin-bottom:13px}
+.foot p b{color:var(--ink);font-weight:500}
+.foot .end{margin-top:22px;padding-top:12px;border-top:1px solid var(--rule);
+  font:500 .72rem/1.6 var(--num);color:var(--faint);letter-spacing:.03em}
+
+@media (max-width:900px){
+  .stmt{grid-template-columns:1fr}
+  .row{grid-template-columns:28px 1fr;gap:4px 14px}
+  .row .q{grid-column:2}
+  .row .w{grid-column:2;justify-content:flex-start;margin-top:7px}
+  .loop__back{grid-template-columns:28px 1fr;gap:0 14px}
+  .rec__h{display:none}
+  .e{grid-template-columns:1fr;gap:0}
+  .e .yr{margin-bottom:6px}
+  .e .yr b{display:inline;margin-right:8px}
+  .e .fig{text-align:left;margin-top:11px;padding-top:9px;border-top:1px dotted var(--rule)}
+  .foot{grid-template-columns:1fr}
+  .foot h2{margin-bottom:12px}
+}
+@media (prefers-color-scheme:dark){
+  :root{color-scheme:dark;--paper:#121316;--ink:#ECEAE4;--dim:#A9A49A;--faint:#7D786E;
+    --rule:#2B2C30;--rule-hard:#5A5B60;--red:#E8705A;--wash:#1D1F23}
+  .row .w a{background:#191B1F}
+  .e .fig .none{color:#2B2C30}
+}
+</style></head><body><div class="sheet">
+
+<div class="strip"><span>Xin Li · 李鑫</span><span class="r">Research record · October 2026</span></div>
+
+<header class="mast">
+  <h1>Xin Li<span class="cjk">李 鑫</span></h1>
+  <div class="side">
+    <span class="who">Ph.D. student, NTU Singapore</span><br>
+    advised by <a href="https://blogs.ntu.edu.sg/chau-yuen/">Chau Yuen</a><br><br>
+    <a href="mailto:xin019@e.ntu.edu.sg">xin019@e.ntu.edu.sg</a><br>
+    <a href="/data/Xin_Li_CV_2026.pdf">cv</a> ·
+    <a href="https://scholar.google.com/citations?user=Hxf8sNkAAAAJ">scholar</a> ·
+    <a href="https://github.com/LiXin97">github</a>
+  </div>
+</header>
+
+<section class="stmt">
+  <p>I build the measurements that decide whether a model's reasoning can be
+     <em>believed</em>, and the training that earns the belief.</p>
+  <p class="note">Everything below is kept where an answer can be checked — a proof that compiles,
+     a derivation that resolves, a verifier that scores. <b>The numbers in the right-hand column are
+     what each piece of work actually established.</b> Where that column is empty, I had nothing worth
+     quoting.</p>
+</section>
+
+<section class="loop">
+  <div class="loop__h"><span>The account</span><span>three entries, and one that returns</span></div>
+
+  <div class="row">
+    <span class="n">01</span><span class="v">Measure</span>
+    <span class="q">Does a score mean what it appears to mean — and would we notice if it didn't?</span>
+    <span class="w"><a href="#wmbxl">WirelessMathBench-XL</a><a href="#dafnycomp">DafnyComp</a><a href="#robustmad">RobustMAD</a></span>
+  </div>
+  <div class="row">
+    <span class="n">02</span><span class="v">Train</span>
+    <span class="q">Can we reward the reasoning we are able to check, rather than the answer we hope for?</span>
+    <span class="w"><a href="#reform">Re:Form</a><a href="#dnmopd">DN-MOPD</a><a href="#tlvc">TLVC</a></span>
+  </div>
+  <div class="row">
+    <span class="n">03</span><span class="v">Compose</span>
+    <span class="q">When several models work together, does the interaction help — or quietly destroy answers that were already right?</span>
+    <span class="w"><a href="#debateledger">DebateLedger</a><a href="#lacp">LACP</a></span>
+  </div>
+  <div class="loop__back"><span class="n">↩ 01</span>
+    <span><b>composition creates new failure modes, which have to be measured too</b></span></div>
+  <div class="ground">on ground where an answer can be checked<b>formal verification</b><b>mathematics</b><b>code</b><b>wireless systems</b></div>
+</section>
+
+<section class="rec">
+  <div class="rec__h"><span>Venue</span><span>Work</span><span class="fig">What it established</span></div>
+
+  <article class="e" id="debateledger">
+    <div class="yr"><b>NeurIPS</b>2026 · Eval &amp; Datasets</div>
+    <div>
+      <h3><a href="https://lixin.ai/DebateLedger/">Measuring Collapse and Correction in Homogeneous-Panel LLM Debate</a></h3>
+      <p class="au"><span class="me">Xin Li</span><b>*</b>, Mengbing Liu*, Chau Yuen &nbsp;·&nbsp; joint first author</p>
+      <p class="cl">Debate moves answers in both directions, and final accuracy reports only the remainder.
+        A probe-gated freeze looks like a win on collapses prevented and is net negative once the
+        corrections it forfeits are counted.</p>
+      <p class="lk"><a href="https://lixin.ai/DebateLedger/">project</a></p>
+    </div>
+    <div class="fig"><b>6,925</b> debates<br><b>253</b> collapses<br>29 prevented / 108 lost<br><span class="neg">−79</span> net</div>
+  </article>
+
+  <article class="e" id="wmbxl">
+    <div class="yr"><b>NeurIPS</b>2026 · Eval &amp; Datasets</div>
+    <div>
+      <h3><a href="https://lixin.ai/WirelessMathBench-XL/">WirelessMathBench-XL: An Auditable Benchmark for Wireless Mathematical Reasoning</a></h3>
+      <p class="au"><span class="me">Xin Li</span>, Mengbing Liu, Yiyang Zhu, Wenhe Zhang, Li Wei, Jiancheng An, Chau Yuen &nbsp;·&nbsp; first author</p>
+      <p class="cl">Every problem ships its own contamination evidence against public pretraining text,
+        so a score here can be re-audited on one lexical channel instead of taken on trust.</p>
+      <p class="lk"><a href="https://lixin.ai/WirelessMathBench-XL/">project</a><a href="https://arxiv.org/abs/2509.23219">arXiv</a></p>
+    </div>
+    <div class="fig"><b>4,027</b> problems<br><b>836</b> source papers<br><b>20</b> subfields</div>
+  </article>
+
+  <article class="e" id="dnmopd">
+    <div class="yr"><b>Preprint</b>2026</div>
+    <div>
+      <h3><a href="https://lixin.ai/DN-MOPD/">Beyond Teacher Assignment: Domain-Normalized Multi-Teacher On-Policy Distillation</a></h3>
+      <p class="au"><span class="me">Xin Li</span>, Hao Jiang, Xin Gao, Annan Wang, Yuchen Xie, Jinghao Guo, Xingwei Qu, Yichi Zhang, Chau Yuen &nbsp;·&nbsp; first author</p>
+      <p class="cl">Routing decides which teacher supervises a prompt but not how loudly that teacher
+        speaks. Normalizing the feedback scale per domain is the part that was being left on the table.</p>
+      <p class="lk"><a href="https://lixin.ai/DN-MOPD/">project</a><a href="https://arxiv.org/abs/2609.35347">arXiv</a><a href="https://github.com/LiXin97/DN-MOPD">code</a><a href="https://huggingface.co/datasets/XINLI1997/DN-MOPD-Data">data</a><a href="https://huggingface.co/collections/XINLI1997/dn-mopd-6aba5f0df7bd8732d7205ed4">models</a></p>
+    </div>
+    <div class="fig"><b>+1.2 – 3.1</b> pts<br>over label routing<br>2B · 4B · 9B students</div>
+  </article>
+
+  <article class="e" id="tlvc">
+    <div class="yr"><b>EMNLP</b>2026 · Findings</div>
+    <div>
+      <h3><a href="https://lixin.ai/TLVC/">Target-Local Verifier Choice in Best-of-K Reasoning Selection</a></h3>
+      <p class="au"><span class="me">Xin Li</span>, Hao Jiang, Weisi Lin &nbsp;·&nbsp; first author</p>
+      <p class="cl">One strong process reward model is the best fixed verifier on the panel — and still
+        not the best verifier for every generator. Label-free candidate statistics predict which
+        verifier class wins.</p>
+      <p class="lk"><a href="https://lixin.ai/TLVC/">project</a><a href="https://github.com/LiXin97/TLVC">code</a></p>
+    </div>
+    <div class="fig"><b>34</b> generators<br><b>7</b> verifiers</div>
+  </article>
+
+  <article class="e" id="dafnycomp">
+    <div class="yr"><b>ICLR</b>2026</div>
+    <div>
+      <h3><a href="https://dafnycomp.github.io/">Local Success Does Not Compose: Benchmarking Large Language Models for Compositional Formal Verification</a></h3>
+      <p class="au">Xu Xu*, <span class="me">Xin Li</span><b>*</b>, Xingwei Qu, Jie Fu, Binhang Yuan &nbsp;·&nbsp; joint first author</p>
+      <p class="cl">A model can verify a function on its own and still fail once the specifications have
+        to fit together. The benchmark measures the distance between those two results.</p>
+      <p class="lk"><a href="https://dafnycomp.github.io/">project</a><a href="https://openreview.net/forum?id=y4kAMUBqLq">openreview</a><a href="https://arxiv.org/abs/2509.23061">arXiv</a></p>
+    </div>
+    <div class="fig"><span class="none">—</span></div>
+  </article>
+
+  <article class="e" id="reform">
+    <div class="yr"><b>TMLR</b>2026</div>
+    <div>
+      <h3><a href="https://openreview.net/forum?id=cAQmIS4GOe">Re:Form: Reducing Human Priors in Scalable Formal Software Verification with RL in LLMs</a></h3>
+      <p class="au">Chuanhao Yan*, Fengdi Che*, Xuhan Huang*, Xu Xu*, <span class="me">Xin Li</span><b>*</b>, Yizhi Li*, Xingwei Qu*, …, Jie Fu &nbsp;·&nbsp; joint first author</p>
+      <p class="cl">How much of a formal-verification pipeline's performance comes from human-written
+        scaffolding, and how much survives when reinforcement learning is asked to find it instead.</p>
+      <p class="lk"><a href="https://openreview.net/forum?id=cAQmIS4GOe">openreview</a><a href="https://arxiv.org/abs/2507.16331">arXiv</a><a href="https://github.com/Veri-Code/ReForm">code</a></p>
+    </div>
+    <div class="fig"><span class="none">—</span></div>
+  </article>
+
+  <article class="e" id="simd2nn">
+    <div class="yr"><b>IEEE TSP</b>2026</div>
+    <div>
+      <h3><a href="https://onboradsim.github.io/">Stacked Intelligent Metasurface-Diffractive Deep Neural Networks for Onboard Terrain Classification from SAR Level-0 Raw Data</a></h3>
+      <p class="au">Mengbing Liu, <span class="me">Xin Li</span>, Jiancheng An, Chau Yuen</p>
+      <p class="cl">The metasurface in front of the satellite's receiver does the inference in-wave, so the
+        classification happens before the raw data is ever digitised or downlinked.</p>
+      <p class="lk"><a href="https://onboradsim.github.io/">project</a></p>
+    </div>
+    <div class="fig"><b>~90%</b> accuracy<br>from Level-0 raw SAR</div>
+  </article>
+
+  <article class="e" id="robustmad">
+    <div class="yr"><b>TMLR</b>2026</div>
+    <div>
+      <h3><a href="https://robustmad.github.io/">RobustMAD: Evaluating Real-World Robustness of Multimodal Small Language Models for Deployable Anomaly Detection Assistants</a></h3>
+      <p class="au">Anushiya Arunan, <span class="me">Xin Li</span>, Yan Qin, U-Xuan Tan, Nhu Khue Vuong, Xiaoli Li, Chau Yuen</p>
+      <p class="cl">What happens to a small multimodal model's anomaly detection once the inputs stop
+        looking like the evaluation set.</p>
+      <p class="lk"><a href="https://robustmad.github.io/">project</a><a href="https://openreview.net/forum?id=skrA9UYNIZ">openreview</a><a href="https://github.com/en-research/RobustMAD">code</a></p>
+    </div>
+    <div class="fig"><span class="none">—</span></div>
+  </article>
+
+  <article class="e" id="graphreduce">
+    <div class="yr"><b>EMNLP</b>2026 · Industry</div>
+    <div>
+      <h3><a href="https://graphreduce.github.io/">GraphReduce: Coverage-Preserving LLM Aggregation for E-commerce Review Insights</a></h3>
+      <p class="au">Hao Jiang, <span class="me">Xin Li</span>, Yichi Zhang, Weisi Lin</p>
+      <p class="cl">Summarising a pile of reviews with an LLM loses the long tail. This keeps coverage
+        while still aggregating.</p>
+      <p class="lk"><a href="https://graphreduce.github.io/">project</a></p>
+    </div>
+    <div class="fig"><span class="none">—</span></div>
+  </article>
+
+  <article class="e" id="livecann">
+    <div class="yr"><b>ACL</b>2026 · Findings</div>
+    <div>
+      <h3><a href="https://aclanthology.org/2026.findings-acl.1143/">LiveCANNBench: Benchmark SWE AI Coding for Ascend CANN</a></h3>
+      <p class="au">Sijie Wang, Kai Zhao, Wee Peng Tay, …, <span class="me">Xin Li</span>, …, Ronghao Chen</p>
+      <p class="cl">SWE-level coding tasks built from real Ascend CANN repositories, on a live
+        benchmarking paradigm so the set cannot quietly leak into training data.</p>
+      <p class="lk"><a href="https://aclanthology.org/2026.findings-acl.1143/">anthology</a><a href="https://aclanthology.org/2026.findings-acl.1143.pdf">pdf</a></p>
+    </div>
+    <div class="fig"><b>400+</b> task instances</div>
+  </article>
+
+  <article class="e" id="lacp">
+    <div class="yr"><b>NeurIPS</b>2025 · AI4NextG</div>
+    <div>
+      <h3><a href="https://lixin.ai/LACP/">LACP: LLM Agent Communication Protocol Requires Urgent Standardization</a></h3>
+      <p class="au"><span class="me">Xin Li</span>, Mengbing Liu, Chau Yuen &nbsp;·&nbsp; first author</p>
+      <p class="cl">Agents built by different people cannot yet say the same things to each other. The
+        position paper argues what a shared protocol has to carry.</p>
+      <p class="lk"><a href="https://lixin.ai/LACP/">project</a><a href="https://arxiv.org/abs/2510.13821">arXiv</a></p>
+    </div>
+    <div class="fig"><span class="none">—</span></div>
+  </article>
+
+  <article class="e" id="wmb">
+    <div class="yr"><b>ACL</b>2025 · Findings</div>
+    <div>
+      <h3><a href="https://lixin.ai/WirelessMathBench/">WirelessMathBench: A Mathematical Modeling Benchmark for LLMs in Wireless Communications</a></h3>
+      <p class="au"><span class="me">Xin Li</span>, Mengbing Liu, Li Wei, Jiancheng An, Mérouane Debbah, Chau Yuen &nbsp;·&nbsp; first author</p>
+      <p class="cl">The first benchmark for mathematical reasoning in wireless communications, and the
+        work WirelessMathBench-XL was built to audit.</p>
+      <p class="lk"><a href="https://lixin.ai/WirelessMathBench/">project</a><a href="https://arxiv.org/abs/2505.14354">arXiv</a></p>
+    </div>
+    <div class="fig"><span class="none">—</span></div>
+  </article>
+
+  <article class="e" id="transpath">
+    <div class="yr"><b>ICASSP</b>2025</div>
+    <div>
+      <h3><a href="https://lixin.ai/TransPathNet/">TransPathNet: A Novel Two-Stage Framework for Indoor Radio Map Prediction</a></h3>
+      <p class="au"><span class="me">Xin Li</span>, Jiancheng An, Mérouane Debbah, Chau Yuen &nbsp;·&nbsp; first author</p>
+      <p class="cl">Indoor pathloss prediction, entered into the challenge that came with the task.</p>
+      <p class="lk"><a href="https://lixin.ai/TransPathNet/">project</a><a href="https://arxiv.org/abs/2501.16023">arXiv</a></p>
+    </div>
+    <div class="fig"><b>4th</b> place<br>Indoor Pathloss Challenge</div>
+  </article>
+</section>
+
+<section class="foot">
+  <h2>Before</h2>
+  <div>
+    <p>Robot perception, 2019–2024. Visual-inertial odometry at <b>MEGVII</b>; RGB-D + IMU indoor
+      mapping at <b>Microsoft Research Asia</b>; multimodal localization at <b>Gausium Robotics</b>,
+      where I led a team of five engineers and shipped a system that runs on a fleet of
+      <b>1,000+</b> commercial cleaning robots. Two papers from that period, at IROS 2020 and
+      IEEE RA-L 2020.</p>
+    <p>M.E. from <b>Peking University</b>, B.E. from <b>Northeastern University</b>. Grants from
+      Google, Modal, Cohere Labs and OpenAI; the Rohde &amp; Schwarz Award at the IEEE 6G Summit.
+      I review for NeurIPS, ICLR, ICML, CVPR and IEEE RA-L.</p>
+    <p class="end">Always glad to talk about research or collaboration — email is the fastest route.</p>
+  </div>
+</section>
+
+</div></body></html>

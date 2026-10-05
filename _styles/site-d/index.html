@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Xin Li — Measure, Train, Compose</title>
+<meta name="description" content="Xin Li is a Ph.D. student at Nanyang Technological University working on auditable evaluation, verifier-guided post-training, and multi-model composition for large language models.">
+<meta name="theme-color" content="#f6f3ec" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#121211" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="/images/icon-32.png" sizes="32x32">
+<link rel="apple-touch-icon" href="/images/icon-180.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,300..700;1,6..72,300..600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="topbar">
+  <div class="topbar-in">
+    <a class="brand" href="index.html">Xin&nbsp;Li</a>
+    <nav class="topnav" aria-label="Primary">
+      <a href="index.html" aria-current="page">Loop</a>
+      <a href="work.html">Work</a>
+      <a href="positions.html">Positions</a>
+      <a href="/data/Xin_Li_CV_2026.pdf">CV&nbsp;↓</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main" class="sheet">
+
+  <section class="hero">
+    <p class="eyebrow tap">Ph.D. student · Nanyang Technological University · Singapore</p>
+    <h1 class="name">Xin Li<span class="han" lang="zh-Hans">李鑫</span></h1>
+    <p class="thesis">Three threads that are really <em>one loop</em>: measure what a model does, train on the part you can actually check, then compose several models — and measure what that breaks.</p>
+    <p class="affil">Advised by <a href="https://blogs.ntu.edu.sg/chau-yuen/">Prof. Chau Yuen</a> (IEEE Fellow), 2025–2029 (expected). Before the Ph.D.: robot perception and localisation, in research labs and on a shipping product.</p>
+  </section>
+
+  <h2 class="sec tap" id="loop">The loop</h2>
+
+  <div class="loop-wrap">
+    <ol class="loop">
+      <li>
+        <h3 class="verb"><span class="n">01</span>Measure</h3>
+        <p>Benchmarks and evaluation protocols built to be audited rather than trusted: per-problem provenance, verifier-checkable answers, and an explicit limit on what a score supports.</p>
+        <p class="q">Does a score mean what it appears to mean, and would we notice if it didn't?</p>
+      </li>
+      <li>
+        <h3 class="verb"><span class="n">02</span>Train</h3>
+        <p>Reinforcement learning, on-policy distillation and verifier-guided selection.</p>
+        <p class="q">Can we reward the reasoning we are able to check, rather than the answer we hope for?</p>
+      </li>
+      <li>
+        <h3 class="verb"><span class="n">03</span>Compose</h3>
+        <p>Protocols, memory and measurement for systems where several models interact.</p>
+        <p class="q">When several models work together, does the interaction help, or quietly destroy answers that were already right?</p>
+      </li>
+    </ol>
+    <p class="loop-return">↻ back to 01 — composition creates new failure modes, which have to be measured too.</p>
+  </div>
+
+  <p class="ground"><span><b>Common ground</b> — domains where an answer can be checked: formal verification, mathematics, code, wireless systems.</span></p>
+
+  <h2 class="sec tap" id="scope">Four results, and what each one covers</h2>
+
+  <p class="lede" style="margin:-0.6rem 0 2rem; color:var(--ink-2); font-size:.97rem;">A number is only as good as the sentence that says what it covers. That sentence is the part that is easy to leave off, so here it is first.</p>
+
+  <ul class="scopes">
+
+    <li class="scope">
+      <div class="scope-key">
+        <h3><a href="https://lixin.ai/WirelessMathBench-XL/">WirelessMathBench-XL</a></h3>
+        <span class="where">NeurIPS 2026<br>Evaluations &amp; Datasets</span><span class="where pos lead">first of 7</span>
+      </div>
+      <div class="scope-body">
+        <p class="claim"><b>4,027</b> problems drawn from <b>836</b> arXiv papers across <b>20</b> wireless subfields. Every problem ships 13-gram contamination-overlap evidence against public pretraining text. Frontier models cluster at <b>86.5–91.3%</b>.</p>
+        <p class="limit"><span class="tag">The limit, stated</span>The contamination check is a rerunnable audit producing per-problem evidence for <em>one lexical channel</em>. It is not proof that the benchmark is clean. The claim is deliberately narrow, and it stays narrow here.</p>
+      </div>
+    </li>
+
+    <li class="scope">
+      <div class="scope-key">
+        <h3><a href="https://lixin.ai/DebateLedger/">DebateLedger</a></h3>
+        <span class="where">NeurIPS 2026<br>Evaluations &amp; Datasets</span><span class="where pos lead">joint first of 3</span>
+      </div>
+      <div class="scope-body">
+        <p class="claim">Across <b>6,925</b> logged MMLU-Pro debates, <b>253</b> collapses — a correct majority turned wrong. A probe-gated freeze prevents <b>29</b> of them and gives up <b>108</b> corrections.</p>
+        <p class="limit"><span class="tag">Scope</span>That is net <b>−79</b> under equal weights. <b>58.9%</b> of collapses begin in the first debate round.</p>
+      </div>
+    </li>
+
+    <li class="scope">
+      <div class="scope-key">
+        <h3><a href="https://lixin.ai/DN-MOPD/">DN-MOPD</a></h3>
+        <span class="where">arXiv preprint 2026</span><span class="where pos lead">first of 9</span>
+      </div>
+      <div class="scope-body">
+        <p class="claim">Label routing decides which teacher supervises a prompt, but not how strongly that teacher's feedback counts. Normalising the feedback scale per domain adds <b>1.2–3.1 points</b>.</p>
+        <p class="limit"><span class="tag">Scope</span>Over label routing specifically, across <b>2B</b>, <b>4B</b> and <b>9B</b> students. Multi-teacher on-policy distillation, not a claim about distillation in general.</p>
+      </div>
+    </li>
+
+    <li class="scope">
+      <div class="scope-key">
+        <h3>TLVC</h3>
+        <span class="where">Findings of EMNLP 2026</span><span class="where pos lead">first of 3</span>
+      </div>
+      <div class="scope-body">
+        <p class="claim">On a <b>34</b>-generator, <b>7</b>-verifier Best-of-K math panel, one strong process reward model is the best fixed verifier overall.</p>
+        <p class="limit"><span class="tag">Scope</span>And still not the best verifier for every generator. Which verifier class wins is predictable from label-free candidate statistics.</p>
+      </div>
+    </li>
+
+  </ul>
+
+  <h2 class="sec tap" id="record">The record, in short</h2>
+
+  <div class="prose">
+    <p>Sixteen papers. Ten are dated 2026: NeurIPS Evaluations &amp; Datasets (×2), ICLR, TMLR (×2), EMNLP Findings, EMNLP Industry, ACL Findings, IEEE Transactions on Signal Processing, and one arXiv preprint. First or joint-first author on six of the ten.</p>
+    <p>The full list is grouped by the loop rather than by year, so you can see which question each paper was answering. Wireless-systems and robot-perception work sits at the end, under <em>Ground</em>: it is not hidden, it is just not the headline any more.</p>
+    <a class="next" href="work.html">Full record <span aria-hidden="true">→</span></a>
+  </div>
+
+  <h2 class="sec tap" id="contact">Contact</h2>
+
+  <div class="contact">
+    <img class="portrait" src="/data/avatar-280.webp" width="280" height="280" alt="Xin Li, standing outdoors by a lake with sunglasses and a backpack.">
+    <div class="contact-body">
+      <p>Open to research roles and internships at frontier labs, and to collaborations on evaluation, post-training and multi-model systems.</p>
+      <a class="mail" href="mailto:xin019@e.ntu.edu.sg">xin019@e.ntu.edu.sg</a>
+      <ul class="elsewhere">
+        <li><a href="https://scholar.google.com/citations?user=Hxf8sNkAAAAJ">Google Scholar</a></li>
+        <li><a href="https://github.com/LiXin97">GitHub</a></li>
+        <li><a href="https://www.linkedin.com/in/xin-li-1196331a0/">LinkedIn</a></li>
+        <li><a href="/data/Xin_Li_CV_2026.pdf">CV (PDF)</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="tail"></div>
+</main>
+
+<footer class="foot">
+  <div class="foot-in">
+    <span>Xin Li · 李鑫 · Nanyang Technological University, Singapore</span>
+    <span>Set in Newsreader &amp; IBM Plex Mono. No JavaScript.</span>
+  </div>
+</footer>
+
+</body>
+</html>

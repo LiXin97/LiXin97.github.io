@@ -1,0 +1,265 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The loop — Xin Li</title>
+<meta name="description" content="Measure, train, compose: the three threads of Xin Li's research, the question each one carries, and what has been built under each.">
+<meta name="theme-color" content="#f7f3ec" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#141210" media="(prefers-color-scheme: dark)">
+<meta property="og:type" content="website">
+<meta property="og:title" content="The loop — Xin Li">
+<meta property="og:description" content="Measure, train, compose: three threads, the question each one carries, and what has been built under each.">
+<meta property="og:image" content="https://lixin.ai/data/avatar-280.webp">
+<meta property="og:site_name" content="Xin Li">
+<meta name="twitter:card" content="summary">
+<link rel="icon" href="/images/icon-32.png" sizes="32x32">
+<link rel="apple-touch-icon" href="/images/icon-180.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..700;1,6..72,200..700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="site.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="masthead">
+  <div class="wrap">
+    <a class="brand" href="index.html">
+      <img src="/data/avatar-280.webp" alt="Portrait of Xin Li" width="32" height="32">
+      <span>Xin Li <span class="zh" lang="zh-Hans">李鑫</span></span>
+    </a>
+    <nav class="nav" aria-label="Main">
+      <a href="index.html">Home</a>
+      <a href="research.html" aria-current="page">Research</a>
+      <a href="papers.html">Papers</a>
+      <a href="about.html">About</a>
+      <a class="out" href="/data/Xin_Li_CV_2026.pdf">CV</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+  <div class="wrap hero row">
+    <div class="side">
+      <p class="idcard"><b>Research</b><br>Three threads,<br>one loop<br><br>Measure → Train →<br>Compose → Measure</p>
+    </div>
+    <div class="main">
+      <h1>The loop</h1>
+      <p class="lede">Three verbs rather than three fields. Each carries a question; each hands its answer, and its new failure modes, to the next.</p>
+      <p class="standfirst">The common ground is narrow on purpose: <strong>domains where an answer can be checked</strong> — formal verification, mathematics, code, wireless systems. If a claim cannot be checked, it is not a place where any of this work has anything to say.</p>
+    </div>
+  </div>
+
+  <!-- ---------------- MEASURE ---------------- -->
+  <section class="wrap band row" aria-labelledby="measure-h">
+    <div class="side">
+      <h2 class="sect-title" id="measure-h"><span class="sn">&sect;&nbsp;01</span>Measure</h2>
+      <p class="sect-note">Benchmarks and evaluation protocols.</p>
+    </div>
+    <div class="main">
+      <p class="question">Does a score mean what it appears to mean, and would we notice if it didn&rsquo;t?</p>
+      <p class="claim">The working answer is to build benchmarks that can be <strong>audited rather than trusted</strong>: per-problem provenance, verifier-checkable answers, and an explicit limit on what a score supports. The limit is part of the artefact — if it has to be narrowed during review, the narrowing is published with it.</p>
+
+      <article class="entry row">
+        <div class="side"><p class="vn"><b>NeurIPS 2026</b><span>Eval &amp; Datasets · poster</span><span>First of 7 authors</span></p></div>
+        <div class="main">
+          <h3><a href="https://lixin.ai/WirelessMathBench-XL/">WirelessMathBench-XL</a></h3>
+          <p class="result">4,027 problems drawn from 836 arXiv papers across 20 wireless subfields; every problem ships 13-gram contamination-overlap evidence against public pretraining text. Frontier models cluster at 86.5&ndash;91.3%.</p>
+          <p class="caution"><b>Narrowed during review</b>The contamination evidence is a rerunnable audit producing per-problem evidence for one lexical channel. It is not proof that the benchmark is clean.</p>
+          <p class="links"><a href="https://lixin.ai/WirelessMathBench-XL/">Project page</a> <span class="sep">·</span> <a href="https://arxiv.org/abs/2509.23219">arXiv</a></p>
+        </div>
+      </article>
+
+      <article class="entry row">
+        <div class="side"><p class="vn"><b>ICLR 2026</b><span>Joint first of 5 authors</span></p></div>
+        <div class="main">
+          <h3><a href="https://dafnycomp.github.io/">DafnyComp</a> <span class="alias">— Local Success Does Not Compose</span></h3>
+          <p class="result">A model can verify a function on its own and still fail once the specifications have to compose. The benchmark measures the distance between those two results.</p>
+          <p class="links"><a href="https://dafnycomp.github.io/">Project page</a> <span class="sep">·</span> <a href="https://openreview.net/forum?id=y4kAMUBqLq">OpenReview</a> <span class="sep">·</span> <a href="https://arxiv.org/abs/2509.23061">arXiv</a></p>
+        </div>
+      </article>
+
+      <article class="entry row">
+        <div class="side"><p class="vn"><b>Findings of ACL 2025</b><span>First of 6 authors</span></p></div>
+        <div class="main">
+          <h3><a href="https://lixin.ai/WirelessMathBench/">WirelessMathBench</a></h3>
+          <p class="result">The first benchmark for LLM mathematical reasoning in wireless communications, and the work WirelessMathBench-XL extends.</p>
+          <p class="links"><a href="https://lixin.ai/WirelessMathBench/">Project page</a> <span class="sep">·</span> <a href="https://arxiv.org/abs/2505.14354">arXiv</a></p>
+        </div>
+      </article>
+
+      <article class="entry row">
+        <div class="side"><p class="vn"><b>Findings of ACL 2026</b><span>Eighth of 13 authors</span></p></div>
+        <div class="main">
+          <h3><a href="https://aclanthology.org/2026.findings-acl.1143/">LiveCANNBench</a></h3>
+          <p class="result">400+ SWE-level task instances from real Ascend CANN repositories — multi-file, multi-language and execution-aware, on a live benchmarking paradigm that mitigates leakage.</p>
+          <p class="links"><a href="https://aclanthology.org/2026.findings-acl.1143/">ACL Anthology</a> <span class="sep">·</span> <a href="https://livecannbench.github.io/">Project page</a></p>
+        </div>
+      </article>
+
+      <article class="entry row">
+        <div class="side"><p class="vn"><b>TMLR 2026</b><span>Second of 7 authors</span></p></div>
+        <div class="main">
+          <h3><a href="https://robustmad.github.io/">RobustMAD</a></h3>
+          <p class="result">Real-world robustness of multimodal small language models, evaluated as deployable anomaly-detection assistants rather than as leaderboard entries.</p>
+          <p class="links"><a href="https://robustmad.github.io/">Project page</a> <span class="sep">·</span> <a href="https://openreview.net/forum?id=skrA9UYNIZ">OpenReview</a> <span class="sep">·</span> <a href="https://github.com/en-research/RobustMAD">Code</a></p>
+        </div>
+      </article>
+
+      <p class="runon" style="margin-top:1.4rem"><b>In progress, no venue yet:</b> <a href="https://WritingPreferenceBench.github.io/">WritingPreferenceBench</a>.</p>
+    </div>
+  </section>
+
+  <!-- ---------------- TRAIN ---------------- -->
+  <section class="wrap band row" aria-labelledby="train-h">
+    <div class="side">
+      <h2 class="sect-title" id="train-h"><span class="sn">&sect;&nbsp;02</span>Train</h2>
+      <p class="sect-note">RL, on-policy distillation, verifier-guided selection.</p>
+    </div>
+    <div class="main">
+      <p class="question">Can we reward the reasoning we are able to check, rather than the answer we hope for?</p>
+      <p class="claim">Once a domain is checkable, the checker becomes a training signal — and then the question is how much to trust that signal, from which teacher, for which prompt.</p>
+
+      <article class="entry row">
+        <div class="side"><p class="vn"><b>arXiv preprint 2026</b><span>First of 9 authors</span></p></div>
+        <div class="main">
+          <h3><a href="https://lixin.ai/DN-MOPD/">DN-MOPD</a> <span class="alias">— Beyond Teacher Assignment</span></h3>
+          <p class="result">Label routing decides which teacher supervises a prompt but not how strongly that teacher&rsquo;s feedback counts. Normalising the feedback scale per domain adds <strong>1.2&ndash;3.1 points</strong> over label routing, across 2B, 4B and 9B students.</p>
+          <p class="links"><a href="https://lixin.ai/DN-MOPD/">Project page</a> <span class="sep">·</span> <a href="https://arxiv.org/abs/2609.35347">arXiv</a> <span class="sep">·</span> <a href="https://github.com/LiXin97/DN-MOPD">Code</a> <span class="sep">·</span> <a href="https://huggingface.co/datasets/XINLI1997/DN-MOPD-Data">Data</a> <span class="sep">·</span> <a href="https://huggingface.co/collections/XINLI1997/dn-mopd-6aba5f0df7bd8732d7205ed4">Models</a></p>
+          <figure>
+            <img src="/data/figs/dn-mopd.webp" width="1500" height="546" loading="lazy" alt="Three-panel diagram from the DN-MOPD paper: teacher-student feedback arriving at different scales per domain; a domain-normalisation step that rescales each domain's feedback before it reaches a shared student; and a bar chart of average gains over label routing for 2B, 4B and 9B students.">
+            <figcaption>Same routing, different scales. Normalising per domain adds 1.2&ndash;3.1 points over label routing, across 2B, 4B and 9B students.</figcaption>
+          </figure>
+        </div>
+      </article>
+
+      <article class="entry row">
+        <div class="side"><p class="vn"><b>Findings of EMNLP 2026</b><span>First of 3 authors</span></p></div>
+        <div class="main">
+          <h3><a href="https://github.com/LiXin97/TLVC">TLVC</a> <span class="alias">— Target-Local Verifier Choice</span></h3>
+          <p class="result">On a 34-generator, 7-verifier Best-of-K math panel, one strong process reward model is the best <em>fixed</em> verifier overall — and still not the best verifier for every generator. Label-free candidate statistics predict which verifier class wins.</p>
+          <p class="links"><a href="https://github.com/LiXin97/TLVC">Code</a> <span class="sep">·</span> <span class="none">no preprint yet</span></p>
+        </div>
+      </article>
+
+      <article class="entry row">
+        <div class="side"><p class="vn"><b>TMLR 2026</b><span>Joint first author</span></p></div>
+        <div class="main">
+          <h3><a href="https://openreview.net/forum?id=cAQmIS4GOe">Re:Form</a></h3>
+          <p class="result">Reducing human priors in scalable formal software verification with RL in LLMs — a preliminary study on Dafny.</p>
+          <p class="links"><a href="https://openreview.net/forum?id=cAQmIS4GOe">OpenReview</a> <span class="sep">·</span> <a href="https://arxiv.org/abs/2507.16331">arXiv</a> <span class="sep">·</span> <a href="https://github.com/Veri-Code/ReForm">Code</a></p>
+        </div>
+      </article>
+
+      <p class="runon" style="margin-top:1.4rem"><b>In progress, no venue yet:</b> <a href="https://lixin.ai/WirelessMathLM/">WirelessMathLM</a>, <a href="https://lixin.ai/ListOPD/">ListOPD</a>.</p>
+    </div>
+  </section>
+
+  <!-- ---------------- COMPOSE ---------------- -->
+  <section class="wrap band row" aria-labelledby="compose-h">
+    <div class="side">
+      <h2 class="sect-title" id="compose-h"><span class="sn">&sect;&nbsp;03</span>Compose</h2>
+      <p class="sect-note">Protocols, memory, and measurement for many-model systems.</p>
+    </div>
+    <div class="main">
+      <p class="question">When several models work together, does the interaction help, or quietly destroy answers that were already right?</p>
+      <p class="claim">Composition is usually measured by final accuracy, which hides the trade: the same mechanism that rescues wrong answers also talks correct ones out of being correct. Counting both directions is the whole point.</p>
+
+      <article class="entry row">
+        <div class="side"><p class="vn"><b>NeurIPS 2026</b><span>Eval &amp; Datasets · poster</span><span>Joint first of 3 authors</span></p></div>
+        <div class="main">
+          <h3><a href="https://lixin.ai/DebateLedger/">DebateLedger</a> <span class="alias">— Measuring Collapse and Correction in Homogeneous-Panel LLM Debate</span></h3>
+          <p class="result">Across 6,925 logged MMLU-Pro debates, <strong>253 collapses</strong>: a correct majority turned wrong. A probe-gated freeze prevents 29 collapses but gives up 108 corrections — net <strong>&minus;79</strong> under equal weights. 58.9% of collapses begin in the first debate round.</p>
+          <p class="links"><a href="https://lixin.ai/DebateLedger/">Project page</a></p>
+          <figure>
+            <img src="/data/figs/debateledger.webp" width="1500" height="543" loading="lazy" alt="Three-panel diagram from DebateLedger: debate turning a correct majority wrong (a collapse) or a wrong majority right (a correction); a pre-debate probe screen and a round-by-round trace of each debate; and a balance weighing prevented collapses against lost corrections, with the net below zero.">
+            <figcaption>Collapse and correction are the same mechanism seen from two sides. Preventing 29 collapses costs 108 corrections: net &minus;79 under equal weights.</figcaption>
+          </figure>
+        </div>
+      </article>
+
+      <article class="entry row">
+        <div class="side"><p class="vn"><b>AI4NextG @ NeurIPS 2025</b><span>Workshop · first of 3 authors</span></p></div>
+        <div class="main">
+          <h3><a href="https://lixin.ai/LACP/">LACP</a> <span class="alias">— LLM Agent Communication Protocol Requires Urgent Standardization</span></h3>
+          <p class="result">The position paper this thread starts from: agent-to-agent communication needs standardisation, and the protocol layer is where that argument is made.</p>
+          <p class="links"><a href="https://lixin.ai/LACP/">Project page</a> <span class="sep">·</span> <a href="https://arxiv.org/abs/2510.13821">arXiv</a></p>
+        </div>
+      </article>
+
+      <p class="loop-return" style="margin-top:2rem"><span class="mono">The return leg &nbsp;·&nbsp;</span> Composition creates new failure modes, which have to be measured too. DebateLedger is a §03 result that only exists because §01 was willing to count the losses as well as the wins — and it sends the next benchmark back to §01.</p>
+    </div>
+  </section>
+
+  <!-- ---------------- BEFORE ---------------- -->
+  <section class="wrap band row" id="before" aria-labelledby="before-h">
+    <div class="side">
+      <h2 class="sect-title" id="before-h"><span class="sn">&sect;&nbsp;04</span>Before</h2>
+      <p class="sect-note">The wireless and robotics years, 2018&ndash;2025.</p>
+    </div>
+    <div class="main">
+      <p class="claim">The habit of working only where an answer can be checked did not come from language models. It came from years of systems that fail loudly: a robot that mislocalises walks into a wall, and a radio map that is wrong is wrong at a measurable number of decibels. That is the standard the LLM work is trying to hold onto.</p>
+
+      <article class="entry row">
+        <div class="side"><p class="vn"><b>IEEE Trans. Signal Processing, 2026</b><span>Second of 4 authors</span></p></div>
+        <div class="main">
+          <h3><a href="https://onboradsim.github.io/">Stacked Intelligent Metasurface D<sup>2</sup>NNs for onboard terrain classification</a></h3>
+          <p class="result">Roughly 90% accuracy classifying terrain directly from Level-0 raw SAR, with a stacked metasurface performing the inference in-wave — before digitisation or downlink. Extended from a workshop paper at ML4RS @ ICLR 2025.</p>
+          <p class="links"><a href="https://onboradsim.github.io/">Project page</a></p>
+        </div>
+      </article>
+
+      <article class="entry row">
+        <div class="side"><p class="vn"><b>ICASSP 2025</b><span>First of 5 authors</span></p></div>
+        <div class="main">
+          <h3><a href="https://lixin.ai/TransPathNet/">TransPathNet</a> <span class="alias">— indoor radio map prediction</span></h3>
+          <p class="result">A two-stage framework for indoor pathloss prediction; placed 4th in the Indoor Pathloss Prediction Challenge at 9.73 dB RMSE.</p>
+          <p class="links"><a href="https://lixin.ai/TransPathNet/">Project page</a> <span class="sep">·</span> <a href="https://arxiv.org/abs/2501.16023">arXiv</a> <span class="sep">·</span> <a href="https://github.com/LiXin97/TransPathNet">Code</a></p>
+        </div>
+      </article>
+
+      <article class="entry row">
+        <div class="side"><p class="vn"><b>IEEE RA-L 2020 · IROS 2020</b><span>Joint first author on both</span></p></div>
+        <div class="main">
+          <h3>Planar structure for visual-inertial odometry</h3>
+          <p class="result">Two papers on using co-planar and point-line regularities as constraints in stereo-SLAM and visual-inertial odometry — geometry as a verifier, before verifiers were the point.</p>
+          <p class="links"><a href="https://arxiv.org/abs/2009.12662">RA-L paper</a> <span class="sep">·</span> <a href="https://arxiv.org/abs/2004.11969">IROS paper</a> <span class="sep">·</span> <a href="https://github.com/LiXin97/Co-Planar-Parametrization-VIO">Code</a></p>
+        </div>
+      </article>
+
+      <p class="runon" style="margin-top:1.5rem"><b>And in industry:</b> at Gausium Robotics (2022&ndash;2024) I led five engineers building hierarchical multimodal localisation — vision, LiDAR and Wi-Fi — reaching 95% localisation accuracy across 100,000+ m² of complex environments, deployed on a fleet of 1,000+ active cleaning robots. Earlier: multi-sensor RGB-D and IMU fusion at Microsoft Research Asia, and real-time monocular VIO at MEGVII. <a href="about.html#experience">The full record of that →</a></p>
+    </div>
+  </section>
+
+  <div class="wrap">
+    <p class="pager" style="border-top-color:var(--ink)">
+      <a href="papers.html">Every paper, listed with full author lists →</a>
+      <a href="about.html">Positions, awards, service →</a>
+    </p>
+  </div>
+
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="colophon">
+      <p>Singapore<br>
+      Set in Newsreader &amp; IBM&nbsp;Plex&nbsp;Mono<br>
+      Static HTML · no analytics</p>
+    </div>
+    <div>
+      <p class="big"><a class="mailto" href="mailto:xin019@e.ntu.edu.sg">xin019@e.ntu.edu.sg</a></p>
+      <p class="handles" style="margin-top:.2rem">
+        <a href="/data/Xin_Li_CV_2026.pdf">CV (PDF)</a>
+        <a href="https://scholar.google.com/citations?user=Hxf8sNkAAAAJ">Google Scholar</a>
+        <a href="https://github.com/LiXin97">GitHub</a>
+        <a href="https://www.linkedin.com/in/xin-li-1196331a0/">LinkedIn</a>
+      </p>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Xin Li — Measure, Train, Compose</title>
+<meta name="description" content="Xin Li, Ph.D. student at NTU Singapore. One loop in three legs: benchmarks built to be audited, training that rewards checkable reasoning, and multi-model systems whose interaction has to be measured again.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..700;1,6..72,200..700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="site.css">
+<link rel="icon" href="/data/avatar-280.webp">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="masthead">
+  <div class="wrap masthead-in">
+    <a class="brand" href="index.html">Xin Li <span class="han">李鑫</span></a>
+    <nav class="loopnav" aria-label="Sections">
+      <ol>
+        <li><a href="index.html" aria-current="page">The loop</a></li>
+        <li class="apart"><a href="measure.html">Measure</a></li>
+        <li><a href="train.html">Train</a></li>
+        <li><a href="compose.html">Compose</a></li>
+        <li class="apart"><a href="record.html">Record</a></li>
+      </ol>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+<div class="wrap">
+
+  <div class="hero">
+    <h1>Xin Li <span class="han">李鑫</span></h1>
+    <p class="standfirst">Ph.D. student, Nanyang Technological University, Singapore · 2025&ndash;2029 · advised by <a href="https://blogs.ntu.edu.sg/chau-yuen/">Prof. Chau Yuen</a></p>
+
+    <p class="lede">Three verbs, not three folders. I <b>measure</b> whether a score means what it appears to mean, <b>train</b> against reasoning that can actually be checked, and <b>compose</b> models into systems whose interaction then has to be measured all over again. The third verb feeds the first. That return is the shape of the work &mdash; which is why this site argues it instead of listing it.</p>
+
+    <div class="portrait-row">
+      <img class="portrait" src="/data/avatar-280.webp" width="280" height="280" alt="Portrait of Xin Li, facing the camera.">
+      <p class="portrait-note">LLM evaluation, post&#8209;training and multi&#8209;model systems.<br>
+      Earlier: robot perception and wireless systems &mdash; localization that shipped on a fleet of 1,000+ cleaning robots.<br>
+      <a href="record.html">The full record &rarr;</a></p>
+    </div>
+  </div>
+
+  <section id="loop" aria-labelledby="loop-h">
+    <div class="grid">
+      <p class="rail"><span class="n">00</span>The diagram</p>
+      <div class="prose">
+        <h2 id="loop-h">One loop, three legs</h2>
+        <p>Most of this work gets filed as three separate things &mdash; evaluation, post&#8209;training, agents. Filed that way it reads as a person with three hobbies. Read as a cycle it reads as one position: <em>you are only allowed to claim what you can check, and composing systems keeps producing things nobody can check yet.</em></p>
+      </div>
+    </div>
+
+    <figure class="loopfig">
+      <svg class="loop-wide" viewBox="0 0 760 400" role="img" aria-label="A clockwise loop of three legs. Measure leads to Train, Train leads to Compose, and a return leg marked 'new failure modes' leads from Compose back to Measure. At the centre, the ground the loop stands on: formal verification, mathematics, code, wireless systems.">
+        <defs>
+          <marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="11" markerHeight="11" markerUnits="userSpaceOnUse" orient="auto">
+            <path d="M0 0.5 L10 5 L0 9.5 Z" class="arrow-ink"/>
+          </marker>
+          <marker id="ahr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="13" markerHeight="13" markerUnits="userSpaceOnUse" orient="auto">
+            <path d="M0 0.5 L10 5 L0 9.5 Z" class="arrow-accent"/>
+          </marker>
+        </defs>
+
+        <path class="edge" marker-end="url(#ah)" d="M 431.3 99.0 A 150 150 0 0 1 527.7 266.0"/>
+        <path class="edge" marker-end="url(#ah)" d="M 476.4 354.9 A 150 150 0 0 1 283.6 354.9"/>
+        <path class="edge-return" marker-end="url(#ahr)" d="M 232.3 266.0 A 150 150 0 0 1 328.7 99.0"/>
+        <text class="edge-note" x="215.5" y="150" text-anchor="end">new failure modes</text>
+
+        <circle class="node-ring" cx="380" cy="90" r="30"/>
+        <text class="node-n" x="380" y="90" dy="0.36em" text-anchor="middle">01</text>
+        <text class="node-label" x="380" y="44" text-anchor="middle">Measure</text>
+
+        <circle class="node-ring" cx="509.9" cy="315" r="30"/>
+        <text class="node-n" x="509.9" y="315" dy="0.36em" text-anchor="middle">02</text>
+        <text class="node-label" x="557.5" y="348" text-anchor="start">Train</text>
+
+        <circle class="node-ring" cx="250.1" cy="315" r="30"/>
+        <text class="node-n" x="250.1" y="315" dy="0.36em" text-anchor="middle">03</text>
+        <text class="node-label" x="202.5" y="348" text-anchor="end">Compose</text>
+
+        <text class="ground-lbl" x="380" y="196" text-anchor="middle">WHERE AN ANSWER CAN BE CHECKED</text>
+        <text class="ground-item" x="380" y="220" text-anchor="middle">formal verification</text>
+        <text class="ground-item" x="380" y="239" text-anchor="middle">mathematics</text>
+        <text class="ground-item" x="380" y="258" text-anchor="middle">code</text>
+        <text class="ground-item" x="380" y="277" text-anchor="middle">wireless systems</text>
+      </svg>
+
+      <svg class="loop-narrow" viewBox="0 0 300 400" role="img" aria-label="A loop of three legs read downwards. Measure leads to Train, Train leads to Compose, and a return leg sweeps back up from Compose to Measure.">
+        <defs>
+          <marker id="ah2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="11" markerHeight="11" markerUnits="userSpaceOnUse" orient="auto">
+            <path d="M0 0.5 L10 5 L0 9.5 Z" class="arrow-ink"/>
+          </marker>
+          <marker id="ahr2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="13" markerHeight="13" markerUnits="userSpaceOnUse" orient="auto">
+            <path d="M0 0.5 L10 5 L0 9.5 Z" class="arrow-accent"/>
+          </marker>
+        </defs>
+
+        <path class="edge" marker-end="url(#ah2)" d="M 86 84 V 152"/>
+        <path class="edge" marker-end="url(#ah2)" d="M 86 222 V 290"/>
+        <path class="edge-return" marker-end="url(#ahr2)" d="M 60 328 H 32 A 14 14 0 0 1 18 314 V 66 A 14 14 0 0 1 32 52 H 52"/>
+
+        <circle class="node-ring" cx="86" cy="52" r="26"/>
+        <text class="node-n" x="86" y="52" dy="0.36em" text-anchor="middle">01</text>
+        <text class="node-label" x="124" y="60" text-anchor="start">Measure</text>
+
+        <circle class="node-ring" cx="86" cy="190" r="26"/>
+        <text class="node-n" x="86" y="190" dy="0.36em" text-anchor="middle">02</text>
+        <text class="node-label" x="124" y="198" text-anchor="start">Train</text>
+
+        <circle class="node-ring" cx="86" cy="328" r="26"/>
+        <text class="node-n" x="86" y="328" dy="0.36em" text-anchor="middle">03</text>
+        <text class="node-label" x="124" y="336" text-anchor="start">Compose</text>
+      </svg>
+
+      <figcaption>Clockwise, and it does not stop at three. The leg running back from Compose to Measure is the one that makes this a loop rather than a list: <b>composition creates new failure modes, which have to be measured too.</b></figcaption>
+    </figure>
+  </section>
+</div>
+
+<div class="ground">
+  <div class="wrap grid">
+    <p class="rail tight">The ground</p>
+    <div>
+      <p class="claim">All three legs stand on the same ground &mdash; <b>formal verification</b>, <b>mathematics</b>, <b>code</b>, <b>wireless&nbsp;systems</b> &mdash; domains where a claim can be settled by something other than a preference.</p>
+      <p class="note">That constraint is not a limitation of the method. It <em>is</em> the method: it is what makes an audit rerunnable, a reward trustworthy, and a collapse countable.</p>
+    </div>
+  </div>
+</div>
+
+<div class="wrap">
+  <section id="legs" aria-label="The three legs">
+
+    <article class="leg">
+      <div class="grid">
+        <p class="rail"><span class="n">01</span>Benchmarks<br>Evaluation protocols</p>
+        <div class="prose">
+          <h2><a href="measure.html">Measure</a></h2>
+          <p class="q">Does a score mean what it appears to mean, and would we notice if it didn&rsquo;t?</p>
+          <p>A benchmark is an instrument, and an instrument you cannot open is a rumour. So the ones I build carry their own provenance: where each problem came from, an answer a verifier can check, and a written limit on what the number supports. The third is the expensive one. It is where you have to state what your own result does <em>not</em> prove.</p>
+          <div class="evidence">
+            <span class="src">WirelessMathBench-XL &middot; NeurIPS 2026 D&amp;B</span>
+            <p><span class="num">4,027</span> problems drawn from <span class="num">836</span> arXiv papers across <span class="num">20</span> wireless subfields, each one shipping 13&#8209;gram contamination&#8209;overlap evidence against public pretraining text. Frontier models cluster at <span class="num">86.5&ndash;91.3%</span>.</p>
+          </div>
+          <a class="more" href="measure.html">Read the Measure leg</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="leg">
+      <div class="grid">
+        <p class="rail"><span class="n">02</span>Reinforcement learning<br>On&#8209;policy distillation<br>Verifier&#8209;guided selection</p>
+        <div class="prose">
+          <h2><a href="train.html">Train</a></h2>
+          <p class="q">Can we reward the reasoning we are able to check, rather than the answer we hope for?</p>
+          <p>Reward the final answer and you are training a model to guess well. Reward only what a verifier confirms and the work moves to where checking is cheap: proofs, mathematics, code. Two things then turn out to matter more than expected &mdash; how strongly a teacher&rsquo;s feedback is allowed to count, and which verifier you trusted to pick the winning candidate.</p>
+          <div class="evidence">
+            <span class="src">DN&#8209;MOPD &middot; arXiv 2026</span>
+            <p>Label routing decides <em>which</em> teacher supervises a prompt, but not <em>how strongly</em> that teacher&rsquo;s feedback counts. Normalising the feedback scale per domain adds <span class="num">1.2&ndash;3.1 points</span> over label routing, across 2B, 4B and 9B students.</p>
+          </div>
+          <a class="more" href="train.html">Read the Train leg</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="leg">
+      <div class="grid">
+        <p class="rail"><span class="n">03</span>Protocols<br>Memory<br>Measurement</p>
+        <div class="prose">
+          <h2><a href="compose.html">Compose</a></h2>
+          <p class="q">When several models work together, does the interaction help, or quietly destroy answers that were already right?</p>
+          <p>Put several models in a room and the interaction becomes a variable nobody measured. It can repair a wrong answer. It can also take a correct majority and talk it out of being right. Protocols, memory and logging are what make the difference observable at all &mdash; and the moment it is observable, this leg hands the problem back to the first one.</p>
+          <div class="evidence">
+            <span class="src">DebateLedger &middot; NeurIPS 2026 D&amp;B</span>
+            <p>Across <span class="num">6,925</span> logged MMLU&#8209;Pro debates: <span class="num">253</span> collapses, where a correct majority turned wrong. A probe&#8209;gated freeze prevents <span class="num">29</span> of them and gives up <span class="num">108</span> corrections &mdash; net <span class="num neg">&minus;79</span> under equal weights.</p>
+          </div>
+          <a class="more" href="compose.html">Read the Compose leg</a>
+        </div>
+      </div>
+    </article>
+  </section>
+
+  <section id="return">
+    <div class="grid">
+      <p class="rail"><span class="n">&crarr;</span>The return leg</p>
+      <div class="prose ruled-accent">
+        <h2>Why it closes</h2>
+        <p>Composition does not only add capability. It adds failure modes &mdash; and a failure mode nobody has an instrument for is indistinguishable from good news. So whatever the third leg produces becomes the next thing the first leg has to be able to see.</p>
+        <p>Two results sit exactly on that seam. <a href="measure.html#dafnycomp">DafnyComp</a> asks a model to verify a function on its own, then asks it to make the specifications compose, and measures the distance between those two results; the title is the finding, <em>local success does not compose</em>. <a href="compose.html#debateledger">DebateLedger</a> logs 6,925 debates and finds that <span class="num">58.9%</span> of collapses begin in the very first round &mdash; which is only a fact about debate because somebody kept the ledger.</p>
+        <p>Neither number existed before the instrument did. That is the argument this whole site is making, and it is why there are three pages instead of one list.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="before">
+    <div class="grid">
+      <p class="rail">Before the loop<br>2019&ndash;2024</p>
+      <div class="prose ruled">
+        <h2>The systems years</h2>
+        <p>The earlier record is robot perception and wireless systems: visual&#8209;inertial odometry, planar regularities in SLAM, indoor radio&#8209;map prediction, and terrain classification performed in&#8209;wave by a stacked metasurface before the signal is ever digitised. At Gausium Robotics I led five engineers on hierarchical vision / LiDAR / Wi&#8209;Fi localization &mdash; <span class="num">95%</span> accuracy across <span class="num">100,000+ m&sup2;</span>, running on a fleet of <span class="num">1,000+</span> active robots.</p>
+        <p>It is not in the loop and it is not hidden either. It is the reason the loop insists on checkable domains in the first place: a localization stack that is 95% right is a thing the floor will argue with you about.</p>
+        <a class="more" href="record.html">The full record, in order</a>
+      </div>
+    </div>
+  </section>
+</div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="footcols">
+      <div>
+        <h2>Contact</h2>
+        <ul>
+          <li><a href="mailto:xin019@e.ntu.edu.sg">xin019@e.ntu.edu.sg</a></li>
+          <li><a href="/data/Xin_Li_CV_2026.pdf">CV (PDF)</a></li>
+        </ul>
+        <p class="tight" style="margin-top:.8rem">Open to research internships and roles at frontier AI labs.</p>
+      </div>
+      <div>
+        <h2>Elsewhere</h2>
+        <ul>
+          <li><a href="https://scholar.google.com/citations?user=Hxf8sNkAAAAJ">Google Scholar</a></li>
+          <li><a href="https://github.com/LiXin97">GitHub</a></li>
+          <li><a href="https://www.linkedin.com/in/xin-li-1196331a0/">LinkedIn</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>Compute, won directly</h2>
+        <ul>
+          <li>Google Gemini Academic Program &mdash; $10,000, 2026</li>
+          <li>Modal Academics &mdash; $2,000, 2025</li>
+          <li>Cohere Labs Catalyst &mdash; $1,500, 2025</li>
+          <li>OpenAI Researcher Access &mdash; $1,000, 2025</li>
+        </ul>
+      </div>
+    </div>
+    <p class="colophon">Set in Newsreader and IBM Plex Mono. Prose argues; monospace keeps the record. Every quantity on this site comes from the work it names, and where a claim had to be narrowed in review, the narrowing is printed on the page beside it.</p>
+  </div>
+</footer>
+
+<script>
+/* The only motion on this site: the return leg draws itself once, on load.
+   Without JS the arc is already solid; with reduced motion we leave it alone;
+   and the transition ends on an inline offset of 0, so an interrupted run
+   still leaves the loop closed. */
+(function () {
+  if (!window.matchMedia || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  var paths = document.querySelectorAll('.loopfig .edge-return');
+  for (var i = 0; i < paths.length; i++) {
+    var p = paths[i];
+    if (!p.getTotalLength) return;
+    var L = Math.ceil(p.getTotalLength());
+    p.style.strokeDasharray = L;
+    p.style.strokeDashoffset = L;
+    p.getBoundingClientRect();
+    p.style.transition = 'stroke-dashoffset 1.3s cubic-bezier(.4,0,.2,1) .25s';
+    p.style.strokeDashoffset = '0';
+  }
+})();
+</script>
+
+</body>
+</html>
