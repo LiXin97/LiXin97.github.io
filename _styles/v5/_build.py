@@ -181,12 +181,23 @@ GROUND = ["formal verification", "mathematics", "code"]
 GROUND_K = "So far, mostly where an answer can be checked:"
 GROUND_NOW = "Now, self-improvement where it can't."
 
-RECENT = [
-  ("Sep 2026", "WirelessMathBench-XL and DebateLedger accepted to NeurIPS 2026, Evaluations and Datasets Track."),
-  ("Sep 2026", "SIM-D²NN accepted to IEEE Transactions on Signal Processing."),
-  ("Aug 2026", "TLVC (Findings) and GraphReduce (Industry Track) accepted to EMNLP 2026."),
-  ("Jun 2026", "RobustMAD accepted to TMLR, after Re:Form in May."),
-  ("Jan 2026", "DafnyComp accepted to ICLR 2026. Google Gemini Academic Program Award."),
+# Every news item, newest first. Home shows the first five; news.html shows them all.
+NEWS = [
+  ("Sep 2026", 'Our paper <a href="https://onboradsim.github.io/">SIM-D<sup>2</sup>NN</a> (on onboard terrain classification straight from raw SAR data, using a stacked metasurface as the classifier) was accepted to IEEE Transactions on Signal Processing.'),
+  ("Sep 2026", 'Two of our papers were accepted to the NeurIPS 2026 Evaluations and Datasets Track: <a href="https://lixin.ai/WirelessMathBench-XL/">WirelessMathBench-XL</a>, a wireless-math benchmark shipped with a rerunnable contamination audit, and <a href="https://lixin.ai/DebateLedger/">DebateLedger</a>, a protocol separating harmful collapse from useful correction in multi-agent LLM debate.'),
+  ("Aug 2026", 'Two of our papers were accepted to EMNLP 2026: <a href="https://lixin.ai/TLVC/">TLVC</a>, on picking the right verifier for best-of-K reasoning selection (Findings), and <a href="https://graphreduce.github.io/">GraphReduce</a>, on coverage-preserving LLM aggregation of e-commerce reviews (Industry Track).'),
+  ("Jun 2026", 'Our paper <a href="https://robustmad.github.io/">RobustMAD</a> (a robustness benchmark for multimodal small language models in anomaly detection) was accepted to TMLR.'),
+  ("May 2026", 'Our paper <a href="https://arxiv.org/pdf/2507.16331">Re:Form</a> (on cutting human priors from RL-trained formal software verification) was accepted to TMLR.'),
+  ("Apr 2026", 'Our paper <a href="https://livecannbench.github.io/">LiveCANNBench</a> (a benchmark for AI coding on Ascend CANN) was accepted to Findings of ACL 2026.'),
+  ("Jan 2026", 'Received a Google Gemini Academic Program Award (US$10,000).'),
+  ("Jan 2026", 'Our paper <a href="https://dafnycomp.github.io/">DafnyComp</a> (on benchmarking LLMs for compositional formal verification) was accepted to ICLR 2026.'),
+  ("Dec 2025", 'Received the Rohde &amp; Schwarz Award at the IEEE 6G Summit Singapore.'),
+  ("Sep 2025", 'Our paper <a href="https://lixin.ai/LACP/">LACP</a> (a communication protocol for LLM agents) was accepted to <a href="https://ai4nextg.github.io/">AI4NextG @ NeurIPS 2025</a>.'),
+  ("May 2025", 'Our paper <a href="https://lixin.ai/WirelessMathBench/">WirelessMathBench</a> (a benchmark for mathematical reasoning in wireless communications) was accepted to Findings of ACL 2025.'),
+  ("May 2025", 'Our workshop on <a href="https://4drobotics-iros2025.github.io/">Advancements for Intelligent Robotics in 4D Scenes</a> at IROS 2025 was accepted.'),
+  ("Mar 2025", 'Our paper <a href="https://onboradsim.github.io/">SIM-D<sup>2</sup>NN</a> (on onboard terrain classification for remote sensing) was accepted to the <a href="https://ml-for-rs.github.io/iclr2025/">ML4RS @ ICLR 2025</a>.'),
+  ("Jan 2025", 'Our paper <a href="https://lixin.ai/TransPathNet/">TransPathNet</a> (on indoor pathloss prediction) was accepted to ICASSP 2025, ranked 4th in the Indoor Pathloss Challenge.'),
+  ("Jan 2025", 'Started my Ph.D. at NTU, supported by the NTU Research Scholarship.'),
 ]
 
 FONTS = ("https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400"
@@ -195,7 +206,7 @@ FONTS = ("https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6
 CJK = "https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@500&family=Noto+Sans+SC:wght@500&display=swap&text=%E6%9D%8E%E9%91%AB"
 
 NAV = [("measure", "Measure", "measure.html"), ("train", "Train", "train.html"), ("coordinate", "Coordinate", "coordinate.html"),
-       None, ("pubs", "Publications", "publications.html"), ("about", "About", "about.html")]
+       None, ("pubs", "Publications", "publications.html"), ("news", "News", "news.html"), ("about", "About", "about.html")]
 
 
 # ---------------------------------------------------------------- helpers
@@ -424,7 +435,7 @@ def tail_sections(also_list=True):
     also = "".join(f"""
         <li><a class="also__name" href="{e(BY[i]['links'][0][1])}">{e(BY[i]['short'])}</a><span class="also__t">{e(subtitle(BY[i]))}</span><span class="also__v">{e(vshort(BY[i]))}</span></li>"""
                    for i in also_ids)
-    recent = "".join(f'<li><time>{e(d)}</time><span>{e(t)}</span></li>' for d, t in RECENT)
+    recent = news_items(NEWS[:5])
     also_sec = f"""
   <section class="also wrap" aria-labelledby="also-h">
     <h2 id="also-h" class="label"><span>Also in 2026</span><a class="label__aside" href="publications.html">All publications →</a></h2>
@@ -433,7 +444,7 @@ def tail_sections(also_list=True):
   </section>""" if also_list else ""
     return also_sec + f"""
   <section class="recent wrap" aria-labelledby="recent-h">
-    <h2 id="recent-h" class="label"><span>Recent</span></h2>
+    <h2 id="recent-h" class="label"><span>Recent</span><a class="label__aside" href="news.html">All news →</a></h2>
     <ol class="recent__list">{recent}</ol>
   </section>
   <section class="coda wrap">
@@ -487,7 +498,7 @@ def build_index():
     also = "".join(f"""
         <li><a class="also__name" href="{e(BY[i]['links'][0][1])}">{e(BY[i]['short'])}</a><span class="also__t">{e(subtitle(BY[i]))}</span><span class="also__v">{e(vshort(BY[i]))}</span></li>"""
                    for i in also_ids)
-    recent = "".join(f'<li><time>{e(d)}</time><span>{e(t)}</span></li>' for d, t in RECENT)
+    recent = news_items(NEWS[:5])
     body = f"""
   <header class="hero wrap">
     <div class="hero__text">
@@ -511,7 +522,7 @@ def build_index():
   </section>
 
   <section class="recent wrap" aria-labelledby="recent-h">
-    <h2 id="recent-h" class="label"><span>Recent</span></h2>
+    <h2 id="recent-h" class="label"><span>Recent</span><a class="label__aside" href="news.html">All news →</a></h2>
     <ol class="recent__list">{recent}</ol>
   </section>
 
@@ -622,6 +633,27 @@ def build_pubs():
     <p class="pubs-note">Also: <i>Onboard Terrain Classification via SIM-DNN</i>, ML4RS workshop @ ICLR 2025 — extended into the IEEE TSP paper above.</p>
   </div>"""
     return page("pubs", "Publications — Xin Li", body, "Complete publication record of Xin Li.")
+
+
+# ---------------------------------------------------------------- news
+def news_items(items, month_only=False):
+    return "".join(f'<li><time>{e(d.split()[0] if month_only else d)}</time><span>{t}</span></li>' for d, t in items)
+
+
+def build_news():
+    years = sorted({d.split()[1] for d, _ in NEWS}, reverse=True)
+    groups = "".join(
+        f'<section class="year"><h2 class="year__h">{y}</h2>'
+        f'<ol class="recent__list news-list">{news_items([n for n in NEWS if n[0].endswith(y)], month_only=True)}</ol></section>'
+        for y in years)
+    body = f"""
+  <header class="plain-head wrap">
+    <h1 class="plain-h1">News</h1>
+    <p class="plain-sub">Since starting the Ph.D. in January 2025. Papers in full are on the <a href="publications.html">publications</a> page.</p>
+  </header>
+  <div class="wrap pubs-wrap">{groups}
+  </div>"""
+    return page("news", "News — Xin Li", body, "News from Xin Li: paper acceptances, awards and other updates since 2025.")
 
 
 # ---------------------------------------------------------------- about
@@ -818,7 +850,7 @@ def build_scroll():
 
 
 # ---------------------------------------------------------------- write
-pages = {"index.html": build_index(), "publications.html": build_pubs(), "about.html": build_about(),
+pages = {"index.html": build_index(), "publications.html": build_pubs(), "news.html": build_news(), "about.html": build_about(),
          "ring.html": build_ring(), "track.html": build_track(), "scroll.html": build_scroll()}
 for t in THREADS:
     pages[f"{t['id']}.html"] = build_thread(t)
