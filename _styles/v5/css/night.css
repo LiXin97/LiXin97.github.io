@@ -50,7 +50,7 @@ html[data-theme="night"] .card__fig.is-neg b { text-shadow: 0 0 22px rgba(255, 1
 html[data-theme="night"] .card { transition: border-color .2s, transform .2s; }
 html[data-theme="night"] .card:hover { border-color: rgba(242, 181, 68, .35); transform: translateY(-2px); }
 html[data-theme="night"] .scope { background: rgba(242, 181, 68, .05); border-left-color: rgba(242, 181, 68, .6); border-radius: 0 6px 6px 0; padding-right: 12px; }
-html[data-theme="night"] .loop__ground span:not(.loop__ground-k) { border: 1px solid #262D3A; background: #11151D; }
+html[data-theme="night"] .loop__ground span:not(.loop__ground-k):not(.loop__ground-now) { border: 1px solid #262D3A; background: #11151D; }
 html[data-theme="night"] .filter button[aria-pressed="true"] { background: var(--accent); color: var(--on-accent); border-color: var(--accent); }
 html[data-theme="night"] .portrait { filter: saturate(.9) contrast(1.02); border: 1px solid #222937; }
 html[data-theme="night"] .preview { background: #ECEEF3; }

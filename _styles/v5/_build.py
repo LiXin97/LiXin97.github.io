@@ -152,7 +152,7 @@ THREADS = [
        works=["wmbxl", "dafnycomp", "livecann", "robustmad", "wmb"],
        also=[("WritingPreferenceBench", "https://WritingPreferenceBench.github.io/", "Project page; no venue yet.")]),
   dict(id="train", n="02", verb="Train",
-       q="Can we reward the reasoning we are able to check, rather than the answer we hope for?",
+       q="What should a model be rewarded for — especially when there is no answer key?",
        desc="Reinforcement learning, on-policy distillation and verifier-guided selection.",
        hero="dnmopd", hero_fig=("+1.2–3.1", "points from normalizing each teacher's feedback scale"),
        works=["dnmopd", "tlvc", "reform"],
@@ -169,7 +169,9 @@ THREADS = [
 TH = {t["id"]: t for t in THREADS}
 
 RETURN = "Composition creates new failure modes, which have to be measured too."
-GROUND = ["formal verification", "mathematics", "code", "wireless systems"]
+GROUND = ["formal verification", "mathematics", "code"]
+GROUND_K = "So far, mostly where an answer can be checked:"
+GROUND_NOW = "Now, self-improvement where it can't."
 
 RECENT = [
   ("Sep 2026", "WirelessMathBench-XL and DebateLedger accepted to NeurIPS 2026, Evaluations and Datasets Track."),
@@ -310,7 +312,7 @@ def loop_html(heading_level="h2"):
     <ol class="loop__list">{"".join(items)}
     </ol>
     <p class="loop__return"><span class="loop__return-mark" aria-hidden="true">↺</span><span><b>Back to 01.</b> {e(RETURN)}</span></p>
-    <p class="loop__ground"><span class="loop__ground-k">All on ground where an answer can be checked</span>{ground}</p>
+    <p class="loop__ground"><span class="loop__ground-k">{e(GROUND_K)}</span>{ground}<span class="loop__ground-now">{e(GROUND_NOW)}</span></p>
   </section>"""
 
 
@@ -345,7 +347,7 @@ def build_index():
     <div class="hero__text">
       <p class="kicker">Ph.D. student · Nanyang Technological University · advised by <a href="https://blogs.ntu.edu.sg/chau-yuen/">Prof. Chau Yuen</a></p>
       <h1 class="name">Xin Li<span class="name__cjk" lang="zh-Hans">李鑫</span></h1>
-      <p class="lede">I work on making large language models reason reliably — mostly in domains where an answer can be checked.</p>
+      <p class="lede">I work on LLM agents — measuring what they can do, training them, and finding out what happens when several work together. Lately, on agents that improve themselves.</p>
     </div>
     <img class="hero__photo" src="/data/avatar-560.webp" width="560" height="560" alt="Portrait of Xin Li" fetchpriority="high">
   </header>
@@ -381,7 +383,7 @@ def build_index():
     </div>
   </section>"""
     return page("home", "Xin Li — Measure, Train, Compose",
-                body, "Xin Li, Ph.D. student at NTU Singapore. LLM evaluation, post-training and multi-model systems.")
+                body, "Xin Li, Ph.D. student at NTU Singapore, working on LLM agents: measuring, training and composing them, and agents that improve themselves.")
 
 
 # ---------------------------------------------------------------- thread pages
@@ -522,10 +524,10 @@ def build_about():
     <div>
       <h1 class="plain-h1">About</h1>
       <p class="about-bio">I am a Ph.D. student at Nanyang Technological University (NTU), advised by
-        <a href="https://blogs.ntu.edu.sg/chau-yuen/">Prof. Chau Yuen</a>. I work on making large language models (LLMs)
-        reason reliably: benchmarks that measure whether they do, post-training that teaches them to, and agentic systems
-        that test whether coordination actually helps. Most of it lands in domains where an answer can be checked —
-        formal verification, mathematics, and code.</p>
+        <a href="https://blogs.ntu.edu.sg/chau-yuen/">Prof. Chau Yuen</a>. I work on LLM agents: benchmarks that measure what
+        they can do, training that improves them, and systems where several of them work together — and, lately,
+        agents that improve themselves. So far most of the work has been in domains where an answer can be checked:
+        formal verification, mathematics, and code. The current work is on self-improvement where it can't.</p>
       <p class="about-bio">Before my Ph.D. I worked on robot perception — visual-inertial odometry at MEGVII, RGB-D + IMU
         indoor mapping at Microsoft Research Asia, and multimodal localization at Gausium Robotics, where I led a
         five-engineer team and shipped to a fleet of 1,000+ commercial cleaning robots.</p>

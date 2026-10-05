@@ -29,7 +29,7 @@ html[data-theme="swiss"] {
   --arm-k: .4;
 }
 html[data-theme="swiss"] .name { line-height: .92; }
-html[data-theme="swiss"] .lede { font-weight: 500; letter-spacing: -.015em; max-width: 26ch; }
+html[data-theme="swiss"] .lede { font-weight: 500; letter-spacing: -.015em; max-width: 31ch; }
 html[data-theme="swiss"] .kicker,
 html[data-theme="swiss"] .label,
 html[data-theme="swiss"] .nav,
@@ -43,7 +43,7 @@ html[data-theme="swiss"] .card__fig b { letter-spacing: -.06em; line-height: .85
 html[data-theme="swiss"] .card__tag a { color: var(--ink); }
 html[data-theme="swiss"] .card__tag a::before { content: ""; display: inline-block; width: .7em; height: .7em; background: var(--accent-loud); margin-right: .55em; vertical-align: -.05em; }
 html[data-theme="swiss"] .scope { border-left: 0; padding: 12px 14px; background: var(--accent-soft); color: var(--ink); }
-html[data-theme="swiss"] .loop__ground span:not(.loop__ground-k) { background: #0A0A0A; color: #fff; font-weight: 600; }
+html[data-theme="swiss"] .loop__ground span:not(.loop__ground-k):not(.loop__ground-now) { background: #0A0A0A; color: #fff; font-weight: 600; }
 html[data-theme="swiss"] .thread-verb { line-height: .8; }
 html[data-theme="swiss"] .thread-n { color: var(--accent); font-weight: 800; }
 html[data-theme="swiss"] .filter button[aria-pressed="true"] { background: var(--accent-loud); border-color: var(--accent-loud); color: #0A0A0A; font-weight: 700; }
