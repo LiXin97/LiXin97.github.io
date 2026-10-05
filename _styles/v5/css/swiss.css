@@ -19,10 +19,10 @@ html[data-theme="swiss"] {
   --body-size: 1.0625rem; --lh-body: 1.55;
   --name-size: clamp(2.8rem, 6.4vw, 5rem);
   --lede-size: clamp(1.25rem, 2.3vw, 1.75rem);
-  --verb-size: clamp(3.1rem, 10.6vw, 9.6rem);
+  --verb-size: clamp(2.3rem, 10vw, 9.4rem);
   --q-size: 1.04rem; --fig-size: 2.2rem;
   --card-fig-size: clamp(3.6rem, 8vw, 6.4rem);
-  --thread-verb-size: clamp(3.6rem, 15vw, 13rem);
+  --thread-verb-size: clamp(2.8rem, 12.5vw, 10.5rem);
   --title-size: 1.18rem;
   --radius: 0; --rule-strong-w: 4px; --loop-w: 4px; --loop-r: 0;
   --card-top: 4px solid #0A0A0A; --card-pad: 18px 0 0; --cards-gap: 64px 48px;

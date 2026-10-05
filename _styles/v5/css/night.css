@@ -25,7 +25,7 @@ html[data-theme="night"] {
   --card-bg: linear-gradient(180deg, #121722 0%, #0E121A 100%);
   --card-border: 1px solid #1F2531; --card-top: 1px solid #1F2531;
   --card-radius: 16px; --card-pad: 26px 28px 30px; --cards-gap: 16px;
-  --radius: 6px; --verb-w-k: 4.3; --arm-k: .5;
+  --radius: 6px; --verb-w-k: 4.95; --arm-k: .5;
 }
 html[data-theme="night"] body {
   background-color: var(--bg);
