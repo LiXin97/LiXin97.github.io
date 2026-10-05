@@ -942,7 +942,8 @@ def build_track():
             f'<li class="panel__lead"><a href="{e(BY[w]["links"][0][1])}">{e(BY[w]["short"])}</a>'
             f'<p class="panel__blurb">{e(BY[w]["blurb"])}</p><p class="panel__venue">{e(vshort(BY[w]))}</p></li>'
             if BY[w].get("blurb") else
-            f'<li><a href="{e(BY[w]["links"][0][1])}" title="{e(BY[w]["title"])}">{e(BY[w]["short"])}</a></li>'
+            f'<li class="panel__lead panel__lead--short"><a href="{e(BY[w]["links"][0][1])}" title="{e(BY[w]["title"])}">'
+            f'{e(BY[w]["short"])}</a><p class="panel__venue">{e(vshort(BY[w]))}</p></li>'
             for w in t["works"])
         panels.append(f"""
       <article class="panel panel--{t['id']}">

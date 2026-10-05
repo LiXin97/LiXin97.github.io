@@ -545,6 +545,8 @@ html[data-theme="paper"][data-mode="dark"] {
 .panel__lead { padding-bottom: 12px; }
 .panel__lead a { padding-bottom: 4px; }
 .panel__blurb { font-family: var(--f-q); font-size: .9rem; line-height: 1.45; color: var(--muted); }
+.panel__lead--short { padding-bottom: 10px; }
+.panel__lead--short .panel__venue { margin-top: 0; }
 .panel__venue { margin-top: 6px; font-family: var(--f-mono); font-size: .66rem; letter-spacing: .06em; color: var(--accent); }
 /* forward links between panels, with a pulse that travels along them */
 .track__link { position: relative; align-self: start; margin-top: 50px; height: 0; }
