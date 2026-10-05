@@ -19,7 +19,7 @@ PROD = False      # flipped at the bottom for the production pass
 ME = "Xin Li"
 
 # ---------------------------------------------------------------- papers
-# thread: measure | train | orchestrate | wireless | robotics
+# thread: evaluate | train | orchestrate | wireless | robotics
 P = [
   dict(id="debateledger", thread="orchestrate", year=2026, lead=True,
        title="Measuring Collapse and Correction in Homogeneous-Panel LLM Debate", short="DebateLedger",
@@ -31,7 +31,7 @@ P = [
              "A probe-gated freeze prevents 29 of them and gives up 108 corrections — net −79 under equal weights. "
              "58.9% of collapses begin in the first debate round.",
        scope=None),
-  dict(id="wmbxl", thread="measure", year=2026, lead=True,
+  dict(id="wmbxl", thread="evaluate", year=2026, lead=True,
        title="WirelessMathBench-XL: An Auditable Benchmark for Wireless Mathematical Reasoning", short="WirelessMathBench-XL",
        authors="Xin Li, Mengbing Liu, Yiyang Zhu, Wenhe Zhang, Li Wei, Jiancheng An, Chau Yuen",
        venue="NeurIPS 2026", venue_long="NeurIPS 2026 · Evaluations and Datasets Track", pos="first of 7",
@@ -61,7 +61,7 @@ P = [
        claim="On a 34-generator, 7-verifier Best-of-K math panel, one strong process reward model is the best fixed verifier overall — "
              "and still not the best verifier for every generator. Label-free candidate statistics predict which verifier class wins.",
        scope=None),
-  dict(id="dafnycomp", thread="measure", year=2026, lead=True,
+  dict(id="dafnycomp", thread="evaluate", year=2026, lead=True,
        title="Local Success Does Not Compose: Benchmarking Large Language Models for Compositional Formal Verification", short="DafnyComp",
        authors="Xu Xu*, Xin Li*, Xingwei Qu, Jie Fu, Binhang Yuan",
        venue="ICLR 2026", venue_long="ICLR 2026", pos="joint first of 5",
@@ -88,7 +88,7 @@ P = [
        claim="Classifies terrain directly from Level-0 raw SAR at roughly 90% accuracy, with a stacked metasurface performing the inference "
              "in-wave, before digitisation or downlink. Extended from a workshop paper at ML4RS @ ICLR 2025.",
        scope=None),
-  dict(id="robustmad", thread="measure", year=2026, lead=False,
+  dict(id="robustmad", thread="evaluate", year=2026, lead=False,
        title="RobustMAD: Evaluating Real-World Robustness of Multimodal Small Language Models for Deployable Anomaly Detection Assistants",
        short="RobustMAD",
        authors="Anushiya Arunan, Xin Li, Yan Qin, U-Xuan Tan, Nhu Khue Vuong, Xiaoli Li, Chau Yuen",
@@ -106,7 +106,7 @@ P = [
              "the insight it supports: membership is computed outside the LLM, so coverage is 100% with no duplicates. "
              "An anti-copy reinforcement objective lifts the upstream extractor from 59.3% to 93.1% production quality.",
        scope=None),
-  dict(id="livecann", thread="measure", year=2026, lead=False,
+  dict(id="livecann", thread="evaluate", year=2026, lead=False,
        title="LiveCANNBench: Benchmark SWE AI Coding for Ascend CANN", short="LiveCANNBench",
        authors="Sijie Wang, Kai Zhao, Wee Peng Tay, Shuo Zhang, Chengwen Liu, Quanjiang Guo, Ren Junhao, Xin Li, "
                "Heng Lian, Jingdi Lei, Rui She, Huacan Wang, Ronghao Chen",
@@ -123,7 +123,7 @@ P = [
        venue="NeurIPS 2025 workshop", venue_long="AI4NextG workshop @ NeurIPS 2025", pos="first of 3",
        links=[("Project", "https://lixin.ai/LACP/"), ("arXiv", "https://arxiv.org/abs/2510.13821")],
        fig=None, claim=None, scope=None),
-  dict(id="wmb", thread="measure", year=2025, lead=True,
+  dict(id="wmb", thread="evaluate", year=2025, lead=True,
        title="WirelessMathBench: A Mathematical Modeling Benchmark for LLMs in Wireless Communications", short="WirelessMathBench",
        authors="Xin Li, Mengbing Liu, Li Wei, Jiancheng An, Mérouane Debbah, Chau Yuen",
        venue="ACL 2025", venue_long="Findings of ACL 2025", pos="first of 6",
@@ -155,9 +155,9 @@ P = [
 BY = {p["id"]: p for p in P}
 
 THREADS = [
-  dict(id="measure", n="01", verb="Measure",
-       q="Does a score mean what it appears to mean — and would we notice if it didn't?",
-       desc="Benchmarks and evaluation protocols built to be audited rather than trusted: per-problem provenance, "
+  dict(id="evaluate", n="01", verb="Evaluate",
+       q="What can a model really do, and where does it fail — and does the score mean what it appears to mean?",
+       desc="Benchmarks, robustness tests and evaluation protocols built to be audited rather than trusted: per-problem provenance, "
             "verifier-checkable answers, and an explicit limit on what a score supports.",
        hero="wmbxl", hero_fig=("4,027", "problems, each carrying its own contamination evidence"),
        works=["wmbxl", "dafnycomp", "livecann", "robustmad", "wmb"],
@@ -180,10 +180,10 @@ THREADS = [
 ]
 TH = {t["id"]: t for t in THREADS}
 
-RETURN = "Every new way of orchestrating models creates new failure modes, which have to be measured too."
-DESC = ("Xin Li, Ph.D. student at NTU Singapore, working on LLM agents: measuring, training and orchestrating them, "
+RETURN = "Every new way of orchestrating models creates new failure modes, which need to be evaluated in turn."
+DESC = ("Xin Li, Ph.D. student at NTU Singapore, working on LLM agents: evaluating, training and orchestrating them, "
         "and agents that improve themselves.")
-LEDE = ("I work on LLM agents — measuring what they can do, training them, and orchestrating them with tools, "
+LEDE = ("I work on LLM agents — evaluating what they can do, training them, and orchestrating them with tools, "
         "verifiers and each other to get real tasks done. Lately, on agents that improve themselves.")
 GROUND = ["formal verification", "mathematics", "code"]
 GROUND_K = "So far, mostly where an answer can be checked:"
@@ -213,7 +213,7 @@ FONTS = ("https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6
          "&family=Inter+Tight:wght@500;600;700;800;900&family=Inter:wght@400;500;600&display=swap")
 CJK = "https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@500&family=Noto+Sans+SC:wght@500&display=swap&text=%E6%9D%8E%E9%91%AB"
 
-NAV = [("measure", "Measure", "measure.html"), ("train", "Train", "train.html"), ("orchestrate", "Orchestrate", "orchestrate.html"),
+NAV = [("evaluate", "Evaluate", "evaluate.html"), ("train", "Train", "train.html"), ("orchestrate", "Orchestrate", "orchestrate.html"),
        None, ("pubs", "Publications", "publications.html"), ("news", "News", "news.html"), ("about", "About", "about.html")]
 
 
@@ -339,7 +339,7 @@ PORTRAIT_JS = """<script type="module">if (!matchMedia('(prefers-reduced-motion:
   import('/assets/portrait3d.js').then((m) => m.mountPortrait(document.querySelector('.portrait3d'))).catch(() => {});</script>
 """
 HOME_TITLE = "Xin Li @ NTU — LLM Agents"
-SHARE_CARD = "https://lixin.ai/data/share-card.jpg?v=5"
+SHARE_CARD = "https://lixin.ai/data/share-card.jpg?v=6"
 
 # The old site was one page with section anchors; links to them (CVs, emails, other
 # pages) land on the new home, so send each to where that section now lives.
@@ -470,13 +470,13 @@ def _arc(cx, cy, r, a1, a2):
 
 
 RING = dict(size=440, c=220, r=160, nr=25, gap=14)
-NODE_ANG = {"measure": -90, "train": 30, "orchestrate": 150}
+NODE_ANG = {"evaluate": -90, "train": 30, "orchestrate": 150}
 
 
 def ring_svg():
     """The loop as a ring: 01 at the top, clockwise. The leg from 03 back to 01 is the return."""
     c, r, nr, g = RING["c"], RING["r"], RING["nr"], RING["gap"]
-    legs = [("measure", "train", "fwd"), ("train", "orchestrate", "fwd"), ("orchestrate", "measure", "ret")]
+    legs = [("evaluate", "train", "fwd"), ("train", "orchestrate", "fwd"), ("orchestrate", "evaluate", "ret")]
     paths = []
     for a, b, kind in legs:
         a1 = NODE_ANG[a] + g
@@ -490,10 +490,10 @@ def ring_svg():
         x, y = _pt(c, c, r, NODE_ANG[t["id"]])
         nodes.append(f'<g class="ring__node ring__node--{t["id"]}"><circle cx="{x:.2f}" cy="{y:.2f}" r="{nr}"/>'
                      f'<text x="{x:.2f}" y="{y:.2f}" dy=".35em">{t["n"]}</text></g>')
-    label_path = _arc(c, c, r + 21, NODE_ANG["orchestrate"] + 18, NODE_ANG["measure"] + 360 - 18)
+    label_path = _arc(c, c, r + 21, NODE_ANG["orchestrate"] + 18, NODE_ANG["evaluate"] + 360 - 18)
     orbit = f"M {c} {c - r} A {r} {r} 0 0 1 {c} {c + r} A {r} {r} 0 0 1 {c} {c - r}"
     return f"""<svg class="ring__svg" viewBox="0 0 {RING['size']} {RING['size']}" role="img"
-      aria-label="The research loop: 01 Measure, then 02 Train, then 03 Orchestrate, and back to 01 Measure.">
+      aria-label="The research loop: 01 Evaluate, then 02 Train, then 03 Orchestrate, and back to 01 Evaluate.">
       <defs>
         <marker id="ah" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="9" markerHeight="9" markerUnits="userSpaceOnUse" orient="auto"><path class="ring__ah" d="M0,1 L9,5 L0,9 z"/></marker>
         <marker id="ah-ret" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="11" markerHeight="11" markerUnits="userSpaceOnUse" orient="auto"><path class="ring__ah ring__ah--ret" d="M0,1 L9,5 L0,9 z"/></marker>
@@ -660,7 +660,7 @@ def build_index():
       <p class="links links--plain"><a href="mailto:xin019@e.ntu.edu.sg">xin019@e.ntu.edu.sg</a><a href="https://scholar.google.com/citations?user=Hxf8sNkAAAAJ">Scholar</a><a href="https://github.com/LiXin97">GitHub</a><a href="https://www.linkedin.com/in/xin-li-1196331a0/">LinkedIn</a><a href="/data/Xin_Li_CV_2026.pdf">CV</a></p>
     </div>
   </section>"""
-    return page("home", "Xin Li — Measure, Train, Orchestrate",
+    return page("home", "Xin Li — Evaluate, Train, Orchestrate",
                 body, DESC)
 
 
@@ -688,7 +688,7 @@ def work(p, open_fig=True):
 def build_thread(t):
     i = [x["id"] for x in THREADS].index(t["id"])
     prev_t, next_t = THREADS[i - 1], THREADS[(i + 1) % 3]
-    prev_note = "the return leg arrives here" if t["id"] == "measure" else "previous"
+    prev_note = "the return leg arrives here" if t["id"] == "evaluate" else "previous"
     next_note = "back to 01 — the return leg" if t["id"] == "orchestrate" else "next"
     works = "".join(work(BY[w]) for w in t["works"])
     also = ""
@@ -720,7 +720,7 @@ def build_thread(t):
 
 
 # ---------------------------------------------------------------- publications
-LABEL = {"measure": "01 Measure", "train": "02 Train", "orchestrate": "03 Orchestrate",
+LABEL = {"evaluate": "01 Evaluate", "train": "02 Train", "orchestrate": "03 Orchestrate",
          "wireless": "Wireless systems", "robotics": "Robot perception"}
 
 
@@ -763,7 +763,7 @@ def build_pubs():
         items = "".join(pub(p) for p in sorted((p for p in P if p["year"] == y), key=pub_rank))
         groups.append(f'<section class="year"><h2 class="year__h">{y}</h2><ol class="pubs">{items}</ol></section>')
     filters = "".join(f'<button type="button" data-f="{k}" aria-pressed="{"true" if k == "all" else "false"}">{v}</button>'
-                      for k, v in [("all", "All"), ("measure", "Measure"), ("train", "Train"), ("orchestrate", "Orchestrate"),
+                      for k, v in [("all", "All"), ("evaluate", "Evaluate"), ("train", "Train"), ("orchestrate", "Orchestrate"),
                                    ("wireless", "Wireless"), ("robotics", "Robotics")])
     body = f"""
   <header class="plain-head wrap">
@@ -848,7 +848,7 @@ def build_about():
     <div>
       <h1 class="plain-h1">About</h1>
       <p class="about-bio">I am a Ph.D. student at Nanyang Technological University (NTU), advised by
-        <a href="https://blogs.ntu.edu.sg/chau-yuen/">Prof. Chau Yuen</a>. I work on LLM agents: benchmarks that measure what
+        <a href="https://blogs.ntu.edu.sg/chau-yuen/">Prof. Chau Yuen</a>. I work on LLM agents: benchmarks that evaluate what
         they can do, training that improves them, and orchestration that gets real tasks done with tools, verifiers
         and other agents — and, lately,
         agents that improve themselves. So far most of the work has been in domains where an answer can be checked:
@@ -868,7 +868,7 @@ def build_about():
   </div>"""
     return page("about", "About — Xin Li", body, "About Xin Li: experience, education, grants and service.")
 
-FEATURED = {"measure": ["wmbxl"], "train": ["dnmopd"], "orchestrate": ["debateledger", "tlvc"]}
+FEATURED = {"evaluate": ["wmbxl"], "train": ["dnmopd"], "orchestrate": ["debateledger", "tlvc"]}
 
 
 def also_names(t):
@@ -903,7 +903,7 @@ def build_ring():
   <section class="ring wrap" aria-labelledby="loop-h">
     <h2 id="loop-h" class="label"><span>The research, as one loop</span><span class="label__aside">clockwise from 01</span></h2>
     <div class="ring__stage">
-      {thread_label(T['measure'], 'tl')}
+      {thread_label(T['evaluate'], 'tl')}
       <div class="ring__orbit">
         <div class="ring__fig">{ring_svg()}{ring_center()}</div>
         {thread_label(T['train'], 'tl')}
@@ -965,7 +965,7 @@ def build_scroll():
     steps.append(f"""
       <section class="step step--return" data-step="return" aria-labelledby="st-return">
         <p class="step__n">03 → 01</p>
-        <h3 class="step__verb" id="st-return">Back to Measure</h3>
+        <h3 class="step__verb" id="st-return">Back to Evaluate</h3>
         <p class="step__q">{e(RETURN)}</p>
       </section>
       <section class="step step--now" data-step="now" aria-labelledby="st-now">
@@ -1018,7 +1018,7 @@ for name, html in prod.items():
     print(f"wrote /{name}  {len(html):,} bytes")
 
 # Pages renamed since they went public; GitHub Pages has no server redirects, so each old URL is a stub.
-MOVED = {"coordinate.html": ("orchestrate.html", "Orchestrate")}
+MOVED = {"coordinate.html": ("orchestrate.html", "Orchestrate"), "measure.html": ("evaluate.html", "Evaluate")}
 for old, (new, title) in MOVED.items():
     (ROOT / old).write_text(f"""<!doctype html>
 <html lang="en">

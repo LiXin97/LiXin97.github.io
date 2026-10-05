@@ -22,7 +22,7 @@ off the live site.
 
 ```
 index.html          home: the research loop (Track layout, Paper palette)
-measure.html        one page per research thread
+evaluate.html       one page per research thread (was measure.html, which now redirects here)
 train.html
 orchestrate.html    (was coordinate.html, which now redirects here)
 publications.html   full list, filterable by thread (assets/filter.js)

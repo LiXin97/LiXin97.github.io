@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Evaluate — Xin Li</title>
+<meta name="description" content="What can a model really do, and where does it fail — and does the score mean what it appears to mean?">
+<script>(function(){try{var q=new URLSearchParams(location.search).get('theme');var t=q||localStorage.getItem('v5-theme')||'paper';if(q)localStorage.setItem('v5-theme',q);document.documentElement.dataset.theme=t;}catch(_){document.documentElement.dataset.theme='paper';}document.documentElement.classList.add('js');})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=IBM+Plex+Mono:wght@400;500;600&family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500;600&family=Inter+Tight:wght@500;600;700;800;900&family=Inter:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@500&family=Noto+Sans+SC:wght@500&display=swap&text=%E6%9D%8E%E9%91%AB">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/paper.css">
+<link rel="stylesheet" href="css/night.css">
+<link rel="stylesheet" href="css/swiss.css">
+<link rel="stylesheet" href="css/present.css">
+<link rel="icon" href="/images/icon-32.png?v=4">
+</head>
+<body class="page--evaluate">
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-head"><div class="wrap">
+  <a class="brand" href="index.html">Xin Li<span lang="zh-Hans">李鑫</span></a>
+  <nav class="nav" aria-label="Site"><a href="evaluate.html" aria-current="page">Evaluate</a><a href="train.html">Train</a><a href="orchestrate.html">Orchestrate</a><span class="nav__sep" aria-hidden="true"></span><a href="publications.html">Publications</a><a href="news.html">News</a><a href="about.html">About</a><a href="/data/Xin_Li_CV_2026.pdf">CV</a></nav>
+</div></header>
+<main id="main" tabindex="-1">
+
+  <header class="thread-head wrap">
+    <nav class="steps" aria-label="The loop"><a href="evaluate.html" aria-current="step"><span>01</span>Evaluate</a><a href="train.html"><span>02</span>Train</a><a href="orchestrate.html"><span>03</span>Orchestrate</a><span class="steps__ret" aria-hidden="true">↺</span></nav>
+    <p class="thread-n">01 / 03</p>
+    <h1 class="thread-verb">Evaluate</h1>
+    <p class="thread-q">What can a model really do, and where does it fail — and does the score mean what it appears to mean?</p>
+    <p class="thread-desc">Benchmarks, robustness tests and evaluation protocols built to be audited rather than trusted: per-problem provenance, verifier-checkable answers, and an explicit limit on what a score supports.</p>
+  </header>
+  <section class="works-sec wrap" aria-labelledby="works-h">
+    <h2 id="works-h" class="label"><span>Work on this thread</span><span class="label__aside">5 papers</span></h2>
+    <div class="works">
+      <article class="work" id="wmbxl">
+        <div class="work__side">
+          <p class="work__venue"><span class="venue">NeurIPS 2026</span></p>
+        </div>
+        <div class="work__main">
+          <h3 class="work__title"><a href="https://lixin.ai/WirelessMathBench-XL/">WirelessMathBench-XL: An Auditable Benchmark for Wireless Mathematical Reasoning</a></h3>
+          <p class="work__authors"><b class="me">Xin Li</b>, Mengbing Liu, Yiyang Zhu, Wenhe Zhang, Li Wei, Jiancheng An, Chau Yuen</p>
+          <p class="work__claim">4,027 problems drawn from 836 arXiv papers across 20 wireless subfields. Every problem ships 13-gram contamination-overlap evidence against public pretraining text. Frontier models cluster at 86.5–91.3%.</p>
+          <p class="scope"><b>Scope</b> A rerunnable audit producing per-problem evidence for one lexical channel — not a proof that the benchmark is clean.</p>
+          <p class="links"><a href="https://lixin.ai/WirelessMathBench-XL/">Project</a><a href="https://arxiv.org/abs/2509.23219">arXiv</a></p>
+        </div>
+      </article>
+      <article class="work" id="dafnycomp">
+        <div class="work__side">
+          <p class="work__venue"><span class="venue">ICLR 2026</span></p>
+        </div>
+        <div class="work__main">
+          <h3 class="work__title"><a href="https://dafnycomp.github.io/">Local Success Does Not Compose: Benchmarking Large Language Models for Compositional Formal Verification</a></h3>
+          <p class="work__authors">Xu Xu<sup>*</sup>, <b class="me">Xin Li</b><sup>*</sup>, Xingwei Qu, Jie Fu, Binhang Yuan</p>
+          <p class="work__claim">A model can verify a function on its own and still fail once the specifications have to compose. The benchmark measures the distance between those two results.</p>
+          
+          <p class="links"><a href="https://dafnycomp.github.io/">Project</a><a href="https://openreview.net/forum?id=y4kAMUBqLq">OpenReview</a><a href="https://arxiv.org/abs/2509.23061">arXiv</a></p>
+        </div>
+      </article>
+      <article class="work" id="livecann">
+        <div class="work__side">
+          <p class="work__venue"><span class="venue">Findings of ACL 2026</span></p>
+        </div>
+        <div class="work__main">
+          <h3 class="work__title"><a href="https://aclanthology.org/2026.findings-acl.1143/">LiveCANNBench: Benchmark SWE AI Coding for Ascend CANN</a></h3>
+          <p class="work__authors">Sijie Wang, Kai Zhao, Wee Peng Tay, Shuo Zhang, Chengwen Liu, Quanjiang Guo, Ren Junhao, <b class="me">Xin Li</b>, Heng Lian, Jingdi Lei, Rui She, Huacan Wang, Ronghao Chen</p>
+          <p class="work__claim">400+ SWE-level task instances built from real Ascend CANN repositories — multi-file, multi-language and execution-aware — on a live benchmarking paradigm that mitigates leakage.</p>
+          
+          <p class="links"><a href="https://aclanthology.org/2026.findings-acl.1143/">Anthology</a><a href="https://aclanthology.org/2026.findings-acl.1143.pdf">PDF</a></p>
+        </div>
+      </article>
+      <article class="work" id="robustmad">
+        <div class="work__side">
+          <p class="work__venue"><span class="venue">TMLR 2026</span></p>
+        </div>
+        <div class="work__main">
+          <h3 class="work__title"><a href="https://robustmad.github.io/">RobustMAD: Evaluating Real-World Robustness of Multimodal Small Language Models for Deployable Anomaly Detection Assistants</a></h3>
+          <p class="work__authors">Anushiya Arunan, <b class="me">Xin Li</b>, Yan Qin, U-Xuan Tan, Nhu Khue Vuong, Xiaoli Li, Chau Yuen</p>
+          
+          
+          <p class="links"><a href="https://robustmad.github.io/">Project</a><a href="https://openreview.net/forum?id=skrA9UYNIZ">OpenReview</a><a href="https://github.com/en-research/RobustMAD">Code</a></p>
+        </div>
+      </article>
+      <article class="work" id="wmb">
+        <div class="work__side">
+          <p class="work__venue"><span class="venue">Findings of ACL 2025</span></p>
+        </div>
+        <div class="work__main">
+          <h3 class="work__title"><a href="https://lixin.ai/WirelessMathBench/">WirelessMathBench: A Mathematical Modeling Benchmark for LLMs in Wireless Communications</a></h3>
+          <p class="work__authors"><b class="me">Xin Li</b>, Mengbing Liu, Li Wei, Jiancheng An, Mérouane Debbah, Chau Yuen</p>
+          <p class="work__claim">The first benchmark for LLM mathematical reasoning in wireless communications, and the work WirelessMathBench-XL extends.</p>
+          
+          <p class="links"><a href="https://lixin.ai/WirelessMathBench/">Project</a><a href="https://arxiv.org/abs/2505.14354">arXiv</a></p>
+        </div>
+      </article>
+    </div>
+  </section>
+  <section class="thread-also wrap"><h2 class="label"><span>Also on this thread</span></h2><ul><li><a href="https://WritingPreferenceBench.github.io/">WritingPreferenceBench</a> <span>Project page; no venue yet.</span></li></ul></section>
+  <nav class="pager wrap" aria-label="Through the loop">
+    <a class="pager__prev" href="orchestrate.html"><span>← the return leg arrives here</span><b>03 Orchestrate</b></a>
+    <a class="pager__next" href="train.html"><span>next →</span><b>02 Train</b></a>
+  </nav>
+</main>
+<footer class="site-foot"><div class="wrap">
+  <p>Xin Li · Nanyang Technological University, Singapore</p>
+  <p><a href="mailto:xin019@e.ntu.edu.sg">xin019@e.ntu.edu.sg</a> · Updated October 2026</p>
+</div></footer>
+<script src="js/preview.js" defer></script>
+
+</body>
+</html>

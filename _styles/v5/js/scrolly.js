@@ -3,7 +3,7 @@
   var box = document.querySelector('.scrolly');
   if (!box || !('IntersectionObserver' in window)) return;
   var steps = [].slice.call(box.querySelectorAll('.step'));
-  box.dataset.step = 'measure';
+  box.dataset.step = 'evaluate';
   var io = new IntersectionObserver(function (entries) {
     entries.forEach(function (en) {
       if (!en.isIntersecting) return;

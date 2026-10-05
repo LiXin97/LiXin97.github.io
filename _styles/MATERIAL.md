@@ -19,10 +19,11 @@ anything; if a fact you want is not here, leave it out.
 
 Three threads, which he describes as one loop rather than three separate areas:
 
-1. **Measure** — benchmarks and evaluation protocols built to be audited rather than
-   trusted: per-problem provenance, verifier-checkable answers, and an explicit limit
-   on what a score supports. Question: does a score mean what it appears to mean, and
-   would we notice if it didn't?
+1. **Evaluate** (named Measure until 2026-10-06) — benchmarks, robustness tests and
+   evaluation protocols built to be audited rather than trusted: per-problem
+   provenance, verifier-checkable answers, and an explicit limit on what a score
+   supports. Question: what can a model really do, and where does it fail — and does
+   the score mean what it appears to mean?
 2. **Train** — reinforcement learning and on-policy distillation. Question: can we
    reward the reasoning we are able to check, rather than the answer we hope for?
 3. **Orchestrate** (renamed from Coordinate on 2026-10-06, to take in single-agent work)
@@ -32,7 +33,7 @@ Three threads, which he describes as one loop rather than three separate areas:
    get done, without breaking what already worked?
 
 The return leg: every new way of orchestrating models creates new failure modes, which
-have to be measured too.
+need to be evaluated in turn.
 The common ground: domains where an answer can be checked — formal verification,
 mathematics, code, wireless systems.
 

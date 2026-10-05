@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Xin Li — the loop</title>
-<meta name="description" content="Xin Li, Ph.D. student at NTU Singapore, working on LLM agents: measuring, training and orchestrating them, and agents that improve themselves.">
+<meta name="description" content="Xin Li, Ph.D. student at NTU Singapore, working on LLM agents: evaluating, training and orchestrating them, and agents that improve themselves.">
 <script>(function(){try{var q=new URLSearchParams(location.search).get('theme');var t=q||localStorage.getItem('v5-theme')||'paper';if(q)localStorage.setItem('v5-theme',q);document.documentElement.dataset.theme=t;}catch(_){document.documentElement.dataset.theme='paper';}document.documentElement.classList.add('js');})();</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -21,7 +21,7 @@
 <a class="skip" href="#main">Skip to content</a>
 <header class="site-head"><div class="wrap">
   <a class="brand" href="scroll.html">Xin Li<span lang="zh-Hans">李鑫</span></a>
-  <nav class="nav" aria-label="Site"><a href="measure.html">Measure</a><a href="train.html">Train</a><a href="orchestrate.html">Orchestrate</a><span class="nav__sep" aria-hidden="true"></span><a href="publications.html">Publications</a><a href="news.html">News</a><a href="about.html">About</a><a href="/data/Xin_Li_CV_2026.pdf">CV</a></nav>
+  <nav class="nav" aria-label="Site"><a href="evaluate.html">Evaluate</a><a href="train.html">Train</a><a href="orchestrate.html">Orchestrate</a><span class="nav__sep" aria-hidden="true"></span><a href="publications.html">Publications</a><a href="news.html">News</a><a href="about.html">About</a><a href="/data/Xin_Li_CV_2026.pdf">CV</a></nav>
 </div></header>
 <main id="main" tabindex="-1">
 
@@ -29,7 +29,7 @@
     <div class="hero__text">
       <p class="kicker">Ph.D. student · Nanyang Technological University · advised by <a href="https://blogs.ntu.edu.sg/chau-yuen/">Prof. Chau Yuen</a></p>
       <h1 class="name">Xin Li<span class="name__cjk" lang="zh-Hans">李鑫</span></h1>
-      <p class="lede">I work on LLM agents — measuring what they can do, training them, and orchestrating them with tools, verifiers and each other to get real tasks done. Lately, on agents that improve themselves.</p>
+      <p class="lede">I work on LLM agents — evaluating what they can do, training them, and orchestrating them with tools, verifiers and each other to get real tasks done. Lately, on agents that improve themselves.</p>
       <p class="hero__cue" aria-hidden="true">The loop ↓</p>
     </div>
     <img class="hero__photo" src="/data/avatar-560.webp" width="560" height="560" alt="Portrait of Xin Li" fetchpriority="high">
@@ -37,17 +37,17 @@
   <div class="scrolly wrap" data-step="all">
     <h2 class="sr-only">The research, as one loop</h2>
     <div class="scrolly__fig"><div class="ring__fig"><svg class="ring__svg" viewBox="0 0 440 440" role="img"
-      aria-label="The research loop: 01 Measure, then 02 Train, then 03 Orchestrate, and back to 01 Measure.">
+      aria-label="The research loop: 01 Evaluate, then 02 Train, then 03 Orchestrate, and back to 01 Evaluate.">
       <defs>
         <marker id="ah" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="9" markerHeight="9" markerUnits="userSpaceOnUse" orient="auto"><path class="ring__ah" d="M0,1 L9,5 L0,9 z"/></marker>
         <marker id="ah-ret" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="11" markerHeight="11" markerUnits="userSpaceOnUse" orient="auto"><path class="ring__ah ring__ah--ret" d="M0,1 L9,5 L0,9 z"/></marker>
         <path id="ring-label-path" d="M 42.96 257.63 A 181 181 0 0 1 164.07 47.86"/>
       </defs>
       <circle class="ring__track" cx="220" cy="220" r="160"/>
-      <path class="ring__leg ring__leg--fwd ring__leg--measure" d="M 258.71 64.75 A 160 160 0 0 1 373.80 264.10" marker-end="url(#ah)"/><path class="ring__leg ring__leg--fwd ring__leg--train" d="M 335.09 331.15 A 160 160 0 0 1 104.91 331.15" marker-end="url(#ah)"/><path class="ring__leg ring__leg--ret ring__leg--orchestrate" d="M 66.20 264.10 A 160 160 0 0 1 181.29 64.75" marker-end="url(#ah-ret)"/>
+      <path class="ring__leg ring__leg--fwd ring__leg--evaluate" d="M 258.71 64.75 A 160 160 0 0 1 373.80 264.10" marker-end="url(#ah)"/><path class="ring__leg ring__leg--fwd ring__leg--train" d="M 335.09 331.15 A 160 160 0 0 1 104.91 331.15" marker-end="url(#ah)"/><path class="ring__leg ring__leg--ret ring__leg--orchestrate" d="M 66.20 264.10 A 160 160 0 0 1 181.29 64.75" marker-end="url(#ah-ret)"/>
       <text class="ring__arclabel"><textPath href="#ring-label-path" startOffset="50%" text-anchor="middle">new failure modes</textPath></text>
       <circle class="ring__dot" r="5"><animateMotion dur="9s" repeatCount="indefinite" path="M 220 60 A 160 160 0 0 1 220 380 A 160 160 0 0 1 220 60"/></circle>
-      <g class="ring__node ring__node--measure"><circle cx="220.00" cy="60.00" r="25"/><text x="220.00" y="60.00" dy=".35em">01</text></g><g class="ring__node ring__node--train"><circle cx="358.56" cy="300.00" r="25"/><text x="358.56" y="300.00" dy=".35em">02</text></g><g class="ring__node ring__node--orchestrate"><circle cx="81.44" cy="300.00" r="25"/><text x="81.44" y="300.00" dy=".35em">03</text></g>
+      <g class="ring__node ring__node--evaluate"><circle cx="220.00" cy="60.00" r="25"/><text x="220.00" y="60.00" dy=".35em">01</text></g><g class="ring__node ring__node--train"><circle cx="358.56" cy="300.00" r="25"/><text x="358.56" y="300.00" dy=".35em">02</text></g><g class="ring__node ring__node--orchestrate"><circle cx="81.44" cy="300.00" r="25"/><text x="81.44" y="300.00" dy=".35em">03</text></g>
     </svg><div class="ring__center">
         <p class="ring__k">So far</p>
         <p class="ring__v">where an answer can be checked</p>
@@ -56,18 +56,18 @@
         <p class="ring__v ring__v--now">self-improvement where it can't</p>
       </div></div></div>
     <div class="scrolly__steps">
-      <section class="step" data-step="measure" aria-labelledby="st-measure">
+      <section class="step" data-step="evaluate" aria-labelledby="st-evaluate">
         <p class="step__n">01 / 03</p>
-        <h3 class="step__verb" id="st-measure"><a href="measure.html">Measure</a></h3>
-        <p class="step__q">Does a score mean what it appears to mean — and would we notice if it didn&#x27;t?</p>
-        <p class="step__d">Benchmarks and evaluation protocols built to be audited rather than trusted: per-problem provenance, verifier-checkable answers, and an explicit limit on what a score supports.</p>
+        <h3 class="step__verb" id="st-evaluate"><a href="evaluate.html">Evaluate</a></h3>
+        <p class="step__q">What can a model really do, and where does it fail — and does the score mean what it appears to mean?</p>
+        <p class="step__d">Benchmarks, robustness tests and evaluation protocols built to be audited rather than trusted: per-problem provenance, verifier-checkable answers, and an explicit limit on what a score supports.</p>
         <div class="step__ev"><a class="ev" href="https://lixin.ai/WirelessMathBench-XL/">
           <span class="ev__fig">4,027</span>
           <span class="ev__lbl">problems</span>
           <span class="ev__name">WirelessMathBench-XL</span>
           <span class="ev__v">NeurIPS 2026</span>
         </a></div>
-        <p class="also-names"><a href="measure.html">Also: DafnyComp · LiveCANNBench · RobustMAD · WirelessMathBench →</a></p>
+        <p class="also-names"><a href="evaluate.html">Also: DafnyComp · LiveCANNBench · RobustMAD · WirelessMathBench →</a></p>
       </section>
       <section class="step" data-step="train" aria-labelledby="st-train">
         <p class="step__n">02 / 03</p>
@@ -102,8 +102,8 @@
       </section>
       <section class="step step--return" data-step="return" aria-labelledby="st-return">
         <p class="step__n">03 → 01</p>
-        <h3 class="step__verb" id="st-return">Back to Measure</h3>
-        <p class="step__q">Every new way of orchestrating models creates new failure modes, which have to be measured too.</p>
+        <h3 class="step__verb" id="st-return">Back to Evaluate</h3>
+        <p class="step__q">Every new way of orchestrating models creates new failure modes, which need to be evaluated in turn.</p>
       </section>
       <section class="step step--now" data-step="now" aria-labelledby="st-now">
         <p class="step__n">So far → now</p>
