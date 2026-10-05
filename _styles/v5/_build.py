@@ -234,7 +234,13 @@ def vshort(p):
     return (v.replace("IEEE Transactions on Signal Processing, 2026", "IEEE TSP 2026")
              .replace("EMNLP 2026 · Industry Track", "EMNLP 2026 Industry")
              .replace("NeurIPS 2026 · Evaluations and Datasets Track", "NeurIPS 2026")
-             .replace("arXiv preprint, 2026", "Preprint 2026"))
+             .replace("arXiv preprint, 2026", "Preprint 2026")
+             .replace("AI4NextG workshop @ NeurIPS 2025", "AI4NextG @ NeurIPS 2025")
+             .replace("IEEE Robotics and Automation Letters, 2020", "IEEE RA-L 2020"))
+
+
+def venue_pill(p):
+    return f'<span class="venue">{e(vshort(p))}</span>'
 
 
 def abbrev(a, keep=3):
@@ -539,7 +545,7 @@ def work(p, open_fig=True):
     return f"""
       <article class="work" id="{p['id']}">
         <div class="work__side">
-          <p class="work__venue">{e(p['venue_long'])}</p>
+          <p class="work__venue">{venue_pill(p)}</p>
           {fig}
         </div>
         <div class="work__main">
@@ -595,9 +601,9 @@ def pub(p):
     lead = " is-lead" if p["pos"].startswith(("first", "joint first")) else ""
     return f"""
       <li class="pub" data-thread="{p['thread']}">
-        <h3 class="pub__title"><a href="{e(p['links'][0][1])}">{e(p['title'])}</a></h3>
+        <div class="pub__top"><h3 class="pub__title"><a href="{e(p['links'][0][1])}">{e(p['title'])}</a></h3>{venue_pill(p)}</div>
         <p class="pub__authors">{authors_html(p['authors'])}</p>
-        <p class="pub__meta"><span class="pub__venue">{e(p['venue_long'])}</span><span class="pub__thread">{e(LABEL[p['thread']])}</span></p>
+        <p class="pub__meta"><span class="pub__thread">{e(LABEL[p['thread']])}</span></p>
         {links_html(p['links'], 'links links--quiet')}
       </li>"""
 
@@ -656,7 +662,15 @@ def build_about():
         ("Organizer", '<a href="https://4drobotics-iros2025.github.io/">AIR4D</a> workshop @ IROS 2025'),
         ("Talks", 'WirelessMathBench — ACL 2025 (<a href="/data/talk_slides/ACL_WirelessMathBench_Slides.pdf">slides</a>) and '
                   'NICE Session 66, Oct 2025 (<a href="/data/talk_slides/WirelessMath_Slides.pdf">slides</a>)'),
-        ("Mentoring", "Three students, who went on to graduate study at NTU, NUS and CUHK-Shenzhen."),
+    ])
+    mentoring = rows([
+        ("2026", '<b>Chengqi Liang</b> — M.Sc. dissertation, Nanyang Technological University. '
+                 'Went on to a Ph.D. at <a href="https://www.cuhk.edu.cn/">The Chinese University of Hong Kong, Shenzhen</a>.'),
+        ("2026", '<b>Yukun Jin</b> — B.Eng. final-year project, Nanyang Technological University. An undergraduate at '
+                 '<a href="https://www.whu.edu.cn/">Wuhan University</a> on NTU\'s 3.5+0.5+1 integrated programme; '
+                 'went on to an M.Sc. at NTU.'),
+        ("2024", '<b>Haoyu Xu</b> — M.Comp. dissertation, <a href="https://www.nus.edu.sg/">National University of Singapore</a>. '
+                 'Went on to a Ph.D. at <a href="https://www.pku.edu.cn/">Peking University</a>.'),
     ])
     body = f"""
   <header class="plain-head wrap about-head">
@@ -678,7 +692,8 @@ def build_about():
     <section><h2 class="label"><span>Experience</span></h2>{exp}</section>
     <section><h2 class="label"><span>Education</span></h2>{edu}</section>
     <section><h2 class="label"><span>Grants &amp; awards</span><span class="label__aside">compute grants won directly, not advisor funding</span></h2>{grants}</section>
-    <section><h2 class="label"><span>Service, talks, mentoring</span></h2>{service}</section>
+    <section><h2 class="label"><span>Mentoring</span></h2>{mentoring}</section>
+    <section><h2 class="label"><span>Service and talks</span></h2>{service}</section>
   </div>"""
     return page("about", "About — Xin Li", body, "About Xin Li: experience, education, grants and service.")
 

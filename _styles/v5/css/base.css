@@ -78,6 +78,13 @@ a.label__aside:hover { color: var(--ink); }
 .links--plain { font-size: .8rem; }
 .links--plain a { color: var(--ink); }
 
+.venue {
+  display: inline-block; font-family: var(--f-mono); font-size: .74rem; font-weight: 700; line-height: 1.2;
+  letter-spacing: .03em; color: var(--accent); background: var(--accent-soft);
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--accent) 24%, transparent);
+  padding: 5px 10px; border-radius: var(--radius); white-space: nowrap;
+}
+
 .scope {
   margin-top: 14px; padding: 10px 0 10px 14px; border-left: 2px solid var(--accent);
   font-size: .9rem; line-height: 1.55; color: var(--muted);
@@ -230,7 +237,8 @@ a.label__aside:hover { color: var(--ink); }
 .works-sec { margin-top: clamp(48px, 7vw, 80px); }
 .works { border-top: var(--rule-strong-w) solid var(--rule-strong); }
 .work { display: grid; grid-template-columns: minmax(0, 15rem) minmax(0, 1fr); gap: 14px clamp(24px, 4vw, 56px); padding: 30px 0; border-bottom: var(--rule-w) solid var(--rule); }
-.work__venue { font-family: var(--f-mono); font-size: .74rem; font-weight: 600; letter-spacing: .04em; line-height: 1.5; }
+.work__venue { line-height: 1; }
+.work__venue .venue { font-size: .8rem; padding: 6px 11px; }
 .work__fig { margin-top: 18px; display: flex; flex-direction: column; gap: 4px; }
 .work__fig b { font-family: var(--f-fig); font-weight: var(--w-fig); font-size: 2.1rem; line-height: 1; letter-spacing: -.02em; font-variant-numeric: tabular-nums lining-nums; }
 .work__fig b { color: var(--fig-color); }
@@ -275,7 +283,9 @@ a.label__aside:hover { color: var(--ink); }
 .pubs { list-style: none; padding: 0; }
 .pub { padding: 22px 0; border-bottom: var(--rule-w) solid var(--rule); }
 .pub:last-child { border-bottom: 0; }
-.pub__title { font-family: var(--f-title); font-weight: var(--w-title); font-size: 1.08rem; line-height: 1.32; }
+.pub__top { display: flex; align-items: flex-start; justify-content: space-between; gap: 8px 20px; flex-wrap: wrap; }
+.pub__top .venue { flex: 0 0 auto; margin-top: 2px; }
+.pub__title { flex: 1 1 60%; min-width: 0; font-family: var(--f-title); font-weight: var(--w-title); font-size: 1.08rem; line-height: 1.32; }
 .pub__title a { text-decoration: none; }
 .pub__title a:hover { color: var(--accent); }
 .pub__authors { margin-top: 6px; font-size: .86rem; color: var(--muted); }

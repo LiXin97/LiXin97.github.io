@@ -189,7 +189,10 @@ ListOPD (https://lixin.ai/ListOPD/). Use or omit as you see fit.
 - Conference reviewer: NeurIPS, ICLR, ICML, AAAI, CVPR, ECCV, AISTATS, SIGGRAPH, IROS, ICRA
 - Journal reviewer: IEEE RA-L, ACM TOG, IEEE TNNLS
 - Workshop organizer: AIR4D @ IROS 2025 (https://4drobotics-iros2025.github.io/)
-- Mentoring: three students, who went on to PhDs / an M.Sc. at NTU, NUS and CUHK-Shenzhen
+- Mentoring:
+  - Chengqi Liang — M.Sc. dissertation, NTU, 2026; went on to a Ph.D. at CUHK-Shenzhen
+  - Yukun Jin — B.Eng. final-year project, NTU, 2026 (Wuhan University undergraduate on NTU's 3.5+0.5+1 programme); went on to an M.Sc. at NTU
+  - Haoyu Xu — M.Comp. dissertation, NUS, 2024; went on to a Ph.D. at Peking University
 
 ## Talks
 
