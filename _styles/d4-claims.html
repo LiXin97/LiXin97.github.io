@@ -1,0 +1,501 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Xin Li — claims, newest first</title>
+<meta name="description" content="Xin Li, Ph.D. student at NTU Singapore. A dated list of what each paper established: LLM evaluation, post-training, and multi-agent LLM systems. NeurIPS, ICLR, TMLR, ACL, EMNLP, IEEE TSP." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@500&text=%E6%9D%8E%E9%91%AB&display=swap" rel="stylesheet" />
+<style>
+:root{
+  color-scheme: light;
+  --bg:#FBFBF9;
+  --ink:#17191D;
+  --dim:#4F555E;
+  --faint:#6E7580;
+  --rule:#E4E2DB;
+  --rule-soft:#EDEBE5;
+  --acc:#2540D0;
+  --acc-deep:#1B33A8;
+  --wash:#ECEEFA;
+  --wash-line:#D7DCF4;
+  --serif:"Newsreader",Georgia,"Times New Roman",serif;
+  --sans:"Inter",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --mono:"JetBrains Mono",ui-monospace,"SF Mono",Menlo,monospace;
+  --cjk:"Noto Sans SC","PingFang SC","Microsoft YaHei",sans-serif;
+  --date-col:96px;
+  --gutter:30px;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;background:var(--bg);color:var(--ink);
+  font:400 16px/1.6 var(--sans);letter-spacing:-.002em;
+  -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;
+}
+.page{max-width:788px;margin:0 auto;padding:64px 28px 92px}
+a{color:var(--acc);text-decoration:none}
+a:hover{color:var(--acc-deep);text-decoration:underline;text-underline-offset:2px;text-decoration-thickness:1px}
+:focus-visible{outline:2.5px solid var(--acc);outline-offset:3px;border-radius:2px}
+#claims:focus{outline:none}
+#claims:focus-visible{outline:2.5px solid var(--acc);outline-offset:10px}
+img{display:block;max-width:100%}
+.skip{position:absolute;left:14px;top:-120px;z-index:9;background:var(--acc);color:#fff;
+  padding:9px 15px;border-radius:5px;font:600 .74rem/1 var(--mono);letter-spacing:.06em;text-transform:uppercase}
+.skip:focus{top:14px;color:#fff;text-decoration:none}
+
+/* ---------------- identity ---------------- */
+.id{display:grid;grid-template-columns:var(--date-col) 1fr;gap:0 var(--gutter);align-items:start}
+.id__photo{width:96px;height:96px;border-radius:50%;border:1px solid var(--rule);background:#fff}
+h1{margin:0;font:600 2.05rem/1.05 var(--serif);letter-spacing:-.025em;font-variant-ligatures:none}
+.id__cjk{margin:7px 0 0;font:500 1rem/1 var(--cjk);color:var(--faint);letter-spacing:.14em}
+.id__bio{margin:19px 0 0;font-size:1.0rem;line-height:1.66;color:var(--dim);max-width:60ch}
+.id__bio a{color:var(--ink);border-bottom:1px solid var(--wash-line)}
+.id__bio a:hover{color:var(--acc);border-color:currentColor;text-decoration:none}
+.id__bio strong{color:var(--ink);font-weight:500}
+.id__bio em{font-style:normal;color:var(--ink)}
+.id__meta{margin:15px 0 0;font:500 .78rem/1.9 var(--mono);color:var(--faint);
+  display:flex;flex-wrap:wrap;gap:0 8px;align-items:baseline}
+.id__meta a{color:var(--acc)}
+.id__meta span[aria-hidden]{color:var(--wash-line)}
+
+/* ---------------- the loop ---------------- */
+.loop{margin:46px 0 0;padding:0}
+.loop__label{margin:0 0 14px;font:700 .68rem/1 var(--mono);letter-spacing:.2em;
+  text-transform:uppercase;color:var(--faint)}
+ol.loop__list{list-style:none;margin:0;padding:0}
+ol.loop__list>li{display:grid;grid-template-columns:var(--date-col) 1fr;gap:0 var(--gutter);
+  padding:11px 0;border-top:1px solid var(--rule-soft)}
+ol.loop__list>li:first-child{border-top:1px solid var(--rule)}
+.loop__n{font:700 .74rem/1.9 var(--mono);color:var(--ink);letter-spacing:.04em;white-space:nowrap}
+.loop__n i{font-style:normal;font-weight:500;color:var(--acc);display:inline-block;min-width:24px}
+.loop__q{margin:0;font:400 1rem/1.62 var(--serif);color:var(--dim)}
+.loop__q b{font-weight:600;color:var(--ink)}
+.loop__back{display:grid;grid-template-columns:var(--date-col) 1fr;gap:0 var(--gutter);
+  padding:11px 0 0;border-top:1px solid var(--rule)}
+.loop__back i{font:700 .74rem/1.9 var(--mono);font-style:normal;color:var(--faint);letter-spacing:.04em}
+.loop__back p{margin:0;font:400 .92rem/1.6 var(--sans);color:var(--faint)}
+.loop__back p b{color:var(--dim);font-weight:500}
+
+/* ---------------- section head ---------------- */
+.sec{margin:62px 0 0}
+.sec__head{display:grid;grid-template-columns:var(--date-col) 1fr;gap:0 var(--gutter);
+  align-items:baseline;padding-bottom:12px}
+h2{margin:0;font:700 .72rem/1 var(--mono);letter-spacing:.2em;text-transform:uppercase;color:var(--ink)}
+.sec__note{margin:0;font:400 .82rem/1.5 var(--sans);color:var(--faint)}
+.sec__note b{font-weight:500;color:var(--dim)}
+
+/* ---------------- claims ---------------- */
+ol.claims{list-style:none;margin:0;padding:0;border-top:1.5px solid var(--ink)}
+.claim{display:grid;grid-template-columns:var(--date-col) 1fr;gap:0 var(--gutter);
+  padding:21px 0 20px;border-bottom:1px solid var(--rule-soft)}
+.claim:last-child{border-bottom:1.5px solid var(--rule)}
+.claim__date{font:500 .8rem/1.62 var(--mono);color:var(--ink);letter-spacing:-.01em;
+  white-space:nowrap;padding-top:4px}
+.claim__date.is-rep{color:var(--faint);font-weight:400}
+.claim__date .y{font-weight:600}
+.claim__date.is-rep .y{font-weight:400}
+.claim__body{max-width:544px}
+.claim__text{margin:0;font:400 1.12rem/1.52 var(--serif);letter-spacing:-.006em;color:var(--ink);
+  text-wrap:pretty}
+.claim__text .n{font-weight:600;font-variant-numeric:tabular-nums;letter-spacing:-.012em}
+.claim__meta{margin:11px 0 0;display:flex;flex-wrap:wrap;align-items:baseline;gap:7px 9px;
+  font:500 .745rem/1.5 var(--mono)}
+.venue{background:var(--wash);color:var(--acc-deep);border:1px solid var(--wash-line);
+  border-radius:4px;padding:3px 7px 3px;font-weight:600;letter-spacing:-.005em;white-space:nowrap}
+.venue.is-pre{background:transparent;color:var(--faint);border:1px dashed var(--rule);font-weight:500}
+.name{font-weight:700;color:var(--acc);letter-spacing:-.01em}
+.who{color:var(--faint);font-weight:500;margin-left:4px}
+.links{display:flex;flex-wrap:wrap;gap:0 8px;margin-left:auto}
+.links a{color:var(--dim);font-weight:500}
+.links a:hover{color:var(--acc-deep)}
+.links span{color:var(--rule);user-select:none}
+
+/* ---------------- record ---------------- */
+dl.rec{margin:0;padding:0;border-top:1.5px solid var(--ink)}
+.rec__row{display:grid;grid-template-columns:var(--date-col) 1fr;gap:0 var(--gutter);
+  padding:16px 0 15px;border-bottom:1px solid var(--rule-soft)}
+.rec__row:last-child{border-bottom:1.5px solid var(--rule)}
+dt{font:600 .745rem/1.72 var(--mono);letter-spacing:.07em;text-transform:uppercase;color:var(--faint)}
+dd{margin:0;font-size:.945rem;line-height:1.66;color:var(--dim);max-width:544px}
+dd b{font-weight:500;color:var(--ink)}
+dd .sep{color:var(--rule);padding:0 3px}
+
+footer{margin:54px 0 0;display:grid;grid-template-columns:var(--date-col) 1fr;gap:0 var(--gutter)}
+footer p{margin:0;font:400 .78rem/1.6 var(--mono);color:var(--faint)}
+
+/* ---------------- narrow ---------------- */
+@media (max-width:660px){
+  :root{--date-col:1fr;--gutter:0px}
+  .page{padding:40px 20px 68px}
+  .id,.sec__head,ol.loop__list>li,.loop__back,.claim,.rec__row,footer{grid-template-columns:1fr;gap:0}
+  .id__photo{width:78px;height:78px;margin-bottom:18px}
+  h1{font-size:1.78rem}
+  .sec{margin:48px 0 0}
+  .sec__head{padding-bottom:10px}
+  .sec__note{margin-top:7px}
+  .claim{padding:18px 0 17px}
+  .claim__date{padding:0 0 7px;font-size:.78rem}
+  .claim__body{max-width:none}
+  .claim__text{font-size:1.06rem}
+  .claim__meta{gap:7px 8px}
+  .links{margin-left:0;width:100%}
+  ol.loop__list>li{padding:12px 0}
+  .loop__n{line-height:1.5;margin-bottom:4px}
+  .loop__back{padding-top:12px}
+  .loop__back i{display:block;margin-bottom:3px}
+  dt{margin-bottom:4px;line-height:1.4}
+  dd{max-width:none}
+  footer{margin-top:40px}
+}
+@media (max-width:420px){
+  .page{padding:34px 16px 60px}
+  h1{font-size:1.62rem}
+  .claim__text{font-size:1.02rem}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#claims">Skip to the claims</a>
+
+<div class="page">
+
+  <!-- ===================== identity ===================== -->
+  <header class="id">
+    <img class="id__photo" src="/data/avatar-280.webp" width="96" height="96"
+         alt="Portrait of Xin Li" loading="eager" decoding="async" fetchpriority="high" />
+    <div>
+      <h1>Xin Li</h1>
+      <p class="id__cjk" lang="zh-Hans">李鑫</p>
+      <p class="id__bio">I build the measurements that say whether a model's reasoning is real, the
+        post-training that tries to make it real, and the protocols for what happens when several models
+        reason together. If you have run into my work it was probably
+        <a href="https://lixin.ai/WirelessMathBench/">WirelessMathBench</a> and
+        <a href="https://lixin.ai/WirelessMathBench-XL/">WirelessMathBench&#8209;XL</a>,
+        <a href="https://dafnycomp.github.io/">DafnyComp</a>,
+        <a href="https://openreview.net/forum?id=cAQmIS4GOe">Re:Form</a>,
+        <a href="https://lixin.ai/DebateLedger/">DebateLedger</a> or
+        <a href="https://lixin.ai/DN-MOPD/">DN&#8209;MOPD</a>. Ph.D. student at
+        <a href="https://www.ntu.edu.sg/">NTU Singapore</a>, advised by
+        <a href="https://blogs.ntu.edu.sg/chau-yuen/">Chau Yuen</a>.</p>
+      <p class="id__meta">
+        <a href="mailto:xin019@e.ntu.edu.sg">xin019@e.ntu.edu.sg</a>
+        <span aria-hidden="true">/</span>
+        <a href="/data/Xin_Li_CV_2026.pdf">CV</a>
+        <span aria-hidden="true">/</span>
+        <a href="https://scholar.google.com/citations?user=Hxf8sNkAAAAJ">Scholar</a>
+        <span aria-hidden="true">/</span>
+        <a href="https://github.com/LiXin97">GitHub</a>
+        <span aria-hidden="true">/</span>
+        <a href="https://www.linkedin.com/in/xin-li-1196331a0/">LinkedIn</a>
+      </p>
+    </div>
+  </header>
+
+  <!-- ===================== the loop ===================== -->
+  <section class="loop" aria-label="The three questions this work runs between">
+    <p class="loop__label">Three questions, one loop</p>
+    <ol class="loop__list">
+      <li>
+        <span class="loop__n"><i>01</i> Measure</span>
+        <p class="loop__q">Does a score mean what it appears to mean &mdash; and <b>would we notice if it
+          didn't?</b></p>
+      </li>
+      <li>
+        <span class="loop__n"><i>02</i> Train</span>
+        <p class="loop__q">Can we reward <b>the reasoning we are able to check</b>, rather than the answer we
+          hope for?</p>
+      </li>
+      <li>
+        <span class="loop__n"><i>03</i> Compose</span>
+        <p class="loop__q">When several models work together, does the interaction help, or <b>quietly destroy
+          answers that were already right?</b></p>
+      </li>
+    </ol>
+    <div class="loop__back">
+      <i>03 &rarr; 01</i>
+      <p>Composition creates new failure modes, which have to be measured too. All of it on ground where an
+        answer can be checked: <b>formal verification, mathematics, code, wireless systems.</b></p>
+    </div>
+  </section>
+
+  <!-- ===================== claims ===================== -->
+  <section class="sec" id="claims" tabindex="-1" aria-labelledby="claims-h">
+    <div class="sec__head">
+      <h2 id="claims-h">Claims</h2>
+      <p class="sec__note">What each paper established, newest first. Dates are when the result entered the
+        record. <b>Filled tag = peer-reviewed venue; dashed = preprint.</b></p>
+    </div>
+
+    <ol class="claims">
+
+      <li class="claim">
+        <span class="claim__date"><span class="y">2026</span> Sep</span>
+        <div class="claim__body">
+          <p class="claim__text">Debate moves answers in both directions: across <span class="n">6,925</span>
+            logged MMLU&#8209;Pro debates it produced <span class="n">253</span> collapses, and a probe-gated
+            freeze that prevents <span class="n">29</span> of them gives up <span class="n">108</span>
+            corrections &mdash; net <span class="n">&minus;79</span> under equal weights.</p>
+          <p class="claim__meta">
+            <span class="venue">NeurIPS 2026</span>
+            <a class="name" href="https://lixin.ai/DebateLedger/">DebateLedger</a>
+            <span class="who">co-first</span>
+            <span class="links"><a href="https://lixin.ai/DebateLedger/">Homepage</a></span>
+          </p>
+        </div>
+      </li>
+
+      <li class="claim">
+        <span class="claim__date is-rep"><span class="y">2026</span> Sep</span>
+        <div class="claim__body">
+          <p class="claim__text">Frontier models cluster at <span class="n">86.5&ndash;91.3%</span> on
+            <span class="n">4,027</span> problems drawn from <span class="n">836</span> arXiv papers across
+            <span class="n">20</span> wireless subfields, and every problem ships
+            <span class="n">13</span>&#8209;gram contamination-overlap evidence against public pretraining
+            text &mdash; so a score here can be re-audited on one lexical channel instead of taken on trust.</p>
+          <p class="claim__meta">
+            <span class="venue">NeurIPS 2026</span>
+            <a class="name" href="https://lixin.ai/WirelessMathBench-XL/">WirelessMathBench&#8209;XL</a>
+            <span class="who">first author</span>
+            <span class="links"><a href="https://lixin.ai/WirelessMathBench-XL/">Homepage</a><span aria-hidden="true">·</span><a href="https://arxiv.org/pdf/2509.23219">arXiv</a></span>
+          </p>
+        </div>
+      </li>
+
+      <li class="claim">
+        <span class="claim__date is-rep"><span class="y">2026</span> Sep</span>
+        <div class="claim__body">
+          <p class="claim__text">Routing decides which teacher supervises a prompt but not how much its
+            feedback counts; normalizing each teacher's feedback scale per domain adds
+            <span class="n">1.2&ndash;3.1</span> points over label routing, across <span class="n">2B</span>,
+            <span class="n">4B</span> and <span class="n">9B</span> students.</p>
+          <p class="claim__meta">
+            <span class="venue is-pre">arXiv 2026</span>
+            <a class="name" href="https://lixin.ai/DN-MOPD/">DN&#8209;MOPD</a>
+            <span class="who">first author</span>
+            <span class="links"><a href="https://lixin.ai/DN-MOPD/">Homepage</a><span aria-hidden="true">·</span><a href="https://arxiv.org/abs/2609.35347">arXiv</a><span aria-hidden="true">·</span><a href="https://github.com/LiXin97/DN-MOPD">Code</a><span aria-hidden="true">·</span><a href="https://huggingface.co/datasets/XINLI1997/DN-MOPD-Data">Data</a><span aria-hidden="true">·</span><a href="https://huggingface.co/collections/XINLI1997/dn-mopd-6aba5f0df7bd8732d7205ed4">Models</a></span>
+          </p>
+        </div>
+      </li>
+
+      <li class="claim">
+        <span class="claim__date is-rep"><span class="y">2026</span> Sep</span>
+        <div class="claim__body">
+          <p class="claim__text">Terrain can be classified directly from SAR Level&#8209;0 raw data at roughly
+            <span class="n">90%</span> accuracy, with a stacked intelligent metasurface doing the inference
+            in&#8209;wave.</p>
+          <p class="claim__meta">
+            <span class="venue">IEEE TSP 2026</span>
+            <a class="name" href="https://onboradsim.github.io/">SIM&#8209;D<sup>2</sup>NN</a>
+            <span class="links"><a href="https://onboradsim.github.io/">Homepage</a></span>
+          </p>
+        </div>
+      </li>
+
+      <li class="claim">
+        <span class="claim__date"><span class="y">2026</span> Aug</span>
+        <div class="claim__body">
+          <p class="claim__text">Best&#8209;of&#8209;K reasoning selection is only as good as the verifier that
+            scores the candidates; TLVC is a method for picking that verifier.</p>
+          <p class="claim__meta">
+            <span class="venue">Findings of EMNLP 2026</span>
+            <a class="name" href="https://lixin.ai/TLVC/">TLVC</a>
+            <span class="links"><a href="https://lixin.ai/TLVC/">Homepage</a></span>
+          </p>
+        </div>
+      </li>
+
+      <li class="claim">
+        <span class="claim__date is-rep"><span class="y">2026</span> Aug</span>
+        <div class="claim__body">
+          <p class="claim__text">Aggregating a pile of e&#8209;commerce reviews with an LLM is worth doing only
+            if the summary still covers them; GraphReduce is built to preserve that coverage.</p>
+          <p class="claim__meta">
+            <span class="venue">EMNLP Industry Track 2026</span>
+            <a class="name" href="https://graphreduce.github.io/">GraphReduce</a>
+            <span class="links"><a href="https://graphreduce.github.io/">Homepage</a></span>
+          </p>
+        </div>
+      </li>
+
+      <li class="claim">
+        <span class="claim__date"><span class="y">2026</span> Jun</span>
+        <div class="claim__body">
+          <p class="claim__text">Whether a multimodal small language model can be deployed as an
+            anomaly-detection assistant turns on how it holds up in the real world; RobustMAD evaluates
+            exactly that robustness.</p>
+          <p class="claim__meta">
+            <span class="venue">TMLR 2026</span>
+            <a class="name" href="https://robustmad.github.io/">RobustMAD</a>
+            <span class="links"><a href="https://robustmad.github.io/">Homepage</a><span aria-hidden="true">·</span><a href="https://openreview.net/forum?id=skrA9UYNIZ">OpenReview</a><span aria-hidden="true">·</span><a href="https://github.com/en-research/RobustMAD">Code</a></span>
+          </p>
+        </div>
+      </li>
+
+      <li class="claim">
+        <span class="claim__date"><span class="y">2026</span> May</span>
+        <div class="claim__body">
+          <p class="claim__text">Scalable formal software verification with RL carries more hand-built human
+            prior than it needs: Re:Form reduces it, in a preliminary study on Dafny.</p>
+          <p class="claim__meta">
+            <span class="venue">TMLR 2026</span>
+            <a class="name" href="https://openreview.net/forum?id=cAQmIS4GOe">Re:Form</a>
+            <span class="who">equal contribution</span>
+            <span class="links"><a href="https://openreview.net/forum?id=cAQmIS4GOe">OpenReview</a><span aria-hidden="true">·</span><a href="https://arxiv.org/pdf/2507.16331">arXiv</a><span aria-hidden="true">·</span><a href="https://github.com/Veri-Code/ReForm">Code</a></span>
+          </p>
+        </div>
+      </li>
+
+      <li class="claim">
+        <span class="claim__date"><span class="y">2026</span> Apr</span>
+        <div class="claim__body">
+          <p class="claim__text">LiveCANNBench measures how well LLMs write code for Ascend CANN.</p>
+          <p class="claim__meta">
+            <span class="venue">Findings of ACL 2026</span>
+            <a class="name" href="https://livecannbench.github.io/">LiveCANNBench</a>
+            <span class="links"><a href="https://livecannbench.github.io/">Homepage</a></span>
+          </p>
+        </div>
+      </li>
+
+      <li class="claim">
+        <span class="claim__date"><span class="y">2026</span> Jan</span>
+        <div class="claim__body">
+          <p class="claim__text">Local success does not compose: verifying Dafny functions one at a time tells
+            you little about whether the specifications still hold once those functions are put together, which
+            is what DafnyComp benchmarks.</p>
+          <p class="claim__meta">
+            <span class="venue">ICLR 2026</span>
+            <a class="name" href="https://dafnycomp.github.io/">DafnyComp</a>
+            <span class="who">co-first</span>
+            <span class="links"><a href="https://dafnycomp.github.io/">Homepage</a><span aria-hidden="true">·</span><a href="https://openreview.net/forum?id=y4kAMUBqLq">OpenReview</a><span aria-hidden="true">·</span><a href="https://arxiv.org/pdf/2509.23061">arXiv</a></span>
+          </p>
+        </div>
+      </li>
+
+      <li class="claim">
+        <span class="claim__date"><span class="y">2025</span> Sep</span>
+        <div class="claim__body">
+          <p class="claim__text">LLM agents are already talking to each other with no agreed protocol: LACP
+            argues that the agent communication protocol requires urgent standardization.</p>
+          <p class="claim__meta">
+            <span class="venue">AI4NextG @ NeurIPS 2025</span>
+            <a class="name" href="https://lixin.ai/LACP/">LACP</a>
+            <span class="who">first author</span>
+            <span class="links"><a href="https://lixin.ai/LACP/">Homepage</a><span aria-hidden="true">·</span><a href="https://arxiv.org/pdf/2510.13821">arXiv</a></span>
+          </p>
+        </div>
+      </li>
+
+      <li class="claim">
+        <span class="claim__date"><span class="y">2025</span> May</span>
+        <div class="claim__body">
+          <p class="claim__text">Mathematical modeling in wireless communications needed a test of its own:
+            WirelessMathBench was the first benchmark for LLM mathematical reasoning in the domain.</p>
+          <p class="claim__meta">
+            <span class="venue">Findings of ACL 2025</span>
+            <a class="name" href="https://lixin.ai/WirelessMathBench/">WirelessMathBench</a>
+            <span class="who">first author</span>
+            <span class="links"><a href="https://lixin.ai/WirelessMathBench/">Homepage</a><span aria-hidden="true">·</span><a href="https://arxiv.org/pdf/2505.14354">arXiv</a></span>
+          </p>
+        </div>
+      </li>
+
+      <li class="claim">
+        <span class="claim__date"><span class="y">2025</span> Jan</span>
+        <div class="claim__body">
+          <p class="claim__text">Indoor radio-map prediction done in two stages placed
+            <span class="n">4th</span> in the Indoor Pathloss Prediction Challenge, at
+            <span class="n">9.73</span> dB RMSE.</p>
+          <p class="claim__meta">
+            <span class="venue">ICASSP 2025</span>
+            <a class="name" href="https://lixin.ai/TransPathNet/">TransPathNet</a>
+            <span class="who">first author</span>
+            <span class="links"><a href="https://lixin.ai/TransPathNet/">Homepage</a><span aria-hidden="true">·</span><a href="https://github.com/LiXin97/TransPathNet">Code</a><span aria-hidden="true">·</span><a href="https://arxiv.org/pdf/2501.16023">arXiv</a></span>
+          </p>
+        </div>
+      </li>
+
+    </ol>
+  </section>
+
+  <!-- ===================== record ===================== -->
+  <section class="sec" aria-labelledby="rec-h">
+    <div class="sec__head">
+      <h2 id="rec-h">Record</h2>
+      <p class="sec__note">Everything else, compressed. The full list is on
+        <a href="https://scholar.google.com/citations?user=Hxf8sNkAAAAJ">Google Scholar</a>.</p>
+    </div>
+
+    <dl class="rec">
+      <div class="rec__row">
+        <dt>Before</dt>
+        <dd>Research assistant at <b>NTU</b> (Apr 2024 &ndash; Jan 2025), where WirelessMathBench and
+          TransPathNet were built. Before that, robot perception: monocular visual-inertial odometry at
+          <b>MEGVII</b> &mdash; <a href="https://arxiv.org/pdf/2004.11969">point-line VIO</a> (IROS 2020) and
+          <a href="https://arxiv.org/pdf/2009.12662">co-planar parametrization</a> (IEEE RA&#8209;L 2020), both
+          co-first; RGB&#8209;D&#8239;+&#8239;IMU indoor mapping at <b>Microsoft Research Asia</b>; and
+          multimodal localization at <b>Gausium Robotics</b>, where I led five engineers to <b>95%</b>
+          localization accuracy across <b>100,000+&#8239;m&sup2;</b>, deployed on a fleet of <b>1,000+</b>
+          commercial cleaning robots.</dd>
+      </div>
+      <div class="rec__row">
+        <dt>Education</dt>
+        <dd>Ph.D., <b>NTU Singapore</b>, 2025&ndash;2029 expected, with
+          <a href="https://blogs.ntu.edu.sg/chau-yuen/">Chau Yuen</a><span class="sep">|</span>M.E.,
+          <b><a href="https://www.pku.edu.cn/">Peking University</a></b>, 2018&ndash;2021, with
+          <a href="https://www.ss.pku.edu.cn/teacherteam/teacherlist/1652-%E6%9E%97%E9%87%91%E9%BE%99.html">Jinlong
+          Lin</a><span class="sep">|</span>B.E., <b><a href="https://www.neuq.edu.cn/">Northeastern
+          University</a></b>, China, 2014&ndash;2018.</dd>
+      </div>
+      <div class="rec__row">
+        <dt>Funding</dt>
+        <dd><b>Google Gemini Academic Program Award</b>, US$10,000, 2026<span class="sep">|</span>Modal
+          Academics Compute Grant, US$2,000<span class="sep">|</span>Cohere Labs Catalyst Grant,
+          US$1,500<span class="sep">|</span>OpenAI Researcher Access Program,
+          US$1,000<span class="sep">|</span><b>NTU Research Scholarship</b>, full Ph.D. funding.</dd>
+      </div>
+      <div class="rec__row">
+        <dt>Honors</dt>
+        <dd>Rohde&nbsp;&amp;&nbsp;Schwarz Award, IEEE 6G Summit Singapore,
+          2025<span class="sep">|</span>PREMIA Best Student Paper Award finalist, 2025.</dd>
+      </div>
+      <div class="rec__row">
+        <dt>Mentoring</dt>
+        <dd>Chengqi Liang, M.Sc. dissertation, NTU 2026 &rarr; Ph.D. at
+          CUHK&#8209;Shenzhen<span class="sep">|</span>Yukun Jin, B.Eng. final-year project, NTU 2026 &rarr;
+          M.Sc. at NTU<span class="sep">|</span>Haoyu Xu, M.Comp. dissertation, NUS 2024 &rarr; Ph.D. at Peking
+          University.</dd>
+      </div>
+      <div class="rec__row">
+        <dt>Talks</dt>
+        <dd>ISEE Youth Scholar Forum, Zhejiang University, Oct 2025 &mdash;
+          <a href="/data/talk_slides/WirelessMath_Slides.pdf">slides</a><span class="sep">|</span>NICE session
+          66, evaluation papers @ ICML &amp; ACL 2025, Jun 2025 &mdash;
+          <a href="/data/talk_slides/ACL_WirelessMathBench_Slides.pdf">slides</a>.</dd>
+      </div>
+      <div class="rec__row">
+        <dt>Service</dt>
+        <dd>Reviewer for NeurIPS, ICLR, ICML, AAAI, CVPR, ECCV, AISTATS, SIGGRAPH, IROS, ICRA, IEEE RA&#8209;L,
+          ACM TOG and IEEE TNNLS<span class="sep">|</span>organizer,
+          <a href="https://4drobotics-iros2025.github.io/">AIR4D @ IROS 2025</a>.</dd>
+      </div>
+      <div class="rec__row">
+        <dt>Contact</dt>
+        <dd>Open to research internships and to collaboration on any of the three questions above.
+          Email is the fastest route: <a href="mailto:xin019@e.ntu.edu.sg">xin019@e.ntu.edu.sg</a>.</dd>
+      </div>
+    </dl>
+  </section>
+
+  <footer>
+    <span aria-hidden="true"></span>
+    <p>&copy; 2026 Xin Li &nbsp;&middot;&nbsp; lixin.ai</p>
+  </footer>
+
+</div>
+</body>
+</html>
