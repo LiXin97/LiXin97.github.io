@@ -356,7 +356,7 @@ SHARE_CARD = "https://lixin.ai/data/share-card.jpg?v=6"
 OLD_ANCHORS = """
 <script>(function(){var m={publications:'publications.html',news:'news.html',about:'about.html',
 experience:'about.html#experience',education:'about.html#education',awards:'about.html#awards',
-mentoring:'about.html#mentoring',service:'about.html#service',talks:'about.html#service'};
+mentoring:'about.html#mentoring',service:'about.html#service',talks:'about.html#talks'};
 var t=m[location.hash.slice(1)];if(t)location.replace(t);})();</script>"""
 
 
@@ -847,17 +847,25 @@ def build_about():
     ])
     grants = rows([
         ("2026", "<b>Google Gemini Academic Program Award</b> — US$10,000"),
-        ("2025", "<b>Modal Academics Compute Grant</b> — US$2,000 · <b>Cohere Labs Catalyst Grant</b> — US$1,500 · "
-                 "<b>OpenAI Researcher Access Program</b> — US$1,000"),
-        ("2025", "<b>Rohde &amp; Schwarz Award</b>, IEEE 6G Summit Singapore · <b>PREMIA Best Student Paper Award</b>, finalist · "
-                 "<b>NTU Research Scholarship</b>, full Ph.D. funding"),
+        ("2025", "<b>Modal Academics Compute Grant</b> — US$2,000"),
+        ("2025", "<b>Cohere Labs Catalyst Grant</b> — US$1,500"),
+        ("2025", "<b>OpenAI Researcher Access Program</b> — US$1,000"),
+        ("2025", "<b>Rohde &amp; Schwarz Award</b>, IEEE 6G Summit Singapore"),
+        ("2025", "<b>PREMIA Best Student Paper Award</b>, finalist"),
+        ("2025", "<b>NTU Research Scholarship</b>, full Ph.D. funding"),
     ])
     service = rows([
         ("Reviewer", "NeurIPS, ICLR, ICML, AAAI, CVPR, ECCV, AISTATS, SIGGRAPH, IROS, ICRA · IEEE RA-L, ACM TOG, IEEE TNNLS"),
         ("Organizer", '<a href="https://4drobotics-iros2025.github.io/">AIR4D</a> workshop @ IROS 2025'),
-        ("Talks", 'ISEE Youth Scholar Forum, Zhejiang University, Oct 2025 · '
-                  'WirelessMathBench — ACL 2025 (<a href="/data/talk_slides/ACL_WirelessMathBench_Slides.pdf">slides</a>) and '
-                  'NICE Session 66, Jun 2025 (<a href="/data/talk_slides/WirelessMath_Slides.pdf">slides</a>)'),
+    ])
+    talks = rows([
+        ("Oct 2025", "<b>Teaching Large Language Models Mathematical Reasoning in Wireless Communications: From Benchmarking "
+                     "to Efficient Training</b> — ISEE Youth Scholar Forum, School of Information and Electronic Engineering, "
+                     "Zhejiang University"),
+        ("Jul 2025", '<b>WirelessMathBench</b> — ACL 2025 (<a href="/data/talk_slides/ACL_WirelessMathBench_Slides.pdf">slides</a>)'),
+        ("Jun 2025", '<b>WirelessMathBench: A Mathematical Modeling Benchmark for LLMs in Wireless Communications</b> — '
+                     'NICE Session 66, Evaluation Paper Sharing @ ICML &amp; ACL 2025 '
+                     '(<a href="/data/talk_slides/WirelessMath_Slides.pdf">slides</a>)'),
     ])
     mentoring = rows([
         ("2026", '<b>Chengqi Liang</b> — M.Sc. dissertation, Nanyang Technological University. '
@@ -890,9 +898,10 @@ def build_about():
     <section id="education"><h2 class="label"><span>Education</span></h2>{edu}</section>
     <section id="awards"><h2 class="label"><span>Grants &amp; awards</span></h2>{grants}</section>
     <section id="mentoring"><h2 class="label"><span>Mentoring</span></h2>{mentoring}</section>
-    <section id="service"><h2 class="label"><span>Service and talks</span></h2>{service}</section>
+    <section id="talks"><h2 class="label"><span>Talks</span></h2>{talks}</section>
+    <section id="service"><h2 class="label"><span>Service</span></h2>{service}</section>
   </div>"""
-    return page("about", "About — Xin Li", body, "About Xin Li: experience, education, grants and service.")
+    return page("about", "About — Xin Li", body, "About Xin Li: experience, education, grants, mentoring, talks and service.")
 
 FEATURED = {"evaluate": ["wmbxl"], "train": ["dnmopd"], "orchestrate": ["debateledger", "tlvc"]}
 

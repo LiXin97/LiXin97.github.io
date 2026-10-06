@@ -27,7 +27,7 @@ train.html
 orchestrate.html    (was coordinate.html, which now redirects here)
 publications.html   full list, filterable by thread (assets/filter.js)
 news.html           every news item; home shows the latest five
-about.html          experience, education, grants, mentoring, service and talks
+about.html          experience, education, grants, mentoring, talks and service
 assets/site.css     generated: base.css + paper.css + present.css
 assets/mode.js      footer Auto / Light / Dark switch (dark follows the system by default)
 assets/portrait3d.js  the home page's 3D portrait (three.js bundle; built elsewhere, see below)
