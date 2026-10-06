@@ -46,7 +46,7 @@ images/             favicons
 
 | File | Used by |
 | --- | --- |
-| `data/Xin_Li_CV_2026.pdf` | the CV link in the nav and contact line |
+| `data/Xin_Li_CV_2026.pdf` | the CV link in the nav and contact line; the academic CV (moderncv) from its own Overleaf project, compiled as is. It is public, so it carries no phone number; the industry resume is a separate project and is not linked here |
 | `data/XinLI_profile.webp` | the JSON-LD `Person.image` (full resolution source) |
 | `data/avatar-560.webp` | the home-page portrait; shown until the 3D one loads, and in its place without WebGL or with reduced motion |
 | `assets/portrait3d.js`, `assets/portrait/*` | the 3D portrait on the home page. Both are build outputs: the bundle is esbuild of `avatar/portrait/embed.js`, the images come from `tools/depth/make_portrait.py`, both in the separate lixin.ai workspace; copy them in, don't edit here |
