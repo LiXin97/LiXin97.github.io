@@ -862,7 +862,6 @@ def build_about():
         ("Oct 2025", "<b>Teaching Large Language Models Mathematical Reasoning in Wireless Communications: From Benchmarking "
                      "to Efficient Training</b> — ISEE Youth Scholar Forum, School of Information and Electronic Engineering, "
                      "Zhejiang University"),
-        ("Jul 2025", '<b>WirelessMathBench</b> — ACL 2025 (<a href="/data/talk_slides/ACL_WirelessMathBench_Slides.pdf">slides</a>)'),
         ("Jun 2025", '<b>WirelessMathBench: A Mathematical Modeling Benchmark for LLMs in Wireless Communications</b> — '
                      'NICE Session 66, Evaluation Paper Sharing @ ICML &amp; ACL 2025 '
                      '(<a href="/data/talk_slides/WirelessMath_Slides.pdf">slides</a>)'),
@@ -898,7 +897,7 @@ def build_about():
     <section id="education"><h2 class="label"><span>Education</span></h2>{edu}</section>
     <section id="awards"><h2 class="label"><span>Grants &amp; awards</span></h2>{grants}</section>
     <section id="mentoring"><h2 class="label"><span>Mentoring</span></h2>{mentoring}</section>
-    <section id="talks"><h2 class="label"><span>Talks</span></h2>{talks}</section>
+    <section id="talks"><h2 class="label"><span>Invited talks</span></h2>{talks}</section>
     <section id="service"><h2 class="label"><span>Service</span></h2>{service}</section>
   </div>"""
     return page("about", "About — Xin Li", body, "About Xin Li: experience, education, grants, mentoring, talks and service.")

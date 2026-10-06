@@ -52,7 +52,8 @@ images/             favicons
 | `assets/portrait3d.js`, `assets/portrait/*` | the 3D portrait on the home page. Both are build outputs: the bundle is esbuild of `avatar/portrait/embed.js`, the images come from `tools/depth/make_portrait.py`, both in the separate lixin.ai workspace; copy them in, don't edit here |
 | `data/share-card.jpg` | `og:image` / `twitter:image`, 1200x630; rendered from `_styles/share/card.html` (how is in its header comment) |
 | `images/icon-32.png`, `images/icon-180.png` | favicon and apple-touch-icon |
-| `data/talk_slides/*.pdf` | the talks on the About page |
+| `data/talk_slides/WirelessMath_Slides.pdf` | the NICE Session 66 talk on the About page |
+| `data/talk_slides/ACL_WirelessMathBench_Slides.pdf` | no longer linked (the ACL 2025 paper talk left the About page); kept because its URL was public |
 
 Two superseded CVs (`data/XinLi_CV.pdf`, `data/Xin_Li_s_CV.pdf`) are kept
 deliberately: their URLs were public for months and may still be linked from
