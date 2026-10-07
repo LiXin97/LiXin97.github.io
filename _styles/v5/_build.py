@@ -68,6 +68,16 @@ P = [
        claim="On a 34-generator, 7-verifier Best-of-K math panel, one strong process reward model is the best fixed verifier overall — "
              "and still not the best verifier for every generator. Label-free candidate statistics predict which verifier class wins.",
        scope=None),
+  dict(id="icsc", thread="train", year=2026, lead=True,
+       title="Reconstructing wireless signals for low altitude networks using small language models", short="ICSC",
+       authors="Xin Li, Ran Liu, Chau Yuen",
+       venue="npj Wireless Technology 2026", venue_long="npj Wireless Technology, 2026", pos="first of 3",
+       links=[("Paper", "https://www.nature.com/articles/s44459-026-00084-5")],
+       fig=("2.85 dB", "mean error from a 0.5B model", False),
+       claim="Small language models can learn physical reasoning from rewards. Fine-tuned with GRPO and physics-informed rewards, "
+             "a 0.5B model reconstructs RSSI along UAV flight paths at 2.85 dB mean absolute error, 49% below its untrained baseline "
+             "and on par with GPT-4o, transfers zero-shot to spatial interpolation, and runs at 3 ms latency.",
+       scope=None),
   dict(id="dafnycomp", blurb="Models that verify functions one at a time can still fail once the specifications have to compose.",
        thread="evaluate", year=2026, lead=True,
        title="Local Success Does Not Compose: Benchmarking Large Language Models for Compositional Formal Verification", short="DafnyComp",
@@ -175,7 +185,7 @@ THREADS = [
        q="How can models learn from verifiers, rewards, and other models?",
        desc="What the training signal should be — which reward, and how much each teacher's feedback should count.",
        hero="dnmopd", hero_fig=("+1.2–3.1", "points from normalizing each teacher's feedback scale"),
-       works=["dnmopd", "reform", "graphreduce"],
+       works=["dnmopd", "reform", "icsc", "graphreduce"],
        also=[("ListOPD", "https://lixin.ai/ListOPD/",
               "A computable extrapolation cliff in on-policy distillation of near-deterministic structured outputs. Project page; no venue yet."),
              ("WirelessMathLM", "https://lixin.ai/WirelessMathLM/",
@@ -203,6 +213,7 @@ SEEK = "I’m looking for <b>research internships in 2027</b>, on LLM agents, po
 NEWS = [
   ("Sep 2026", 'Our paper <a href="https://onboradsim.github.io/">SIM-D<sup>2</sup>NN</a> (on onboard terrain classification straight from raw SAR data, using a stacked metasurface as the classifier) was accepted to IEEE Transactions on Signal Processing.'),
   ("Sep 2026", 'Two of our papers were accepted to the NeurIPS 2026 Evaluations and Datasets Track: <a href="https://lixin.ai/WirelessMathBench-XL/">WirelessMathBench-XL</a>, a wireless-math benchmark shipped with a rerunnable contamination audit, and <a href="https://lixin.ai/DebateLedger/">DebateLedger</a>, a protocol separating harmful collapse from useful correction in multi-agent LLM debate.'),
+  ("Sep 2026", 'Our paper <a href="https://www.nature.com/articles/s44459-026-00084-5">ICSC</a> (on reconstructing wireless signals for low-altitude networks with small language models trained by reinforcement learning) was published in npj Wireless Technology.'),
   ("Aug 2026", 'Two of our papers were accepted to EMNLP 2026: <a href="https://lixin.ai/TLVC/">TLVC</a>, on picking the right verifier for best-of-K reasoning selection (Findings), and <a href="https://graphreduce.github.io/">GraphReduce</a>, on coverage-preserving LLM aggregation of e-commerce reviews (Industry Track).'),
   ("Jun 2026", 'Our paper <a href="https://robustmad.github.io/">RobustMAD</a> (a robustness benchmark for multimodal small language models in anomaly detection) was accepted to TMLR.'),
   ("May 2026", 'Our paper <a href="https://arxiv.org/pdf/2507.16331">Re:Form</a> (on cutting human priors from RL-trained formal software verification) was accepted to TMLR.'),
@@ -264,6 +275,7 @@ def vshort(p):
              .replace("EMNLP 2026 · Industry Track", "EMNLP 2026 Industry")
              .replace("NeurIPS 2026 · Evaluations and Datasets Track", "NeurIPS 2026")
              .replace("arXiv preprint, 2026", "Preprint 2026")
+             .replace("npj Wireless Technology, 2026", "npj Wireless Technology 2026")
              .replace("AI4NextG workshop @ NeurIPS 2025", "AI4NextG @ NeurIPS 2025")
              .replace("IEEE Robotics and Automation Letters, 2020", "IEEE RA-L 2020"))
 
@@ -364,7 +376,7 @@ def json_ld():
     return """
 <script type="application/ld+json">
 {"@context": "https://schema.org", "@type": "ProfilePage", "@id": "https://lixin.ai/#profile",
- "dateCreated": "2024-04-05T14:53:00+08:00", "dateModified": "2026-10-06T10:00:00+08:00", "url": "https://lixin.ai/",
+ "dateCreated": "2024-04-05T14:53:00+08:00", "dateModified": "2026-10-07T10:00:00+08:00", "url": "https://lixin.ai/",
  "mainEntity": {"@type": "Person", "@id": "https://lixin.ai/#person", "name": "Xin Li", "alternateName": "李鑫",
   "url": "https://lixin.ai/", "image": "https://lixin.ai/data/XinLI_profile.webp", "jobTitle": "PhD Student",
   "affiliation": {"@type": "Organization", "name": "Nanyang Technological University", "url": "https://www.ntu.edu.sg/"},
