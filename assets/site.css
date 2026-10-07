@@ -308,6 +308,7 @@ a.label__aside:hover { color: var(--ink); }
 /* ---------- about ---------- */
 .about-head { display: grid; grid-template-columns: minmax(0, 200px) minmax(0, 1fr); gap: 28px clamp(28px, 5vw, 64px); align-items: start; }
 .portrait { width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: var(--radius); }
+.about-head .portrait { align-self: center; } /* sits beside the middle of the bio, not its top */
 .about-bio { margin-top: 20px; font-size: 1.04rem; line-height: 1.65; max-width: 64ch; }
 .about-bio + .about-bio { margin-top: 12px; }
 .about-body > section { margin-top: 56px; }
