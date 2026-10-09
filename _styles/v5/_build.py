@@ -211,6 +211,7 @@ SEEK = "I’m looking for <b>research internships in 2027</b>, on LLM agents, po
 
 # Every news item, newest first. Home shows the first five; news.html shows them all.
 NEWS = [
+  ("Oct 2026", "Recognized as a Top Reviewer for NeurIPS 2026."),
   ("Sep 2026", 'Our paper <a href="https://onboradsim.github.io/">SIM-D<sup>2</sup>NN</a> (on onboard terrain classification straight from raw SAR data, using a stacked metasurface as the classifier) was accepted to IEEE Transactions on Signal Processing.'),
   ("Sep 2026", 'Two of our papers were accepted to the NeurIPS 2026 Evaluations and Datasets Track: <a href="https://lixin.ai/WirelessMathBench-XL/">WirelessMathBench-XL</a>, a wireless-math benchmark shipped with a rerunnable contamination audit, and <a href="https://lixin.ai/DebateLedger/">DebateLedger</a>, a protocol separating harmful collapse from useful correction in multi-agent LLM debate.'),
   ("Sep 2026", 'Our paper <a href="https://www.nature.com/articles/s44459-026-00084-5">ICSC</a> (on reconstructing wireless signals for low-altitude networks with small language models trained by reinforcement learning) was published in npj Wireless Technology.'),
@@ -376,7 +377,7 @@ def json_ld():
     return """
 <script type="application/ld+json">
 {"@context": "https://schema.org", "@type": "ProfilePage", "@id": "https://lixin.ai/#profile",
- "dateCreated": "2024-04-05T14:53:00+08:00", "dateModified": "2026-10-07T10:00:00+08:00", "url": "https://lixin.ai/",
+ "dateCreated": "2024-04-05T14:53:00+08:00", "dateModified": "2026-10-09T10:00:00+08:00", "url": "https://lixin.ai/",
  "mainEntity": {"@type": "Person", "@id": "https://lixin.ai/#person", "name": "Xin Li", "alternateName": "李鑫",
   "url": "https://lixin.ai/", "image": "https://lixin.ai/data/XinLI_profile.webp", "jobTitle": "PhD Student",
   "affiliation": {"@type": "Organization", "name": "Nanyang Technological University", "url": "https://www.ntu.edu.sg/"},
@@ -858,6 +859,7 @@ def build_about():
         ("2014 – 2018", "<b>B.E.</b>, Northeastern University, China."),
     ])
     grants = rows([
+        ("2026", "<b>NeurIPS 2026 Top Reviewer</b>"),
         ("2026", "<b>Google Gemini Academic Program Award</b> — US$10,000"),
         ("2025", "<b>Modal Academics Compute Grant</b> — US$2,000"),
         ("2025", "<b>Cohere Labs Catalyst Grant</b> — US$1,500"),
@@ -867,7 +869,7 @@ def build_about():
         ("2025", "<b>NTU Research Scholarship</b>, full Ph.D. funding"),
     ])
     service = rows([
-        ("Reviewer", "NeurIPS, ICLR, ICML, AAAI, CVPR, ECCV, AISTATS, SIGGRAPH, IROS, ICRA · IEEE RA-L, ACM TOG, IEEE TNNLS"),
+        ("Reviewer", "NeurIPS (Top Reviewer, 2026), ICLR, ICML, AAAI, CVPR, ECCV, AISTATS, SIGGRAPH, IROS, ICRA · IEEE RA-L, ACM TOG, IEEE TNNLS"),
         ("Organizer", '<a href="https://4drobotics-iros2025.github.io/">AIR4D</a> workshop @ IROS 2025'),
     ])
     talks = rows([
