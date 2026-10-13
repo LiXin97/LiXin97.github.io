@@ -256,9 +256,19 @@ def authors_html(a):
     return ", ".join(out)
 
 
+CV_PDF = "/data/Xin_Li_CV_2026.pdf"
+CV_UPDATED = "Oct 2026"   # month the CV PDF was last rebuilt; bump with it
+
+
+def cv_link(label="CV"):
+    """A CV link with its update month beside it, kept on one line."""
+    return (f'<span class="cv-link"><a href="{CV_PDF}">{e(label)}</a>'
+            f'<span class="cv-date">updated {CV_UPDATED}</span></span>')
+
+
 def links_html(links, cls="links"):
     return f'<p class="{cls}">' + "".join(
-        f'<a href="{e(u)}">{e(t)}</a>' for t, u in links) + "</p>"
+        cv_link(t) if u == CV_PDF else f'<a href="{e(u)}">{e(t)}</a>' for t, u in links) + "</p>"
 
 
 def subtitle(p):
@@ -607,7 +617,7 @@ def tail_sections(also_list=True):
     <div>
       <h2 class="label"><span>Contact</span></h2>
       <p>Looking for research internships in 2027, and always glad to talk about research or collaboration.</p>
-      <p class="links links--plain"><a href="mailto:xin019@e.ntu.edu.sg">xin019@e.ntu.edu.sg</a><a href="https://scholar.google.com/citations?user=Hxf8sNkAAAAJ">Scholar</a><a href="https://github.com/LiXin97">GitHub</a><a href="https://www.linkedin.com/in/xin-li-1196331a0/">LinkedIn</a><a href="/data/Xin_Li_CV_2026.pdf">CV</a></p>
+      <p class="links links--plain"><a href="mailto:xin019@e.ntu.edu.sg">xin019@e.ntu.edu.sg</a><a href="https://scholar.google.com/citations?user=Hxf8sNkAAAAJ">Scholar</a><a href="https://github.com/LiXin97">GitHub</a><a href="https://www.linkedin.com/in/xin-li-1196331a0/">LinkedIn</a>{cv_link('CV')}</p>
     </div>
   </section>"""
 
@@ -686,7 +696,7 @@ def build_index():
     <div>
       <h2 class="label"><span>Contact</span></h2>
       <p>Looking for research internships in 2027, and always glad to talk about research or collaboration.</p>
-      <p class="links links--plain"><a href="mailto:xin019@e.ntu.edu.sg">xin019@e.ntu.edu.sg</a><a href="https://scholar.google.com/citations?user=Hxf8sNkAAAAJ">Scholar</a><a href="https://github.com/LiXin97">GitHub</a><a href="https://www.linkedin.com/in/xin-li-1196331a0/">LinkedIn</a><a href="/data/Xin_Li_CV_2026.pdf">CV</a></p>
+      <p class="links links--plain"><a href="mailto:xin019@e.ntu.edu.sg">xin019@e.ntu.edu.sg</a><a href="https://scholar.google.com/citations?user=Hxf8sNkAAAAJ">Scholar</a><a href="https://github.com/LiXin97">GitHub</a><a href="https://www.linkedin.com/in/xin-li-1196331a0/">LinkedIn</a>{cv_link('CV')}</p>
     </div>
   </section>"""
     return page("home", "Xin Li — Evaluate, Train, Orchestrate",
@@ -903,7 +913,7 @@ def build_about():
       <p class="about-bio">Before my Ph.D. I worked on robot perception — visual-inertial odometry at MEGVII, RGB-D + IMU
         indoor mapping at Microsoft Research Asia, and multimodal localization at Gausium Robotics, where I led a
         five-engineer team and shipped to a fleet of 1,000+ commercial cleaning robots.</p>
-      <p class="links links--plain"><a href="mailto:xin019@e.ntu.edu.sg">xin019@e.ntu.edu.sg</a><a href="/data/Xin_Li_CV_2026.pdf">CV (PDF)</a><a href="https://scholar.google.com/citations?user=Hxf8sNkAAAAJ">Scholar</a><a href="https://github.com/LiXin97">GitHub</a><a href="https://www.linkedin.com/in/xin-li-1196331a0/">LinkedIn</a></p>
+      <p class="links links--plain"><a href="mailto:xin019@e.ntu.edu.sg">xin019@e.ntu.edu.sg</a>{cv_link('CV (PDF)')}<a href="https://scholar.google.com/citations?user=Hxf8sNkAAAAJ">Scholar</a><a href="https://github.com/LiXin97">GitHub</a><a href="https://www.linkedin.com/in/xin-li-1196331a0/">LinkedIn</a></p>
     </div>
   </header>
   <div class="wrap about-body">

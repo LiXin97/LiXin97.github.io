@@ -77,6 +77,8 @@ a.label__aside:hover { color: var(--ink); }
 .links a:hover { color: var(--accent); border-bottom-color: var(--accent); }
 .links--plain { font-size: .8rem; }
 .links--plain a { color: var(--ink); }
+.cv-link { display: inline-flex; align-items: baseline; gap: 7px; white-space: nowrap; }
+.cv-date { font-family: var(--f-mono); font-size: .86em; letter-spacing: .04em; color: var(--faint); }
 
 .venue {
   display: inline-block; font-family: var(--f-mono); font-size: .74rem; font-weight: 700; line-height: 1.2;
