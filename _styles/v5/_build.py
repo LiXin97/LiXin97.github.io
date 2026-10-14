@@ -648,7 +648,7 @@ def tail_sections(also_list=True):
     recent = news_items(NEWS[:5])
     also_sec = f"""
   <section class="also wrap" aria-labelledby="also-h">
-    <h2 id="also-h" class="label"><span>Also in 2026</span><a class="label__aside" href="publications.html">All publications →</a></h2>
+    <h2 id="also-h" class="label"><span>Also in 2026</span><a class="label__aside" href="publications.html">Selected publications →</a></h2>
     <ul class="also__list">{also}
     </ul>
   </section>""" if also_list else ""
@@ -726,7 +726,7 @@ def build_index():
   </section>
 
   <section class="also wrap" aria-labelledby="also-h">
-    <h2 id="also-h" class="label"><span>Also in 2026</span><a class="label__aside" href="publications.html">All publications →</a></h2>
+    <h2 id="also-h" class="label"><span>Also in 2026</span><a class="label__aside" href="publications.html">Selected publications →</a></h2>
     <ul class="also__list">{also}
     </ul>
   </section>
@@ -921,7 +921,7 @@ def build_news():
     body = f"""
   <header class="plain-head wrap">
     <h1 class="plain-h1">News</h1>
-    <p class="plain-sub">Since starting the Ph.D. in January 2025. Papers in full are on the <a href="publications.html">publications</a> page.</p>
+    <p class="plain-sub">Since starting the Ph.D. in January 2025. Selected papers: <a href="publications.html">publications</a>.</p>
   </header>
   <div class="wrap pubs-wrap">{groups}
   </div>"""
@@ -1128,7 +1128,7 @@ def build_home_a():
     ground = "".join(f"<span>{e(g)}</span>" for g in GROUND)
     body = hero_block() + f"""
   <section class="track wrap" aria-labelledby="loop-h">
-    <h2 id="loop-h" class="label"><span>The research, as one loop</span><a class="label__aside" href="publications.html">All publications →</a></h2>
+    <h2 id="loop-h" class="label"><span>The research, as one loop</span><a class="label__aside" href="publications.html">Selected publications →</a></h2>
     <div class="track__row">{"".join(panels)}
     </div>
     <div class="track__return"><span class="track__rail" aria-hidden="true"></span>
