@@ -74,6 +74,14 @@ RESULT: Rank-GRPO trains on one human answer at a time, so 85% of its advantage 
 which answer was drawn; rewarding each list once against all answers reaches the baseline's
 recall in **25–53%** of the RL steps, across seven backbones and three datasets.
 
+**ErrOPD: When Does On-Policy Distillation Transfer Teacher Errors?** (formerly ListOPD)
+arXiv preprint, 2026 (v1 May 2026, v2 Oct 2026) · position: first of 5
+Xin Li, Hao Jiang, Annan Wang, Yichi Zhang, Chau Yuen
+https://lixin.ai/ErrOPD/ · https://arxiv.org/abs/2605.08737 · https://github.com/LiXin97/ErrOPD
+· data and models https://huggingface.co/collections/XINLI1997/erropd-6acdbfaf2916ad2cc80e9a60
+RESULT: a controlled error-injection testbed for on-policy distillation. Forward-KL OPD transmits an
+injected teacher error within **42 steps**; reverse-KL OPD delays it rather than blocks it.
+
 **WirelessMathBench-XL: An Auditable Benchmark for Wireless Mathematical Reasoning**
 NeurIPS 2026, Evaluations and Datasets Track (poster) · position: first of 7
 Xin Li, Mengbing Liu, Yiyang Zhu, Wenhe Zhang, Li Wei, Jiancheng An, Chau Yuen
@@ -177,8 +185,7 @@ https://arxiv.org/abs/2004.11969 · https://github.com/LiXin97/Co-Planar-Paramet
 
 ### Named in his research description but with no venue yet
 WritingPreferenceBench (https://WritingPreferenceBench.github.io/),
-WirelessMathLM (https://lixin.ai/WirelessMathLM/),
-ListOPD (https://lixin.ai/ListOPD/). Use or omit as you see fit.
+WirelessMathLM (https://lixin.ai/WirelessMathLM/), shown as the earlier version of WirelessMathBench-XL. Use or omit as you see fit.
 
 ## Experience
 
@@ -225,7 +232,7 @@ ListOPD (https://lixin.ai/ListOPD/). Use or omit as you see fit.
 
 ## Project pages that already exist and are live
 
-https://lixin.ai/DebateLedger/ · /DN-MOPD/ · /SYNC/ · /ReMaRk/ · /ListOPD/ · /TLVC/ · /WirelessMathBench-XL/
+https://lixin.ai/DebateLedger/ · /DN-MOPD/ · /SYNC/ · /ReMaRk/ · /ErrOPD/ (old /ListOPD/ redirects) · /TLVC/ · /WirelessMathBench-XL/
 · /WirelessMathLM/ · /WirelessMathBench/ · /LACP/ · /TransPathNet/
 https://dafnycomp.github.io/ · https://robustmad.github.io/ · https://graphreduce.github.io/
 · https://onboradsim.github.io/ · https://livecannbench.github.io/

@@ -38,6 +38,7 @@ P = [
   dict(id="wmbxl", blurb="A wireless-math benchmark with per-problem provenance and reproducible text-overlap audits.",
        thread="evaluate", year=2026, lead=True,
        title="WirelessMathBench-XL: An Auditable Benchmark for Wireless Mathematical Reasoning", short="WirelessMathBench-XL",
+       earlier=("WirelessMathLM", "https://lixin.ai/WirelessMathLM/"),
        authors="Xin Li, Mengbing Liu, Yiyang Zhu, Wenhe Zhang, Li Wei, Jiancheng An, Chau Yuen",
        venue="NeurIPS 2026", venue_long="NeurIPS 2026 · Evaluations and Datasets Track", pos="first of 7",
        links=[("Project", "https://lixin.ai/WirelessMathBench-XL/"), ("Paper", "https://arxiv.org/abs/2509.23219")],
@@ -84,6 +85,19 @@ P = [
        fig=("25–53%", "of the RL steps to reach the baseline", False),
        claim="Rank-GRPO trains an LLM recommender on one human answer at a time, so 85% of its advantage variance records which answer was drawn. "
              "Rewarding each list once against all answers reaches the baseline's recall in 25–53% of the RL steps, across seven backbones and three datasets.",
+       scope=None),
+  dict(id="erropd", blurb="Forward-KL on-policy distillation passes an injected teacher error to the student within 42 steps; reverse-KL delays it rather than blocks it.",
+       thread="train", year=2026, lead=True,
+       title="ErrOPD: When Does On-Policy Distillation Transfer Teacher Errors?", short="ErrOPD",
+       authors="Xin Li, Hao Jiang, Annan Wang, Yichi Zhang, Chau Yuen",
+       venue="Preprint 2026", venue_long="arXiv preprint, 2026", pos="first of 5",
+       links=[("Project", "https://lixin.ai/ErrOPD/"), ("Paper", "https://arxiv.org/abs/2605.08737"),
+              ("Code", "https://github.com/LiXin97/ErrOPD"),
+              ("Data", "https://huggingface.co/collections/XINLI1997/erropd-6acdbfaf2916ad2cc80e9a60"),
+              ("Models", "https://huggingface.co/collections/XINLI1997/erropd-6acdbfaf2916ad2cc80e9a60")],
+       fig=("42 steps", "for forward-KL OPD to transmit a teacher error", False),
+       claim="ErrOPD is a controlled error-injection testbed for on-policy distillation. Forward-KL OPD transmits an injected "
+             "teacher error within 42 steps; reverse-KL OPD delays it rather than blocks it.",
        scope=None),
   dict(id="tlvc", blurb="No single verifier is best for every generator in best-of-K selection; label-free statistics predict which kind wins.",
        thread="orchestrate", year=2026, lead=True,
@@ -211,11 +225,8 @@ THREADS = [
        q="How can models learn from verifiers, rewards, and other models?",
        desc="What the training signal should be — which reward, and how much each teacher's feedback should count.",
        hero="dnmopd", hero_fig=("+1.2–3.1", "points from normalizing each teacher's feedback scale"),
-       works=["dnmopd", "remark", "reform", "icsc", "graphreduce"],
-       also=[("ListOPD", "https://lixin.ai/ListOPD/",
-              "A computable extrapolation cliff in on-policy distillation of near-deterministic structured outputs. Project page; no venue yet."),
-             ("WirelessMathLM", "https://lixin.ai/WirelessMathLM/",
-              "The earlier arXiv version of WirelessMathBench-XL, which also trains models on the benchmark with reinforcement learning.")]),
+       works=["dnmopd", "remark", "erropd", "reform", "icsc", "graphreduce"],
+       also=[]),
   dict(id="orchestrate", n="03", verb="Orchestrate",
        q="How should models, tools, and verifiers work together to complete tasks reliably?",
        desc="The system around a model at inference time: harnesses and tools, verifier choice, and protocols for several agents "
@@ -735,6 +746,14 @@ def build_index():
 
 
 # ---------------------------------------------------------------- thread pages
+def earlier(p):
+    """'Earlier version: X' for a paper that grew out of an earlier public version."""
+    if not p.get("earlier"):
+        return ""
+    n, u = p["earlier"]
+    return f'<span>Earlier version: <a href="{e(u)}">{e(n)}</a></span>'
+
+
 def work(p, open_fig=True):
     t = TH.get(p["thread"])
     claim = f'<p class="work__claim">{e(p["claim"])}</p>' if p["claim"] else ""
@@ -747,7 +766,7 @@ def work(p, open_fig=True):
         </div>
         <div class="work__main">
           <h3 class="work__title"><a href="{e(p['links'][0][1])}">{e(p['title'])}</a></h3>
-          <p class="work__authors">{authors_html(p['authors'])}</p>
+          <p class="work__authors">{authors_html(p['authors'])}</p>{f'{chr(10)}          <p class="pub__meta">{earlier(p)}</p>' if p.get("earlier") else ""}
           {claim}
           {scope}
           {links_html(p['links'])}
@@ -800,7 +819,7 @@ def pub(p):
       <li class="pub" data-thread="{p['thread']}">
         <div class="pub__top"><h3 class="pub__title"><a href="{e(p['links'][0][1])}">{e(p['title'])}</a></h3>{venue_pill(p)}</div>
         <p class="pub__authors">{authors_html(p['authors'])}</p>
-        <p class="pub__meta"><span class="pub__thread">{e(LABEL[p['thread']])}</span></p>
+        <p class="pub__meta"><span class="pub__thread">{e(LABEL[p['thread']])}</span>{earlier(p)}</p>
         {links_html(p['links'], 'links links--quiet')}
       </li>"""
 
@@ -829,7 +848,7 @@ def pub_rank(p):
 
 
 # Newest first by arXiv date; SYNC (no arXiv yet) between ReMaRk (10-13) and DN-MOPD (Sep), as 李鑫 set on 10-14.
-PREPRINT_ORDER = ["remark", "sync", "dnmopd"]
+PREPRINT_ORDER = ["remark", "sync", "dnmopd", "erropd"]   # ErrOPD: v1 May 2026 (v2 10-14)
 
 
 def is_first(p):
