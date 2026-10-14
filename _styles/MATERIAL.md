@@ -47,8 +47,8 @@ Marked `*` = equal contribution. "position" is his place in the author list.
 arXiv preprint, 2026 · position: first of 8
 Xin Li, Mengbing Liu, Hao Jiang, Xin Gao, Annan Wang, Xingwei Qu, Yichi Zhang, Chau Yuen
 https://lixin.ai/SYNC/ · https://github.com/LiXin97/SYNC (arXiv link to follow)
-· data https://huggingface.co/datasets/XINLI1997/SYNC-data · models https://huggingface.co/XINLI1997/SYNC-directions
-  (not public yet on 10-14; link them on the site once they open)
+· data https://huggingface.co/datasets/XINLI1997/SYNC-data
+· models https://huggingface.co/XINLI1997/SYNC-directions
 RESULT: heterogeneous language models pass facts without fine-tuning or a learned translator: the sender
 sends word indices from a shared list, and each receiver writes them with its own word directions.
 With three senders and nine newer receivers, four-answer success on new scenes reaches **72.0–98.3%**,

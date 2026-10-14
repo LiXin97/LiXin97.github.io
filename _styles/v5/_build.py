@@ -52,9 +52,9 @@ P = [
        title="Share the Symbol, Not the Vector: Training-Free Fact Communication Across Language Models", short="SYNC",
        authors="Xin Li, Mengbing Liu, Hao Jiang, Xin Gao, Annan Wang, Xingwei Qu, Yichi Zhang, Chau Yuen",
        venue="Preprint 2026", venue_long="arXiv preprint, 2026", pos="first of 8",
-       links=[("Project", "https://lixin.ai/SYNC/"), ("Code", "https://github.com/LiXin97/SYNC")],
-       # Data https://huggingface.co/datasets/XINLI1997/SYNC-data and Models https://huggingface.co/XINLI1997/SYNC-directions
-       # go in once both are public (10-14: not yet).
+       links=[("Project", "https://lixin.ai/SYNC/"), ("Code", "https://github.com/LiXin97/SYNC"),
+              ("Data", "https://huggingface.co/datasets/XINLI1997/SYNC-data"),
+              ("Models", "https://huggingface.co/XINLI1997/SYNC-directions")],
        fig=("72.0–98.3%", "four-answer success on new scenes", False),
        claim="Models with different architectures pass facts without fine-tuning or a learned translator: the sender sends "
              "word indices from a shared list, and each receiver writes them with its own word directions. With three senders and "
