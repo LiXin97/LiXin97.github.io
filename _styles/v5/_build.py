@@ -27,7 +27,9 @@ P = [
        title="Measuring Collapse and Correction in Homogeneous-Panel LLM Debate", short="DebateLedger",
        authors="Xin Li*, Mengbing Liu*, Chau Yuen",
        venue="NeurIPS 2026", venue_long="NeurIPS 2026 · Evaluations and Datasets Track", pos="joint first of 3",
-       links=[("Project", "https://lixin.ai/DebateLedger/")],
+       links=[("Project", "https://lixin.ai/DebateLedger/"), ("Paper", "https://arxiv.org/abs/2609.35279"),
+              ("Code", "https://github.com/LiXin97/DebateLedger"),
+              ("Data", "https://huggingface.co/datasets/XINLI1997/DebateLedger")],
        fig=("−79", "net, under equal weights", True),
        claim="Debate can turn a wrong answer right, and it can also talk a correct majority into a wrong one. "
              "DebateLedger counts the two apart, and finds that stopping collapse also stops correction: "
@@ -41,7 +43,10 @@ P = [
        earlier=("WirelessMathLM", "https://lixin.ai/WirelessMathLM/"),
        authors="Xin Li, Mengbing Liu, Yiyang Zhu, Wenhe Zhang, Li Wei, Jiancheng An, Chau Yuen",
        venue="NeurIPS 2026", venue_long="NeurIPS 2026 · Evaluations and Datasets Track", pos="first of 7",
-       links=[("Project", "https://lixin.ai/WirelessMathBench-XL/"), ("Paper", "https://arxiv.org/abs/2509.23219")],
+       links=[("Project", "https://lixin.ai/WirelessMathBench-XL/"), ("Paper", "https://arxiv.org/abs/2509.23219"),
+              ("Code", "https://github.com/LiXin97/WirelessMathBench-XL"),
+              ("Data", "https://huggingface.co/datasets/XINLI1997/WirelessMATHBench-XL"),
+              ("Models", "https://huggingface.co/collections/XINLI1997/wirelessmathbench-xl-6aba22d1122ef418c33dd34c")],
        fig=("4,027", "problems", False),
        claim="A benchmark that ships its own audit: every problem carries 13-gram contamination-overlap evidence "
              "against public pretraining text. 4,027 problems drawn from 836 arXiv papers across 20 wireless subfields; "
@@ -184,7 +189,9 @@ P = [
        title="WirelessMathBench: A Mathematical Modeling Benchmark for LLMs in Wireless Communications", short="WirelessMathBench",
        authors="Xin Li, Mengbing Liu, Li Wei, Jiancheng An, Mérouane Debbah, Chau Yuen",
        venue="ACL 2025", venue_long="Findings of ACL 2025", pos="first of 6",
-       links=[("Project", "https://lixin.ai/WirelessMathBench/"), ("Paper", "https://arxiv.org/abs/2505.14354")],
+       links=[("Project", "https://lixin.ai/WirelessMathBench/"), ("Paper", "https://arxiv.org/abs/2505.14354"),
+              ("Code", "https://github.com/LiXin97/WirelessMathBench"),
+              ("Data", "https://huggingface.co/datasets/XINLI1997/WirelessMathBench")],
        fig=None,
        claim="The first benchmark for LLM mathematical reasoning in wireless communications, and the work WirelessMathBench-XL extends.",
        scope=None),
@@ -603,6 +610,7 @@ def thread_label(t, cls):
 
 
 HERO_LINKS = [("Google Scholar", "https://scholar.google.com/citations?user=Hxf8sNkAAAAJ"), ("GitHub", "https://github.com/LiXin97"),
+              ("Hugging Face", "https://huggingface.co/XINLI1997"),
               ("CV", "/data/Xin_Li_CV_2026.pdf"), ("Email", "mailto:xin019@e.ntu.edu.sg")]
 
 
@@ -659,7 +667,7 @@ def tail_sections(also_list=True):
     <div>
       <h2 class="label"><span>Contact</span></h2>
       <p>Looking for research internships in 2027, and always glad to talk about research or collaboration.</p>
-      <p class="links links--plain"><a href="mailto:xin019@e.ntu.edu.sg">xin019@e.ntu.edu.sg</a><a href="https://scholar.google.com/citations?user=Hxf8sNkAAAAJ">Scholar</a><a href="https://github.com/LiXin97">GitHub</a><a href="https://www.linkedin.com/in/xin-li-1196331a0/">LinkedIn</a>{cv_link('CV')}</p>
+      <p class="links links--plain"><a href="mailto:xin019@e.ntu.edu.sg">xin019@e.ntu.edu.sg</a><a href="https://scholar.google.com/citations?user=Hxf8sNkAAAAJ">Scholar</a><a href="https://github.com/LiXin97">GitHub</a><a href="https://huggingface.co/XINLI1997">Hugging Face</a><a href="https://www.linkedin.com/in/xin-li-1196331a0/">LinkedIn</a>{cv_link('CV')}</p>
     </div>
   </section>"""
 
@@ -738,7 +746,7 @@ def build_index():
     <div>
       <h2 class="label"><span>Contact</span></h2>
       <p>Looking for research internships in 2027, and always glad to talk about research or collaboration.</p>
-      <p class="links links--plain"><a href="mailto:xin019@e.ntu.edu.sg">xin019@e.ntu.edu.sg</a><a href="https://scholar.google.com/citations?user=Hxf8sNkAAAAJ">Scholar</a><a href="https://github.com/LiXin97">GitHub</a><a href="https://www.linkedin.com/in/xin-li-1196331a0/">LinkedIn</a>{cv_link('CV')}</p>
+      <p class="links links--plain"><a href="mailto:xin019@e.ntu.edu.sg">xin019@e.ntu.edu.sg</a><a href="https://scholar.google.com/citations?user=Hxf8sNkAAAAJ">Scholar</a><a href="https://github.com/LiXin97">GitHub</a><a href="https://huggingface.co/XINLI1997">Hugging Face</a><a href="https://www.linkedin.com/in/xin-li-1196331a0/">LinkedIn</a>{cv_link('CV')}</p>
     </div>
   </section>"""
     return page("home", "Xin Li — Evaluate, Train, Orchestrate",
