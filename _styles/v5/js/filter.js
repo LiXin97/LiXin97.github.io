@@ -4,6 +4,7 @@
   if (!group) return;
   var pubs = [].slice.call(document.querySelectorAll('.pub'));
   var years = [].slice.call(document.querySelectorAll('.year'));
+  var heads = [].slice.call(document.querySelectorAll('.pubs-year'));
   group.addEventListener('click', function (ev) {
     var b = ev.target.closest('button');
     if (!b) return;
@@ -11,5 +12,6 @@
     group.querySelectorAll('button').forEach(function (x) { x.setAttribute('aria-pressed', String(x === b)); });
     pubs.forEach(function (p) { p.hidden = !(f === 'all' || p.dataset.thread === f); });
     years.forEach(function (y) { y.hidden = !y.querySelector('.pub:not([hidden])'); });
+    heads.forEach(function (h) { h.hidden = !h.nextElementSibling.querySelector('.pub:not([hidden])'); });
   });
 })();

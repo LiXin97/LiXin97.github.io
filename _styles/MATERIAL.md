@@ -43,6 +43,17 @@ Marked `*` = equal contribution. "position" is his place in the author list.
 
 ### 2026
 
+**Share the Symbol, Not the Vector: Training-Free Fact Communication Across Language Models** (SYNC)
+arXiv preprint, 2026 · position: first of 8
+Xin Li, Mengbing Liu, Hao Jiang, Xin Gao, Annan Wang, Xingwei Qu, Yichi Zhang, Chau Yuen
+https://lixin.ai/SYNC/ · https://github.com/LiXin97/SYNC (arXiv link to follow)
+· data https://huggingface.co/datasets/XINLI1997/SYNC-data · models https://huggingface.co/XINLI1997/SYNC-directions
+  (not public yet on 10-14; link them on the site once they open)
+RESULT: heterogeneous language models pass facts without fine-tuning or a learned translator: the sender
+sends word indices from a shared list, and each receiver writes them with its own word directions.
+With three senders and nine newer receivers, four-answer success on new scenes reaches **72.0–98.3%**,
+and the two largest receivers match plain text.
+
 **Beyond Teacher Assignment: Domain-Normalized Multi-Teacher On-Policy Distillation**
 arXiv preprint, 2026 · position: first of 9
 Xin Li, Hao Jiang, Xin Gao, Annan Wang, Yuchen Xie, Jinghao Guo, Xingwei Qu, Yichi Zhang, Chau Yuen
@@ -52,6 +63,16 @@ https://lixin.ai/DN-MOPD/ · https://arxiv.org/abs/2609.35347 · https://github.
 RESULT: label routing decides which teacher supervises a prompt but not how strongly that
 teacher's feedback counts; normalizing the feedback scale per domain adds **1.2–3.1 points**
 over label routing, across 2B, 4B and 9B students.
+
+**Many Right Answers, One Training Example: Removing Responder Noise from GRPO for LLM Recommenders**
+arXiv preprint, 2026 · position: first of 5
+Xin Li, Hao Jiang, Jinghao Guo, Weisi Lin, Chau Yuen
+https://lixin.ai/ReMaRk/ · https://arxiv.org/abs/2610.17771 · https://github.com/LiXin97/ReMaRk
+· data https://huggingface.co/datasets/XINLI1997/ReMaRk-data
+· models https://huggingface.co/collections/XINLI1997/remark-many-right-answers-one-training-example-6acdc1cf30ec71aff2b4bd62
+RESULT: Rank-GRPO trains on one human answer at a time, so 85% of its advantage variance records
+which answer was drawn; rewarding each list once against all answers reaches the baseline's
+recall in **25–53%** of the RL steps, across seven backbones and three datasets.
 
 **WirelessMathBench-XL: An Auditable Benchmark for Wireless Mathematical Reasoning**
 NeurIPS 2026, Evaluations and Datasets Track (poster) · position: first of 7
@@ -204,7 +225,7 @@ ListOPD (https://lixin.ai/ListOPD/). Use or omit as you see fit.
 
 ## Project pages that already exist and are live
 
-https://lixin.ai/DebateLedger/ · /DN-MOPD/ · /ListOPD/ · /TLVC/ · /WirelessMathBench-XL/
+https://lixin.ai/DebateLedger/ · /DN-MOPD/ · /SYNC/ · /ReMaRk/ · /ListOPD/ · /TLVC/ · /WirelessMathBench-XL/
 · /WirelessMathLM/ · /WirelessMathBench/ · /LACP/ · /TransPathNet/
 https://dafnycomp.github.io/ · https://robustmad.github.io/ · https://graphreduce.github.io/
 · https://onboradsim.github.io/ · https://livecannbench.github.io/

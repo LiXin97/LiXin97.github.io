@@ -10,6 +10,7 @@ Output is plain static HTML; the site itself has no build step.
 from pathlib import Path
 from html import escape
 import json
+import os
 
 OUT = Path(__file__).parent
 ROOT = OUT.parent.parent
@@ -39,24 +40,50 @@ P = [
        title="WirelessMathBench-XL: An Auditable Benchmark for Wireless Mathematical Reasoning", short="WirelessMathBench-XL",
        authors="Xin Li, Mengbing Liu, Yiyang Zhu, Wenhe Zhang, Li Wei, Jiancheng An, Chau Yuen",
        venue="NeurIPS 2026", venue_long="NeurIPS 2026 · Evaluations and Datasets Track", pos="first of 7",
-       links=[("Project", "https://lixin.ai/WirelessMathBench-XL/"), ("arXiv", "https://arxiv.org/abs/2509.23219")],
+       links=[("Project", "https://lixin.ai/WirelessMathBench-XL/"), ("Paper", "https://arxiv.org/abs/2509.23219")],
        fig=("4,027", "problems", False),
        claim="A benchmark that ships its own audit: every problem carries 13-gram contamination-overlap evidence "
              "against public pretraining text. 4,027 problems drawn from 836 arXiv papers across 20 wireless subfields; "
              "frontier models cluster at 86.5–91.3%.",
        scope="A rerunnable audit producing per-problem evidence for one lexical channel — not a proof that the benchmark is clean."),
+  dict(id="sync", blurb="Heterogeneous language models pass facts by sending shared word indices; each receiver writes them with its own word directions.",
+       thread="orchestrate", year=2026, lead=True,
+       title="Share the Symbol, Not the Vector: Training-Free Fact Communication Across Language Models", short="SYNC",
+       authors="Xin Li, Mengbing Liu, Hao Jiang, Xin Gao, Annan Wang, Xingwei Qu, Yichi Zhang, Chau Yuen",
+       venue="Preprint 2026", venue_long="arXiv preprint, 2026", pos="first of 8",
+       links=[("Project", "https://lixin.ai/SYNC/"), ("Code", "https://github.com/LiXin97/SYNC")],
+       # Data https://huggingface.co/datasets/XINLI1997/SYNC-data and Models https://huggingface.co/XINLI1997/SYNC-directions
+       # go in once both are public (10-14: not yet).
+       fig=("72.0–98.3%", "four-answer success on new scenes", False),
+       claim="Models with different architectures pass facts without fine-tuning or a learned translator: the sender sends "
+             "word indices from a shared list, and each receiver writes them with its own word directions. With three senders and "
+             "nine newer receivers, four-answer success on new scenes reaches 72.0–98.3%, and the two largest receivers match plain text.",
+       scope=None),
   dict(id="dnmopd", blurb="In multi-teacher distillation, normalizing each teacher's feedback scale per domain beats label routing alone.",
        thread="train", year=2026, lead=True,
        title="Beyond Teacher Assignment: Domain-Normalized Multi-Teacher On-Policy Distillation", short="DN-MOPD",
        authors="Xin Li, Hao Jiang, Xin Gao, Annan Wang, Yuchen Xie, Jinghao Guo, Xingwei Qu, Yichi Zhang, Chau Yuen",
        venue="Preprint 2026", venue_long="arXiv preprint, 2026", pos="first of 9",
-       links=[("Project", "https://lixin.ai/DN-MOPD/"), ("arXiv", "https://arxiv.org/abs/2609.35347"),
+       links=[("Project", "https://lixin.ai/DN-MOPD/"), ("Paper", "https://arxiv.org/abs/2609.35347"),
               ("Code", "https://github.com/LiXin97/DN-MOPD"),
               ("Data", "https://huggingface.co/datasets/XINLI1997/DN-MOPD-Data"),
               ("Models", "https://huggingface.co/collections/XINLI1997/dn-mopd-6aba5f0df7bd8732d7205ed4")],
        fig=("+1.2–3.1", "points over label routing", False),
        claim="Label routing decides which teacher supervises a prompt, but not how strongly that teacher's "
              "feedback counts. Normalizing the feedback scale per domain adds 1.2–3.1 points over label routing, across 2B, 4B and 9B students.",
+       scope=None),
+  dict(id="remark", blurb="When a request has several valid human answers, rewarding them jointly makes RL for LLM recommenders cheaper.",
+       thread="train", year=2026, lead=True,
+       title="Many Right Answers, One Training Example: Removing Responder Noise from GRPO for LLM Recommenders", short="ReMaRk",
+       authors="Xin Li, Hao Jiang, Jinghao Guo, Weisi Lin, Chau Yuen",
+       venue="Preprint 2026", venue_long="arXiv preprint, 2026", pos="first of 5",
+       links=[("Project", "https://lixin.ai/ReMaRk/"), ("Paper", "https://arxiv.org/abs/2610.17771"),
+              ("Code", "https://github.com/LiXin97/ReMaRk"),
+              ("Data", "https://huggingface.co/datasets/XINLI1997/ReMaRk-data"),
+              ("Models", "https://huggingface.co/collections/XINLI1997/remark-many-right-answers-one-training-example-6acdc1cf30ec71aff2b4bd62")],
+       fig=("25–53%", "of the RL steps to reach the baseline", False),
+       claim="Rank-GRPO trains an LLM recommender on one human answer at a time, so 85% of its advantage variance records which answer was drawn. "
+             "Rewarding each list once against all answers reaches the baseline's recall in 25–53% of the RL steps, across seven backbones and three datasets.",
        scope=None),
   dict(id="tlvc", blurb="No single verifier is best for every generator in best-of-K selection; label-free statistics predict which kind wins.",
        thread="orchestrate", year=2026, lead=True,
@@ -83,8 +110,7 @@ P = [
        title="Local Success Does Not Compose: Benchmarking Large Language Models for Compositional Formal Verification", short="DafnyComp",
        authors="Xu Xu*, Xin Li*, Xingwei Qu, Jie Fu, Binhang Yuan",
        venue="ICLR 2026", venue_long="ICLR 2026", pos="joint first of 5",
-       links=[("Project", "https://dafnycomp.github.io/"), ("OpenReview", "https://openreview.net/forum?id=y4kAMUBqLq"),
-              ("arXiv", "https://arxiv.org/abs/2509.23061")],
+       links=[("Project", "https://dafnycomp.github.io/"), ("Paper", "https://arxiv.org/abs/2509.23061")],
        fig=None,
        claim="A model can verify a function on its own and still fail once the specifications have to compose. "
              "The benchmark measures the distance between those two results.",
@@ -94,8 +120,7 @@ P = [
        title="Re:Form: Reducing Human Priors in Scalable Formal Software Verification with RL in LLMs: A Preliminary Study on Dafny", short="Re:Form",
        authors="Chuanhao Yan*, Fengdi Che*, Xuhan Huang*, Xu Xu*, Xin Li*, Yizhi Li*, Xingwei Qu*, …, Jie Fu",
        venue="TMLR 2026", venue_long="TMLR 2026", pos="joint first",
-       links=[("OpenReview", "https://openreview.net/forum?id=cAQmIS4GOe"), ("arXiv", "https://arxiv.org/abs/2507.16331"),
-              ("Code", "https://github.com/Veri-Code/ReForm")],
+       links=[("Paper", "https://arxiv.org/abs/2507.16331"), ("Code", "https://github.com/Veri-Code/ReForm")],
        fig=None, claim=None, scope=None),
   dict(id="simd2nn", thread="wireless", year=2026, lead=False,
        title="Stacked Intelligent Metasurface-Diffractive Deep Neural Networks for Onboard Terrain Classification from SAR Level-0 Raw Data",
@@ -112,7 +137,7 @@ P = [
        short="RobustMAD",
        authors="Anushiya Arunan, Xin Li, Yan Qin, U-Xuan Tan, Nhu Khue Vuong, Xiaoli Li, Chau Yuen",
        venue="TMLR 2026", venue_long="TMLR 2026", pos="second of 7",
-       links=[("Project", "https://robustmad.github.io/"), ("OpenReview", "https://openreview.net/forum?id=skrA9UYNIZ"),
+       links=[("Project", "https://robustmad.github.io/"), ("Paper", "https://openreview.net/forum?id=skrA9UYNIZ"),
               ("Code", "https://github.com/en-research/RobustMAD")],
        fig=None, claim=None, scope=None),
   dict(id="graphreduce", thread="train", year=2026, lead=False,
@@ -130,8 +155,7 @@ P = [
        authors="Sijie Wang, Kai Zhao, Wee Peng Tay, Shuo Zhang, Chengwen Liu, Quanjiang Guo, Ren Junhao, Xin Li, "
                "Heng Lian, Jingdi Lei, Rui She, Huacan Wang, Ronghao Chen",
        venue="ACL 2026", venue_long="Findings of ACL 2026", pos="eighth of 13",
-       links=[("Anthology", "https://aclanthology.org/2026.findings-acl.1143/"),
-              ("PDF", "https://aclanthology.org/2026.findings-acl.1143.pdf")],
+       links=[("Paper", "https://aclanthology.org/2026.findings-acl.1143/")],
        fig=("400+", "SWE-level tasks", False),
        claim="400+ SWE-level task instances built from real Ascend CANN repositories — multi-file, multi-language and execution-aware — "
              "on a live benchmarking paradigm that mitigates leakage.",
@@ -140,13 +164,13 @@ P = [
        title="LACP: LLM Agent Communication Protocol Requires Urgent Standardization", short="LACP",
        authors="Xin Li, Mengbing Liu, Chau Yuen",
        venue="NeurIPS 2025 workshop", venue_long="AI4NextG workshop @ NeurIPS 2025", pos="first of 3",
-       links=[("Project", "https://lixin.ai/LACP/"), ("arXiv", "https://arxiv.org/abs/2510.13821")],
+       links=[("Project", "https://lixin.ai/LACP/"), ("Paper", "https://arxiv.org/abs/2510.13821")],
        fig=None, claim=None, scope=None),
   dict(id="wmb", thread="evaluate", year=2025, lead=True,
        title="WirelessMathBench: A Mathematical Modeling Benchmark for LLMs in Wireless Communications", short="WirelessMathBench",
        authors="Xin Li, Mengbing Liu, Li Wei, Jiancheng An, Mérouane Debbah, Chau Yuen",
        venue="ACL 2025", venue_long="Findings of ACL 2025", pos="first of 6",
-       links=[("Project", "https://lixin.ai/WirelessMathBench/"), ("arXiv", "https://arxiv.org/abs/2505.14354")],
+       links=[("Project", "https://lixin.ai/WirelessMathBench/"), ("Paper", "https://arxiv.org/abs/2505.14354")],
        fig=None,
        claim="The first benchmark for LLM mathematical reasoning in wireless communications, and the work WirelessMathBench-XL extends.",
        scope=None),
@@ -154,21 +178,23 @@ P = [
        title="TransPathNet: A Novel Two-Stage Framework for Indoor Radio Map Prediction", short="TransPathNet",
        authors="Xin Li, Ran Liu, Saihua Xu, Sirajudeen Gulam Razul, Chau Yuen",
        venue="ICASSP 2025", venue_long="ICASSP 2025", pos="first of 5",
-       links=[("Project", "https://lixin.ai/TransPathNet/"), ("Code", "https://github.com/LiXin97/TransPathNet"),
-              ("arXiv", "https://arxiv.org/abs/2501.16023")],
+       links=[("Project", "https://lixin.ai/TransPathNet/"), ("Paper", "https://arxiv.org/abs/2501.16023"),
+              ("Code", "https://github.com/LiXin97/TransPathNet")],
        fig=("4th", "Indoor Pathloss Prediction Challenge", False),
        claim="Placed 4th in the Indoor Pathloss Prediction Challenge, at 9.73 dB RMSE.", scope=None),
   dict(id="coplanar", thread="robotics", year=2020, lead=True,
        title="Co-Planar Parametrization for Stereo-SLAM and Visual-Inertial Odometry", short="Co-Planar VIO",
        authors="Xin Li*, Yanyan Li*, Evin Pinar Örnek, Jinlong Lin, Federico Tombari",
        venue="IEEE RA-L 2020", venue_long="IEEE Robotics and Automation Letters, 2020", pos="joint first of 5",
-       links=[("arXiv", "https://arxiv.org/abs/2009.12662"), ("Code", "https://github.com/LiXin97/Co-Planar-Parametrization-VIO")],
+       links=[("Paper", "https://arxiv.org/abs/2009.12662"),
+              ("Code", "https://github.com/LiXin97/Co-Planar-Parametrization-VIO")],
        fig=None, claim=None, scope=None),
   dict(id="planar", thread="robotics", year=2020, lead=True,
        title="Leveraging Planar Regularities for Point-Line Visual-Inertial Odometry", short="Planar VIO",
        authors="Xin Li*, Yijia He*, Jinlong Lin, Xiao Liu",
        venue="IROS 2020", venue_long="IROS 2020", pos="joint first of 4",
-       links=[("arXiv", "https://arxiv.org/abs/2004.11969"), ("Code", "https://github.com/LiXin97/Co-Planar-Parametrization-VIO")],
+       links=[("Paper", "https://arxiv.org/abs/2004.11969"),
+              ("Code", "https://github.com/LiXin97/Co-Planar-Parametrization-VIO")],
        fig=None, claim=None, scope=None),
 ]
 BY = {p["id"]: p for p in P}
@@ -185,7 +211,7 @@ THREADS = [
        q="How can models learn from verifiers, rewards, and other models?",
        desc="What the training signal should be — which reward, and how much each teacher's feedback should count.",
        hero="dnmopd", hero_fig=("+1.2–3.1", "points from normalizing each teacher's feedback scale"),
-       works=["dnmopd", "reform", "icsc", "graphreduce"],
+       works=["dnmopd", "remark", "reform", "icsc", "graphreduce"],
        also=[("ListOPD", "https://lixin.ai/ListOPD/",
               "A computable extrapolation cliff in on-policy distillation of near-deterministic structured outputs. Project page; no venue yet."),
              ("WirelessMathLM", "https://lixin.ai/WirelessMathLM/",
@@ -195,7 +221,7 @@ THREADS = [
        desc="The system around a model at inference time: harnesses and tools, verifier choice, and protocols for several agents "
             "working together — including when that system breaks answers that were already right.",
        hero="debateledger", hero_fig=("29 / 108", "collapses a freeze prevents / corrections it gives up"),
-       works=["debateledger", "tlvc", "lacp"], also=[]),
+       works=["debateledger", "sync", "tlvc", "lacp"], also=[]),
 ]
 TH = {t["id"]: t for t in THREADS}
 
@@ -280,7 +306,7 @@ def subtitle(p):
 
 
 def vshort(p):
-    """Short venue that never drops Findings or Industry Track."""
+    """Short venue as conference, year, track; never drops Findings or Industry."""
     v = p["venue_long"]
     return (v.replace("IEEE Transactions on Signal Processing, 2026", "IEEE TSP 2026")
              .replace("EMNLP 2026 · Industry Track", "EMNLP 2026 Industry")
@@ -288,11 +314,16 @@ def vshort(p):
              .replace("arXiv preprint, 2026", "Preprint 2026")
              .replace("npj Wireless Technology, 2026", "npj Wireless Technology 2026")
              .replace("AI4NextG workshop @ NeurIPS 2025", "AI4NextG @ NeurIPS 2025")
-             .replace("IEEE Robotics and Automation Letters, 2020", "IEEE RA-L 2020"))
+             .replace("IEEE Robotics and Automation Letters, 2020", "IEEE RA-L 2020")
+             .replace("AI4NextG @ NeurIPS 2025", "NeurIPS 2025 Workshop (AI4NextG)")
+             .replace("Findings of EMNLP 2026", "EMNLP 2026 Findings")
+             .replace("Findings of ACL 2026", "ACL 2026 Findings")
+             .replace("Findings of ACL 2025", "ACL 2025 Findings"))
 
 
 def venue_pill(p):
-    return f'<span class="venue">{e(vshort(p))}</span>'
+    pre = " is-preprint" if p["venue_long"].startswith("arXiv") else ""
+    return f'<span class="venue{pre}">{e(vshort(p))}</span>'
 
 
 def abbrev(a, keep=3):
@@ -797,25 +828,48 @@ def pub_rank(p):
     return (n != 1, tier, n, joint)
 
 
+# Newest first by arXiv date; SYNC (no arXiv yet) between ReMaRk (10-13) and DN-MOPD (Sep), as 李鑫 set on 10-14.
+PREPRINT_ORDER = ["remark", "sync", "dnmopd"]
+
+
+def is_first(p):
+    """First or joint first author (joint first carries the * in the author list)."""
+    return p["pos"].startswith(("first", "joint first"))
+
+
 def is_preprint(p):
     return p["venue_long"].startswith("arXiv")
 
 
+PUB_ORDER = os.environ.get("PUB_ORDER", "preprints-first")   # or "reviewed-first"
+
+
+def pub_order():
+    """One list, no groups. preprints-first: preprints newest first, then each year newest first, first-author work
+    first within a year (pub_rank). reviewed-first: each year newest first, and within 2026 the reviewed first-author
+    papers lead and the preprints follow them."""
+    pre_i = lambda p: PREPRINT_ORDER.index(p["id"]) if is_preprint(p) else 0
+    if PUB_ORDER == "reviewed-first":
+        return sorted(P, key=lambda p: (-p["year"], pub_rank(p), pre_i(p)))
+    pre = sorted((p for p in P if is_preprint(p)), key=pre_i)
+    return pre + sorted((p for p in P if not is_preprint(p)), key=lambda p: (-p["year"], pub_rank(p)))
+
+
 def build_pubs():
-    """Preprints first, in their own group (newest work, kept apart from what has been reviewed); then each year.
-    A preprint moves into its year by itself once its venue is filled in."""
-    groups = []
-    sections = [("Preprints", sorted((p for p in P if is_preprint(p)), key=lambda p: (-p["year"], pub_rank(p))))]
-    sections += [(y, sorted((p for p in P if p["year"] == y and not is_preprint(p)), key=pub_rank)) for y in (2026, 2025, 2020)]
-    for head, papers in sections:
-        if papers:
-            groups.append(f'<section class="year"><h2 class="year__h">{head}</h2><ol class="pubs">{"".join(pub(p) for p in papers)}</ol></section>')
+    """Selected publications: one list (pub_order) with a light year label, no other grouping; preprints carry a quieter tag."""
+    groups, run = [], []
+    for p in pub_order():                  # a light label wherever the year (or Preprints) changes; one list order
+        head = "Preprints" if is_preprint(p) else str(p["year"])
+        if not run or run[0] != head:
+            run = [head, []]; groups.append(run)
+        run[1].append(p)
+    groups = [f'<h2 class="label pubs-year">{h}</h2><ol class="pubs">{"".join(pub(p) for p in ps)}</ol>' for h, ps in groups]
     filters = "".join(f'<button type="button" data-f="{k}" aria-pressed="{"true" if k == "all" else "false"}">{v}</button>'
                       for k, v in [("all", "All"), ("evaluate", "Evaluate"), ("train", "Train"), ("orchestrate", "Orchestrate"),
                                    ("wireless", "Wireless"), ("robotics", "Robotics")])
     body = f"""
   <header class="plain-head wrap">
-    <h1 class="plain-h1">Publications</h1>
+    <h1 class="plain-h1">Selected Publications</h1>
     <p class="plain-sub"><sup>*</sup> equal contribution. Also on
       <a href="https://scholar.google.com/citations?user=Hxf8sNkAAAAJ">Google Scholar</a>.</p>
     <div class="filter" role="group" aria-label="Filter by thread">{filters}</div>
@@ -823,7 +877,7 @@ def build_pubs():
   <div class="wrap pubs-wrap">{"".join(groups)}
     <p class="pubs-note">Also: <i>Onboard Terrain Classification via SIM-DNN</i>, ML4RS workshop @ ICLR 2025 — extended into the IEEE TSP paper above.</p>
   </div>"""
-    return page("pubs", "Publications — Xin Li", body, "Complete publication record of Xin Li.")
+    return page("pubs", "Selected Publications — Xin Li", body, "Selected publications of Xin Li.")
 
 
 # ---------------------------------------------------------------- news
@@ -1011,6 +1065,52 @@ def build_track():
     return page("track", HOME_TITLE if PROD else "Xin Li — the loop", body, DESC, home="track.html", canon="")
 
 
+# ---------------------------------------------------------------- home (curated loop, 10-14)
+# Two papers per thread on the home page; every other paper stays on its thread page and on Publications.
+HOME_SEL = {"evaluate": ["wmbxl", "dafnycomp"], "train": ["dnmopd", "remark"],
+            "orchestrate": ["debateledger", "sync"]}      # 李鑫 10-14 13:44: A, first two per thread
+
+
+def lead_item(w):
+    return (f'<li class="panel__lead"><a href="{e(BY[w]["links"][0][1])}">{e(BY[w]["short"])}</a>'
+            f'<p class="panel__blurb">{e(BY[w]["blurb"])}</p><p class="panel__venue">{e(vshort(BY[w]))}</p></li>')
+
+
+def rest_names(t, shown):
+    rest = [w for w in t["works"] if w not in shown]
+    if not rest:
+        return ""
+    return f'<p class="also-names"><a href="{t["id"]}.html">Also: {" · ".join(e(BY[w]["short"]) for w in rest)} →</a></p>'
+
+
+def build_home_a():
+    """Curated loop: the three threads; each shows two papers with one line each; the rest is one link to the thread page."""
+    panels = []
+    for k, t in enumerate(THREADS):
+        sel = HOME_SEL[t["id"]]
+        panels.append(f"""
+      <article class="panel panel--{t['id']}">
+        <p class="panel__n">{t['n']}</p>
+        <h3 class="panel__verb"><a href="{t['id']}.html">{t['verb']}</a></h3>
+        <p class="panel__q">{e(t['q'])}</p>
+        <ul class="panel__works" aria-label="Selected papers on this thread">{"".join(lead_item(w) for w in sel)}</ul>
+        {rest_names(t, sel)}
+      </article>""")
+        if k < 2:
+            panels.append('<span class="track__link" aria-hidden="true"><i></i></span>')
+    ground = "".join(f"<span>{e(g)}</span>" for g in GROUND)
+    body = hero_block() + f"""
+  <section class="track wrap" aria-labelledby="loop-h">
+    <h2 id="loop-h" class="label"><span>The research, as one loop</span><a class="label__aside" href="publications.html">All publications →</a></h2>
+    <div class="track__row">{"".join(panels)}
+    </div>
+    <div class="track__return"><span class="track__rail" aria-hidden="true"></span>
+      <p><b>03 → 01.</b> {e(RETURN)}</p></div>
+    <p class="track__ground"><span class="track__ground-k">{e(GROUND_K)}</span>{ground}<span class="track__now">{e(GROUND_NOW)}</span></p>
+  </section>""" + tail_sections(also_list=False)
+    return page("home-a", HOME_TITLE if PROD else "Xin Li — curated loop", body, DESC, home="home-a.html", canon="")
+
+
 # ---------------------------------------------------------------- scroll
 def build_scroll():
     steps = []
@@ -1058,7 +1158,8 @@ def build_scroll():
 
 # ---------------------------------------------------------------- write
 pages = {"index.html": build_index(), "publications.html": build_pubs(), "news.html": build_news(), "about.html": build_about(),
-         "ring.html": build_ring(), "track.html": build_track(), "scroll.html": build_scroll()}
+         "ring.html": build_ring(), "track.html": build_track(), "scroll.html": build_scroll(),
+         "home-a.html": build_home_a()}
 for t in THREADS:
     pages[f"{t['id']}.html"] = build_thread(t)
 for name, html in pages.items():
@@ -1067,7 +1168,9 @@ for name, html in pages.items():
 
 # ---------------------------------------------------------------- production pass
 PROD = True
-prod = {"index.html": build_track(), "publications.html": build_pubs(), "news.html": build_news(), "about.html": build_about()}
+import os
+HOME = {"track": build_track, "a": build_home_a}[os.environ.get("HOME_LAYOUT", "a")]
+prod = {"index.html": HOME(), "publications.html": build_pubs(), "news.html": build_news(), "about.html": build_about()}
 for t in THREADS:
     prod[f"{t['id']}.html"] = build_thread(t)
 (ROOT / "assets").mkdir(exist_ok=True)
