@@ -264,7 +264,6 @@ LEDE = ("I work on LLM agents — evaluating what they can do, training them, an
 GROUND = ["formal verification", "mathematics", "code"]
 GROUND_K = "So far, mostly where an answer can be checked:"
 GROUND_NOW = "Now, self-improvement beyond checkable answers."
-SEEK = "I’m looking for <b>research internships in 2027</b>, on LLM agents, post-training, and self-improvement."
 
 # Every news item, newest first. Home shows the first five; news.html shows them all.
 NEWS = [
@@ -634,7 +633,6 @@ def hero_block(variant=""):
       <p class="kicker">Ph.D. student · Nanyang Technological University · advised by <a href="https://blogs.ntu.edu.sg/chau-yuen/">Prof. Chau Yuen</a></p>
       <h1 class="name">Xin Li<span class="name__cjk" lang="zh-Hans">李鑫</span></h1>
       <p class="lede">{e(LEDE)}</p>
-      <p class="hero__seek">{SEEK}</p>
       {links_html(HERO_LINKS, "links links--plain hero__links")}
     </div>
     {hero_photo()}
@@ -679,7 +677,7 @@ def tail_sections(also_list=True):
     </div>
     <div>
       <h2 class="label"><span>Contact</span></h2>
-      <p>Looking for research internships in 2027, and always glad to talk about research or collaboration.</p>
+      <p>Always glad to talk about research or collaboration.</p>
       <p class="links links--plain"><a href="mailto:xin019@e.ntu.edu.sg">xin019@e.ntu.edu.sg</a><a href="https://scholar.google.com/citations?user=Hxf8sNkAAAAJ">Scholar</a><a href="https://github.com/LiXin97">GitHub</a><a href="https://huggingface.co/XINLI1997">Hugging Face</a><a href="https://www.linkedin.com/in/xin-li-1196331a0/">LinkedIn</a>{cv_link('CV')}</p>
     </div>
   </section>"""
@@ -758,7 +756,7 @@ def build_index():
     </div>
     <div>
       <h2 class="label"><span>Contact</span></h2>
-      <p>Looking for research internships in 2027, and always glad to talk about research or collaboration.</p>
+      <p>Always glad to talk about research or collaboration.</p>
       <p class="links links--plain"><a href="mailto:xin019@e.ntu.edu.sg">xin019@e.ntu.edu.sg</a><a href="https://scholar.google.com/citations?user=Hxf8sNkAAAAJ">Scholar</a><a href="https://github.com/LiXin97">GitHub</a><a href="https://huggingface.co/XINLI1997">Hugging Face</a><a href="https://www.linkedin.com/in/xin-li-1196331a0/">LinkedIn</a>{cv_link('CV')}</p>
     </div>
   </section>"""
