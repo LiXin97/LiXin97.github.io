@@ -46,7 +46,7 @@ Marked `*` = equal contribution. "position" is his place in the author list.
 **Share the Symbol, Not the Vector: Training-Free Fact Communication Across Language Models** (SYNC)
 arXiv preprint, 2026 · position: first of 8
 Xin Li, Mengbing Liu, Hao Jiang, Xin Gao, Annan Wang, Xingwei Qu, Yichi Zhang, Chau Yuen
-https://lixin.ai/SYNC/ · https://github.com/LiXin97/SYNC (arXiv link to follow)
+https://lixin.ai/SYNC/ · https://arxiv.org/abs/2610.19696 · https://github.com/LiXin97/SYNC
 · data https://huggingface.co/datasets/XINLI1997/SYNC-data
 · models https://huggingface.co/XINLI1997/SYNC-directions
 RESULT: heterogeneous language models pass facts without fine-tuning or a learned translator: the sender
