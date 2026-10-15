@@ -138,15 +138,25 @@ https://dafnycomp.github.io/ · https://openreview.net/forum?id=y4kAMUBqLq · ht
 RESULT: a model can verify a function on its own and still fail once the specifications have to
 compose. The benchmark measures the distance between those two results.
 
-**Re:Form: Reducing Human Priors in Scalable Formal Software Verification with RL in LLMs: A Preliminary Study on Dafny**
+**Re:Form: Reducing Human Annotations in Scalable Formal Software Verification with RL in LLMs: A Preliminary Study on Dafny**
 TMLR 2026 · position: joint first (fifth of a long equal-contribution block)
 Chuanhao Yan*, Fengdi Che*, Xuhan Huang*, Xu Xu*, Xin Li*, Yizhi Li*, Xingwei Qu*, …, Jie Fu
 https://openreview.net/forum?id=cAQmIS4GOe · https://arxiv.org/abs/2507.16331 · https://github.com/Veri-Code/ReForm
+RESULT: trains **0.5B–14B** models to write Dafny specifications with minimal human annotation — no
+natural-language chain-of-thought, auto-generated training data, rewards from the Dafny verifier;
+on **300** out-of-domain DafnyComp programs, the **14B** RL model passes the verifier on **14.0%**
+at pass@1, against **8.3%** after SFT alone and **2.7%** for Claude, the model that generated its
+training data (v4, TMLR 05/2026, §3.2 p.13).
 
 **RobustMAD: Evaluating Real-World Robustness of Multimodal Small Language Models for Deployable Anomaly Detection Assistants**
 TMLR 2026 · position: second of 7
 Anushiya Arunan, Xin Li, Yan Qin, U-Xuan Tan, Nhu Khue Vuong, Xiaoli Li, Chau Yuen
 https://robustmad.github.io/ · https://openreview.net/forum?id=skrA9UYNIZ · https://github.com/en-research/RobustMAD
+RESULT: a benchmark of **4,510** multiple-choice and **7,380** open-ended inspection questions on
+**410** industrial images, testing whether **~4B** multimodal models can serve as on-device
+anomaly-detection assistants: the best, Qwen3-VL-4B, scores **88.3%** on multiple choice against
+**82.3%** for GPT-5 Nano, yet only **72.8%** of its open-ended answers reach a passing **3 of 5**
+(TMLR 06/2026, §1 p.3, Table 3 p.10, §4.3.2 p.11).
 
 ### 2025
 
@@ -154,6 +164,10 @@ https://robustmad.github.io/ · https://openreview.net/forum?id=skrA9UYNIZ · ht
 AI4NextG workshop @ NeurIPS 2025 · position: first of 3
 Xin Li, Mengbing Liu, Chau Yuen
 https://lixin.ai/LACP/ · https://arxiv.org/abs/2510.13821
+RESULT: a position paper arguing that LLM agents need one telecom-style communication standard
+before today's ad-hoc protocols entrench, and proposing LACP, a three-layer protocol (semantic,
+transactional, transport) in which authentication and transactional integrity are part of the core
+rather than add-ons (abstract p.1, §4.1 p.4).
 
 **WirelessMathBench: A Mathematical Modeling Benchmark for LLMs in Wireless Communications**
 Findings of ACL 2025 · position: first of 6

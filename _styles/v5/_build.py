@@ -135,13 +135,17 @@ P = [
        claim="A model can verify a function on its own and still fail once the specifications have to compose. "
              "The benchmark measures the distance between those two results.",
        scope=None),
-  dict(id="reform", blurb="Reinforcement learning for formal software verification in Dafny, with fewer human priors.",
+  dict(id="reform", blurb="Reinforcement learning for formal software verification in Dafny, with fewer human annotations.",
        thread="train", year=2026, lead=True,
-       title="Re:Form: Reducing Human Priors in Scalable Formal Software Verification with RL in LLMs: A Preliminary Study on Dafny", short="Re:Form",
+       title="Re:Form: Reducing Human Annotations in Scalable Formal Software Verification with RL in LLMs: A Preliminary Study on Dafny", short="Re:Form",
        authors="Chuanhao Yan*, Fengdi Che*, Xuhan Huang*, Xu Xu*, Xin Li*, Yizhi Li*, Xingwei Qu*, …, Jie Fu",
        venue="TMLR 2026", venue_long="TMLR 2026", pos="joint first",
        links=[("Paper", "https://arxiv.org/abs/2507.16331"), ("Code", "https://github.com/Veri-Code/ReForm")],
-       fig=None, claim=None, scope=None),
+       fig=None,
+       claim="Trains 0.5B–14B models to write Dafny specifications with minimal human annotation — no natural-language chain-of-thought, "
+             "auto-generated training data, rewards from the Dafny verifier; on 300 out-of-domain DafnyComp programs, the 14B RL model passes "
+             "the verifier on 14.0% at pass@1, against 8.3% after SFT alone and 2.7% for Claude, the model that generated its training data.",
+       scope=None),
   dict(id="simd2nn", thread="wireless", year=2026, lead=False,
        title="Stacked Intelligent Metasurface-Diffractive Deep Neural Networks for Onboard Terrain Classification from SAR Level-0 Raw Data",
        short="SIM-D²NN",
@@ -159,7 +163,11 @@ P = [
        venue="TMLR 2026", venue_long="TMLR 2026", pos="second of 7",
        links=[("Project", "https://robustmad.github.io/"), ("Paper", "https://openreview.net/forum?id=skrA9UYNIZ"),
               ("Code", "https://github.com/en-research/RobustMAD")],
-       fig=None, claim=None, scope=None),
+       fig=None,
+       claim="A benchmark of 4,510 multiple-choice and 7,380 open-ended inspection questions on 410 industrial images, testing whether ~4B "
+             "multimodal models can serve as on-device anomaly-detection assistants: the best, Qwen3-VL-4B, scores 88.3% on multiple choice "
+             "against 82.3% for GPT-5 Nano, yet only 72.8% of its open-ended answers reach a passing 3 of 5.",
+       scope=None),
   dict(id="graphreduce", thread="train", year=2026, lead=False,
        title="GraphReduce: Coverage-Preserving LLM Aggregation for E-commerce Review Insights", short="GraphReduce",
        authors="Hao Jiang, Xin Li, Yichi Zhang, Weisi Lin",
@@ -185,7 +193,11 @@ P = [
        authors="Xin Li, Mengbing Liu, Chau Yuen",
        venue="NeurIPS 2025 workshop", venue_long="AI4NextG workshop @ NeurIPS 2025", pos="first of 3",
        links=[("Project", "https://lixin.ai/LACP/"), ("Paper", "https://arxiv.org/abs/2510.13821")],
-       fig=None, claim=None, scope=None),
+       fig=None,
+       claim="A position paper arguing that LLM agents need one telecom-style communication standard before today's ad-hoc protocols entrench, "
+             "and proposing LACP, a three-layer protocol (semantic, transactional, transport) in which authentication and transactional "
+             "integrity are part of the core rather than add-ons.",
+       scope=None),
   dict(id="wmb", thread="evaluate", year=2025, lead=True,
        title="WirelessMathBench: A Mathematical Modeling Benchmark for LLMs in Wireless Communications", short="WirelessMathBench",
        authors="Xin Li, Mengbing Liu, Li Wei, Jiancheng An, Mérouane Debbah, Chau Yuen",
@@ -262,7 +274,7 @@ NEWS = [
   ("Sep 2026", 'Our paper <a href="https://www.nature.com/articles/s44459-026-00084-5">ICSC</a> (on reconstructing wireless signals for low-altitude networks with small language models trained by reinforcement learning) was published in npj Wireless Technology.'),
   ("Aug 2026", 'Two of our papers were accepted to EMNLP 2026: <a href="https://lixin.ai/TLVC/">TLVC</a>, on picking the right verifier for best-of-K reasoning selection (Findings), and <a href="https://graphreduce.github.io/">GraphReduce</a>, on coverage-preserving LLM aggregation of e-commerce reviews (Industry Track).'),
   ("Jun 2026", 'Our paper <a href="https://robustmad.github.io/">RobustMAD</a> (a robustness benchmark for multimodal small language models in anomaly detection) was accepted to TMLR.'),
-  ("May 2026", 'Our paper <a href="https://arxiv.org/pdf/2507.16331">Re:Form</a> (on cutting human priors from RL-trained formal software verification) was accepted to TMLR.'),
+  ("May 2026", 'Our paper <a href="https://arxiv.org/pdf/2507.16331">Re:Form</a> (on cutting human annotations from RL-trained formal software verification) was accepted to TMLR.'),
   ("Apr 2026", 'Our paper <a href="https://livecannbench.github.io/">LiveCANNBench</a> (a benchmark for AI coding on Ascend CANN) was accepted to Findings of ACL 2026.'),
   ("Jan 2026", 'Received a Google Gemini Academic Program Award (US$10,000).'),
   ("Jan 2026", 'Our paper <a href="https://dafnycomp.github.io/">DafnyComp</a> (on benchmarking LLMs for compositional formal verification) was accepted to ICLR 2026.'),
