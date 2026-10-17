@@ -76,11 +76,6 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://lixin.ai/WirelessMathLM/</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
     <loc>https://lixin.ai/TLVC/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
