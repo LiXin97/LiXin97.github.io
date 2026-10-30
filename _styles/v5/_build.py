@@ -115,6 +115,19 @@ P = [
        claim="On a 34-generator, 7-verifier Best-of-K math panel, one strong process reward model is the best fixed verifier overall — "
              "and still not the best verifier for every generator. Label-free candidate statistics predict which verifier class wins.",
        scope=None),
+  dict(id="aescode", blurb="Generates slides, posters and dashboards as code, with an image from the same prompt as aesthetic guidance.",
+       thread="train", year=2026, lead=False,
+       title="AesCode: Aesthetic Code Generation with Decoupled Cross-Modal Rewards", short="AesCode",
+       authors="Xin Gao, Yifan Yang, Xin Li, Pan Wang, Yan Li, Muzhao Tian, Mingxi Cheng, Bei Liu, Kai Qiu, Qi Dai, "
+               "Dong Chen, Yue Dong, Leandros Tassiulas, Rex Ying, Ji Li, Chong Luo",
+       venue="Preprint 2026", venue_long="arXiv preprint, 2026", pos="third of 16",
+       links=[("Project", "https://microsoft.github.io/AesCode/"), ("Paper", "https://arxiv.org/abs/2610.18860")],
+       fig=("+31.1", "points of visual quality, AesCode-8B over Qwen3-VL-8B", False),
+       claim="Code models cannot see how layout and color come together on the canvas. AesCode describes the target as a design graph "
+             "and rewards it on two channels: deterministic verifiers score what can be parsed from code and rendering, and a VLM judge "
+             "scores the rest against a per-sample Visual Graph Rubric. Trained with RL, AesCode-8B and AesCode-32B improve visual "
+             "quality by 31.1 and 22.4 points over same-scale Qwen3-VL baselines given the same references.",
+       scope=None),
   dict(id="icsc", thread="train", year=2026, lead=True,
        title="Reconstructing wireless signals for low altitude networks using small language models", short="ICSC",
        authors="Xin Li, Ran Liu, Chau Yuen",
@@ -245,7 +258,7 @@ THREADS = [
        q="How can models learn from verifiers, rewards, and other models?",
        desc="What the training signal should be — which reward, and how much each teacher's feedback should count.",
        hero="dnmopd", hero_fig=("+1.2–3.1", "points from normalizing each teacher's feedback scale"),
-       works=["dnmopd", "remark", "erropd", "reform", "icsc", "graphreduce"],
+       works=["dnmopd", "remark", "erropd", "reform", "icsc", "graphreduce", "aescode"],
        also=[]),
   dict(id="orchestrate", n="03", verb="Orchestrate",
        q="How should models, tools, and verifiers work together to complete tasks reliably?",
@@ -448,7 +461,7 @@ def json_ld():
     return """
 <script type="application/ld+json">
 {"@context": "https://schema.org", "@type": "ProfilePage", "@id": "https://lixin.ai/#profile",
- "dateCreated": "2024-04-05T14:53:00+08:00", "dateModified": "2026-10-09T10:00:00+08:00", "url": "https://lixin.ai/",
+ "dateCreated": "2024-04-05T14:53:00+08:00", "dateModified": "2026-10-30T17:00:00+08:00", "url": "https://lixin.ai/",
  "mainEntity": {"@type": "Person", "@id": "https://lixin.ai/#person", "name": "Xin Li", "alternateName": "李鑫",
   "url": "https://lixin.ai/", "image": "https://lixin.ai/data/XinLI_profile.webp", "jobTitle": "PhD Student",
   "affiliation": {"@type": "Organization", "name": "Nanyang Technological University", "url": "https://www.ntu.edu.sg/"},
@@ -670,10 +683,12 @@ def tail_sections(also_list=True):
   </section>
   <section class="coda wrap">
     <div>
-      <h2 class="label"><span>Before the Ph.D.</span></h2>
+      <h2 class="label"><span>Experience</span></h2>
       <p>Robot perception — visual-inertial odometry at MEGVII, RGB-D + IMU indoor mapping at Microsoft Research Asia,
         and multimodal localization at Gausium Robotics, where I led a five-engineer team and shipped to a fleet of
-        <b>1,000+</b> commercial cleaning robots. <a href="about.html">More →</a></p>
+        <b>1,000+</b> commercial cleaning robots. Then LLM evaluation as a research assistant at NTU, building WirelessMathBench.
+        During the Ph.D., internships at ByteDance (TikTok Shop), on the multimodal LLM review ranker, and at Microsoft
+        Research Asia, on agent-generated slides. <a href="about.html#experience">More →</a></p>
     </div>
     <div>
       <h2 class="label"><span>Contact</span></h2>
@@ -749,10 +764,12 @@ def build_index():
 
   <section class="coda wrap">
     <div>
-      <h2 class="label"><span>Before the Ph.D.</span></h2>
+      <h2 class="label"><span>Experience</span></h2>
       <p>Robot perception — visual-inertial odometry at MEGVII, RGB-D + IMU indoor mapping at Microsoft Research Asia,
         and multimodal localization at Gausium Robotics, where I led a five-engineer team and shipped to a fleet of
-        <b>1,000+</b> commercial cleaning robots. <a href="about.html">More →</a></p>
+        <b>1,000+</b> commercial cleaning robots. Then LLM evaluation as a research assistant at NTU, building WirelessMathBench.
+        During the Ph.D., internships at ByteDance (TikTok Shop), on the multimodal LLM review ranker, and at Microsoft
+        Research Asia, on agent-generated slides. <a href="about.html#experience">More →</a></p>
     </div>
     <div>
       <h2 class="label"><span>Contact</span></h2>
@@ -867,7 +884,8 @@ def pub_rank(p):
 
 
 # Newest first by arXiv date; SYNC (no arXiv yet) between ReMaRk (10-13) and DN-MOPD (Sep), as 李鑫 set on 10-14.
-PREPRINT_ORDER = ["remark", "sync", "dnmopd", "erropd"]   # ErrOPD: v1 May 2026 (v2 10-14)
+# Co-authored preprints (AesCode, third author) follow the first-author ones.
+PREPRINT_ORDER = ["remark", "sync", "dnmopd", "erropd", "aescode"]   # ErrOPD: v1 May 2026 (v2 10-14)
 
 
 def is_first(p):
@@ -1012,7 +1030,9 @@ def build_about():
         formal verification, mathematics, and code. The current work is on self-improvement beyond checkable answers.</p>
       <p class="about-bio">Before my Ph.D. I worked on robot perception — visual-inertial odometry at MEGVII, RGB-D + IMU
         indoor mapping at Microsoft Research Asia, and multimodal localization at Gausium Robotics, where I led a
-        five-engineer team and shipped to a fleet of 1,000+ commercial cleaning robots.</p>
+        five-engineer team and shipped to a fleet of 1,000+ commercial cleaning robots — and then on LLM evaluation as a
+        research assistant at NTU, building WirelessMathBench. During the Ph.D. I have interned at ByteDance (TikTok Shop),
+        on the multimodal LLM review ranker, and at Microsoft Research Asia, on agent-generated slides.</p>
       <p class="links links--plain"><a href="mailto:xin019@e.ntu.edu.sg">xin019@e.ntu.edu.sg</a>{cv_link('CV (PDF)')}<a href="https://scholar.google.com/citations?user=Hxf8sNkAAAAJ">Scholar</a><a href="https://github.com/LiXin97">GitHub</a><a href="https://www.linkedin.com/in/xin-li-1196331a0/">LinkedIn</a></p>
     </div>
   </header>
