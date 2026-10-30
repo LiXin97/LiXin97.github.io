@@ -40,7 +40,7 @@ P = [
   dict(id="wmbxl", blurb="A wireless-math benchmark with per-problem provenance and reproducible text-overlap audits.",
        thread="evaluate", year=2026, lead=True,
        title="WirelessMathBench-XL: An Auditable Benchmark for Wireless Mathematical Reasoning", short="WirelessMathBench-XL",
-       earlier=("WirelessMathLM", "https://lixin.ai/WirelessMathLM/"),
+       earlier=("WirelessMathLM", "https://arxiv.org/abs/2509.23219v1"),
        authors="Xin Li, Mengbing Liu, Yiyang Zhu, Wenhe Zhang, Li Wei, Jiancheng An, Chau Yuen",
        venue="NeurIPS 2026", venue_long="NeurIPS 2026 · Evaluations and Datasets Track", pos="first of 7",
        links=[("Project", "https://lixin.ai/WirelessMathBench-XL/"), ("Paper", "https://arxiv.org/abs/2509.23219"),
@@ -913,7 +913,6 @@ def build_pubs():
     <div class="filter" role="group" aria-label="Filter by thread">{filters}</div>
   </header>
   <div class="wrap pubs-wrap">{"".join(groups)}
-    <p class="pubs-note">Also: <i>Onboard Terrain Classification via SIM-DNN</i>, ML4RS workshop @ ICLR 2025 — extended into the IEEE TSP paper above.</p>
   </div>"""
     return page("pubs", "Selected Publications — Xin Li", body, "Selected publications of Xin Li.")
 
