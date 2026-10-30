@@ -55,9 +55,9 @@ images/             favicons
 | `data/talk_slides/WirelessMath_Slides.pdf` | the NICE Session 66 talk on the About page |
 | `data/talk_slides/ACL_WirelessMathBench_Slides.pdf` | no longer linked (the ACL 2025 paper talk left the About page); kept because its URL was public |
 
-Two superseded CVs (`data/XinLi_CV.pdf`, `data/Xin_Li_s_CV.pdf`) are kept
-deliberately: their URLs were public for months and may still be linked from
-application portals and email.
+The two superseded CVs (`data/XinLI_CV.pdf`, `data/Xin_Li_s_CV.pdf`) were removed
+in September 2026 (ff53c02); their URLs now return 404. `data/Xin_Li_CV_2026.pdf` is
+the only CV on the site.
 
 ## Old links
 

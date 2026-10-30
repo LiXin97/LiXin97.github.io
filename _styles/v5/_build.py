@@ -945,17 +945,26 @@ def rows(items):
 
 def build_about():
     exp = rows([
-        ("Apr 2024 – Jan 2025", "<b>Research Assistant</b>, NTU Singapore. Supervised by Chau Yuen. Built WirelessMathBench and TransPathNet."),
-        ("Mar 2022 – Feb 2024", "<b>SLAM Algorithm Engineer, Project Lead</b>, Gausium Robotics, Singapore. Led five engineers on hierarchical "
-                                "multimodal localization — vision, LiDAR, Wi-Fi — for commercial cleaning robots: 95% localization accuracy "
-                                "across 100,000+ m², deployed on a fleet of 1,000+ active robots."),
-        ("Sep 2020 – Mar 2021", "<b>Research Intern</b>, Microsoft Research Asia, Beijing. With Dr. Yang Liu and Dr. Yizhong Zhang. "
-                                "RGB-D + IMU fusion for large-scale indoor mapping; vectorized maps of 10,000+ m² at sub-meter accuracy."),
-        ("Feb 2019 – Mar 2020", "<b>Research Intern</b>, MEGVII, Beijing. With Dr. Yijia He. Real-time monocular visual-inertial "
-                                "odometry; semi-dense 3D mesh reconstruction at 30+ FPS."),
+        ("2026 – now", "<b>ML Engineer Intern</b>, ByteDance (TikTok Shop). Drove the multimodal LLM review ranker for TikTok Shop "
+                       "across global markets: ran its full post-training pipeline (SFT → RL → on-policy distillation) and took it "
+                       "through online A/B tests across regions with positive results; trained the global impression-tag model on "
+                       "review text and video speech, selected for launch; built LLM agents that audit live review sections weekly."),
+        ("2026", '<b>Research Intern</b>, Microsoft Research Asia (remote). Agent-generated slides: rule-based checks so decks '
+                 'made by AI agents follow templates and rules. Paper: <a href="https://arxiv.org/abs/2610.18860">AesCode</a> (arXiv 2026).'),
+        ("2024 – 2025", f'<b>Research Assistant</b>, NTU Singapore. With Prof. Chau Yuen. Built '
+                        f'<a href="{e(BY["wmb"]["links"][0][1])}">WirelessMathBench</a>, the first benchmark for LLM mathematical '
+                        f'modeling in wireless communications (ACL 2025 Findings), and '
+                        f'<a href="{e(BY["transpath"]["links"][0][1])}">TransPathNet</a> for indoor radio-map prediction (ICASSP 2025).'),
+        ("2022 – 2024", "<b>SLAM Algorithm Engineer, Project Lead</b>, Gausium Robotics, Singapore. Led five engineers on hierarchical "
+                        "multimodal localization — vision, LiDAR, Wi-Fi — for commercial cleaning robots: 95% localization accuracy "
+                        "across 100,000+ m², deployed on a fleet of 1,000+ active robots."),
+        ("2020 – 2021", "<b>Research Intern</b>, Microsoft Research Asia, Beijing. With Dr. Yang Liu and Dr. Yizhong Zhang. "
+                        "RGB-D + IMU fusion for large-scale indoor mapping; vectorized maps of 10,000+ m² at sub-meter accuracy."),
+        ("2019 – 2020", f'<b>Research Intern</b>, MEGVII, Beijing. With Dr. Yijia He. Point-line visual-inertial odometry '
+                        f'(<a href="{e(BY["planar"]["links"][0][1])}">IROS 2020</a>); semi-dense 3D mesh reconstruction at 30+ FPS.'),
     ])
     edu = rows([
-        ("2025 – 2029 (expected)", "<b>Ph.D.</b>, Nanyang Technological University, Singapore. Advised by Prof. Chau Yuen."),
+        ("2025 – now", "<b>Ph.D.</b>, Nanyang Technological University, Singapore (expected 2028). Advised by Prof. Chau Yuen."),
         ("2018 – 2021", "<b>M.E.</b>, Peking University. Advised by Prof. Jinlong Lin."),
         ("2014 – 2018", "<b>B.E.</b>, Northeastern University, China."),
     ])

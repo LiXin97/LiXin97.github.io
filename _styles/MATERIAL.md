@@ -6,7 +6,7 @@ anything; if a fact you want is not here, leave it out.
 ## Who
 
 - Xin Li · 李鑫 — he/him not stated; use the name, avoid pronouns if unsure
-- Ph.D. student, Nanyang Technological University (NTU), Singapore, 2025–2029 (expected)
+- Ph.D. student, Nanyang Technological University (NTU), Singapore, 2025 – now (expected 2028)
 - Advised by Prof. Chau Yuen (IEEE Fellow) — https://blogs.ntu.edu.sg/chau-yuen/
 - Email xin019@e.ntu.edu.sg · site https://lixin.ai/
 - GitHub https://github.com/LiXin97
@@ -203,21 +203,21 @@ WirelessMathLM (https://lixin.ai/WirelessMathLM/), shown as the earlier version 
 
 ## Experience
 
-- **Research Assistant**, NTU Singapore — Apr 2024 – Jan 2025. Supervised by Chau Yuen.
+- **Research Assistant**, NTU Singapore — 2024 – 2025. Supervised by Chau Yuen.
   Built WirelessMathBench and TransPathNet.
-- **SLAM Algorithm Engineer (Project Lead)**, Gausium Robotics, Singapore — Mar 2022 – Feb 2024.
+- **SLAM Algorithm Engineer (Project Lead)**, Gausium Robotics, Singapore — 2022 – 2024.
   Led a team of five engineers building hierarchical multimodal localization (vision, LiDAR,
   Wi-Fi) for commercial cleaning robots: 95% localization accuracy across 100,000+ m² of complex
   environments; the system is deployed on a fleet of 1,000+ active robots.
-- **Research Intern**, Microsoft Research Asia, Beijing — Sep 2020 – Mar 2021.
+- **Research Intern**, Microsoft Research Asia, Beijing — 2020 – 2021.
   Supervised by Dr. Yang Liu and Dr. Yizhong Zhang. Multi-sensor RGB-D + IMU fusion for
   large-scale indoor mapping; vectorized maps of 10,000+ m² at sub-meter accuracy.
-- **Research Intern**, MEGVII, Beijing — Feb 2019 – Mar 2020. Supervised by Dr. Yijia He.
+- **Research Intern**, MEGVII, Beijing — 2019 – 2020. Supervised by Dr. Yijia He.
   Real-time monocular visual-inertial odometry; semi-dense 3D mesh reconstruction at 30+ FPS.
 
 ## Education
 
-- Ph.D., Nanyang Technological University, Singapore — 2025–2029 (expected), adv. Chau Yuen
+- Ph.D., Nanyang Technological University, Singapore — 2025 – now (expected 2028), adv. Chau Yuen
 - M.E., Peking University, China — 2018–2021, adv. Prof. Jinlong Lin
 - B.E., Northeastern University, China — 2014–2018
 
