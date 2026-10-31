@@ -965,8 +965,8 @@ def build_about():
     exp = rows([
         ("2026 – now", "<b>ML Engineer Intern</b>, ByteDance (TikTok Shop). Drove the multimodal LLM review ranker for TikTok Shop "
                        "across global markets: ran its full post-training pipeline (SFT → RL → on-policy distillation) and took it "
-                       "through online A/B tests across regions with positive results; trained the global impression-tag model on "
-                       "review text and video speech, selected for launch; built an LLM agentic system that audits live review sections weekly and feeds the failures back into training."),
+                       "through online A/B tests across regions with positive results; built an LLM agentic system that audits "
+                       "live review sections weekly and feeds the failures back into&nbsp;training."),
         ("2026", '<b>Research Intern</b>, Microsoft Research Asia (remote). Agent-generated slides: rule-based checks so decks '
                  'made by AI agents follow templates and rules. Paper: <a href="https://arxiv.org/abs/2610.18860">AesCode</a> (arXiv 2026).'),
         ("2024 – 2025", f'<b>Research Assistant</b>, NTU Singapore. With Prof. Chau Yuen. Built '
